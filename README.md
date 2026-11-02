@@ -55,7 +55,10 @@ ses résultats sont convaincants. Les résultats réellement obtenus sont dans [
     ligne) est compilée, rejouée et acceptée seulement si les oracles d'effet passent sans faux succès.
 14. **Communs de capsules adressé par contenu** (`bdflab/commons.py`) + flux « déposer l'exe »
     (`bdflab/fix.py`) : chercher/émettre une capsule par empreinte du binaire (sha256, imphash dégradé).
-15. **Balayage de portée** (`bdflab/sweep.py`) : analyse statique d'un corpus de vrais exécutables
+15. **Le Windows de l'utilisateur comme catalogue** (`bdflab/userwindows.py`) : inventaire par empreinte
+    d'un `System32` fourni par l'utilisateur, règle du plancher (DLL à syscalls NT jamais remplacées),
+    contrat de classe A `dll-native-user-windows` ; jamais redistribué ; non exercé ici (pas de Windows).
+16. **Balayage de portée** (`bdflab/sweep.py`) : analyse statique d'un corpus de vrais exécutables
     (sans exécution) pour mesurer l'étendue de l'analyseur.
 
 ## Voie de compatibilité retenue (v0.1)

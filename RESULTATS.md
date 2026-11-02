@@ -332,3 +332,11 @@ recherche, avec exactement le périmètre de S (requête d'état / mutation loca
 en v0.1), préférée à un succès fabriqué, et toujours **jugée par l'oracle d'effet**. Le linter exige une
 provenance (`fixture_source`). La distillation elle-même exige un Windows : non réalisée sur ce banc (le
 fichier d'exemple est explicitement illustratif). 58 tests.
+
+**8.8 Le Windows de l'utilisateur comme catalogue (variante sûre de « réutiliser une vraie copie de Windows »).**
+`bdflab/userwindows.py` inventorie par empreinte un `System32` fourni par l'utilisateur, applique la règle du
+**plancher** (les DLL qui émettent des syscalls NT — `ntdll`, `win32u`, `kernelbase`, `kernel32`, `user32`,
+`gdi32`… — ne sont jamais remplacées) et propose, pour les autres, un contrat de classe A
+`dll-native-user-windows` (override natif, empreinte vérifiée, jamais redistribué, à valider par oracle).
+Testé sur fichiers de substitution (60 tests) ; **non exercé sur de vraies DLL Windows** (aucun Windows sur ce
+banc). Analyse des trois variantes de l'idée et de leurs limites : `docs/RECHERCHE-graal-2026.md` §10 ter.

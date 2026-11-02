@@ -301,6 +301,41 @@ confirmée par des notes de version officielles. Cela confirme la thèse : même
 on **transporte Wine**, on ne le remplace pas.
 [XDA](https://www.xda-developers.com/boxedwine-emulate-windows-applications-web-browsers/), [Boxedwine wiki](https://github.com/danoon2/Boxedwine/wiki)
 
+## 10 ter. Idée de l'utilisateur : « prendre une vraie copie de Windows et l'adapter à Linux »
+
+L'idée recouvre **trois variantes** au sort très différent.
+
+**(1) Les DLL réelles de Windows (partie utilisateur) sur Wine — oui, en partie : un vrai levier.** Wine charge
+depuis toujours une DLL Windows **native** à la place de la sienne (`WINEDLLOVERRIDES`, pratique de winetricks).
+La limite est un **plancher** : `ntdll`, `win32u`, `kernelbase`, `kernel32`, `user32`, `gdi32`… parlent au noyau
+NT par syscalls que Linux n'a pas — celles-là doivent rester celles de Wine. Au-dessus du plancher, une DLL peut
+venir de la **copie licenciée de l'utilisateur** (jamais redistribuée par PolyRE). Syscall User Dispatch
+(Wine 11.5) attrape désormais les syscalls bruts émis par du code natif, ce qui élargit ce qui tient. Limites :
+dépendances natives en cascade, sémantiques noyau absentes — **l'effet doit être vérifié par oracle** comme
+tout correctif. **Implémenté dans le labo** : `bdflab/userwindows.py` (inventaire par empreinte d'un `System32`
+fourni par l'utilisateur, règle du plancher, contrat de classe A `dll-native-user-windows`) ; 60 tests ;
+**non exercé sur de vraies DLL Windows** (aucun Windows sur ce banc).
+
+**(2) Le vrai noyau NT comme bibliothèque dans un processus Linux — non.** Ring 0, instructions privilégiées,
+tables de pages, HAL/ACPI, pilotes de boot : hors VM, il faudrait un émulateur CPU logiciel (lent) ou **modifier le
+binaire du noyau Microsoft** (licence : pas de rétro-ingénierie ni de modification ; non redistribuable). Même
+Microsoft, **avec le code source**, a dû *refactoriser* Windows 7 pour en faire Drawbridge (§10) ; de l'extérieur,
+en binaire, cela ne « s'adapte » pas.
+
+**(3) Le vrai noyau NT dans une micro-VM — cela existe et fonctionne.** C'est le **niveau 3** du rapport.
+*WinApps* et **WinBoat** (sept. 2025, pré-1.0 : Docker + KVM + FreeRDP RemoteApp, interface Electron) font tourner
+un **vrai Windows caché dans une VM** et affichent chaque application dans sa propre fenêtre sur le bureau Linux.
+Fidélité **100 %** (c'est Windows), légal avec la licence de l'utilisateur ; coûts : RAM, démarrage, licence,
+GPU difficile, anti-triche souvent bloqué en VM ; et cela contredit l'idéal « sans Windows » — que le rapport
+avait, à juste titre, gardé comme **dernier recours**. [The Register](https://www.theregister.com/2026/02/14/winapps_and_winboat/),
+[WinBoat](https://github.com/winboat-org/winboat), [GamingOnLinux](https://gamingonlinux.com/2025/09/winboat-is-a-new-linux-app-to-run-windows-apps-with-seamless-integration)
+
+**Synthèse débloquée par l'idée.** La copie de Windows de l'utilisateur peut jouer **trois rôles** : (a) **catalogue**
+de DLL natives pour Wine (variante 1, classe A) ; (b) **repli** de fidélité maximale (variante 3, niveau 3) ;
+(c) **oracle** — on y distille les vraies réponses d'API pour amorcer la recherche du labo (§8, stratégie F).
+Recommandation pour la question ouverte n°7 du rapport : **garder le niveau 3**, non comme concurrent de Wine
+mais comme plafond de fidélité et comme source d'oracle.
+
 ## 11. La frontière : anti-triche noyau et DRM (classe D)
 
 Position officielle Steamworks : EAC et BattlEye fonctionnent sous Proton **si l'éditeur active** la prise
