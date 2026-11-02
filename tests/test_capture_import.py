@@ -53,3 +53,15 @@ def test_extract_script_copies_candidates_not_floor():
     assert not any(line.startswith("Copy-Item") and "ntdll.dll" in line for line in ps.splitlines())
     assert "reg export 'HKLM\\SYSTEM\\CurrentControlSet\\Control\\TimeZoneInformation'" in ps
     assert "MANIFEST-sha256.csv" in ps
+
+
+def test_wine_log_registry_gets_hive_prefix(tmp_path):
+    log = tmp_path / "w.log"
+    log.write_text('0024:Call ADVAPI32.RegOpenKeyExW(80000002,7ffe L"Software\\\\Microsoft\\\\Windows NT\\\\CurrentVersion",00000000,00020019,7ffe) ret=140001\n'
+                   '0024:Call ADVAPI32.RegOpenKeyExW(80000001,7ffe L"Control Panel\\\\Desktop",00000000,00020019,7ffe) ret=140001\n')
+    cap = parse_wine_log(log)
+    keys = set(cap["reg_keys"])
+    assert any(k.startswith("HKLM\\") for k in keys) and any(k.startswith("HKCU\\") for k in keys)
+    from bdflab.capture_import import to_extract_script
+    r = build_recipe(cap, r"C:\App", [], "wine-log")
+    assert sum(1 for l in to_extract_script(r).splitlines() if l.startswith("reg export")) == 2

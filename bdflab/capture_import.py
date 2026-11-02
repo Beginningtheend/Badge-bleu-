@@ -88,9 +88,15 @@ def parse_wine_log(path: Path) -> dict:
                 continue
             m = RE_REGCALL.search(line)
             if m:
-                ws = RE_WSTR.findall(m.group("args"))
+                args = m.group("args")
+                ws = RE_WSTR.findall(args)
                 if ws:
-                    reg_keys[ws[0]] += 1
+                    # le premier argument est le handle racine (hex) : le traduire en ruche pour « reg export »
+                    root = args.split(",", 1)[0].strip().lower()
+                    hive = {"80000000": "HKCR", "80000001": "HKCU", "80000002": "HKLM",
+                            "80000003": "HKU", "80000005": "HKCC"}.get(root)
+                    key = ws[0].replace("\\\\", "\\")
+                    reg_keys[(hive + "\\" + key) if hive and not re.match(r"^HK", key, re.I) else key] += 1
     return {"dll_paths": dll_paths, "reg_keys": reg_keys, "file_paths": file_paths}
 
 
