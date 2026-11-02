@@ -400,6 +400,54 @@ recette (classe A : DLL natives, registre, polices) + fixtures distillées (stra
 pour les stubs restants (classe B) → oracles d'effet → capsule par empreinte → communs. La VM Windows de
 l'utilisateur en est le **four**, utilisé une fois par application, puis éteint.
 
+## 10 quinquies. Idée de l'utilisateur, dernier cran : « observer jusqu'au processeur, adapter, reprendre »
+
+L'idée : faire tourner le logiciel dans une VM, **observer tout ce qu'il fait jusqu'au niveau du processeur**,
+en déduire l'adaptation, puis **reprendre** l'exécution sans la VM. Vérification en quatre points.
+
+**1. Observer jusqu'au processeur — OUI, outillé et mature.** *PANDA* (MIT Lincoln Lab / NYU, sur QEMU) fait de
+l'**enregistrement-rejeu déterministe de tout le système** (i386, x86_64, arm) : il capture les entrées
+non déterministes (paquets réseau, lectures disque, souris/clavier) et rejoue l'exécution à l'identique ;
+les journaux se compressent et se partagent ; invités Windows pris en charge (vérifier la version courante).
+QEMU possède aussi son propre mode `icount` d'enregistrement-rejeu. Côté processus, WinDbg **TTD** (§8). Donc
+voir **chaque instruction, chaque syscall, chaque accès** d'une application dans une VM : **réel**.
+[PANDA record/replay](https://github.com/chyyuu/panda/blob/master/docs/record_replay.md),
+[PANDA (NYU)](https://cyber.nyu.edu/2015/12/08/repeatable-reverse-engineering-panda/),
+[PANDA (MIT LL)](https://www.ll.mit.edu/r-d/publications/repeatable-reverse-engineering-greater-good-panda)
+
+**2. Adapter à partir de l'observation — OUI, c'est le labo, en mieux.** Une trace complète donne la carte
+**exacte** des dépendances et comportements réellement exercés (API appelées, résultats, fichiers, registre,
+syscalls) : la recette d'extraction (§10 quater), les fixtures distillées (§8, stratégie F) et l'identification
+des stubs qui comptent deviennent **dynamiques et précises**, là où l'analyse statique ne faisait que prioriser
+(« statique ≠ exécution », §4 des résultats). C'est la « surface d'observation » du rapport, rendue exacte.
+
+**3. Reprendre l'exécution depuis l'état du processeur, sans la VM — NON (pour une application vivante).**
+Instantané du processus (registres, mémoire) puis continuation sous Wine : ce que contient la mémoire est
+l'application **et** les DLL Windows chargées, plancher compris, qui émettent des syscalls NT ; mais surtout
+**l'état côté noyau** — handles ouverts (fichiers, sockets, événements), fenêtres et messages, sections, APC,
+jetons — **n'existe pas** dans l'instantané et ne se reconstruit pas sous un autre noyau. Précédent : *Transplay*
+(Columbia) ne faisait que du **rejeu partiel** pour le débogage, pas une continuation interactive ; CRIU ne migre
+pas entre noyaux/ABI différents. Une reprise mi-vol est donc un **rejeu** (ré-exécuter la trace, pour analyser),
+pas une application utilisable.
+
+**4. Reprendre « depuis le début » sous Wine avec tout ce qu'on a appris — OUI.** C'est la forme correcte de
+l'idée : observer dans la VM, **adapter** (recette + fixtures + correctifs), puis **relancer** l'application
+depuis zéro sous Wine + dossier, l'oracle jugeant. Pas universel — l'utilisateur l'admet et c'est exact —, mais
+chaque application observée devient un cas **résolu et reproductible**.
+
+**Le cran que l'idée débloque vraiment : la VM comme oracle du NOYAU.** Une trace système complète (PANDA)
+montre aussi ce que **le noyau NT a fait** pour l'application (résultats des syscalls, sémantique des objets).
+C'est l'oracle qui manque pour le **plancher** : on peut comparer, syscall par syscall, le comportement de
+`ntdll`/`win32u` de Wine à celui observé sur le vrai Windows pour **cette** application — un test différentiel
+ciblé, là où la suite de conformité de Wine (§7) est générique et écrite à la main. Cela ne corrige pas le
+plancher automatiquement (le code reste à écrire, et sans IA pour l'amont, §2), mais cela **désigne précisément**
+l'écart. Limites : coût d'une trace système (volumineuse, lente), licence (la trace embarque du code Windows :
+distiller, ne pas partager), et non-déterminisme (§8).
+
+**Verdict.** Observer : oui. Adapter : oui, et c'est le cœur du labo. Reprendre mi-vol sans VM : non. Relancer
+sous Wine avec ce qu'on a appris : oui. Universel : non — mais **application par application, c'est la voie
+la plus complète décrite dans ce document**, et le labo en possède déjà la moitié Linux.
+
 ## 11. La frontière : anti-triche noyau et DRM (classe D)
 
 Position officielle Steamworks : EAC et BattlEye fonctionnent sous Proton **si l'éditeur active** la prise
