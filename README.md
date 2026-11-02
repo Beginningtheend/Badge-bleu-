@@ -47,7 +47,11 @@ ses résultats sont convaincants. Les résultats réellement obtenus sont dans [
 10. **Expérience comparative** (`bdflab/experiment.py`, `bdflab/run_experiment.py`) : 3 configurations
     (A Wine standard, B correctif généré, C correctif manuel de référence), chaque scénario au moins
     deux fois, dans des préfixes propres, avec mesures.
-11. **Balayage de portée** (`bdflab/sweep.py`) : analyse statique d'un corpus de vrais exécutables
+11. **Découverte de réponse par oracle** (`bdflab/speculate.py`) : essaie les réponses sûres autorisées
+    et laisse l'oracle d'effet choisir (stratégie S incluse, là où la table de sûreté l'autorise).
+12. **Communs de capsules adressé par contenu** (`bdflab/commons.py`) + flux « déposer l'exe »
+    (`bdflab/fix.py`) : chercher/émettre une capsule par empreinte du binaire (sha256, imphash dégradé).
+13. **Balayage de portée** (`bdflab/sweep.py`) : analyse statique d'un corpus de vrais exécutables
     (sans exécution) pour mesurer l'étendue de l'analyseur.
 
 ## Voie de compatibilité retenue (v0.1)

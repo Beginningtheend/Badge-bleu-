@@ -1,0 +1,10 @@
+{
+ "by_sha256": {
+  "fb3994042c048d062accc5893a101c14a6ec4241994882bc9d239c79115baa3c": "bdfedit-fb3994042c04.capsule.toml"
+ },
+ "by_imphash": {
+  "67af8a99886955ab9b7adb919dded2ba": [
+   "bdfedit-fb3994042c04.capsule.toml"
+  ]
+ }
+}

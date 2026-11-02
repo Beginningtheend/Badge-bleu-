@@ -1,0 +1,80 @@
+# Capsule PolyRE BDF-Lab — générée automatiquement.
+# Une capsule « experimental » ne doit JAMAIS être appliquée silencieusement à un
+# logiciel de production (rapport, condition 7 ; HANDOFF §4). Statut, synthétique et
+# version Wine EXACTE sont obligatoires. Les preuves (traces) justifient chaque shim.
+
+[meta]
+schema = "0.1"
+status = "experimental"
+synthetic = true
+
+[identity]
+sha256 = "fb3994042c048d062accc5893a101c14a6ec4241994882bc9d239c79115baa3c"
+imphash = "67af8a99886955ab9b7adb919dded2ba"
+product = "bdfedit (synthetic)"
+version = "0.1.0"
+publisher = "polyre-bdf-lab (programme de test synthetique)"
+file = "bdfedit.exe"
+machine = "x86_64"
+authenticode = false
+
+[runtime]
+polyre = ">=0.4, <0.5"
+wine = "wine-11.0"
+
+[[contract]]
+kind = "dll-provide"
+dll = "bdfpdf"
+source = "catalogue:bdfpdf"
+sha256 = "d1c08517b88c9495479430a629faf27d8ecc54918f5d9a73495a7f418b0d13c2"
+mode = "native"
+
+[[shim]]
+dll = "kernel32.dll"
+function = "Heap32First"
+strategy = "A"
+api_class = "output-buffer"
+returns = 0
+last_error = 120
+note = "comportement : fonction non implémentée par Wine, candidate à un shim (stratégie à déterminer par la table de sûreté)"
+
+[[shim]]
+dll = "kernel32.dll"
+function = "Heap32Next"
+strategy = "A"
+api_class = "output-buffer"
+returns = 0
+last_error = 120
+note = "comportement : fonction non implémentée par Wine, candidate à un shim (stratégie à déterminer par la table de sûreté)"
+
+[[shim]]
+dll = "kernel32.dll"
+function = "SystemTimeToTzSpecificLocalTimeEx"
+strategy = "A"
+api_class = "output-buffer"
+returns = 0
+last_error = 120
+note = "repli documenté du programme vers SystemTimeToTzSpecificLocalTime quand la variante Ex échoue"
+
+[[shim]]
+dll = "shcore.dll"
+function = "IsAppCompatModeEnabled"
+strategy = "A"
+api_class = "state-query"
+returns = 0
+last_error = 120
+note = "comportement : fonction non implémentée par Wine, candidate à un shim (stratégie à déterminer par la table de sûreté)"
+
+[validation]
+scenarios = []
+runs = 0
+machines = 1
+date = "2026-11-02"
+expires_on = "changement de runtime (Wine ou PolyRE)"
+
+[validation.results]
+
+[provenance]
+generated_by = "bdf-lab 0.1"
+reviewed_by = ""
+signature = ""
