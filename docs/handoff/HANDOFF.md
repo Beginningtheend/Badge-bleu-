@@ -1,5 +1,11 @@
 # Passation — PolyRE BDF-Lab v0.1
 
+> **Mise à jour du 2 novembre 2026 (soir).** Ce dossier date du début de la session cloud. Depuis, le laboratoire
+> **existe** (branche `claude/polyre-bdf-lab-prototype-tc4bkz`, 23 modules, 82 tests, expérience A/B/C 2/8 → 8/8,
+> généralisation mesurée, recherche 2026). Le §6 ci-dessous est obsolète. Pour reprendre le travail en local avec
+> votre VM Windows, utilisez `PROMPT-NOUVELLE-CONVERSATION-LOCALE.md` ; la conversation entière est dans
+> `CONVERSATION-integrale.md` ; les résultats dans `../../RESULTATS.md`.
+
 Dossier de passation pour une nouvelle session Claude Code. Il contient tout ce qui a été dit et produit dans
 la conversation de recherche (15 octobre → 2 novembre 2026), le contexte PolyRE, et les écarts à corriger
 dans la mission BDF-Lab avant de l'exécuter.
