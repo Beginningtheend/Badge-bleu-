@@ -19,7 +19,10 @@ recette, puis un dossier réutilisable **sans VM** (Wine + dossier).
    ```
    produit `recipe.json` (la **recette**) et `extract.ps1`. Avant de versionner une recette ou un script, remplacez
    `C:\Users\<nom>` par `%USERPROFILE%` et retirez tout nom de machine ; sinon laissez-les dans `_captures/`.
-6. De retour dans la VM : exécutez `extract.ps1` → dossier `extrait-capsule/` (DLL hors plancher, fichiers de
+6. De retour dans la VM, placez-vous dans le dossier partagé (la sortie est créée dans le répertoire courant) et
+   lancez `powershell -NoProfile -ExecutionPolicy Bypass -File .\extract.ps1` (la stratégie d'exécution par défaut
+   d'un Windows client refuse les `.ps1` ; droits d'utilisateur ordinaire suffisants, pas d'élévation). Vérifiez que
+   `extrait-capsule\MANIFEST-sha256.csv` n'est pas vide avant de quitter la VM. Résultat : dossier `extrait-capsule/` (DLL hors plancher, fichiers de
    l'appli, polices, `.reg`, manifeste d'empreintes). Copiez-le sur Linux dans `_extrait/<app>/` (ignoré par git).
    **Il reste privé** (votre licence) : jamais versionné, jamais redistribué.
 7. Le labo applique la recette dans un préfixe Wine propre et **vérifie par oracle** avant d'émettre la capsule.

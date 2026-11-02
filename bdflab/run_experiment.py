@@ -32,7 +32,7 @@ def sha256_file(p: Path) -> str:
     return hashlib.sha256(Path(p).read_bytes()).hexdigest()
 
 
-def main(argv=None) -> int:
+def build_parser() -> argparse.ArgumentParser:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--exe", required=True, type=Path)
     ap.add_argument("--data", type=Path, default=Path("data/wine-11.0"))
@@ -43,9 +43,15 @@ def main(argv=None) -> int:
     ap.add_argument("--manual-dll", type=Path, default=Path("manual-fix/bzmank32.dll"))
     ap.add_argument("--synthetic", action="store_true")
     ap.add_argument("--runs", type=int, default=2)
+    ap.add_argument("--machines", type=int, default=1,
+                    help="machines indépendantes ayant reproduit ce résultat (2 = reproduction sur une autre machine)")
     ap.add_argument("--scenarios", default="", help="liste séparée par des virgules ; vide = tous")
     ap.add_argument("--configs", default="A,B,C")
-    args = ap.parse_args(argv)
+    return ap
+
+
+def main(argv=None) -> int:
+    args = build_parser().parse_args(argv)
 
     repo = Path(__file__).resolve().parent.parent
     stamp = _dt.datetime.now(_dt.timezone.utc).strftime("%Y%m%dT%H%M%SZ")
@@ -169,7 +175,7 @@ def main(argv=None) -> int:
             shims=[{"dll": s.dll, "func": s.func, "strategy": s.strategy, "api_class": s.api_class,
                     "returns": s.returns, "last_error": s.last_error, "tainted": s.tainted, "note": s.note}
                    for s in plan.shims],
-            scenarios=[s["name"] for s in scen_list], results=res_by_scen, runs=args.runs, machines=1,
+            scenarios=[s["name"] for s in scen_list], results=res_by_scen, runs=args.runs, machines=args.machines,
             status=status, synthetic=args.synthetic, evidence_by_func=evidence)
         caps_dir = repo / "capsules"
         caps_dir.mkdir(exist_ok=True)

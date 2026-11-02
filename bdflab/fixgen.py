@@ -170,6 +170,10 @@ def build_fix(plan: FixPlan, exe: Path, out_dir: Path, surface: PESurface, catal
       redirigé, sur place, vers celui de la DLL de compatibilité dans une COPIE de l'exécutable ;
     - classe A : la DLL du catalogue est déposée à côté de la copie.
     """
+    if getattr(surface, "machine", "x86_64") != "x86_64" and cc == "x86_64-w64-mingw32-gcc":
+        raise ValueError(f"architecture {surface.machine} : la DLL de compatibilité v0.1 est compilée en x86-64 seulement "
+                         "(limite ABI, RESULTATS §3.F) ; refus explicite plutôt qu'une DLL inchargeable — "
+                         "consigner l'application comme « non éligible v0.1 (32 bits) », pas comme un échec du correctif")
     import time
     out_dir.mkdir(parents=True, exist_ok=True)
     actions: list[str] = []

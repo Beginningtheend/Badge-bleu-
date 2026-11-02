@@ -1,7 +1,7 @@
 # RESULTATS — polyre-bdf-lab v0.1
 
 **Date** : 2026-11-02 · **Wine** : 11.0 stable (`wine-11.0`, WineHQ ; tarball source
-sha256 `c07a6857933c1fc6…`) · **Hôte** : conteneur Linux x86-64, 4 cœurs, 16 Go RAM.
+sha256 `c07a6857933c1fc6…`) · **Hôte** : conteneur Linux x86-64, 4 cœurs, 15 Go RAM (mesuré : `nproc`, `free -g`).
 **Priorité de la mission** : un premier résultat expérimental vérifiable, pas une nouvelle théorie.
 
 ---

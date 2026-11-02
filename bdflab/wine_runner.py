@@ -372,8 +372,13 @@ def run_wine(pm: PrefixManager, prefix: Path, exe: Path, args: list[str], cwd: P
         if not marker.exists():
             pm._wine(prefix, ["reg", "add", r"HKCU\Software\Wine\Debug", "/v", "RelayExclude", "/t", "REG_SZ", "/d", relay_exclude, "/f"])
             marker.write_text(relay_exclude)
-    cmd = ["/usr/bin/time", "-f", "%e %U %S %M", "-o", str(time_path), f"{pm.wine.bin_dir}/wine", str(exe)] + args
     notes: list[str] = []
+    # GNU time mesure CPU/RSS du processus principal ; s'il manque (paquet « time »), on dégrade la mesure
+    # au lieu de planter, et on le consigne dans les notes de l'exécution.
+    time_bin = "/usr/bin/time" if os.path.exists("/usr/bin/time") else None
+    if not time_bin:
+        notes.append("GNU time absent (/usr/bin/time) : CPU et RSS du processus principal non mesurés")
+    cmd = ([time_bin, "-f", "%e %U %S %M", "-o", str(time_path)] if time_bin else []) + [f"{pm.wine.bin_dir}/wine", str(exe)] + args
     started = time.time()
     timed_out = False
     with open(stdout_path, "wb") as so, open(stderr_path, "wb") as se:
@@ -409,7 +414,7 @@ def run_wine(pm: PrefixManager, prefix: Path, exe: Path, args: list[str], cwd: P
         except Exception:
             notes.append("mesure GNU time illisible")
     # /usr/bin/time renvoie le code du programme (ou 124+ en cas de signal)
-    return RunResult(name=name, command=cmd[5:], cwd=str(cwd), exit_code=exit_code, timed_out=timed_out,
+    return RunResult(name=name, command=cmd[5:] if time_bin else cmd, cwd=str(cwd), exit_code=exit_code, timed_out=timed_out,
                      wall_s=round(wall, 3), cpu_user_s=cpu_u, cpu_sys_s=cpu_s, max_rss_kb_main=max_rss,
                      peak_rss_kb_tree=peak_tree, stdout_path=str(stdout_path), stderr_path=str(stderr_path),
                      env_overrides=dict(overrides or {}), debug=debug, prefix=str(prefix), started_at=started, notes=notes)

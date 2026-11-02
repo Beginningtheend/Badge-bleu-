@@ -63,8 +63,11 @@ présumé. Le mot « ultracode » ci-dessus demande l'orchestration multi-agents
 pour toute tâche substantielle ; si aucun rappel système ne confirme ce mode dans cette conversation, travaille
 avec des sous-agents ordinaires et une revue adverse manuelle, et dis-le dans l'inventaire (§3).
 
-**Pré-requis** : dépôt `https://github.com/Beginningtheend/Badge-bleu-` cloné, `git checkout
-claude/polyre-bdf-lab-prototype-tc4bkz`, `git status` propre. Tout chemin ci-dessous est relatif à sa racine :
+**Pré-requis** : le dépôt doit être sur la branche de travail — la branche par défaut `main` ne contient qu'un
+fichier sans rapport (`tikler.json`). `git clone --branch claude/polyre-bdf-lab-prototype-tc4bkz
+https://github.com/Beginningtheend/Badge-bleu-` (ou, dans un clone existant, `git fetch origin && git checkout
+claude/polyre-bdf-lab-prototype-tc4bkz`), `git status` propre. Vérifie que `ls RESULTATS.md bdflab/ docs/handoff/
+data/wine-11.0/` répond ; si ces fichiers manquent, tu es sur `main` : **ne crée rien**, change de branche. Tout chemin ci-dessous est relatif à sa racine :
 **le labo occupe la racine du dépôt** (décision de l'utilisateur : « supprime tout et met tt dedans »), pas un
 sous-dossier `polyre-bdf-lab/` comme l'écrivent encore la mission d'origine et `HANDOFF.md` §4 — ne restructure pas.
 
@@ -118,7 +121,13 @@ sous-dossier `polyre-bdf-lab/` comme l'écrivent encore la mission d'origine et 
   explicite, jamais nu** (cela tuerait le préfixe `~/.wine` de l'utilisateur et ses applications en cours).
   `RunLock` (`bdflab/wine_runner.py`) est un verrou fichier **par répertoire de travail** et `run_wine` ne le prend
   pas lui-même : un seul `BDFLAB_WORK` partagé par tous les agents, chaque `run_wine` enveloppé dans
-  `RunLock(work, slots<=2)` ; de préférence, seule la session principale exécute Wine, les sous-agents analysent.
+  `RunLock(work, slots<=2)` ; de préférence, seule la session principale exécute Wine, les sous-agents analysent. **Espace de travail**
+  (`BDFLAB_WORK`, défaut `<clone>/_scratch/bdflab-work`) : obligatoirement sur un système de fichiers Linux natif
+  (ext4/xfs/btrfs) avec ≥ 4 Go libres — `fresh_prefix` clone le gabarit par liens durs (`cp -al`, sans repli) et
+  `RunLock` verrouille par `flock` ; sous WSL 2, place le clone (ou au moins `BDFLAB_WORK`) dans le disque Linux
+  (`~/…`), jamais sous `/mnt/c`, ni sur un partage réseau ou un dossier partagé de VM. Le gabarit de préfixe est
+  créé dans ce dossier à la première exécution (`wineboot`, jusqu'à 15 min) puis réutilisé : ne le supprime pas
+  entre expériences, supprime-le si tu changes de Wine.
 - **Vocabulaire et classifieur.** La session cloud a été arrêtée deux fois par un classifieur de sûreté : (1) pour
   des termes évoquant l'intrusion logicielle → décris les mécanismes avec le vocabulaire du labo (« DLL de
   compatibilité », « redirection d'import dans une copie jetable de l'exécutable », « réponse déclarée »,
@@ -179,15 +188,45 @@ requirements.txt` ; jamais dans le Python système, jamais `--break-system-packa
 dossier `bin` de Wine 11.0 (WineHQ : `/opt/wine-stable/bin`), `export BDFLAB_WINE_BIN=<ce dossier>` dans chaque
 shell, vérifie `"$BDFLAB_WINE_BIN/wine" --version` = `wine-11.0` (`PrefixManager` refuse désormais toute autre
 version sauf `BDFLAB_ALLOW_OTHER_WINE=1`, à consigner dans `RESULTATS.md` ; ne mélange jamais deux versions ; si
-Wine 11.0 est absent, demande l'accord avant d'installer) ; `x86_64-w64-mingw32-gcc`, GNU `time`, `pdftotext`,
-`xvfb-run` ; cœurs/RAM/disque, état SMART si lisible ; **espace de travail** : `export
+Wine 11.0 est absent, demande l'accord avant d'installer ; plan B : (a) Debian/Ubuntu/Fedora : paquet
+`winehq-stable` 11.0.x de WineHQ, installé dans `/opt/wine-stable` (chemin attendu par `run.sh` et `find_wine`) ;
+(b) sinon compilation du tarball `wine-11.0` dont l'empreinte est dans `data/wine-11.0/meta.json`, avec
+`--prefix=/opt/wine-stable`, après accord explicite (annonce durée et paquets `-dev`) ; (c) si seule une autre
+version est acceptable : `BDFLAB_ALLOW_OTHER_WINE=1`, base séparée `python3 -m bdflab.knowledge.build_wine_db
+--source <arbre source de CETTE version> --install <prefix> --out data/wine-<version>/`, `--data data/wine-<version>`
+partout, chaque résultat et capsule étiquetés avec cette version ; les capsules `wine-11.0` existantes ne sont ni
+réutilisées ni comparées) ; `x86_64-w64-mingw32-gcc`, GNU `time` (**obligatoire** : `run_wine` exécute `/usr/bin/time` par chemin absolu ;
+paquet `time`), `pdftotext`, `xvfb-run` ; SMART : `preflight` appelle `smartctl -H` sans privilèges et laisse
+passer un état « indéterminé » — exécute une fois, avec l'accord de l'utilisateur, `sudo smartctl -H <disque portant
+BDFLAB_WORK>` (paquet `smartmontools`) et note le résultat ; sans résultat lisible, écris-le dans `RESULTATS.md`
+plutôt que de supposer le disque sain ; cœurs/RAM/disque, état SMART si lisible ; **espace de travail** : `export
 BDFLAB_WORK=$PWD/_scratch/bdflab-work` (ignoré par git ; c'est aussi là que vivent les verrous `RunLock`) ; la VM
 Windows (hyperviseur, version de Windows, Process Monitor et PowerShell disponibles, dossier partagé VM ↔ hôte) ;
 NoxPolyRE (présent ou non) ; la liste des applications de l'utilisateur (question groupée, §1). Puis
 `python3 -m pytest tests/ -q` (86 attendus), `BDFLAB_WINE_BIN=<bin> ./run.sh` (recompile le programme de test et
 le correctif manuel : mingw requis), et `(cd testapps/bdfedit/bin && sha256sum -c SHA256SUMS)` : si l'empreinte
 diffère (autre mingw), dis-le dans `RESULTATS.md` §9, ne mélange pas les résultats de l'ancien et du nouveau
-binaire, ne réécris pas les capsules existantes.
+binaire, ne réécris pas les capsules existantes. Ce premier `./run.sh` local est la **reproduction sur une deuxième
+machine** du résultat synthétique (HANDOFF §3 : `machines = 2`) : lance-le avec `--machines 2` (option de
+`run_experiment`, ou édite `run.sh`), compare `results/<horodatage>/results.json` à
+`results/20261102T155031Z/results.json` (attendu : A 2/8, B 8/8, C 8/8, 0 faux succès, 0 régression) et consigne
+le résultat avec l'hôte réel dans `RESULTATS.md` (§7 ou §9.0) ; ne compare pas CPU/RAM entre machines sans
+décrire les deux hôtes.
+
+### 3 bis. Ordre réaliste et critères d'arrêt
+
+Ce qui ne demande pas la VM se fait d'abord, et pendant que l'utilisateur capture : (0) inventaire, tests,
+`./run.sh` ; (1) pour chaque application candidate : `python3 -m bdflab.fix --exe <app.exe>` (statique : la ligne
+`[fix] …` donne l'architecture et les imports problématiques), puis **bras 1 = Wine seul** dans un préfixe
+propre, trace `+relay` (`DEFAULT_DEBUG`), 2 exécutions par scénario, oracles → la ligne de base réelle est déjà le
+premier résultat « réel » exigé ; (2) ensuite **une seule** session VM par application, préparée par un fichier
+`docs/handoff/VM-CHECKLIST-<app>.md` que l'utilisateur suit : installer l'application, Process Monitor lancé AVANT
+l'application, tous les scénarios × 2 entrées (une capture par scénario, `capture_to_recipe.py --procmon` les
+accepte toutes), `extract.ps1`, sondes M2, copie de `_captures/<app>/` et `_extrait/<app>/` ; (3) M1 → M4 côté
+Linux. Critères d'arrêt par application : borne de temps annoncée à l'avance (par exemple une journée de travail
+par application pour M1–M4) ; verdict `cannot-judge` consigné et passage à l'application suivante si la borne est
+atteinte, si la défaillance sous Wine relève des classes C/D, ou si aucun scénario pilotable sans interface
+n'existe. « Concluant » = au moins un scénario réel passé par oracle fort, 0 faux succès, 2 exécutions.
 
 ### 4. La mission « professeur » : ce que la session cloud ne pouvait pas faire
 
@@ -221,7 +260,9 @@ rendre le verdict Scénario 3 sur mesures. Dans l'ordre, chaque étape avec son 
 `fixtures/CAPTURE-WINDOWS-README.md` si besoin, puis suis-le : Process Monitor dans la VM, **chaque scénario
 joué avec au moins deux entrées ou états distincts**, un CSV par scénario déposé dans `_captures/<app>/`
 (ignoré par git ; jamais dans `fixtures/` ni `results/`) → `python3 tools/capture_to_recipe.py --procmon …
---app-root "C:/…" --scenario … --out _captures/<app>` → `extract.ps1` exécuté dans la VM → dossier copié dans
+--app-root "C:/…" --scenario … --out _captures/<app>` → `extract.ps1` exécuté dans la VM (depuis le dossier partagé, la sortie est créée dans le répertoire courant :
+`powershell -NoProfile -ExecutionPolicy Bypass -File .\extract.ps1` ; droits ordinaires ; vérifier que
+`extrait-capsule\MANIFEST-sha256.csv` n'est pas vide avant de quitter la VM) → dossier copié dans
 `_extrait/<app>/` (ignoré par git ; privé, jamais redistribué) → `apply_recipe` dans un préfixe propre →
 oracles. Accepté si : une application réelle passe au moins un scénario à oracle qu'elle échouait sous Wine seul,
 0 faux succès, 2 exécutions.
@@ -237,8 +278,20 @@ uniquement (fonction, entrée pertinente) → (retour, dernier code d'erreur).
 
 **M3. Protocole à 4 bras sur de vrais logiciels** (HANDOFF §3 : 1 Wine seul · 2 Wine + résolveur automatique ·
 3 Wine + correctifs manuels chronométrés · 4 bras 2 puis manuel sur le reste), ≥ 2 exécutions par scénario,
-préfixes propres, oracles d'effet forts par scénario, temps humain chronométré, CPU/RAM. Commence par les trois
-applications choisies avec l'utilisateur (de préférence 64 bits : limite v0.1, ABI Win64) ; vise le corpus de 30
+préfixes propres, oracles d'effet forts par scénario, temps humain chronométré, CPU/RAM. **Critères d'éligibilité
+d'une application** (à appliquer avant tout bras 2) : (1) **architecture x86-64** — le générateur compile en
+64 bits et `build_fix` refuse désormais explicitement un PE i386 (« non éligible v0.1 (32 bits) », à consigner
+ainsi dans `RESULTATS.md` §9, jamais comme un échec du correctif ; la voie i686 — `gcc-mingw-w64-i686`,
+décoration `@N` dérivée de `data/wine-11.0/prototypes.json.gz`, tests — est un développement à chiffrer, pas un
+acquis) ; (2) **scénario pilotable sans interface** — le harnais ne lance qu'une ligne de commande et les oracles
+lisent des fichiers, aucun pilote d'interface n'existe : choisis d'abord des applications qui exposent leurs
+fonctions par ligne de commande, fichier de script ou macro (convertisseurs, outils d'archivage/PDF/image, éditeurs
+avec mode batch) avec un effet fichier vérifiable par un outil tiers ; une application purement graphique
+(Notepad++, KeePass, LibreOffice…) exige d'abord un pilote d'interface (`xdotool` sous Xvfb ou équivalent) et un
+protocole de chronométrage, à compter comme temps de développement ; (3) **défaillance de classe A/B sous Wine**
+— exclus d'emblée pilotes, services Windows vivants, activation/DRM/services en ligne (classe C/D ; Photoshop en
+fait partie) ; (4) **oracle d'effet possible** (fichier produit relisible par un outil indépendant). Commence par
+les trois applications choisies avec l'utilisateur selon ces critères ; vise le corpus de 30
 du rapport seulement si les trois premières sont concluantes. Seuils pré-enregistrés : faux succès ≤ 2 %,
 corruption 0, régression 0, temps humain réduit d'au moins 30 % (H1). Verdict Scénario 3 par application et
 global, en trois valeurs.
@@ -257,7 +310,13 @@ dans `[notes]`.
 l'architecture de l'exécutable (`pe_surface.analyze(exe, db).machine`) ; pour une candidate sous `WinSxS`,
 inventorier exactement le dossier indiqué par `path` dans la recette ; `userwindows.is_floor` refuse déjà le
 plancher et la liste « always builtin » de Wine. Proposer des contrats `dll-native-user-windows`, les appliquer
-(M0), vérifier par oracle. Jamais redistribué.
+(M0), vérifier par oracle. Jamais redistribué. **Accès au Windows de la VM depuis Linux** (`inventory` et
+`propose_native_override` lisent un dossier LOCAL ; M2 emprunte le même canal pour ses sondes et leurs sorties) :
+(1) dossier partagé de l'hyperviseur (virtiofs/9p, Shared Folders VirtualBox/VMware, lecteur réseau) monté côté
+Linux → copie de `C:\Windows\System32` et `SysWOW64` dans `_extrait/<app>/system32/` et `syswow64/` (privé,
+ignoré par git) ; (2) VM éteinte : montage en lecture seule de son image disque (`guestmount --ro` ou `qemu-nbd` +
+`mount -o ro`) pour inventorier sans copier — la « lecture passive » de RECHERCHE §10 ter, qu'aucun code
+n'automatise ; (3) à défaut, `extract.ps1` ne copie que les DLL de la recette. Rien de tout cela n'est versionné.
 
 **M6. Honnêteté et dépôt.** `RESULTATS.md` reçoit une section « 9. Logiciels réels » avec les chiffres réellement
 obtenus, séparés du synthétique, qui répond de nouveau aux questions A–F de la mission d'origine pour les logiciels
@@ -287,7 +346,8 @@ lue ; les chiffres viennent de la source).
   de `module` ; drapeaux `(?i)` en milieu de motif refusés par Python 3.13 ; `-municode` exige `wmain` ; préfixes
   propres par liens durs depuis un gabarit (règle M0) ; DLL « always builtin » non remplaçables par
   `WINEDLLOVERRIDES` (d'où la DLL de compatibilité + redirection d'import) ; `capstone` manquait dans
-  `requirements.txt` (corrigé) ; chemins du conteneur cloud codés en dur dans les démos et `run_experiment`
+  `requirements.txt` (corrigé) ; le générateur compilait en 64 bits sans refuser un PE i386 (corrigé : refus
+  explicite) ; `run_experiment` écrivait `machines=1` en dur (corrigé : `--machines`) ; chemins du conteneur cloud codés en dur dans les démos et `run_experiment`
   (corrigé : `BDFLAB_WORK`) ; classifieur de sûreté sensible au vocabulaire ; workflows multi-agents bloqués sur
   un conteneur à 2 cœurs (en local, surveille la charge) ; citations non vérifiées (remplacées par des chiffres
   lus à la source) ; Wine refuse le code généré par IA.
