@@ -171,11 +171,58 @@ Sources : [N64Recomp](https://github.com/N64Recomp/N64Recomp), [XenonRecomp](htt
 [Hangover 11.0](https://www.phoronix.com/news/Hangover-11.0-Released), [McSema limits](https://github.com/lifting-bits/mcsema/blob/master/docs/Limitations.md),
 [Elevator](https://arxiv.org/abs/2605.08419), [LLM4Decompile](https://arxiv.org/html/2403.05286v3).
 
-## 10. Personnalité NT sur Linux (WSL1 à l'envers, Longene, ReactOS) — *(éclaireur en cours, à compléter)*
+## 10. Personnalité NT sur Linux (WSL1 à l'envers, Longene, ReactOS) — *éclaireur rendu*
 
-Faits déjà acquis : `lxcore.sys` fermé (§1), glu noyau refusée par Linux (§4). Reste à évaluer : principes
-transférables de WSL1/Drawbridge, pourquoi Longene est mort, et si des composants ReactOS sont réutilisables
-en bibliothèque. Verdict détaillé à venir.
+**Principes transférables de Drawbridge / WSL1.** *Drawbridge* (MSR, ASPLOS 2011) : Windows 7 refactorisé en
+**OS-bibliothèque** (ntdll et win32k en espace utilisateur, ~150 syscalls NT émulés, surtout des stubs) au-dessus
+d'une **ABI hôte de 36 appels** (threads, mémoire virtuelle, flux d'E/S). Le papier désigne la partie la plus
+dure : le **modèle d'E/S NT** (sync/async, handles attendables, ports de complétion, APC) ; le registre fut
+réimplémenté in-process en 1,3 KLoC (contre 61 KLoC) ; tout accès inter-processus échoue. Une variante
+remplaçait la table de syscalls par processus — **ancêtre conceptuel de Syscall User Dispatch** ; une autre
+(hvdkpal, ring 0 dans une partition Hyper-V) **préfigure l'option micro-VM**. *WSL1* (2016) : « processus
+minimal » (espace d'adressage vide) + *pico provider* (`lxcore.sys`) recevant syscalls et exceptions ; ~235
+syscalls ; a exigé des **retouches du noyau NT** (fork, pages 4 Ko, casse) ; règle : traduire vers l'appel natif
+si la sémantique colle, réimplémenter sinon. Transfert vers Linux : (1) capturer l'ABI étrangère d'un processus
+« vide » = **le rôle de SUD** ; (2) ABI hôte minimale ; (3) traduire/implémenter cas par cas ; (4) accepter des
+**ajouts noyau ciblés** — ntsync est à Wine ce que le « fork amélioré » fut à WSL1.
+
+**Longene : ce qu'il fit, pourquoi il mourut.** *Linux Unified Kernel* (Insigma, Chine, 2005-2014, GPLv2) :
+modules noyau, **deux tables de syscalls** (`int 0x2e` Windows / `int 0x80` Linux), gestionnaire d'objets,
+jetons, registre et fichiers **portés de Wine dans le noyau**, puis des fonctions de wineserver (0.3, 2010).
+Jamais faits : WDM, DPC, exports DDK ; dépendait de DLL Wine **modifiées**. Dernière version 1.0-rc2 (janv.
+2014, Wine 1.7.10). Aucune source primaire n'explique l'arrêt ; hypothèses convergentes : suivre les internals
+de Wine depuis un module hors-arbre, **aucun chemin vers le noyau mainline**, gains jamais mesurés
+publiquement, petite équipe. Précédents dans le même sens : *ndiswrapper* (ABI ntoskrnl partielle en module) ne
+compile plus (2023) ; `personality(2)` n'a jamais commuté de table de syscalls ; l'eBPF « sur transitions de
+privilège » (LKML 2020) n'a pas été fusionné — **c'est SUD qui l'a été**. Revival 2026 : *LSW* (chargeur PE
+espace utilisateur, 1 235 stubs Win32, module noyau optionnel), auto-déclaré, **archivé juillet 2026**.
+
+**Carte de faisabilité 2026.** *En espace utilisateur, faible surcoût, prouvé* : syscalls NT bruts émis par du
+code PE → **Syscall User Dispatch** (Linux 5.11), amont dans Wine 11.5 (20 mars 2026), coût : un SIGSYS par
+syscall émulé ; sémaphores/mutex/événements et attentes atomiques any/all → **ntsync** (6.14), Wine 11.0 ;
+threads, SEH par signaux, mémoire (sections via memfd), registre in-process → voie Wine/Drawbridge. *Exige
+encore noyau, serveur central ou VM* : espace de noms d'objets **inter-processus** et attentes sur handles
+processus/thread/fichier (ntsync couvre 3 types ; ni timers, ni keyed events, ni IOCP, ni APC) ; **APC et attentes
+alertables** → wineserver + signaux, pas de primitive noyau ; **E/S asynchrone / IOCP** → io_uring plausible
+(analyse de l'éclaireur, aucune implémentation Wine trouvée) ; inter-processus (ReadProcessMemory,
+CreateRemoteThread, débogage) → ptrace, partiel ; **pilotes noyau** (anti-triche, DRM, matériel) → ntoskrnl en
+espace utilisateur de Wine (en chantier, Wine 11.18) ou **micro-VM KVM** ; Hyperlight vise des invités sans
+noyau, donc inadapté tel quel.
+
+**ReactOS.** 0.4.15 (21 mars 2025) ; **0.4.16 (29 août 2026)** : installeur graphique, nouveau pilote ATA,
+import du KMDF Microsoft, correctif PTE du gestionnaire mémoire, synchronisation Wine 10 ; premier syscall NT6
+(juillet 2026, encore no-op) ; **toujours alpha**. Aucun projet « ntoskrnl en bibliothèque sur Linux ».
+Verdict : réutilisable comme **référence sémantique** (Ob/Ke/Cm) ou comme **noyau complet dans une micro-VM**
+pour les pilotes ; **pas** comme bibliothèque drop-in en espace utilisateur (couplage HAL/Mm/Ke ; GPLv2 vs LGPL
+de Wine ; refus historique d'une base Linux par ses développeurs).
+
+**Conclusion §10.** La personnalité NT « sous » Linux a été essayée et abandonnée ; la version moderne et
+viable est **celle que Wine a déjà absorbée** (SUD + ntsync, espace utilisateur). Le niveau 2 du rapport
+(NT-Organ en micro-VM) reste un **projet lourd et séparé**, justifié seulement pour la classe C (pilotes), pas
+un raccourci vers la compatibilité générale.
+Sources : [pico-process (Microsoft)](https://learn.microsoft.com/en-us/archive/blogs/wsl/pico-process-overview),
+[Drawbridge (ASPLOS 2011)](https://www.cs.unc.edu/~porter/pubs/p291-porter.pdf), [Longene](https://en.wikipedia.org/wiki/Longene),
+[ntsync (doc noyau)](https://docs.kernel.org/userspace-api/ntsync.html), [SUD dans Wine 11.5 (bug 48291)](https://bugs.winehq.org/show_bug.cgi?id=48291).
 
 ## 10 bis. Retourner le problème : il n'y a pas UN univers Windows, il y en a plusieurs
 
