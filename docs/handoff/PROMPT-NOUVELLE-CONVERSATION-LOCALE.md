@@ -363,3 +363,35 @@ pas prouvé, et la prochaine étape.
 
 Priorité absolue : un premier résultat **réel** (une vraie application, un vrai scénario, un vrai oracle, dans un
 préfixe propre, deux fois) avant toute nouvelle théorie.
+
+---
+
+## C. Messages de pilotage (pour vous, en cours de route)
+
+**C1. Premier message (lancement).** À taper tel quel, en remplissant les trois champs entre chevrons :
+
+```
+ultracode — lis @docs/handoff/PROMPT-NOUVELLE-CONVERSATION-LOCALE.md en entier et exécute sa section B comme ma mission.
+
+Objectif de cette phase, dans cet ordre, sans théorie nouvelle :
+1. Écris d'abord les briques manquantes (M0) : apply_recipe, harnais générique à 4 bras avec chronomètre du temps humain, comparaison de traces Windows/Wine. Tests à chaque brique, commit à chaque brique.
+2. Puis UNE vraie application de bout en bout : analyse statique → Wine seul (ligne de base, 2 exécutions) → checklist VM écrite pour moi → capture (2 entrées par scénario) → recette → extraction → application dans un préfixe propre → oracle fort, 2 exécutions. Je veux un premier résultat réel avant toute autre chose.
+3. Le gain qu'on cherche se mesure : temps humain du bras 3 (correctif à la main) contre bras 2/4 (labo), faux succès, régressions. Aucun gain annoncé sans ces chiffres.
+4. À chaque jalon : push, RESULTATS.md §9 mis à jour, et un message court en cinq lignes : fait / mesuré / non prouvé / prochaine étape / ce que tu attends de moi (VM).
+
+Mes applications : <liste, 64 bits de préférence, pilotables en ligne de commande ou par script, qui échouent sous Wine ; si je n'en ai pas, propose-moi 3 candidates gratuites avec ces critères et attends ma confirmation>.
+NoxPolyRE : <chemin, ou « absent »>.
+Wine 11.0 : <installé dans …, ou « à installer, tu as mon accord »>.
+```
+
+**C2. Message de relance** (quand il part en théorie, s'éparpille ou attend) :
+
+```
+Continue. Le but est de gagner du temps réel sur de vraies applications, pas d'écrire un rapport. Avant de passer à autre chose : un scénario réel passé par oracle fort, deux fois, dans un préfixe propre, et le temps humain chronométré bras 3 contre bras 2. Si la VM te bloque, écris docs/handoff/VM-CHECKLIST-<app>.md pour moi et avance sur ce qui ne demande pas la VM (bras 1, M0, application suivante). Pousse, puis donne-moi : fait / mesuré / non prouvé / prochaine étape / ce que tu attends de moi.
+```
+
+**C3. Quand il vous rend la main pour la VM** : suivez sa checklist, puis répondez simplement
+« Capture faite : `_captures/<app>/` et `_extrait/<app>/` sont remplis. Continue. »
+
+**C4. Quand il annonce un gain** : demandez « Montre-moi le JSON dans `results/` et la ligne de `RESULTATS.md` §9 qui
+portent ce chiffre, avec les deux exécutions et le temps humain. » S'il ne peut pas, le gain n'existe pas encore.
