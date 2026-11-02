@@ -130,11 +130,46 @@ Hypothèse : enregistrer une fois, sur le Windows licencié de l'utilisateur, le
 déterministe. Prior art connu : record-replay Linux (rr, Transplay) ; rien de grand public pour un binaire
 Windows rejoué sur Linux. Verdict détaillé à venir.
 
-## 9. Recompilation statique « à la N64Recomp » + Wine pour l'API — *(éclaireur en cours, à compléter)*
+## 9. Recompilation statique « à la N64Recomp » + Wine pour l'API — *éclaireur rendu*
 
-Hypothèse : recompiler statiquement le code **propre** de l'application en natif Linux (comme Zelda 64
-Recompiled, 2024, ou XenonRecomp, 2025) en gardant les DLL de Wine pour l'API. Gain probable : natif sur
-ARM sans émulation x86 ; **ne résout pas** l'écart d'API (qui reste celui de Wine). Verdict détaillé à venir.
+**Ce qui existe.** *N64Recomp / Zelda 64: Recompiled* (mai 2024) : ROM → C fonction par fonction, appels
+indirects via table d'adresses, sauts via `switch` ; **exige un ELF avec symboles** issus des projets de
+décompilation communautaires, plus un runtime maison (threads, audio, manettes) et RT64 pour le rendu.
+*XenonRecomp / Unleashed Recompiled* (début 2025) : PowerPC → C++, bornes de fonctions depuis `.pdata`, tables
+de saut « réglées pour Sonic Unleashed », exceptions non supportées, TOML manuel. Côté **x86/PE** :
+*xboxrecomp* (v0.16, oct. 2026) redirige 371 ordinaux noyau Xbox vers Win32, appels indirects = « la partie
+la plus dure », « premier lancement = crash attendu » ; *SR* (M-HT) : **2 jeux Windows en ~10 ans**, API
+remplacée par du code spécifique (SDL), pas Wine ; *McSema* archivé (août 2022), « fait comme si les
+exceptions n'existaient pas », pas de code packé ni auto-modifiant ; *LeanBin* (2024) montre McSema et rev.ng
+échouant à lifter+recompiler SPEC CPU2006. Recherche 2026 (UC Irvine, *Elevator* arXiv 2605.08419, *No Bit
+Left Behind* 2609.16423) : x86-64→AArch64 statique par force brute, ELF seulement, perf « comparable ou
+meilleure que QEMU user-mode » (pas FEX), code auto-modifiant/JIT « fondamentalement incompatible ».
+LLM : *LLM4Decompile* 45-53 % de ré-exécutabilité **au niveau fonction** (C/GCC/x86 Linux), rien de
+programme entier, rien pour PE. **Recompilation + Wine : aucun projet trouvé.** La couture réelle est
+**dynamique** : *Hangover* 11.0 (13 janv. 2026) = Wine + FEX/Box64 branchés sur l'interface CPU WoW64
+(`wowbox64.dll`, `libwow64fex.dll`) et ARM64EC (`libarm64ecfex.dll`).
+
+**Pourquoi la console marche et pas Windows.** Matériel figé, binaire unique et autonome (l'« OS » libultra
+est lié dans la ROM, donc recompilé avec), ISA à longueur fixe (découverte de code aisée), pas de chargement
+dynamique, symboles issus d'années de décomp, aucune protection, **et une équipe d'experts par titre pendant
+des mois**. Windows : x86 à longueur variable (séparer code et données est indécidable en général), pas de
+symboles, optimisations MSVC (tables de saut, appels terminaux, vtables), surface API immense et **dynamique**
+(LoadLibrary/GetProcAddress, COM, callbacks, SEH, TLS), 32 vs 64 bits, packers/DRM fréquents.
+
+**Verdict.** Idée cohérente avec des analogues (xboxrecomp → Win32, SR → SDL, Hangover occupe déjà la
+couture), mais **non démontrée**, et viable seulement comme **port artisanal par titre** (vieux jeux 32 bits
+non protégés) — pas comme voie générale « n'importe quelle appli ». Ce qu'elle apporterait : supprimer le
+JIT x86 sur ARM, autoriser des mods natifs, sortie déterministe. Ce qu'elle **ne résout pas** : l'écart
+sémantique (D3D, audio, entrée, threads) reste **100 % celui de Wine**. Trois risques majeurs : (1) récupération
+du contrôle (appels indirects/vtables sans symboles → corrections manuelles ; binaires packés/virtualisés =
+blocage net, non contourné ; code auto-modifiant impossible) ; (2) frontière ABI avec Wine (callbacks rappelés
+par Wine aux adresses d'origine → trampolines et bascule de contexte, cf. corruption McSema #785 ; SEH/C++ EH
+à travers les cadres Wine ; thunks 32→64 ; x87) ; (3) gain incertain et intégration lourde (émettre du
+ARM64EC conforme est spéculatif, personne ne l'a fait ; aucun avantage prouvé sur FEX/Box64).
+Sources : [N64Recomp](https://github.com/N64Recomp/N64Recomp), [XenonRecomp](https://github.com/hedge-dev/XenonRecomp),
+[xboxrecomp](https://github.com/sp00nznet/xboxrecomp), [SR](https://github.com/M-HT/SR),
+[Hangover 11.0](https://www.phoronix.com/news/Hangover-11.0-Released), [McSema limits](https://github.com/lifting-bits/mcsema/blob/master/docs/Limitations.md),
+[Elevator](https://arxiv.org/abs/2605.08419), [LLM4Decompile](https://arxiv.org/html/2403.05286v3).
 
 ## 10. Personnalité NT sur Linux (WSL1 à l'envers, Longene, ReactOS) — *(éclaireur en cours, à compléter)*
 
