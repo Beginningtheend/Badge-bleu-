@@ -19,6 +19,7 @@ from . import pe_surface, fixgen
 from .commons import CapsuleCommons
 from .capsule import build_capsule, lint_capsule, load_capsule
 from .wine_runner import wine_info
+from . import branch_hint
 
 
 def main(argv=None) -> int:
@@ -63,11 +64,24 @@ def main(argv=None) -> int:
         bf = fixgen.build_fix(plan, args.exe, args.apply, s, catalogue_dir=(args.catalogue if args.catalogue.is_dir() else None))
         print(f"[fix] bundle matérialisé dans {args.apply} ({len(bf.generated_dlls)} DLL de compatibilité)")
 
+    # indices statiques : lire le code après chaque appel pour prédire la réponse attendue (explicabilité)
+    hints = {}
+    for x in plan.shims:
+        try:
+            h = branch_hint.analyze(args.exe, x.dll, x.func)
+            hints[(x.dll, x.func)] = {"tested": h.tested, "predicted_nonzero_nominal": h.predicted_nonzero_nominal,
+                                     "confidence": h.confidence, "suggested_first_strategy": h.preferred_strategy_first(),
+                                     "call_sites": h.call_sites}
+            if h.tested:
+                print(f"[indice] {x.dll}.{x.func} : testée={h.tested} non-nul-nominal={h.predicted_nonzero_nominal} "
+                      f"confiance={h.confidence} -> essayer d'abord {h.preferred_strategy_first() or 'A (défaut)'}")
+        except Exception as exc:  # l'indice est facultatif
+            hints[(x.dll, x.func)] = {"error": f"{type(exc).__name__}"}
     cap = build_capsule(
         identity=ident, wine_version=wine_ver, polyre_range=">=0.4, <0.5",
         contracts=[{"kind": c.kind, "dll": c.dll, "source": c.catalogue_source, "sha256": c.sha256, "mode": c.mode} for c in plan.declarative],
         shims=[{"dll": x.dll, "func": x.func, "strategy": x.strategy, "api_class": x.api_class, "returns": x.returns,
-                "last_error": x.last_error, "tainted": x.tainted, "note": x.note} for x in plan.shims],
+                "last_error": x.last_error, "tainted": x.tainted, "note": x.note, "hint": hints.get((x.dll, x.func))} for x in plan.shims],
         scenarios=[], results={}, runs=0, machines=1,
         status="experimental", synthetic=args.synthetic)
     caps_name = f"{ident['product'].split()[0].lower()}-{s.sha256[:12]}.capsule.toml"

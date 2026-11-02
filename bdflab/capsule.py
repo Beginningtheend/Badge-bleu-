@@ -91,6 +91,9 @@ def build_capsule(identity: dict, wine_version: str, polyre_range: str, contract
             entry["evidence"] = ev
         if sh.get("note"):
             entry["note"] = sh["note"]
+        if sh.get("hint"):
+            # indice statique (analyse des branches) : explicabilité ; n'autorise rien, l'oracle reste juge
+            entry["branch_hint"] = {k: v for k, v in sh["hint"].items() if v is not None}
         norm_shims.append(entry)
     return Capsule(
         identity=identity,

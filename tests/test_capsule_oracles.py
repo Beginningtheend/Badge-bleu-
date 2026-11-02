@@ -54,3 +54,14 @@ def test_oracle_file_changed(tmp_path):
     f.write_text("a-modifie")
     r = oracles.oracle_file_changed(f, before, announced_saved=True)
     assert r.passed is True and r.false_success is False
+
+
+def test_capsule_carries_branch_hint():
+    cap = _cap(shims=[{"dll": "shcore", "func": "IsAppCompatModeEnabled", "strategy": "A", "api_class": "state-query",
+                       "returns": 0, "last_error": 120,
+                       "hint": {"tested": True, "predicted_nonzero_nominal": True, "confidence": "moyenne",
+                                "suggested_first_strategy": "S", "call_sites": 1}}])
+    obj = tomllib.loads(cap.dumps())
+    bh = obj["shim"][0]["branch_hint"]
+    assert bh["predicted_nonzero_nominal"] is True and bh["suggested_first_strategy"] == "S"
+    assert lint_capsule(obj).ok
