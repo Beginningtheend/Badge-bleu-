@@ -3,3 +3,4 @@ pefile>=2024.8.26      # analyse PE : imports, delay-imports, VERSIONINFO, impha
 tomli-w>=1.0           # écriture des capsules TOML (lecture : tomllib, stdlib >= 3.11)
 psutil>=5.9            # mesures CPU/RAM et contrôle des ressources
 pytest>=7.0            # tests automatisés (développement)
+capstone>=5.0          # analyse des branches (bdflab/branch_hint.py, importé en dur)

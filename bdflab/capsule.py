@@ -176,7 +176,8 @@ def lint_capsule(obj: dict) -> CapsuleLint:
     # validation : résultats présents, au moins 2 exécutions
     val = obj.get("validation", {})
     if val.get("runs", 0) < 2:
-        warnings.append("validation.runs < 2 (rapport : reproduire sur 2 exécutions indépendantes)")
+        (errors if status == "validated" else warnings).append(
+            "validation.runs < 2 (rapport : reproduire sur 2 exécutions indépendantes ; bloquant pour « validated »)")
     if not val.get("results"):
         warnings.append("validation.results vide (aucun oracle d'effet enregistré)")
 
@@ -197,7 +198,7 @@ def lint_capsule(obj: dict) -> CapsuleLint:
         if gen.get("held_out_count", 0) < 3:
             warnings.append("généralisation jugée sur moins de 3 actions tenues à l'écart")
     elif status == "validated":
-        warnings.append("capsule « validated » sans section [generalization] : généralisation non mesurée (RESULTATS §8.10)")
+        errors.append("capsule « validated » sans section [generalization] : généralisation non mesurée (RESULTATS §8.10)")
 
     # nombre de shims borné (candidate à l'escalade au-delà de 25)
     n_shims = len(obj.get("shim", []))

@@ -4,7 +4,8 @@ from bdflab import userwindows as uw
 
 
 def test_floor_rule():
-    for d in ("ntdll.dll", "win32u", "kernelbase.dll", "user32", "gdi32.dll", "ntoskrnl.exe", "something.sys"):
+    for d in ("ntdll.dll", "win32u", "kernelbase.dll", "user32", "gdi32.dll", "ntoskrnl.exe", "something.sys",
+              "opengl32.dll", "winevulkan", "winecrt0"):   # « always builtin » de Wine : jamais remplaçables
         assert uw.is_floor(d), d
     for d in ("propsys.dll", "dwmapi", "msxml6.dll", "d3dx9_43.dll"):
         assert not uw.is_floor(d), d

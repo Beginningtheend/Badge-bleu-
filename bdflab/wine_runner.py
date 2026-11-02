@@ -166,7 +166,16 @@ class PrefixManager:
         self.work_dir = Path(work_dir)
         self.work_dir.mkdir(parents=True, exist_ok=True)
         self.wine = wine or wine_info()
+        # L'expérience est figée sur Wine 11.0 : refuser en silence une autre version fausserait toutes les mesures.
+        expected = os.environ.get("BDFLAB_WINE_EXPECTED", "wine-11.0")
+        if expected and not self.wine.version.startswith(expected) and not os.environ.get("BDFLAB_ALLOW_OTHER_WINE"):
+            raise RuntimeError(f"Wine {self.wine.version!r} trouvé dans {self.wine.bin_dir}, attendu {expected!r} : "
+                               "définir BDFLAB_WINE_BIN=<dossier bin de Wine 11.0>, ou BDFLAB_ALLOW_OTHER_WINE=1 "
+                               "en le consignant dans RESULTATS.md (ne jamais mélanger deux versions)")
         self.arch = arch
+        # Programmes console par défaut (pas d'affichage) ; BDFLAB_KEEP_DISPLAY=1 conserve DISPLAY/WAYLAND_DISPLAY
+        # pour une application graphique (ou lancer la campagne sous `xvfb-run -a`).
+        self.keep_display = bool(os.environ.get("BDFLAB_KEEP_DISPLAY"))
         self.xdg = self.work_dir / "xdg-runtime"
         self.xdg.mkdir(parents=True, exist_ok=True)
         os.chmod(self.xdg, 0o700)
@@ -175,8 +184,9 @@ class PrefixManager:
     def base_env(self, prefix: Path, debug: str = "-all", overrides: dict[str, str] | None = None,
                  extra: dict[str, str] | None = None) -> dict[str, str]:
         env = dict(os.environ)
-        env.pop("DISPLAY", None)
-        env.pop("WAYLAND_DISPLAY", None)
+        if not getattr(self, "keep_display", False):
+            env.pop("DISPLAY", None)
+            env.pop("WAYLAND_DISPLAY", None)
         env["WINEPREFIX"] = str(prefix)
         env["WINEARCH"] = self.arch
         env["WINEDEBUG"] = debug
@@ -228,6 +238,12 @@ class PrefixManager:
 
     # -- préfixes jetables ------------------------------------------------------------------------
     def fresh_prefix(self, name: str) -> Path:
+        """Préfixe propre : copie du gabarit, SAUF system32/syswow64 qui sont des LIENS DURS vers le gabarit.
+
+        Conséquence : ne jamais écrire par-dessus un fichier existant de system32/syswow64 d'un préfixe (copy2,
+        open('wb')) sans l'avoir d'abord supprimé (unlink) : sinon le gabarit, donc tous les préfixes suivants,
+        seraient modifiés en silence. Déposer les DLL natives à côté de l'exe avec un override, pas dans system32.
+        """
         tpl = self.ensure_template()
         dst = self.work_dir / "runs" / name / "prefix"
         if dst.exists():

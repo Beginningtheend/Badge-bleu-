@@ -4,6 +4,8 @@
   (SumatraPDF, suite Sysinternals, Python embarqué, 7-Zip) dans `_corpus/` pour le balayage statique
   (`python3 -m bdflab.sweep`). Le corpus lui-même n'est **pas** versionné (voir `.gitignore`) ; seul le
   résultat d'analyse `results/sweep.json` l'est.
+- `capture_to_recipe.py` — capture (CSV Process Monitor depuis la VM, ou journal Wine) → `recipe.json` + `extract.ps1`
+  (à exécuter dans la VM) ; sortie dans `_captures/<app>/` (ignoré par git : chemins et noms d'utilisateur Windows).
 - `demo_speculate.py` — recherche de réponse par oracle (stratégie S découverte, pas présumée) ; résultat
   `results/speculate-demo.json`.
 - `demo_foundry.py` — fonderie : une implémentation proposée correcte est acceptée, une fausse (succès annoncé sans

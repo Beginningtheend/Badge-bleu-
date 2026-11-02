@@ -3,13 +3,15 @@
 
 Usage :
   python3 -m bdflab.run_experiment --exe testapps/bdfedit/bin/bdfedit.exe \
-      --data data/wine-11.0 --work /home/user/_scratch/bdflab-work \
+      --data data/wine-11.0 --work "$BDFLAB_WORK" \
       --out results --synthetic [--scenarios edit-save-reopen,stats-degrade,...] [--runs 2]
 
 Produit dans ``results/<horodatage>/`` : ``results.json``, les journaux/traces par exécution, les
 fichiers produits (preuves), et une capsule TOML dans ``capsules/``.
 """
 from __future__ import annotations
+
+import os
 
 import argparse
 import datetime as _dt
@@ -34,7 +36,8 @@ def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--exe", required=True, type=Path)
     ap.add_argument("--data", type=Path, default=Path("data/wine-11.0"))
-    ap.add_argument("--work", type=Path, default=Path("/home/user/_scratch/bdflab-work"))
+    ap.add_argument("--work", type=Path, default=Path(os.environ.get("BDFLAB_WORK", Path(__file__).resolve().parent.parent / "_scratch" / "bdflab-work")),
+                    help="espace de travail jetable (défaut : $BDFLAB_WORK ou <dépôt>/_scratch/bdflab-work)")
     ap.add_argument("--out", type=Path, default=Path("results"))
     ap.add_argument("--catalogue", type=Path, default=Path("catalogue"))
     ap.add_argument("--manual-dll", type=Path, default=Path("manual-fix/bzmank32.dll"))

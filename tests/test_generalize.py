@@ -118,8 +118,14 @@ def test_lint_rejects_validated_capsule_that_does_not_generalize(tmp_path):
     assert any("verdict" in e for e in lint_capsule(obj).errors)
 
 
-def test_lint_warns_validated_capsule_without_generalization(tmp_path):
+def test_lint_blocks_validated_capsule_without_generalization_or_two_runs(tmp_path):
     p = _capsule(tmp_path, status="validated")
     obj = load_capsule(p)
     obj["provenance"]["signature"] = "sig"
-    assert any("généralisation" in w for w in lint_capsule(obj).warnings)
+    lint = lint_capsule(obj)
+    assert not lint.ok and any("généralisation" in e for e in lint.errors)
+    obj["validation"]["runs"] = 1
+    assert any("runs < 2" in e for e in lint_capsule(obj).errors)
+    # en « experimental », les mêmes manques ne sont que des avertissements
+    obj["meta"]["status"] = "experimental"
+    assert lint_capsule(obj).ok

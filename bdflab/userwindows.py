@@ -55,10 +55,12 @@ def _version_of(path: Path) -> str:
 
 
 def is_floor(dll: str) -> bool:
+    """Plancher = syscalls NT/noyau/chargeur (FLOOR_DLLS) + tout ce que Wine impose en builtin (ALWAYS_BUILTIN)."""
+    from .wine_db import ALWAYS_BUILTIN
     d = dll.lower()
     if d.endswith(".dll"):
         d = d[:-4]
-    return d in FLOOR_DLLS or d.endswith(".sys") or d.endswith(".drv")
+    return d in FLOOR_DLLS or d in ALWAYS_BUILTIN or d.endswith(".sys") or d.endswith(".drv")
 
 
 def inventory(system32: Path | str, out_manifest: Path | str | None = None, source_label: str = "windows-utilisateur") -> dict:

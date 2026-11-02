@@ -8,6 +8,7 @@ Le labo essaie les réponses sûres (A: FALSE+err ; S: TRUE) et retient celle do
 Usage : python3 tools/demo_speculate.py
 """
 from __future__ import annotations
+import os
 import json, sys, shutil
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
@@ -23,7 +24,7 @@ from bdflab import branch_hint
 
 REPO = Path(__file__).resolve().parent.parent
 EXE = REPO / "testapps/bdfedit/bin/bdfedit.exe"
-WORK = Path("/home/user/_scratch/bdflab-work")
+WORK = Path(os.environ.get("BDFLAB_WORK", REPO / "_scratch" / "bdflab-work"))  # jetable, ignoré par git
 MARKER = "capability-marker-7731"
 DISK = "C:/bdf"
 
@@ -42,7 +43,7 @@ def main() -> int:
         ShimSpec("kernel32", "Heap32Next", "A", "output-buffer", "BOOL", 0, 120),
     ]
 
-    trial_dir = Path("/home/user/_scratch/speculate"); shutil.rmtree(trial_dir, ignore_errors=True)
+    trial_dir = WORK.parent / "speculate"; shutil.rmtree(trial_dir, ignore_errors=True)
     trial_dir.mkdir(parents=True)
     run_counter = {"n": 0}
 

@@ -8,6 +8,7 @@ L'oracle d'effet (fichier correct + horodatage plausible) est le seul juge. Le p
 humain ou un modèle hors ligne ; à l'exécution il n'y a aucune IA.
 """
 from __future__ import annotations
+import os
 import json, sys, shutil
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
@@ -21,7 +22,7 @@ from bdflab.trace_parser import parse_app_stdout
 
 REPO = Path(__file__).resolve().parent.parent
 EXE = REPO / "testapps/bdfedit/bin/bdfedit.exe"
-WORK = Path("/home/user/_scratch/bdflab-work")
+WORK = Path(os.environ.get("BDFLAB_WORK", REPO / "_scratch" / "bdflab-work"))  # jetable, ignoré par git
 MARKER = "foundry-marker-4420"
 DISK = "C:/bdf"
 LIGHT = "warn+module,+seh,+loaddll"
@@ -56,7 +57,7 @@ def main() -> int:
     base = [ShimSpec("kernel32", "Heap32First", "A", "output-buffer", "BOOL", 0, 120),
             ShimSpec("kernel32", "Heap32Next", "A", "output-buffer", "BOOL", 0, 120),
             ShimSpec("shcore", "IsAppCompatModeEnabled", "A", "state-query", "BOOL", 0, 120)]
-    work = Path("/home/user/_scratch/foundry"); shutil.rmtree(work, ignore_errors=True); work.mkdir(parents=True)
+    work = WORK.parent / "foundry"; shutil.rmtree(work, ignore_errors=True); work.mkdir(parents=True)
     n = {"i": 0}
 
     def run_scenario(d, bf):

@@ -6,6 +6,18 @@ _downloads/
 _install/
 _scratch/
 
+# Données issues du Windows de l'utilisateur (captures Process Monitor, dossiers extraits par extract.ps1,
+# exports de registre, manifestes) : PRIVÉES, jamais versionnées.
+_captures/
+_extrait/
+extrait-capsule/
+**/extrait-capsule/
+*.reg
+MANIFEST-sha256.csv
+
+# Environnement virtuel Python
+.venv/
+
 # Python
 __pycache__/
 *.pyc

@@ -16,6 +16,7 @@ jamais utilisés pour dériver le correctif), chaque action dans un préfixe pro
 Rien n'est présumé : le verdict (generalizes / does-not-generalize / cannot-judge) sort de bdflab.generalize.
 """
 from __future__ import annotations
+import os
 import datetime as dt
 import json, sys, shutil, time
 from pathlib import Path
@@ -33,8 +34,8 @@ from bdflab.trace_parser import parse_app_stdout
 REPO = Path(__file__).resolve().parent.parent
 EXE = REPO / "testapps/bdfedit/bin/bdfedit.exe"
 CAPSULE = REPO / "capsules/bdfedit-25205f9b77d4.capsule.toml"
-WORK = Path("/home/user/_scratch/bdflab-work"); DISK = "C:/bdf"; LIGHT = "warn+module,+seh,+loaddll"
-OUT = Path("/home/user/_scratch/generalization")
+WORK = Path(os.environ.get("BDFLAB_WORK", REPO / "_scratch" / "bdflab-work"))  # jetable, ignoré par git; DISK = "C:/bdf"; LIGHT = "warn+module,+seh,+loaddll"
+OUT = WORK.parent / "generalization"
 
 # --- apprentissage : UNE référence (edit, doc A, texte A) + UNE découverte S (capability, référence) ---
 DERIVED_FROM = ["edit:reference", "capability:reference"]
