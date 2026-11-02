@@ -330,6 +330,26 @@ GPU difficile, anti-triche souvent bloqué en VM ; et cela contredit l'idéal «
 avait, à juste titre, gardé comme **dernier recours**. [The Register](https://www.theregister.com/2026/02/14/winapps_and_winboat/),
 [WinBoat](https://github.com/winboat-org/winboat), [GamingOnLinux](https://gamingonlinux.com/2025/09/winboat-is-a-new-linux-app-to-run-windows-apps-with-seamless-integration)
 
+**(3 bis) La VM dormante : « la prendre sans la faire tourner ».** Variante du niveau 3 qui répond à son coût :
+on démarre Windows **une fois**, on **gèle** la VM sur disque (mémoire + état : snapshot), et au repos elle ne
+consomme **ni CPU ni RAM**. Au lancement d'une appli, on la **restaure** à la demande — ou mieux, on **clone** le
+snapshot en copie-sur-écriture pour chaque appli (modèle « serverless » : une image pré-chauffée, un clone par
+requête, jeté ensuite) — et on affiche la fenêtre via RemoteApp. Faits : Firecracker (microVM Linux) restaure
+un snapshot en quelques millisecondes **avec chargement paresseux de la mémoire** (userfaultfd ; chiffre de
+3-5 ms issu d'un billet non vérifié), mais **plusieurs centaines de ms pour 4 Gio sans paresse** (doc d'un
+outil tiers), et l'étude académique vHive mesure des fonctions **~95 % plus lentes** après restauration à cause
+des défauts de page (la mémoire se recharge à la demande) — d'où un « préchauffage » après réveil. Pour un
+invité **Windows** sous QEMU/KVM (`savevm`/`loadvm`), aucune mesure publique trouvée ici ; en pratique, une image
+mémoire de plusieurs Gio se recharge en **secondes**, pas en millisecondes, et Windows doit resynchroniser son
+horloge au réveil. Ce qui reste vrai même ainsi : licence **par instance en cours** (un clone = une instance),
+pas de GPU, anti-triche souvent bloqué en VM. **Verdict : réaliste et utile** — c'est ce qui rend le niveau 3
+acceptable comme repli (« ne coûte rien tant qu'on ne s'en sert pas »), mais c'est toujours Windows qui
+s'exécute, par intermittence. Lecture passive de la même idée : **ne jamais démarrer** la VM et n'exploiter que son
+**image disque** montée en lecture seule (DLL, polices, ruches de registre) — c'est la variante 1, déjà couverte
+par `userwindows.py`.
+[Firecracker snapshots (billet)](https://mohakchugh.is-a.dev/blog/firecracker-microvm-snapshot-restore-serverless-cold-start),
+[vHive (étude)](https://core.ac.uk/download/425539178.pdf)
+
 **Synthèse débloquée par l'idée.** La copie de Windows de l'utilisateur peut jouer **trois rôles** : (a) **catalogue**
 de DLL natives pour Wine (variante 1, classe A) ; (b) **repli** de fidélité maximale (variante 3, niveau 3) ;
 (c) **oracle** — on y distille les vraies réponses d'API pour amorcer la recherche du labo (§8, stratégie F).
