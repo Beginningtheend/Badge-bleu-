@@ -28,6 +28,12 @@ absente) et classe B (comportement, fonction non implémentée par Wine).
 → vérification d'effet. **Ce que cela ne prouve pas** : une efficacité sur des logiciels commerciaux
 inconnus (le programme de test est synthétique, écrit pour le labo). Voir §5.
 
+**Généralisation (ajout, §8.10)** : le correctif dérivé d'**une seule** exécution de référence réussit **8/8
+actions jamais enregistrées** (autres documents, Unicode, vide, 5000 lignes, trois familles de scénario jamais
+apprises), 0 faux succès ; un contrôle négatif (valeur enregistrée rejouée telle quelle) est démasqué par
+l'oracle fort (**0/5, 5 faux succès**) alors que l'oracle faible le laisse passer (5/5) ; une règle synthétisée
+par la fonderie généralise (**5/5**). Toujours synthétique.
+
 ---
 
 ## 1. Dispositif expérimental
@@ -350,3 +356,58 @@ exécution) : 46 DLL distinctes, 202 clés, **14 DLL extractibles**, 15 du planc
 Monitor d'exemple (`propsys`, 140 stubs, classée avant `version`, 0 stub). 63 tests. **Non fait ici** : la capture
 sur un vrai Windows et la vérification par oracle d'une recette appliquée. Analyse, précédents (App-V, ThinApp)
 et limites (plancher, couverture, services, licence) : `docs/RECHERCHE-graal-2026.md` §10 quater.
+
+**8.10 La question décisive : un correctif dérivé d'actions enregistrées marche-t-il sur des actions jamais
+enregistrées ?** (« Windows comme professeur, Linux comme élève », idée de l'utilisateur ;
+`tools/demo_generalization.py`, `bdflab/generalize.py`, `results/generalization-demo.json`.)
+
+*Protocole.* Le correctif est dérivé d'**une seule** exécution de référence par famille (`edit` : document A,
+texte A ; `capability` : la référence de la découverte S de §8.2). Il est ensuite rejoué, chaque fois dans un
+préfixe propre, sur des actions **tenues à l'écart**, jamais utilisées pour le dériver : autre document, texte
+Unicode, document vide, document de 5000 lignes, et trois familles de scénario jamais apprises (`stats`,
+`export-pdf`, `startup`). Trois bras reçoivent les mêmes actions. Deux forces d'oracle sont calculées sur chaque
+exécution : **faible** (date du pied de page plausible, l'oracle de §2) et **fort** (`oracle_timestamp_fresh` :
+l'heure enregistrée doit être celle de l'exécution à ± 15 min, plus le garde-fou « sortie constante » : une
+fonction dont la sortie dépend de l'entrée ne peut pas rendre la même sortie sur toutes les actions). Le verdict
+sort de `bdflab/generalize.py` en trois valeurs — `generalizes`, `does-not-generalize`, `cannot-judge` — et
+n'est jamais présumé.
+
+| Bras | Ce qui est transféré de la référence | Oracle faible | Oracle fort | Verdict |
+|---|---|---|---|---|
+| **1** Règle dans la table de sûreté (A + S découvert) | une *règle* : « non implémenté » (le repli du programme porte la règle) ; « capacité présente » (propriété stable) | 8/8 | **8/8, 0 faux succès** | **generalizes** — entrées nouvelles **et** 3 familles jamais apprises |
+| **2** Valeur enregistrée rejouée (contrôle négatif, **hors table de sûreté**) | la *valeur* vue par le professeur : heure locale `2026-10-30 09:41:07`, rejouée telle quelle | 5/5 (**trompé**) | **0/5, 5 faux succès**, sortie constante | **does-not-generalize** |
+| **3** Règle synthétisée par la fonderie | une *fonction* (délégation au non-Ex, §8.4), pas une valeur | 5/5 | **5/5, 0 faux succès** | **generalizes** — entrées nouvelles |
+
+Génération du correctif : 2,6 à 3,0 s par bras. Le bras 2 ne peut pas être construit par la chaîne normale :
+le linter refuse une stratégie F sur tampon de sortie (`F-forbidden`, consigné dans le résultat) ; il a été
+assemblé hors chaîne, à dessein, comme contrôle négatif.
+
+*Lecture.*
+- **Oui, mesuré, pour les classes A et S** : le correctif généralise **par construction**, parce qu'il ne rejoue
+  aucune valeur. La règle générale est dans le programme (son chemin de repli) ou dans une propriété stable
+  (« capacité présente »). 8/8 sur des actions jamais enregistrées, dont trois familles jamais apprises.
+- **Non, mesuré, pour une valeur rejouée** d'une fonction dont la sortie dépend de l'entrée (ici le temps) : 5 faux
+  succès. C'est exactement le périmètre que la table de sûreté interdisait déjà à F ; l'expérience en donne la
+  raison mesurable.
+- **La découverte** : l'oracle faible est trompé (5/5). Un horodatage *plausible* n'est pas un horodatage *vrai*.
+  **Généraliser exige un oracle aussi fort que la propriété généralisée.** D'où les deux ajouts :
+  `oracle_timestamp_fresh` et le garde-fou « sortie constante » (une même sortie sur toutes les actions = une
+  récitation, pas une règle).
+- **Pour les fonctions dépendantes de l'entrée, la voie est la fonderie** : transférer la *fonction*, pas la
+  *valeur*, et la juger sur plusieurs actions tenues à l'écart (5/5).
+- **Conséquence pour le « professeur »** (règle implémentée dans `speculate.fixture_stability`, format de fixtures
+  0.2) : une valeur enregistrée n'est admise comme règle F que si la VM l'a observée **identique sous au moins
+  deux entrées distinctes** ; des sorties différentes = une valeur, pas une règle → aucun candidat F, voie
+  fonderie. Le produit le plus utile de la VM n'est pas une réponse, ce sont des **couples entrée → effet**,
+  c'est-à-dire des tests.
+
+*Capsule.* `capsules/bdfedit-fb3994042c04.capsule.toml` décrit le binaire **courant** (l'ancienne capsule
+`bdfedit-25205f9b77d4` décrit le binaire antérieur, sans l'import de capacité), avec la section
+`[generalization]` (verdict, portée, actions dérivées / tenues à l'écart, force de l'oracle). Le linter exige
+désormais `generalizes` pour le statut `validated` et avertit si la généralisation n'est pas mesurée. Lint de la
+capsule émise : 0 erreur, 1 avertissement (`validation.runs < 2`, une exécution par action).
+
+*Ce que cela ne prouve pas.* Programme synthétique ; une exécution par action ; fonctions à retour scalaire ou à
+tampon simple ; le « professeur » est simulé (la valeur rejouée est celle qu'une VM aurait enregistrée, aucune
+VM Windows n'a tourné) ; aucune action interactive (interface graphique), aucun état persistant entre actions,
+aucun non-déterminisme autre que le temps. Les classes C et D restent hors périmètre. 82 tests.

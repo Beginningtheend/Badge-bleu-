@@ -30,6 +30,27 @@ class Candidate:
 FIXTURE_ALLOWED_CLASSES = {"state-query", "local-mutation"}   # v0.1 : retours scalaires seulement
 
 
+def fixture_stability(fixture: dict) -> tuple[bool, str]:
+    """Règle du professeur (RESULTATS §8.10) : une valeur enregistrée n'est admissible comme RÈGLE (F) que si le
+    professeur l'a observée IDENTIQUE sous au moins deux entrées/états distincts. Des observations qui diffèrent
+    = une valeur dépendante de l'entrée, pas une règle -> aucun candidat F (la fonderie prend le relais).
+
+    Format : ``fixture["observations"] = [{"input": str, "returns": int, "last_error": int|None}, ...]``
+    (optionnel ; sans ce champ, format 0.1 à valeur unique : admise mais étiquetée « observation unique »).
+    """
+    obs = fixture.get("observations") or []
+    if not obs:
+        return True, "observation unique : stabilité non établie par le professeur"
+    inputs = {str(o.get("input")) for o in obs}
+    outs = {(o.get("returns"), o.get("last_error")) for o in obs}
+    if len(inputs) < 2:
+        return False, f"{len(obs)} observation(s) sous une seule entrée : stabilité non établie"
+    if len(outs) != 1:
+        return False, (f"sorties différentes sous {len(inputs)} entrées distinctes : valeur dépendante de l'entrée, "
+                       f"pas une règle (voie : fonderie)")
+    return True, f"stable : même sortie sous {len(inputs)} entrées distinctes"
+
+
 def candidate_answers(api_class: str, ret_type: str, synthetic: bool, has_output_pointer: bool,
                       fixture: dict | None = None):
     """Énumère les réponses candidates AUTORISÉES par la table de sûreté pour cette fonction.
@@ -44,8 +65,12 @@ def candidate_answers(api_class: str, ret_type: str, synthetic: bool, has_output
     unknown = rt in ("", "UNKNOWN", "?")
     cands: list[Candidate] = []
     if fixture and api_class in FIXTURE_ALLOWED_CLASSES and not has_output_pointer and v.s_allowed_lab:
-        cands.append(Candidate("F", fixture.get("returns", 0), fixture.get("last_error"),
-                               f"F:fixture({fixture.get('source', 'windows')})"))
+        stable, why = fixture_stability(fixture)
+        if stable:
+            obs = fixture.get("observations") or []
+            ret = obs[0].get("returns", 0) if obs else fixture.get("returns", 0)
+            le = obs[0].get("last_error") if obs else fixture.get("last_error")
+            cands.append(Candidate("F", ret, le, f"F:fixture({fixture.get('source', 'windows')}; {why})"))
     if v.a_allowed:
         if rt == "HRESULT":
             cands.append(Candidate("A", E_NOTIMPL, None, "A:E_NOTIMPL"))

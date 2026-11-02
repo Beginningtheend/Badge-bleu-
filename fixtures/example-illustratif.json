@@ -1,7 +1,13 @@
 {
-  "schema": "bdflab-fixtures/0.1",
+  "schema": "bdflab-fixtures/0.2",
   "source": "EXEMPLE ILLUSTRATIF (écrit à la main, non distillé)",
   "entries": {
-    "shcore.IsAppCompatModeEnabled": { "returns": 1, "last_error": 0, "deterministic": true }
+    "shcore.IsAppCompatModeEnabled": {
+      "returns": 1, "last_error": 0, "deterministic": true,
+      "observations": [
+        {"input": "document A, session 1", "returns": 1, "last_error": 0},
+        {"input": "document B, session 2", "returns": 1, "last_error": 0}
+      ]
+    }
   }
 }

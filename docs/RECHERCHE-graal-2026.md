@@ -448,6 +448,55 @@ distiller, ne pas partager), et non-déterminisme (§8).
 sous Wine avec ce qu'on a appris : oui. Universel : non — mais **application par application, c'est la voie
 la plus complète décrite dans ce document**, et le labo en possède déjà la moitié Linux.
 
+## 10 sexies. Idée de l'utilisateur, synthèse : « Windows comme professeur, Linux comme élève » — la question décisive, mesurée
+
+L'utilisateur résume l'architecture ainsi : la VM Windows **capture** appels, arguments, retours et effets ;
+BDF-Lab **compare** aux traces Wine ; PolyRE **génère** un correctif ou identifie ce qu'il faut réimplémenter ;
+Linux **teste de nouveaux scénarios sans VM**. Puis il pose la seule question qui compte : *peut-on générer
+automatiquement un correctif qui fonctionne sur des actions que la VM n'a jamais enregistrées ?*
+
+**Précédents cités, vérifiés.** Replay (billet de Brian Hackett, 16 novembre 2021) remplace les fonctions des
+bibliothèques système Windows par des shims qui « record the inputs and outputs to those functions when they
+are called », et rejoue **sur Linux** toute capture, quel que soit l'OS d'origine ; la conversion d'ABI « adds a
+fair amount of complexity ». Mais c'est le rejeu *de la même exécution* (débogage de leur propre navigateur, en
+bêta), pas un usage libre. apitrace trace OpenGL, Direct3D et DirectDraw et rejoue « on any machine and, for
+OpenGL, on any operating system » — le rejeu Direct3D hors Windows n'est pas revendiqué. Les deux confirment la
+distinction de l'utilisateur : **rejouer un enregistrement est facile, rendre l'application librement utilisable
+ne l'est pas.** Aucun des deux ne répond à la question décisive.
+
+**La réponse, mesurée (RESULTATS §8.10).** Le labo a dérivé un correctif d'une seule exécution de référence, puis
+l'a jugé sur des actions tenues à l'écart (autres documents, Unicode, vide, 5000 lignes, trois familles de
+scénario jamais apprises), avec un verdict en trois valeurs jamais présumé :
+
+| Ce qui est transféré | Généralise ? | Mesure |
+|---|---|---|
+| une **règle** (absence déclarée A ; propriété stable S) | **oui, par construction** : rien n'est rejoué, la règle est dans le repli du programme ou dans une propriété stable | 8/8, 0 faux succès |
+| une **valeur** enregistrée par le professeur (heure locale) | **non** : rejouée telle quelle, elle est plausible mais périmée | 0/5, 5 faux succès ; l'oracle faible, lui, est trompé (5/5) |
+| une **fonction** synthétisée (fonderie) | **oui**, si elle est juste — et seuls les oracles sur plusieurs actions le disent | 5/5, 0 faux succès |
+
+**Trois conclusions.**
+1. **Oui pour A et S, non pour les valeurs, oui pour les fonctions.** Pour tout ce qui est « non implémenté → le
+   programme se replie » ou « capacité présente », le correctif généralise par nature. Pour une sortie qui dépend
+   de l'entrée, aucune valeur enregistrée ne généralise ; il faut la fonction (fonderie, §8.4), jugée sur
+   plusieurs entrées.
+2. **Le professeur ne transmet pas des réponses, il transmet des tests.** Le produit le plus utile de la VM n'est
+   pas la valeur enregistrée mais les **couples entrée → effet**, qui deviennent des oracles côté Linux. Et un
+   oracle doit être **aussi fort que la propriété généralisée** : un horodatage plausible a laissé passer cinq
+   faux succès, un horodatage « frais » les a tous attrapés. Règle désormais implémentée (`speculate.fixture_stability`,
+   fixtures 0.2) : une valeur enregistrée n'est admise comme règle que si la VM l'a vue **identique sous au moins
+   deux entrées distinctes** ; sinon c'est une valeur, pas une règle, et la voie est la fonderie. C'est la forme
+   exécutable de la remarque de l'utilisateur : « capturer plusieurs entrées et états différents pour distinguer
+   les véritables règles de fonctionnement des simples valeurs enregistrées ».
+3. **Ce qui reste hors de portée** est inchangé : interface interactive, état persistant entre actions,
+   non-déterminisme (autre que le temps), pilotes, protections (classe C/D). Et la preuve est synthétique :
+   aucune VM Windows n'a tourné, le professeur a été simulé par la valeur qu'il aurait enregistrée.
+
+**Ce que PolyRE gagne.** Une boucle complète et honnête : VM (professeur) → fixtures multi-entrées → règle ou
+fonction → oracle fort sur actions jamais vues → capsule avec section `[generalization]` (le linter exige
+`generalizes` pour le statut `validated`). L'avancée « réellement intéressante » annoncée par l'utilisateur
+existe donc pour le sous-ensemble A / S / fonction scalaire ; au-delà, elle reste à mesurer sur de vrais
+logiciels, avec le protocole à 4 bras du rapport.
+
 ## 11. La frontière : anti-triche noyau et DRM (classe D)
 
 Position officielle Steamworks : EAC et BattlEye fonctionnent sous Proton **si l'éditeur active** la prise
@@ -494,10 +543,14 @@ implémentation « succès sans sortie » qu'une vérification naïve aurait acc
    est synthétique, celle d'Alderson est un cas unique faiblement vérifié. C'est l'objet du protocole à 4 bras
    du rapport, inchangé. Et le plafond demeure : **la classe D (anti-triche noyau, DRM) est une décision
    d'éditeur**, pas un problème à résoudre.
+5. **La question décisive est tranchée pour le périmètre mesuré** (§10 sexies) : un correctif dérivé d'une seule
+   référence généralise à des actions jamais enregistrées quand il transfère une **règle** (A, S : 8/8) ou une
+   **fonction** (fonderie : 5/5), jamais quand il rejoue une **valeur** (0/5, cinq faux succès, invisibles pour un
+   oracle faible). Le professeur doit fournir des tests multi-entrées, pas des réponses.
 
 ## 14. Sources
 
 Voir les liens en ligne dans chaque section. Sources primaires lues intégralement : Alderson (2026-03-17),
 mixed-news sur la règle Wine (oct.), documentation noyau SUD, Steamworks Proton. Secondaires : Phoronix,
 GamingOnLinux, BleepingComputer/The Register (WSL), devclass/Phoronix (Hyperlight), umu-launcher README,
-wiki de conformité Wine, arXiv 2602.02690.
+wiki de conformité Wine, arXiv 2602.02690, Replay (billet du 2021-11-16), apitrace.github.io.

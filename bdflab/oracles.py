@@ -143,3 +143,33 @@ class ScenarioOutcome:
     def to_dict(self) -> dict:
         return {"scenario": self.scenario, "passed": self.passed, "false_success": self.false_success,
                 "app_announced_success": self.app_announced_success, "oracles": [o.to_dict() for o in self.oracles]}
+
+
+def oracle_timestamp_fresh(path: Path, run_started_at, tolerance_s: int = 900, announced_saved: bool = True) -> OracleResult:
+    """Le pied de page « saved-at » porte l'heure locale RÉELLE de l'exécution (± tolérance), pas une valeur rejouée.
+
+    Oracle FORT de généralisation (RESULTATS §8.10) : une réponse ENREGISTRÉE sur le Windows « professeur » puis
+    rejouée telle quelle donne un horodatage plausible mais périmé — invisible pour ``oracle_timestamp_plausible``.
+    Wine dérive l'heure locale du fuseau de l'hôte, comme ``datetime.now()`` : comparaison en heure locale naïve.
+    """
+    import datetime as _dt
+    import re
+    p = Path(path)
+    if not p.is_file():
+        return OracleResult("timestamp_fresh", False, f"{p} absent", kind="independent", false_success=announced_saved)
+    m = re.search(r"saved-at (\d{4})-(\d{2})-(\d{2}) (\d{2}):(\d{2}):(\d{2})",
+                  p.read_text(encoding="utf-8", errors="replace"))
+    if not m:
+        return OracleResult("timestamp_fresh", False, "pied de page saved-at absent", kind="independent",
+                            false_success=announced_saved)
+    try:
+        stamp = _dt.datetime(*(int(x) for x in m.groups()))
+    except ValueError:
+        return OracleResult("timestamp_fresh", False, f"saved-at {m.group(0)[9:]} invalide", kind="independent",
+                            false_success=announced_saved)
+    delta = abs((stamp - run_started_at).total_seconds())
+    ok = delta <= tolerance_s
+    return OracleResult("timestamp_fresh", ok,
+                        f"saved-at {m.group(0)[9:]} vs exécution {run_started_at:%Y-%m-%d %H:%M:%S} : écart {delta:.0f}s "
+                        f"({'frais' if ok else 'PÉRIMÉ = valeur rejouée ou horloge fausse'})",
+                        kind="independent", false_success=announced_saved and not ok)

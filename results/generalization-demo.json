@@ -1,0 +1,1013 @@
+{
+ "derived_from": [
+  "edit:reference",
+  "capability:reference"
+ ],
+ "recorded_value_replayed": "2026-10-30 09:41:07",
+ "safety_gate_for_arm_2": [
+  {
+   "level": "error",
+   "code": "F-forbidden",
+   "message": "stratégie F (fixture) interdite pour « output-buffer » (tampon de sortie)"
+  }
+ ],
+ "wine": "wine-11.0",
+ "arms": [
+  {
+   "arm": "1-regle-table-surete",
+   "label": "règle dans la table de sûreté (A + S découvert)",
+   "shims": [
+    {
+     "dll": "kernel32",
+     "func": "Heap32First",
+     "strategy": "A",
+     "api_class": "output-buffer",
+     "ret_type": "BOOL",
+     "returns": 0,
+     "last_error": 120,
+     "tainted": false,
+     "note": "",
+     "custom_c": null
+    },
+    {
+     "dll": "kernel32",
+     "func": "Heap32Next",
+     "strategy": "A",
+     "api_class": "output-buffer",
+     "ret_type": "BOOL",
+     "returns": 0,
+     "last_error": 120,
+     "tainted": false,
+     "note": "",
+     "custom_c": null
+    },
+    {
+     "dll": "kernel32",
+     "func": "SystemTimeToTzSpecificLocalTimeEx",
+     "strategy": "A",
+     "api_class": "output-buffer",
+     "ret_type": "BOOL",
+     "returns": 0,
+     "last_error": 120,
+     "tainted": false,
+     "note": "",
+     "custom_c": null
+    },
+    {
+     "dll": "shcore",
+     "func": "IsAppCompatModeEnabled",
+     "strategy": "S",
+     "api_class": "state-query",
+     "ret_type": "BOOL",
+     "returns": 1,
+     "last_error": null,
+     "tainted": true,
+     "note": "",
+     "custom_c": null
+    }
+   ],
+   "generation_seconds": 2.99,
+   "records": [
+    {
+     "action": "edit:doc-different",
+     "passed": true,
+     "false_success": false,
+     "exit_code": 0,
+     "oracles": [
+      [
+       "process_stable",
+       true
+      ],
+      [
+       "file_changed",
+       true
+      ],
+      [
+       "file_contains",
+       true
+      ],
+      [
+       "timestamp_plausible",
+       true
+      ],
+      [
+       "timestamp_fresh",
+       true
+      ],
+      [
+       "reopen_consistent",
+       true
+      ]
+     ],
+     "observed": {
+      "stamp": "2026-11-02 19:33:45",
+      "tz_method": "fallback",
+      "weak_passed": true,
+      "weak_false_success": false
+     },
+     "family": "edit"
+    },
+    {
+     "action": "edit:unicode",
+     "passed": true,
+     "false_success": false,
+     "exit_code": 0,
+     "oracles": [
+      [
+       "process_stable",
+       true
+      ],
+      [
+       "file_changed",
+       true
+      ],
+      [
+       "file_contains",
+       true
+      ],
+      [
+       "timestamp_plausible",
+       true
+      ],
+      [
+       "timestamp_fresh",
+       true
+      ],
+      [
+       "reopen_consistent",
+       true
+      ]
+     ],
+     "observed": {
+      "stamp": "2026-11-02 19:33:47",
+      "tz_method": "fallback",
+      "weak_passed": true,
+      "weak_false_success": false
+     },
+     "family": "edit"
+    },
+    {
+     "action": "edit:doc-vide",
+     "passed": true,
+     "false_success": false,
+     "exit_code": 0,
+     "oracles": [
+      [
+       "process_stable",
+       true
+      ],
+      [
+       "file_changed",
+       true
+      ],
+      [
+       "file_contains",
+       true
+      ],
+      [
+       "timestamp_plausible",
+       true
+      ],
+      [
+       "timestamp_fresh",
+       true
+      ],
+      [
+       "reopen_consistent",
+       true
+      ]
+     ],
+     "observed": {
+      "stamp": "2026-11-02 19:33:49",
+      "tz_method": "fallback",
+      "weak_passed": true,
+      "weak_false_success": false
+     },
+     "family": "edit"
+    },
+    {
+     "action": "edit:doc-5000-lignes",
+     "passed": true,
+     "false_success": false,
+     "exit_code": 0,
+     "oracles": [
+      [
+       "process_stable",
+       true
+      ],
+      [
+       "file_changed",
+       true
+      ],
+      [
+       "file_contains",
+       true
+      ],
+      [
+       "timestamp_plausible",
+       true
+      ],
+      [
+       "timestamp_fresh",
+       true
+      ],
+      [
+       "reopen_consistent",
+       true
+      ]
+     ],
+     "observed": {
+      "stamp": "2026-11-02 19:33:51",
+      "tz_method": "fallback",
+      "weak_passed": true,
+      "weak_false_success": false
+     },
+     "family": "edit"
+    },
+    {
+     "action": "capability:doc-different",
+     "passed": true,
+     "false_success": false,
+     "exit_code": 0,
+     "oracles": [
+      [
+       "process_stable",
+       true
+      ],
+      [
+       "file_changed",
+       true
+      ],
+      [
+       "file_contains",
+       true
+      ],
+      [
+       "timestamp_plausible",
+       true
+      ],
+      [
+       "timestamp_fresh",
+       true
+      ],
+      [
+       "reopen_consistent",
+       true
+      ]
+     ],
+     "observed": {
+      "stamp": "2026-11-02 19:33:52",
+      "tz_method": "fallback",
+      "weak_passed": true,
+      "weak_false_success": false
+     },
+     "family": "capability"
+    },
+    {
+     "action": "stats:jamais-derive",
+     "passed": true,
+     "false_success": false,
+     "exit_code": 0,
+     "oracles": [
+      [
+       "process_stable",
+       true
+      ],
+      [
+       "stats_degraded_cleanly",
+       true
+      ]
+     ],
+     "observed": {
+      "stamp": null,
+      "tz_method": null,
+      "weak_passed": true,
+      "weak_false_success": false
+     },
+     "family": "stats"
+    },
+    {
+     "action": "export-pdf:doc-different",
+     "passed": true,
+     "false_success": false,
+     "exit_code": 0,
+     "oracles": [
+      [
+       "process_stable",
+       true
+      ],
+      [
+       "file_exists",
+       true
+      ],
+      [
+       "pdf_text",
+       true
+      ]
+     ],
+     "observed": {
+      "stamp": null,
+      "tz_method": null,
+      "weak_passed": true,
+      "weak_false_success": false
+     },
+     "family": "export-pdf"
+    },
+    {
+     "action": "startup:temoin",
+     "passed": true,
+     "false_success": false,
+     "exit_code": 0,
+     "oracles": [
+      [
+       "process_stable",
+       true
+      ],
+      [
+       "app_exit",
+       true
+      ]
+     ],
+     "observed": {
+      "stamp": null,
+      "tz_method": null,
+      "weak_passed": true,
+      "weak_false_success": false
+     },
+     "family": "startup"
+    }
+   ],
+   "verdict_strong_oracle": {
+    "verdict": "generalizes",
+    "scope": "new-inputs-and-new-scenarios",
+    "derived_from": [
+     "edit:reference",
+     "capability:reference"
+    ],
+    "held_out": [
+     "edit:doc-different",
+     "edit:unicode",
+     "edit:doc-vide",
+     "edit:doc-5000-lignes",
+     "capability:doc-different",
+     "stats:jamais-derive",
+     "export-pdf:doc-different",
+     "startup:temoin"
+    ],
+    "held_out_count": 8,
+    "passed": 8,
+    "false_success": 0,
+    "new_families": [
+     "export-pdf",
+     "startup",
+     "stats"
+    ],
+    "constant_output_suspect": false,
+    "input_dependent_key": "stamp",
+    "reasons": [
+     "8/8 actions jamais enregistrées réussies, 0 faux succès, 3 famille(s) de scénario jamais apprise(s) : ['export-pdf', 'startup', 'stats']"
+    ]
+   },
+   "verdict_weak_oracle": {
+    "verdict": "generalizes",
+    "scope": "new-inputs-and-new-scenarios",
+    "derived_from": [
+     "edit:reference",
+     "capability:reference"
+    ],
+    "held_out": [
+     "edit:doc-different",
+     "edit:unicode",
+     "edit:doc-vide",
+     "edit:doc-5000-lignes",
+     "capability:doc-different",
+     "stats:jamais-derive",
+     "export-pdf:doc-different",
+     "startup:temoin"
+    ],
+    "held_out_count": 8,
+    "passed": 8,
+    "false_success": 0,
+    "new_families": [
+     "export-pdf",
+     "startup",
+     "stats"
+    ],
+    "constant_output_suspect": false,
+    "input_dependent_key": "",
+    "reasons": [
+     "8/8 actions jamais enregistrées réussies, 0 faux succès, 3 famille(s) de scénario jamais apprise(s) : ['export-pdf', 'startup', 'stats']"
+    ]
+   }
+  },
+  {
+   "arm": "2-valeur-enregistree-rejouee",
+   "label": "valeur enregistrée rejouée (contrôle négatif, hors table)",
+   "shims": [
+    {
+     "dll": "kernel32",
+     "func": "Heap32First",
+     "strategy": "A",
+     "api_class": "output-buffer",
+     "ret_type": "BOOL",
+     "returns": 0,
+     "last_error": 120,
+     "tainted": false,
+     "note": "",
+     "custom_c": null
+    },
+    {
+     "dll": "kernel32",
+     "func": "Heap32Next",
+     "strategy": "A",
+     "api_class": "output-buffer",
+     "ret_type": "BOOL",
+     "returns": 0,
+     "last_error": 120,
+     "tainted": false,
+     "note": "",
+     "custom_c": null
+    },
+    {
+     "dll": "shcore",
+     "func": "IsAppCompatModeEnabled",
+     "strategy": "S",
+     "api_class": "state-query",
+     "ret_type": "BOOL",
+     "returns": 1,
+     "last_error": null,
+     "tainted": true,
+     "note": "",
+     "custom_c": null
+    },
+    {
+     "dll": "kernel32",
+     "func": "SystemTimeToTzSpecificLocalTimeEx",
+     "strategy": "F",
+     "api_class": "output-buffer",
+     "ret_type": "BOOL",
+     "returns": null,
+     "last_error": null,
+     "tainted": true,
+     "note": "CONTRÔLE NÉGATIF : valeur enregistrée rejouée, hors table de sûreté",
+     "custom_c": "\nint bdf_impl_SystemTimeToTzSpecificLocalTimeEx(const DYNAMIC_TIME_ZONE_INFORMATION *dtzi,\n                                               const SYSTEMTIME *utc, LPSYSTEMTIME local)\n{\n    /* CONTRÔLE NÉGATIF : valeur ENREGISTRÉE dans la VM lors de la référence (2026-10-30 09:41:07), rejouée. */\n    (void)dtzi; (void)utc;\n    if (!local) return 0;\n    local->wYear = 2026; local->wMonth = 10; local->wDayOfWeek = 5; local->wDay = 30;\n    local->wHour = 9; local->wMinute = 41; local->wSecond = 7; local->wMilliseconds = 0;\n    bdf_log(\"SystemTimeToTzSpecificLocalTimeEx\", \"F-replay\", \"recorded=2026-10-30 09:41:07\");\n    return 1;\n}\n"
+    }
+   ],
+   "generation_seconds": 2.93,
+   "records": [
+    {
+     "action": "edit:doc-different",
+     "passed": false,
+     "false_success": true,
+     "exit_code": 0,
+     "oracles": [
+      [
+       "process_stable",
+       true
+      ],
+      [
+       "file_changed",
+       true
+      ],
+      [
+       "file_contains",
+       true
+      ],
+      [
+       "timestamp_plausible",
+       true
+      ],
+      [
+       "timestamp_fresh",
+       false
+      ],
+      [
+       "reopen_consistent",
+       true
+      ]
+     ],
+     "observed": {
+      "stamp": "2026-10-30 09:41:07",
+      "tz_method": "ex",
+      "weak_passed": true,
+      "weak_false_success": false
+     },
+     "family": "edit"
+    },
+    {
+     "action": "edit:unicode",
+     "passed": false,
+     "false_success": true,
+     "exit_code": 0,
+     "oracles": [
+      [
+       "process_stable",
+       true
+      ],
+      [
+       "file_changed",
+       true
+      ],
+      [
+       "file_contains",
+       true
+      ],
+      [
+       "timestamp_plausible",
+       true
+      ],
+      [
+       "timestamp_fresh",
+       false
+      ],
+      [
+       "reopen_consistent",
+       true
+      ]
+     ],
+     "observed": {
+      "stamp": "2026-10-30 09:41:07",
+      "tz_method": "ex",
+      "weak_passed": true,
+      "weak_false_success": false
+     },
+     "family": "edit"
+    },
+    {
+     "action": "edit:doc-vide",
+     "passed": false,
+     "false_success": true,
+     "exit_code": 0,
+     "oracles": [
+      [
+       "process_stable",
+       true
+      ],
+      [
+       "file_changed",
+       true
+      ],
+      [
+       "file_contains",
+       true
+      ],
+      [
+       "timestamp_plausible",
+       true
+      ],
+      [
+       "timestamp_fresh",
+       false
+      ],
+      [
+       "reopen_consistent",
+       true
+      ]
+     ],
+     "observed": {
+      "stamp": "2026-10-30 09:41:07",
+      "tz_method": "ex",
+      "weak_passed": true,
+      "weak_false_success": false
+     },
+     "family": "edit"
+    },
+    {
+     "action": "edit:doc-5000-lignes",
+     "passed": false,
+     "false_success": true,
+     "exit_code": 0,
+     "oracles": [
+      [
+       "process_stable",
+       true
+      ],
+      [
+       "file_changed",
+       true
+      ],
+      [
+       "file_contains",
+       true
+      ],
+      [
+       "timestamp_plausible",
+       true
+      ],
+      [
+       "timestamp_fresh",
+       false
+      ],
+      [
+       "reopen_consistent",
+       true
+      ]
+     ],
+     "observed": {
+      "stamp": "2026-10-30 09:41:07",
+      "tz_method": "ex",
+      "weak_passed": true,
+      "weak_false_success": false
+     },
+     "family": "edit"
+    },
+    {
+     "action": "capability:doc-different",
+     "passed": false,
+     "false_success": true,
+     "exit_code": 0,
+     "oracles": [
+      [
+       "process_stable",
+       true
+      ],
+      [
+       "file_changed",
+       true
+      ],
+      [
+       "file_contains",
+       true
+      ],
+      [
+       "timestamp_plausible",
+       true
+      ],
+      [
+       "timestamp_fresh",
+       false
+      ],
+      [
+       "reopen_consistent",
+       true
+      ]
+     ],
+     "observed": {
+      "stamp": "2026-10-30 09:41:07",
+      "tz_method": "ex",
+      "weak_passed": true,
+      "weak_false_success": false
+     },
+     "family": "capability"
+    }
+   ],
+   "verdict_strong_oracle": {
+    "verdict": "does-not-generalize",
+    "scope": "new-inputs",
+    "derived_from": [
+     "edit:reference",
+     "capability:reference"
+    ],
+    "held_out": [
+     "edit:doc-different",
+     "edit:unicode",
+     "edit:doc-vide",
+     "edit:doc-5000-lignes",
+     "capability:doc-different"
+    ],
+    "held_out_count": 5,
+    "passed": 0,
+    "false_success": 5,
+    "new_families": [],
+    "constant_output_suspect": true,
+    "input_dependent_key": "stamp",
+    "reasons": [
+     "5 faux succès sur 5 action(s) jamais enregistrée(s)"
+    ]
+   },
+   "verdict_weak_oracle": {
+    "verdict": "generalizes",
+    "scope": "new-inputs",
+    "derived_from": [
+     "edit:reference",
+     "capability:reference"
+    ],
+    "held_out": [
+     "edit:doc-different",
+     "edit:unicode",
+     "edit:doc-vide",
+     "edit:doc-5000-lignes",
+     "capability:doc-different"
+    ],
+    "held_out_count": 5,
+    "passed": 5,
+    "false_success": 0,
+    "new_families": [],
+    "constant_output_suspect": false,
+    "input_dependent_key": "",
+    "reasons": [
+     "5/5 actions jamais enregistrées réussies, 0 faux succès, entrées nouvelles seulement"
+    ]
+   }
+  },
+  {
+   "arm": "3-regle-synthetisee-fonderie",
+   "label": "règle synthétisée par la fonderie (fonction, pas valeur)",
+   "shims": [
+    {
+     "dll": "kernel32",
+     "func": "Heap32First",
+     "strategy": "A",
+     "api_class": "output-buffer",
+     "ret_type": "BOOL",
+     "returns": 0,
+     "last_error": 120,
+     "tainted": false,
+     "note": "",
+     "custom_c": null
+    },
+    {
+     "dll": "kernel32",
+     "func": "Heap32Next",
+     "strategy": "A",
+     "api_class": "output-buffer",
+     "ret_type": "BOOL",
+     "returns": 0,
+     "last_error": 120,
+     "tainted": false,
+     "note": "",
+     "custom_c": null
+    },
+    {
+     "dll": "shcore",
+     "func": "IsAppCompatModeEnabled",
+     "strategy": "S",
+     "api_class": "state-query",
+     "ret_type": "BOOL",
+     "returns": 1,
+     "last_error": null,
+     "tainted": true,
+     "note": "",
+     "custom_c": null
+    },
+    {
+     "dll": "kernel32",
+     "func": "SystemTimeToTzSpecificLocalTimeEx",
+     "strategy": "IMPL",
+     "api_class": "output-buffer",
+     "ret_type": "BOOL",
+     "returns": null,
+     "last_error": null,
+     "tainted": false,
+     "note": "règle synthétisée (fonderie) : délégation",
+     "custom_c": "\nint bdf_impl_SystemTimeToTzSpecificLocalTimeEx(const DYNAMIC_TIME_ZONE_INFORMATION *dtzi,\n                                               const SYSTEMTIME *utc, LPSYSTEMTIME local)\n{\n    TIME_ZONE_INFORMATION tzi;\n    const TIME_ZONE_INFORMATION *p = NULL;\n    if (dtzi) { memcpy(&tzi, dtzi, sizeof(tzi)); p = &tzi; }\n    bdf_log(\"SystemTimeToTzSpecificLocalTimeEx\", \"IMPL\", \"delegate-to-non-Ex\");\n    return SystemTimeToTzSpecificLocalTime((TIME_ZONE_INFORMATION *)p, utc, local);\n}\n"
+    }
+   ],
+   "generation_seconds": 2.64,
+   "records": [
+    {
+     "action": "edit:doc-different",
+     "passed": true,
+     "false_success": false,
+     "exit_code": 0,
+     "oracles": [
+      [
+       "process_stable",
+       true
+      ],
+      [
+       "file_changed",
+       true
+      ],
+      [
+       "file_contains",
+       true
+      ],
+      [
+       "timestamp_plausible",
+       true
+      ],
+      [
+       "timestamp_fresh",
+       true
+      ],
+      [
+       "reopen_consistent",
+       true
+      ]
+     ],
+     "observed": {
+      "stamp": "2026-11-02 19:34:17",
+      "tz_method": "ex",
+      "weak_passed": true,
+      "weak_false_success": false
+     },
+     "family": "edit"
+    },
+    {
+     "action": "edit:unicode",
+     "passed": true,
+     "false_success": false,
+     "exit_code": 0,
+     "oracles": [
+      [
+       "process_stable",
+       true
+      ],
+      [
+       "file_changed",
+       true
+      ],
+      [
+       "file_contains",
+       true
+      ],
+      [
+       "timestamp_plausible",
+       true
+      ],
+      [
+       "timestamp_fresh",
+       true
+      ],
+      [
+       "reopen_consistent",
+       true
+      ]
+     ],
+     "observed": {
+      "stamp": "2026-11-02 19:34:19",
+      "tz_method": "ex",
+      "weak_passed": true,
+      "weak_false_success": false
+     },
+     "family": "edit"
+    },
+    {
+     "action": "edit:doc-vide",
+     "passed": true,
+     "false_success": false,
+     "exit_code": 0,
+     "oracles": [
+      [
+       "process_stable",
+       true
+      ],
+      [
+       "file_changed",
+       true
+      ],
+      [
+       "file_contains",
+       true
+      ],
+      [
+       "timestamp_plausible",
+       true
+      ],
+      [
+       "timestamp_fresh",
+       true
+      ],
+      [
+       "reopen_consistent",
+       true
+      ]
+     ],
+     "observed": {
+      "stamp": "2026-11-02 19:34:22",
+      "tz_method": "ex",
+      "weak_passed": true,
+      "weak_false_success": false
+     },
+     "family": "edit"
+    },
+    {
+     "action": "edit:doc-5000-lignes",
+     "passed": true,
+     "false_success": false,
+     "exit_code": 0,
+     "oracles": [
+      [
+       "process_stable",
+       true
+      ],
+      [
+       "file_changed",
+       true
+      ],
+      [
+       "file_contains",
+       true
+      ],
+      [
+       "timestamp_plausible",
+       true
+      ],
+      [
+       "timestamp_fresh",
+       true
+      ],
+      [
+       "reopen_consistent",
+       true
+      ]
+     ],
+     "observed": {
+      "stamp": "2026-11-02 19:34:24",
+      "tz_method": "ex",
+      "weak_passed": true,
+      "weak_false_success": false
+     },
+     "family": "edit"
+    },
+    {
+     "action": "capability:doc-different",
+     "passed": true,
+     "false_success": false,
+     "exit_code": 0,
+     "oracles": [
+      [
+       "process_stable",
+       true
+      ],
+      [
+       "file_changed",
+       true
+      ],
+      [
+       "file_contains",
+       true
+      ],
+      [
+       "timestamp_plausible",
+       true
+      ],
+      [
+       "timestamp_fresh",
+       true
+      ],
+      [
+       "reopen_consistent",
+       true
+      ]
+     ],
+     "observed": {
+      "stamp": "2026-11-02 19:34:26",
+      "tz_method": "ex",
+      "weak_passed": true,
+      "weak_false_success": false
+     },
+     "family": "capability"
+    }
+   ],
+   "verdict_strong_oracle": {
+    "verdict": "generalizes",
+    "scope": "new-inputs",
+    "derived_from": [
+     "edit:reference",
+     "capability:reference"
+    ],
+    "held_out": [
+     "edit:doc-different",
+     "edit:unicode",
+     "edit:doc-vide",
+     "edit:doc-5000-lignes",
+     "capability:doc-different"
+    ],
+    "held_out_count": 5,
+    "passed": 5,
+    "false_success": 0,
+    "new_families": [],
+    "constant_output_suspect": false,
+    "input_dependent_key": "stamp",
+    "reasons": [
+     "5/5 actions jamais enregistrées réussies, 0 faux succès, entrées nouvelles seulement"
+    ]
+   },
+   "verdict_weak_oracle": {
+    "verdict": "generalizes",
+    "scope": "new-inputs",
+    "derived_from": [
+     "edit:reference",
+     "capability:reference"
+    ],
+    "held_out": [
+     "edit:doc-different",
+     "edit:unicode",
+     "edit:doc-vide",
+     "edit:doc-5000-lignes",
+     "capability:doc-different"
+    ],
+    "held_out_count": 5,
+    "passed": 5,
+    "false_success": 0,
+    "new_families": [],
+    "constant_output_suspect": false,
+    "input_dependent_key": "",
+    "reasons": [
+     "5/5 actions jamais enregistrées réussies, 0 faux succès, entrées nouvelles seulement"
+    ]
+   }
+  }
+ ],
+ "capsule": {
+  "path": "capsules/bdfedit-fb3994042c04.capsule.toml",
+  "previous_capsule_binary": "25205f9b77d4",
+  "lint_ok": true,
+  "errors": [],
+  "warnings": [
+   "validation.runs < 2 (rapport : reproduire sur 2 exécutions indépendantes)"
+  ]
+ }
+}

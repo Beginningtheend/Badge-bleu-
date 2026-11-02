@@ -18,8 +18,15 @@ except ModuleNotFoundError:  # pragma: no cover
 import tomli_w
 
 from .safety import lint_shim, evaluate
+from .generalize import VERDICTS
 
 SCHEMA_VERSION = "0.1"
+CAPSULE_HEADER = (
+    "# Capsule PolyRE BDF-Lab — générée automatiquement.\n"
+    "# Une capsule « experimental » ne doit JAMAIS être appliquée silencieusement à un\n"
+    "# logiciel de production (rapport, condition 7 ; HANDOFF §4). Statut, synthétique et\n"
+    "# version Wine EXACTE sont obligatoires. Les preuves (traces) justifient chaque shim.\n\n"
+)
 VALID_STATUS = {"experimental", "validated", "rejected"}
 
 
@@ -55,13 +62,7 @@ class Capsule:
         return obj
 
     def dumps(self) -> str:
-        header = (
-            "# Capsule PolyRE BDF-Lab — générée automatiquement.\n"
-            "# Une capsule « experimental » ne doit JAMAIS être appliquée silencieusement à un\n"
-            "# logiciel de production (rapport, condition 7 ; HANDOFF §4). Statut, synthétique et\n"
-            "# version Wine EXACTE sont obligatoires. Les preuves (traces) justifient chaque shim.\n\n"
-        )
-        return header + tomli_w.dumps(self.to_toml_obj())
+        return CAPSULE_HEADER + tomli_w.dumps(self.to_toml_obj())
 
     def dump(self, path: Path) -> None:
         Path(path).write_text(self.dumps(), encoding="utf-8")
@@ -183,6 +184,20 @@ def lint_capsule(obj: dict) -> CapsuleLint:
     if status == "validated":
         if not obj.get("provenance", {}).get("signature"):
             errors.append("capsule « validated » sans signature du labo (sinon : experimental, stratégie A seulement)")
+
+    # généralisation (RESULTATS §8.10) : jamais présumée ; une capsule « validated » doit l'avoir établie
+    gen = obj.get("generalization")
+    if gen is not None:
+        v = gen.get("verdict")
+        if v not in VERDICTS:
+            errors.append(f"generalization.verdict invalide : {v!r} (attendu : {list(VERDICTS)})")
+        elif status == "validated" and v != "generalizes":
+            errors.append(f"capsule « validated » avec généralisation non établie (verdict « {v} ») : "
+                          f"le statut validated exige « generalizes » sur des actions jamais enregistrées")
+        if gen.get("held_out_count", 0) < 3:
+            warnings.append("généralisation jugée sur moins de 3 actions tenues à l'écart")
+    elif status == "validated":
+        warnings.append("capsule « validated » sans section [generalization] : généralisation non mesurée (RESULTATS §8.10)")
 
     # nombre de shims borné (candidate à l'escalade au-delà de 25)
     n_shims = len(obj.get("shim", []))

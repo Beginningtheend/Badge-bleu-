@@ -25,3 +25,14 @@ calculent leur empreinte, et pour le PDF délèguent à `pdftotext`.
 - Configs B et C : les quatre scénarios réussissent, effets vérifiés, 0 faux succès, 0 régression.
 
 Voir `RESULTATS.md` pour les mesures.
+
+## Généralisation : actions jamais enregistrées
+
+Les scénarios ci-dessus servent à **dériver** le correctif (exécutions de référence). Pour répondre à la
+question « le correctif marche-t-il sur ce que la référence n'a jamais montré ? », `tools/demo_generalization.py`
+rejoue le correctif sur des actions **tenues à l'écart** : autre document, texte Unicode, document vide, document
+de 5000 lignes, et des familles de scénario jamais utilisées pour dériver le correctif (`stats`, `export-pdf`,
+`startup`). Chaque action tourne dans un préfixe propre et est jugée par les mêmes oracles d'effet, plus un
+oracle **fort** d'horodatage (`timestamp_fresh` : l'heure enregistrée doit être celle de l'exécution, pas une
+valeur rejouée). Le verdict (`bdflab/generalize.py`) est `generalizes`, `does-not-generalize` ou `cannot-judge`
+— jamais présumé. Résultats : `RESULTATS.md` §8.10.

@@ -1,0 +1,153 @@
+# Capsule PolyRE BDF-Lab — générée automatiquement.
+# Une capsule « experimental » ne doit JAMAIS être appliquée silencieusement à un
+# logiciel de production (rapport, condition 7 ; HANDOFF §4). Statut, synthétique et
+# version Wine EXACTE sont obligatoires. Les preuves (traces) justifient chaque shim.
+
+[meta]
+schema = "0.1"
+status = "experimental"
+synthetic = true
+
+[identity]
+sha256 = "fb3994042c048d062accc5893a101c14a6ec4241994882bc9d239c79115baa3c"
+imphash = "67af8a99886955ab9b7adb919dded2ba"
+product = "bdfedit (synthetic)"
+version = "0.1.0"
+publisher = "polyre-bdf-lab (programme de test synthetique)"
+file = "bdfedit.exe"
+machine = "x86_64"
+authenticode = false
+
+[runtime]
+polyre = ">=0.4, <0.5"
+wine = "wine-11.0"
+
+[[contract]]
+kind = "dll-provide"
+dll = "bdfpdf"
+source = "catalogue:bdfpdf"
+sha256 = "d1c08517b88c9495479430a629faf27d8ecc54918f5d9a73495a7f418b0d13c2"
+mode = "native"
+
+[[shim]]
+dll = "kernel32.dll"
+function = "Heap32First"
+strategy = "A"
+api_class = "output-buffer"
+returns = 0
+last_error = 120
+
+[[shim]]
+dll = "kernel32.dll"
+function = "Heap32Next"
+strategy = "A"
+api_class = "output-buffer"
+returns = 0
+last_error = 120
+
+[[shim]]
+dll = "kernel32.dll"
+function = "SystemTimeToTzSpecificLocalTimeEx"
+strategy = "A"
+api_class = "output-buffer"
+returns = 0
+last_error = 120
+
+[[shim]]
+dll = "shcore.dll"
+function = "IsAppCompatModeEnabled"
+strategy = "S"
+api_class = "state-query"
+returns = 1
+tainted = true
+
+[validation]
+scenarios = [
+    "edit:doc-different",
+    "edit:unicode",
+    "edit:doc-vide",
+    "edit:doc-5000-lignes",
+    "capability:doc-different",
+    "stats:jamais-derive",
+    "export-pdf:doc-different",
+    "startup:temoin",
+]
+runs = 1
+machines = 1
+date = "2026-11-02"
+expires_on = "changement de runtime (Wine ou PolyRE)"
+
+[validation.results.edit_doc-different]
+passed = true
+false_success = false
+
+[validation.results.edit_unicode]
+passed = true
+false_success = false
+
+[validation.results.edit_doc-vide]
+passed = true
+false_success = false
+
+[validation.results.edit_doc-5000-lignes]
+passed = true
+false_success = false
+
+[validation.results.capability_doc-different]
+passed = true
+false_success = false
+
+[validation.results.stats_jamais-derive]
+passed = true
+false_success = false
+
+[validation.results.export-pdf_doc-different]
+passed = true
+false_success = false
+
+[validation.results.startup_temoin]
+passed = true
+false_success = false
+
+[provenance]
+generated_by = "bdf-lab 0.1"
+reviewed_by = ""
+signature = ""
+
+[notes]
+lines = [
+    "validation = actions tenues à l'écart (généralisation), 1 exécution chacune dans un préfixe propre ; l'expérience A/B/C à 2 exécutions porte sur le binaire antérieur (capsule bdfedit-25205f9b77d4.capsule.toml)",
+]
+
+[generalization]
+verdict = "generalizes"
+scope = "new-inputs-and-new-scenarios"
+derived_from = [
+    "edit:reference",
+    "capability:reference",
+]
+held_out = [
+    "edit:doc-different",
+    "edit:unicode",
+    "edit:doc-vide",
+    "edit:doc-5000-lignes",
+    "capability:doc-different",
+    "stats:jamais-derive",
+    "export-pdf:doc-different",
+    "startup:temoin",
+]
+held_out_count = 8
+passed = 8
+false_success = 0
+new_families = [
+    "export-pdf",
+    "startup",
+    "stats",
+]
+constant_output_suspect = false
+oracle_strength = "strong (timestamp_fresh + garde-fou sortie constante)"
+reasons = [
+    "8/8 actions jamais enregistrées réussies, 0 faux succès, 3 famille(s) de scénario jamais apprise(s) : ['export-pdf', 'startup', 'stats']",
+]
+input_dependent_key = "stamp"
+note = "mesuré par tools/demo_generalization.py ; programme synthétique"

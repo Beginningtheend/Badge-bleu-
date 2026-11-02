@@ -89,3 +89,31 @@ def test_lint_F_same_perimeter_as_S():
     from bdflab.safety import lint_shim
     assert not [i for i in lint_shim("B", "state-query", "F", False, True, 1, 0, "experimental") if i.level == "error"]
     assert any(i.code == "F-forbidden" for i in lint_shim("B", "output-buffer", "F", True, True, 1, 0, "experimental"))
+
+
+def test_fixture_stable_under_two_inputs_is_admitted():
+    from bdflab.speculate import fixture_stability
+    fx = {"returns": 1, "source": "x", "observations": [{"input": "A", "returns": 1, "last_error": 0},
+                                                        {"input": "B", "returns": 1, "last_error": 0}]}
+    ok, why = fixture_stability(fx)
+    assert ok and "stable" in why
+    c, _ = candidate_answers("state-query", "BOOL", synthetic=True, has_output_pointer=False, fixture=fx)
+    assert c[0].strategy == "F" and "stable" in c[0].label
+
+
+def test_fixture_varying_with_input_is_a_value_not_a_rule():
+    from bdflab.speculate import fixture_stability
+    fx = {"returns": 1, "source": "x", "observations": [{"input": "A", "returns": 1, "last_error": 0},
+                                                        {"input": "B", "returns": 0, "last_error": 0}]}
+    ok, why = fixture_stability(fx)
+    assert not ok and "fonderie" in why
+    c, _ = candidate_answers("state-query", "BOOL", synthetic=True, has_output_pointer=False, fixture=fx)
+    assert all(x.strategy != "F" for x in c)   # aucune récitation : A puis S, jugés par l'oracle
+
+
+def test_fixture_single_observation_is_flagged_not_refused():
+    from bdflab.speculate import fixture_stability
+    ok, why = fixture_stability({"returns": 1})
+    assert ok and "unique" in why
+    ok2, why2 = fixture_stability({"observations": [{"input": "A", "returns": 1}]})
+    assert not ok2 and "seule entrée" in why2

@@ -63,6 +63,11 @@ ses résultats sont convaincants. Les résultats réellement obtenus sont dans [
     de capsule — DLL natives hors plancher priorisées par le statut Wine, registre, polices, fichiers.
 17. **Balayage de portée** (`bdflab/sweep.py`) : analyse statique d'un corpus de vrais exécutables
     (sans exécution) pour mesurer l'étendue de l'analyseur.
+18. **Juge de généralisation** (`bdflab/generalize.py`) : un correctif dérivé d'actions *enregistrées* est jugé
+    sur des actions *jamais enregistrées* (autres documents, Unicode, vide, volumineux, scénarios non appris) ;
+    verdict en trois valeurs (`generalizes` / `does-not-generalize` / `cannot-judge`), jamais présumé, avec un
+    garde-fou « sortie constante » (une valeur rejouée n'est pas une règle) et un oracle fort d'horodatage
+    frais ; section `[generalization]` de la capsule, exigée par le linter pour le statut `validated`.
 
 ## Voie de compatibilité retenue (v0.1)
 
@@ -109,6 +114,7 @@ python3 -m bdflab.knowledge.build_wine_db --source <wine-11.0-src> --install /op
 # ou, étape par étape :
 python3 -m bdflab.run_experiment --exe testapps/bdfedit/bin/bdfedit.exe --synthetic --runs 2 --configs A,B,C
 python3 -m bdflab.sweep --dir <dossier-d-exes> --out results/sweep.json   # balayage statique
+python3 tools/demo_generalization.py   # généralisation : règle / valeur rejouée (contrôle négatif) / règle synthétisée
 python3 -m pytest tests/ -q                                               # tests automatisés
 ```
 
@@ -125,7 +131,7 @@ results/           journaux, traces (preuves), fichiers produits, results.json, 
 tests/             tests automatisés (pytest)
 docs/              extraits du rapport + dossier de passation
 scenarios/         description des scénarios et de leurs oracles
-tools/             scripts utilitaires (récupération du corpus)
+tools/             scripts utilitaires (corpus) et démonstrations (recherche par oracle, fonderie, généralisation)
 ```
 
 ## Sûreté et limites (résumé)
