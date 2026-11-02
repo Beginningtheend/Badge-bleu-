@@ -40,3 +40,16 @@ def test_priority_absent_then_stubby(tmp_path):
                          r"C:\Windows\System32\mfc140u.dll": 1}, "reg_keys": {}, "file_paths": {}}
     r = build_recipe(cap, r"C:\App", [], "test", FakeDB())
     assert [x["dll"] for x in r.native_dll_candidates] == ["mfc140u", "propsys", "version"]
+
+
+def test_extract_script_copies_candidates_not_floor():
+    from bdflab.capture_import import to_extract_script
+    cap = parse_procmon_csv(REPO / "fixtures/procmon-exemple.csv")
+    r = build_recipe(cap, r"C:\Apps\bdfedit", ["s1"], "procmon-csv")
+    ps = to_extract_script(r)
+    assert "propsys.dll" in ps and "Copy-Item" in ps
+    # le plancher apparaît seulement en commentaire, jamais copié
+    assert "[plancher] ntdll" in ps
+    assert not any(line.startswith("Copy-Item") and "ntdll.dll" in line for line in ps.splitlines())
+    assert "reg export 'HKLM\\SYSTEM\\CurrentControlSet\\Control\\TimeZoneInformation'" in ps
+    assert "MANIFEST-sha256.csv" in ps

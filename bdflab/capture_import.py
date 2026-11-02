@@ -130,3 +130,48 @@ def build_recipe(capture: dict, app_root: str, scenarios: list[str], source_kind
                   registry_keys=reg, fonts=sorted(fonts), other_files=sorted(others)[:200],
                   stats={"dll_loads": sum(capture["dll_paths"].values()), "distinct_dlls": len(capture["dll_paths"]),
                          "reg_keys": len(reg), "native_candidates": len(cand), "floor_seen": len(floor)}, notes=notes)
+
+
+def to_extract_script(recipe: "Recipe", out_dir_name: str = "extrait-capsule") -> str:
+    """Génère le script PowerShell à exécuter DANS la VM Windows de l'utilisateur : il copie dans un dossier
+    exactement ce que la recette retient (DLL hors plancher, fichiers de l'appli, polices) et exporte les clés
+    de registre en .reg. Rien du plancher n'est copié. Le dossier reste chez l'utilisateur."""
+    L = []
+    L.append("# Script d'extraction généré par polyre-bdf-lab (capture_import.to_extract_script).")
+    L.append("# À exécuter DANS la VM Windows de l'utilisateur (PowerShell, droits lecture suffisants).")
+    L.append("# Il copie ce que l'application a chargé — HORS plancher — dans un dossier local.")
+    L.append("# Les fichiers copiés sont ceux de votre licence Windows : ils ne doivent PAS être redistribués.")
+    L.append(f"$out = Join-Path (Get-Location) '{out_dir_name}'")
+    for sub in ("dlls", "app", "fonts", "registry"):
+        L.append(f"New-Item -ItemType Directory -Force -Path (Join-Path $out '{sub}') | Out-Null")
+    L.append("")
+    L.append("# --- DLL natives hors plancher (priorisées par le statut Wine) ---")
+    for c in recipe.native_dll_candidates:
+        src = c["path"].replace("'", "''")
+        L.append(f"Copy-Item -LiteralPath '{src}' -Destination (Join-Path $out 'dlls') -ErrorAction SilentlyContinue  # {c['wine_status']}")
+    L.append("")
+    L.append("# --- plancher : volontairement NON copié (Wine le fournit) ---")
+    for f in recipe.floor_refused:
+        L.append(f"# [plancher] {f['dll']}")
+    L.append("")
+    L.append("# --- fichiers de l'application ---")
+    for f in recipe.app_files:
+        src = f.replace("'", "''")
+        L.append(f"Copy-Item -LiteralPath '{src}' -Destination (Join-Path $out 'app') -ErrorAction SilentlyContinue")
+    L.append("")
+    L.append("# --- polices ---")
+    for f in recipe.fonts:
+        src = f.replace("'", "''")
+        L.append(f"Copy-Item -LiteralPath '{src}' -Destination (Join-Path $out 'fonts') -ErrorAction SilentlyContinue")
+    L.append("")
+    L.append("# --- registre : export des clés lues (format .reg, importable dans le préfixe Wine) ---")
+    for i, k in enumerate(recipe.registry_keys):
+        if not re.match(r"^(HKLM|HKCU|HKCR|HKU|HKCC)\\", k, re.I):
+            continue
+        safe = re.sub(r"[^A-Za-z0-9]+", "_", k)[:80]
+        L.append(f"reg export '{k}' (Join-Path $out 'registry\\{i:03d}_{safe}.reg') /y 2>$null")
+    L.append("")
+    L.append("# --- manifeste d'empreintes (seul élément destiné à circuler) ---")
+    L.append("Get-ChildItem -Recurse -File $out | Get-FileHash -Algorithm SHA256 | Select-Object Hash, Path | Export-Csv (Join-Path $out 'MANIFEST-sha256.csv') -NoTypeInformation")
+    L.append("Write-Host \"Extraction terminée dans $out — copiez le dossier sur la machine Linux (il reste privé).\"")
+    return "\n".join(L) + "\n"
