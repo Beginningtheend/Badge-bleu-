@@ -65,3 +65,12 @@ def test_wine_log_registry_gets_hive_prefix(tmp_path):
     from bdflab.capture_import import to_extract_script
     r = build_recipe(cap, r"C:\App", [], "wine-log")
     assert sum(1 for l in to_extract_script(r).splitlines() if l.startswith("reg export")) == 2
+
+
+def test_wine_log_registry_ignores_opened_handles_and_junk(tmp_path):
+    log = tmp_path / "w.log"
+    log.write_text('0024:Call ADVAPI32.RegQueryValueExW(00000040,7ffe L"#",00000000,7ffe,7ffe,7ffe) ret=140001\n'
+                   '0024:Call ADVAPI32.RegOpenKeyExW(00000048,7ffe L"##?#HID#VID_845E",00000000,00020019,7ffe) ret=140001\n'
+                   '0024:Call ADVAPI32.RegOpenKeyExW(80000002,7ffe L"Software\\\\Wine",00000000,00020019,7ffe) ret=140001\n')
+    cap = parse_wine_log(log)
+    assert set(cap["reg_keys"]) == {"HKLM\\Software\\Wine"}

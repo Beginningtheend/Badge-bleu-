@@ -8,7 +8,9 @@ App-V (capture → paquet portable). Ici la cible du paquet est un **préfixe Wi
 Formats de capture acceptés :
   * **Process Monitor** (CSV exporté depuis la VM Windows : "Time of Day","Process Name","PID","Operation","Path","Result","Detail") ;
   * **journal Wine** (`+loaddll` et `+relay` : lignes « Loaded L"..." », appels Reg*) — permet de démontrer le
-    pipeline sur Linux et d'affiner une capture Windows avec ce que Wine charge réellement.
+    pipeline sur Linux et d'affiner une capture Windows avec ce que Wine charge réellement. Limite : pour le
+    REGISTRE, seuls les appels depuis une ruche prédéfinie sont exploitables (le relais ne montre pas le chemin
+    des handles déjà ouverts) ; Process Monitor reste la source de référence.
 
 Sortie : une **recette** (JSON) listant, par catégorie, ce qu'il faut extraire du Windows de l'utilisateur :
 DLL natives candidates (hors plancher, avec le statut Wine de chacune pour prioriser), fichiers de l'appli,
@@ -96,7 +98,13 @@ def parse_wine_log(path: Path) -> dict:
                     hive = {"80000000": "HKCR", "80000001": "HKCU", "80000002": "HKLM",
                             "80000003": "HKU", "80000005": "HKCC"}.get(root)
                     key = ws[0].replace("\\\\", "\\")
-                    reg_keys[(hive + "\\" + key) if hive and not re.match(r"^HK", key, re.I) else key] += 1
+                    # Fiable seulement depuis une ruche PRÉDÉFINIE : avec un handle déjà ouvert, le relais ne
+                    # donne pas le chemin complet (il faudrait suivre les handles) — on ignore ces appels.
+                    # Process Monitor (côté Windows) reste la source de référence pour le registre.
+                    if hive and re.match(r"^[A-Za-z0-9]", key) and "##?#" not in key:
+                        reg_keys[hive + "\\" + key] += 1
+                    elif not hive and re.match(r"^HK(LM|CU|CR|U|CC)\\", key, re.I):
+                        reg_keys[key] += 1
     return {"dll_paths": dll_paths, "reg_keys": reg_keys, "file_paths": file_paths}
 
 

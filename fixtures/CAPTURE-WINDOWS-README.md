@@ -17,3 +17,6 @@ recette, puis un dossier réutilisable **sans VM** (Wine + dossier).
 
 Ce qui ne s'extrait pas : le plancher (`ntdll`, `win32u`, `kernelbase`, `kernel32`, `user32`, `gdi32`, noyau),
 les services Windows vivants, les pilotes. Wine fournit le socle ; la recette fournit le reste.
+
+Note : un journal Wine (`+loaddll`, `+relay`) peut aussi alimenter la recette côté Linux, mais pour le **registre**
+il n'est que partiel (seules les clés ouvertes depuis une ruche prédéfinie sont lisibles) — Process Monitor fait foi.
