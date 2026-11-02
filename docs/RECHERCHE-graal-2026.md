@@ -177,6 +177,33 @@ Faits déjà acquis : `lxcore.sys` fermé (§1), glu noyau refusée par Linux (�
 transférables de WSL1/Drawbridge, pourquoi Longene est mort, et si des composants ReactOS sont réutilisables
 en bibliothèque. Verdict détaillé à venir.
 
+## 10 bis. Retourner le problème : il n'y a pas UN univers Windows, il y en a plusieurs
+
+« Faire tourner les applis Windows » traite un ensemble hétérogène comme un seul problème. En le
+**segmentant par runtime**, plusieurs sous-univers ont déjà une voie **sans Wine** — c'est là que le mot
+« graal » a un sens partiel et honnête :
+
+| Sous-univers | Voie 2026 | Ce qui reste dur |
+|---|---|---|
+| **.NET / WPF** | *Avalonia XPF* : applications WPF existantes « with little to no changes required » sur Linux ; 429 contrôles testés, ~90 % fonctionnels (base de compatibilité éditeur) ; XPF 2.0 annoncé (Avalonia 12, Wayland). **Commercial**, licence par appli et par plateforme ; Avalonia lui-même est MIT. | contrôles tiers (ex. Telerik) à réécrire ; P/Invoke vers Win32 |
+| **.NET / WinForms** | migration (guides Avalonia), pas exécution telle quelle | tout l'existant WinForms non porté |
+| **Electron / Chromium, Java, Qt** | le vendeur livre souvent Linux ; sinon le build Windows tourne généralement bien sous Wine | rien de structurel |
+| **Win32 natif (C/C++, MFC, Delphi)** | **Wine** — c'est ici que vivent les stubs, et donc le labo | l'écart sémantique de l'API |
+| **Pilotes / anti-triche noyau / DRM** | aucune voie (§11) | décision d'éditeur, pas technique |
+
+**Implication pour PolyRE** : le **routeur** d'entrée devrait d'abord **classer le binaire par runtime**
+(PE natif vs assembly .NET vs Electron…) et n'envoyer vers Wine + capsules que le sous-univers Win32 natif.
+Pour .NET, l'option « runtime .NET natif Linux + XPF » peut battre Wine en fidélité, au prix d'une licence.
+(Vérifications : ce sont des **affirmations d'éditeur**, pas des tests indépendants.)
+[Avalonia XPF](https://avaloniaui.net/blog/wpf-modernization-in-2026), [comparatif](https://avaloniaui.net/wpf-compare), [Avalonia](https://github.com/AvaloniaUI/Avalonia)
+
+**L'extrême « partout » reste Wine.** *Boxedwine* fait tourner un Wine 32 bits **non modifié** dans un Linux
+émulé, compilé en WebAssembly (navigateur, Linux, macOS, Windows) — environ 25 % de la vitesse hôte selon
+son auteur, jouable pour des applications légères, pas pour des jeux exigeants ; activité 2025-2026 non
+confirmée par des notes de version officielles. Cela confirme la thèse : même en allant jusqu'au navigateur,
+on **transporte Wine**, on ne le remplace pas.
+[XDA](https://www.xda-developers.com/boxedwine-emulate-windows-applications-web-browsers/), [Boxedwine wiki](https://github.com/danoon2/Boxedwine/wiki)
+
 ## 11. La frontière : anti-triche noyau et DRM (classe D)
 
 Position officielle Steamworks : EAC et BattlEye fonctionnent sous Proton **si l'éditeur active** la prise
