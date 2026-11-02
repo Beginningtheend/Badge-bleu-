@@ -110,14 +110,14 @@ oracle d'effet, original). **Test labo : oui** (séquentiel déjà fait ; le vra
 
 ## I. IA au moment de la construction (jamais à l'exécution)
 
-### 11. Fonderie de shims hors ligne, prouvés par oracle avant signature
+### 11. Fonderie de shims hors ligne, prouvés par oracle avant signature — *réalisée*
 **Mécanisme.** Un modèle, **hors ligne**, propose une implémentation de shim à partir des en-têtes/doc ;
 elle n'est acceptée que si les **oracles d'effet** la valident sur données jetables ; une fois signée, elle
 tourne **sans aucune IA** à l'exécution (contrainte PolyRE respectée). **Nouveauté : partielle.** La synthèse
 d'API par LLM validée par tests existe (surtout en Java) ; l'obstacle noté par la recherche est justement
 « l'oracle exige de connaître le comportement attendu ». Le labo y répond par des **oracles d'effet sur
-données jetables** et la **séparation stricte build-time / runtime**. **Test labo : oui** (le labo fournit déjà
-les oracles ; la génération peut être branchée hors ligne).
+données jetables** et la **séparation stricte build-time / runtime**. **Test labo : FAIT** (`bdflab/foundry.py`) : une proposition correcte est acceptée, une proposition « succès
+sans sortie » est rejetée comme faux succès par l'oracle d'horodatage ; voir `RESULTATS.md` §8.5.
 
 ## J. Compatibilité « par le but »
 
@@ -136,7 +136,7 @@ Linux, en ne gardant du binaire Windows que l'UI. « Débile » : on contourne l
 2. **n°6 Communs adressé par contenu** — nouveauté nette vs protonfixes ; format déjà en place.
 3. **n°5 Enregistre-une-fois-rejoue** — gap produit réel (record-replay aujourd'hui Linux-only).
 4. **n°3 Pré-réponse par analyse de branches** — *déjà réelle*, prédiction confirmée par l'oracle.
-5. **n°11 Fonderie de shims hors ligne** — répond à l'obstacle « oracle » identifié par la recherche.
+5. **n°11 Fonderie de shims hors ligne** — *déjà réelle* ; la proposition fausse est bien rejetée.
 
 ## Ce que la réalité impose (honnêteté)
 

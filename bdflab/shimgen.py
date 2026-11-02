@@ -48,6 +48,8 @@ class ShimSpec:
     last_error: object       # code SetLastError, ou None
     tainted: bool = False    # S => teinté/journalisé
     note: str = ""
+    custom_c: str | None = None   # implémentation C COMPLÈTE proposée (fonderie) ; remplace le stub généré.
+                                  # Doit définir le symbole « bdf_impl_<func> » (signature réelle).
 
     def to_dict(self) -> dict:
         return asdict(self)
@@ -163,8 +165,11 @@ def generate_shim_dll(original_dll: str, all_imported_funcs: list[str], shims: l
         "/* DLL proxy générée par bdflab.shimgen — NE PAS ÉDITER À LA MAIN. */",
         "/* Forwarders vers " + orig_stem_up + " ; implémentations réelles pour les fonctions corrigées. */",
         "#define WIN32_LEAN_AND_MEAN",
+        "#define _WIN32_WINNT 0x0601   /* API Windows 7+ visibles (structures dynamiques de fuseau, etc.) */",
         "#include <windows.h>",
+        "#include <timezoneapi.h>",
         "#include <stdio.h>",
+        "#include <string.h>",
         "",
         "static void bdf_log(const char *fn, const char *strat, const char *detail) {",
         "    const char *path = getenv(\"BDFLAB_SHIM_LOG\");",
@@ -184,6 +189,13 @@ def generate_shim_dll(original_dll: str, all_imported_funcs: list[str], shims: l
         isym = "bdf_impl_" + fn
         impl_symbol[fn] = isym
         tainted = "S-tainted" if s.strategy == "S" else "A-declared-absence"
+        if s.custom_c:
+            # fonderie : implémentation proposée, émise telle quelle (elle sera jugée par l'oracle)
+            lines.append(f"/* {fn}: implémentation PROPOSÉE (fonderie), stratégie {s.strategy}; {s.note} */")
+            lines.append(s.custom_c.strip())
+            lines.append("")
+            exports_impl.append(fn)
+            continue
         set_err = f"    SetLastError({int(s.last_error)});\n" if s.last_error not in (None,) else ""
         # Signature (void) : sur l'ABI Win64 (x86_64) l'appelant nettoie la pile et passe les
         # arguments en registres, donc une implémentation sans paramètre est sûre (les arguments

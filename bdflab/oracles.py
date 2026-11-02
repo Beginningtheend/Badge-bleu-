@@ -105,6 +105,26 @@ def oracle_pdf_text(path: Path, expected_needle: str) -> OracleResult:
                         kind="independent", false_success=not ok and p.stat().st_size > 0)
 
 
+def oracle_timestamp_plausible(path: Path, announced_saved: bool = True) -> OracleResult:
+    """Le pied de page « saved-at AAAA-MM-JJ hh:mm:ss » porte une date plausible (année 2020-2100, champs valides).
+
+    Attrape une implémentation qui annonce le succès en laissant le tampon de sortie à zéro
+    (horodatage « 0000-00-00 ») : effet annoncé mais contenu corrompu = faux succès.
+    """
+    import re
+    p = Path(path)
+    if not p.is_file():
+        return OracleResult("timestamp_plausible", False, f"{p} absent", kind="independent", false_success=announced_saved)
+    text = p.read_text(encoding="utf-8", errors="replace")
+    m = re.search(r"saved-at (\d{4})-(\d{2})-(\d{2}) (\d{2}):(\d{2}):(\d{2})", text)
+    if not m:
+        return OracleResult("timestamp_plausible", False, "pied de page saved-at absent", kind="independent", false_success=announced_saved)
+    y, mo, d, h, mi, se = (int(x) for x in m.groups())
+    ok = 2020 <= y <= 2100 and 1 <= mo <= 12 and 1 <= d <= 31 and h < 24 and mi < 60 and se < 60
+    return OracleResult("timestamp_plausible", ok, f"saved-at {m.group(0)[9:]} ({'plausible' if ok else 'INVALIDE'})",
+                        kind="independent", false_success=announced_saved and not ok)
+
+
 @dataclass
 class ScenarioOutcome:
     scenario: str

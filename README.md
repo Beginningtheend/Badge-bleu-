@@ -51,9 +51,11 @@ ses résultats sont convaincants. Les résultats réellement obtenus sont dans [
     et laisse l'oracle d'effet choisir (stratégie S incluse, là où la table de sûreté l'autorise).
 12. **Pré-réponse par analyse des branches** (`bdflab/branch_hint.py`) : lit le code après l'appel
     (Capstone) pour prédire la réponse attendue et ordonner la recherche ; l'oracle reste juge.
-13. **Communs de capsules adressé par contenu** (`bdflab/commons.py`) + flux « déposer l'exe »
+13. **Fonderie de shims** (`bdflab/foundry.py`) : toute implémentation proposée (humain ou modèle hors
+    ligne) est compilée, rejouée et acceptée seulement si les oracles d'effet passent sans faux succès.
+14. **Communs de capsules adressé par contenu** (`bdflab/commons.py`) + flux « déposer l'exe »
     (`bdflab/fix.py`) : chercher/émettre une capsule par empreinte du binaire (sha256, imphash dégradé).
-14. **Balayage de portée** (`bdflab/sweep.py`) : analyse statique d'un corpus de vrais exécutables
+15. **Balayage de portée** (`bdflab/sweep.py`) : analyse statique d'un corpus de vrais exécutables
     (sans exécution) pour mesurer l'étendue de l'analyseur.
 
 ## Voie de compatibilité retenue (v0.1)

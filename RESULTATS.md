@@ -284,3 +284,22 @@ confirme que S est la seule réponse qui fait passer l'oracle : **prédiction st
 concordent**. Sur `SystemTimeToTzSpecificLocalTimeEx`, l'indice reconnaît le repli documenté ; la sûreté
 n'autorise que A, qui passe. L'indice est un accélérateur et une explication, pas un juge : l'oracle reste
 seul juge.
+
+**8.5 Fonderie de shims : toute implémentation proposée est jugée par l'oracle (idée n°11)**
+(`bdflab/foundry.py`, `tools/demo_foundry.py`, `results/foundry-demo.json`). Une implémentation d'une
+fonction manquante peut être proposée par un humain ou par un modèle **hors ligne** ; la fonderie ne lui
+fait aucune confiance : elle la compile dans la DLL de compatibilité, rejoue le scénario en préfixe propre
+et n'accepte que si **tous** les oracles d'effet passent sans faux succès. À l'exécution, aucune IA ne
+tourne : seul le code accepté est embarqué. Démonstration sur `SystemTimeToTzSpecificLocalTimeEx` :
+
+| Proposition | Fichier enregistré avec la marque | Horodatage | Verdict |
+|---|---|---|---|
+| correcte (délègue au non-Ex) | oui | plausible, chemin **ex** réellement emprunté | **ACCEPTÉE** |
+| fausse (renvoie TRUE sans remplir la sortie) | **oui** | `0000-00-00` (tampon laissé vide) | **REJETÉE : faux succès** |
+
+Le point décisif : la proposition fausse **aurait trompé** une vérification naïve (« le fichier est-il
+enregistré avec la marque ? » → oui). Seul l'oracle d'effet plus profond (plausibilité de l'horodatage) a
+révélé la corruption. C'est le principe du rapport — détection par oracle d'effet, jamais par code de
+retour — appliqué à la validation d'implémentations synthétisées. Cela répond à l'obstacle relevé par la
+recherche sur la synthèse d'API par modèle (« l'oracle exige de connaître le comportement attendu ») : ici
+l'oracle porte sur l'**effet observable** sur données jetables, pas sur une spécification formelle.

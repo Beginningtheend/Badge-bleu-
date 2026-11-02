@@ -1,0 +1,120 @@
+[
+ {
+  "proposal": {
+   "dll": "kernel32",
+   "func": "SystemTimeToTzSpecificLocalTimeEx",
+   "ret_type": "BOOL",
+   "api_class": "output-buffer",
+   "author": "offline-model (proposition correcte)",
+   "custom_c": "\nint bdf_impl_SystemTimeToTzSpecificLocalTimeEx(const DYNAMIC_TIME_ZONE_INFORMATION *dtzi,\n                                               const SYSTEMTIME *utc, LPSYSTEMTIME local)\n{\n    TIME_ZONE_INFORMATION tzi;\n    const TIME_ZONE_INFORMATION *p = NULL;\n    if (dtzi) { memcpy(&tzi, dtzi, sizeof(tzi)); p = &tzi; }   /* préfixe commun des deux structures */\n    bdf_log(\"SystemTimeToTzSpecificLocalTimeEx\", \"IMPL\", \"delegate-to-non-Ex\");\n    return SystemTimeToTzSpecificLocalTime((TIME_ZONE_INFORMATION *)p, utc, local);\n}\n",
+   "rationale": "délégation au non-Ex"
+  },
+  "accepted": true,
+  "oracles": [
+   {
+    "name": "process_stable",
+    "passed": true,
+    "detail": "code de sortie 0",
+    "kind": "startup",
+    "false_success": false
+   },
+   {
+    "name": "file_changed",
+    "passed": true,
+    "detail": "sha256 5af845e2e3618e22 (modifié)",
+    "kind": "effect",
+    "false_success": false
+   },
+   {
+    "name": "file_contains",
+    "passed": true,
+    "detail": "motif présent : 'foundry-marker-4420'",
+    "kind": "effect",
+    "false_success": false
+   },
+   {
+    "name": "timestamp_plausible",
+    "passed": true,
+    "detail": "saved-at 2026-11-02 16:46:32 (plausible)",
+    "kind": "independent",
+    "false_success": false
+   },
+   {
+    "name": "reopen_consistent",
+    "passed": true,
+    "detail": "relecture : motif présent",
+    "kind": "independent",
+    "false_success": false
+   },
+   {
+    "name": "tz_method_info",
+    "passed": true,
+    "detail": "method=ex stamp=2026-11-02 16:46:32",
+    "kind": "effect",
+    "false_success": false
+   }
+  ],
+  "false_success": false,
+  "detail": "process_stable=ok; file_changed=ok; file_contains=ok; timestamp_plausible=ok; reopen_consistent=ok; tz_method_info=ok",
+  "note": "ACCEPTÉE : effets vérifiés par oracle indépendant, sans faux succès ; éligible à la capsule (aucune IA à l'exécution)"
+ },
+ {
+  "proposal": {
+   "dll": "kernel32",
+   "func": "SystemTimeToTzSpecificLocalTimeEx",
+   "ret_type": "BOOL",
+   "api_class": "output-buffer",
+   "author": "offline-model (proposition fausse : succès sans sortie)",
+   "custom_c": "\nint bdf_impl_SystemTimeToTzSpecificLocalTimeEx(const DYNAMIC_TIME_ZONE_INFORMATION *dtzi,\n                                               const SYSTEMTIME *utc, LPSYSTEMTIME local)\n{\n    (void)dtzi; (void)utc; (void)local;\n    bdf_log(\"SystemTimeToTzSpecificLocalTimeEx\", \"IMPL\", \"FAKE-success-without-filling-output\");\n    return 1;   /* « réussit » sans écrire la sortie : le programme horodatera 0000-00-00 */\n}\n",
+   "rationale": "retourne TRUE sans remplir"
+  },
+  "accepted": false,
+  "oracles": [
+   {
+    "name": "process_stable",
+    "passed": true,
+    "detail": "code de sortie 0",
+    "kind": "startup",
+    "false_success": false
+   },
+   {
+    "name": "file_changed",
+    "passed": true,
+    "detail": "sha256 7bc159f34edf1ef8 (modifié)",
+    "kind": "effect",
+    "false_success": false
+   },
+   {
+    "name": "file_contains",
+    "passed": true,
+    "detail": "motif présent : 'foundry-marker-4420'",
+    "kind": "effect",
+    "false_success": false
+   },
+   {
+    "name": "timestamp_plausible",
+    "passed": false,
+    "detail": "saved-at 0000-00-00 00:00:00 (INVALIDE)",
+    "kind": "independent",
+    "false_success": true
+   },
+   {
+    "name": "reopen_consistent",
+    "passed": true,
+    "detail": "relecture : motif présent",
+    "kind": "independent",
+    "false_success": false
+   },
+   {
+    "name": "tz_method_info",
+    "passed": true,
+    "detail": "method=ex stamp=0000-00-00 00:00:00",
+    "kind": "effect",
+    "false_success": false
+   }
+  ],
+  "false_success": true,
+  "detail": "process_stable=ok; file_changed=ok; file_contains=ok; timestamp_plausible=ÉCHEC; reopen_consistent=ok; tz_method_info=ok",
+  "note": "REJETÉE : succès annoncé mais effet absent/incorrect (faux succès)"
+ }
+]
