@@ -1,0 +1,45 @@
+{
+ "func": "shcore.IsAppCompatModeEnabled",
+ "api_class": "state-query",
+ "selected": {
+  "strategy": "S",
+  "returns": 1,
+  "last_error": null,
+  "label": "S:TRUE"
+ },
+ "reason": "aucune réponse A ne passe ; « S:TRUE » (succès fabriqué) fait passer l'oracle d'effet, sans faux succès, et la table de sûreté l'autorise pour « state-query » (teinté et journalisé)",
+ "trials": [
+  {
+   "candidate": {
+    "strategy": "A",
+    "returns": 0,
+    "last_error": 120,
+    "label": "A:0+last_error=120"
+   },
+   "passed": false,
+   "false_success": false,
+   "detail": "exit=2 events=['CAP', 'CAP-UNAVAILABLE'] changed=False marker=False"
+  },
+  {
+   "candidate": {
+    "strategy": "S",
+    "returns": 1,
+    "last_error": null,
+    "label": "S:TRUE"
+   },
+   "passed": true,
+   "false_success": false,
+   "detail": "exit=0 events=['CAP', 'MODIFIED', 'OPENED', 'SAVED', 'TZ'] changed=True marker=True"
+  }
+ ],
+ "safety": {
+  "strategy_default": "A",
+  "a_allowed": true,
+  "s_allowed_lab": true,
+  "s_allowed_production": false,
+  "reasons": [
+   "A (absence déclarée) autorisé : réponse « non implémenté » sans rien fabriquer — stratégie par défaut",
+   "S (succès fabriqué) autorisé en laboratoire sous teinte et journal (conditions 2,4,5,6)"
+  ]
+ }
+}

@@ -29,6 +29,10 @@
 WINBASEAPI BOOL WINAPI SystemTimeToTzSpecificLocalTimeEx(const DYNAMIC_TIME_ZONE_INFORMATION *, const SYSTEMTIME *, LPSYSTEMTIME);
 #endif
 #include <tlhelp32.h>
+/* Fonction de capacité, importée statiquement (lib d'import générée) : shcore.IsAppCompatModeEnabled.
+ * C'est un VRAI stub de Wine 11.0 ; l'appeler sous Wine standard lève EXCEPTION_WINE_STUB.
+ * Le programme ne poursuit l'enregistrement QUE si la capacité est signalée disponible (retour TRUE). */
+__declspec(dllimport) BOOL WINAPI IsAppCompatModeEnabled(void);
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -298,9 +302,29 @@ static int cmd_stats(void)
     return 0;
 }
 
+/*
+ * Scénario « capability » : l'enregistrement est conditionné à une capacité optionnelle signalée par
+ * IsAppCompatModeEnabled() (stub Wine). Chemin nominal Windows : la capacité répond, le programme
+ * enregistre. Sous Wine nu : plantage (stub). Avec une réponse « absence déclarée » (FALSE), le
+ * programme renonce proprement (exit 2) SANS enregistrer : la bonne réponse, ici, est un SUCCÈS
+ * fabriqué (TRUE), que le laboratoire doit DÉCOUVRIR par recherche + oracle, et seulement si la
+ * table de sûreté l'autorise (requête d'état sans tampon de sortie).
+ */
+static int cmd_capability(const wchar_t *in, const wchar_t *outpath, const char *text)
+{
+    SetLastError(0);
+    BOOL enabled = IsAppCompatModeEnabled();
+    out("BDFEDIT|CAP|enabled=%d|err=%lu", enabled, GetLastError());
+    if (!enabled) {
+        out("BDFEDIT|CAP-UNAVAILABLE|feature=save-gated");
+        return 2;  /* renoncement propre : AUCUN enregistrement */
+    }
+    return cmd_edit(in, outpath, text);
+}
+
 static int usage(void)
 {
-    out("BDFEDIT|USAGE|cmds=--version;idle <s>;edit <in> <out> <text>;show <file>;stats;export-pdf <in> <out.pdf>");
+    out("BDFEDIT|USAGE|cmds=--version;idle <s>;edit <in> <out> <text>;show <file>;stats;capability <in> <out> <text>;export-pdf <in> <out.pdf>");
     return 4;
 }
 
@@ -316,6 +340,11 @@ int wmain(int argc, wchar_t **argv)
         return cmd_edit(argv[2], argv[3], text);
     }
     if (!wcscmp(argv[1], L"stats")) return cmd_stats();
+    if (!wcscmp(argv[1], L"capability") && argc >= 5) {
+        char ctext[1024];
+        WideCharToMultiByte(CP_UTF8, 0, argv[4], -1, ctext, sizeof(ctext), NULL, NULL);
+        return cmd_capability(argv[2], argv[3], ctext);
+    }
     if (!wcscmp(argv[1], L"show") && argc >= 3) return cmd_show(argv[2]);
     if (!wcscmp(argv[1], L"export-pdf") && argc >= 4) return cmd_export_pdf(argv[2], argv[3]);
     return usage();

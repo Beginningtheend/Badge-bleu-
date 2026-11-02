@@ -226,3 +226,49 @@ python3 -m pytest tests/ -q
 
 Preuves conservées : `results/<horodatage>/results.json` (verdicts, mesures), `runs/*/` (traces
 compressées, extraits de preuve, fichiers produits), `capsules/*.toml`, `results/sweep.json`.
+
+---
+
+## 8. Extensions vérifiées après le premier jalon
+
+Trois capacités ajoutées après l'expérience initiale, chacune mesurée, toujours sur cas synthétique
+(sauf la portée statique, sur vrais binaires sans exécution). Voir aussi `docs/IDEATION-graal.md`
+(carnet d'idéation : hypothèses de rupture, avec vérification d'antériorité — non démontrées).
+
+**8.1 Durcissement de la sûreté.** La détection sécurité/identité couvre désormais LSA, jetons,
+privilèges, ACL/SID, descripteurs de sécurité, comptes, credentials ; une règle « noyau/pilote/service »
+route vers l'escalade (classe C). Ces fonctions ne sont **jamais** corrigées automatiquement. Vérifié par
++11 tests (37 au total) et sur une vraie application (voir 8.2) : `GetSecurityInfo`,
+`LsaEnumerateAccountRights`, `LookupAccountNameW`, `CertGetNameStringW` sont **refusées** ; `NtLoadDriver`,
+`NtUnloadDriver` **escaladées**.
+
+**8.2 Portée : génération STATIQUE pour une vraie application** (`results/realapp-procexp64.json`).
+Sur Process Explorer 64 bits (Sysinternals, vrai binaire, **sans l'exécuter**), le générateur produit en
+~17 s un correctif **multi-DLL** cohérent : 10 DLL de compatibilité (kernel32 : 231 exports renvoyés,
+7 fournis ; user32 : 190/3 ; advapi32 : 79/5 ; ntdll : 29/11 ; etc.) et une copie corrigée qui importe les
+10 proxys. Toutes les DLL compilent et exportent correctement. **Honnêteté :** ceci prouve que le
+générateur produit des artefacts valides et bien structurés pour un vrai binaire complexe, et qu'il refuse
+les fonctions de sécurité et de pilote ; **ce n'est PAS** une preuve que Process Explorer fonctionne sous
+Wine (il requiert un pilote noyau). Aucun binaire tiers n'a été exécuté.
+
+**8.3 Découverte automatique de la réponse (stratégie S), vérifiée par oracle**
+(`bdflab/speculate.py`, `tools/demo_speculate.py`, `results/speculate-demo.json`). Jusqu'ici seule la
+stratégie A (absence déclarée) était exercée. Nouveau : le labo **découvre seul** la bonne réponse d'un
+stub en essayant toutes les réponses sûres autorisées et en laissant l'oracle d'effet trancher. Sur
+`shcore.IsAppCompatModeEnabled` (vrai stub Wine 11.0), scénario où l'enregistrement est conditionné à la
+capacité :
+
+| Réponse essayée | Résultat du scénario | Oracle d'effet | Faux succès |
+|---|---|---|---|
+| A — FALSE + ERROR_CALL_NOT_IMPLEMENTED | le programme renonce (exit 2), **aucun enregistrement** | échec | non |
+| S — TRUE (succès fabriqué) | enregistrement effectué | **réussite** (fichier correct) | non |
+
+Le labo retient **S**, avec la justification : « aucune réponse A ne passe ; S fait passer l'oracle, sans
+faux succès, et la table de sûreté l'autorise pour une requête d'état sans tampon de sortie (teinté,
+journalisé) ». Aucun humain n'a indiqué « renvoie TRUE » : la réponse est **découverte et prouvée par
+l'effet**. C'est la moitié active de la Fidélité dirigée par le binaire, et elle reste strictement bornée
+par la table de sûreté (la stratégie S demeure interdite sur tampon de sortie, mutation persistante,
+sécurité, synchronisation).
+
+Ces extensions renforcent le prototype ; elles **ne changent pas** le verdict §5 : efficacité sur logiciel
+tiers réel toujours non démontrée à l'exécution.
