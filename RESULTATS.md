@@ -216,6 +216,11 @@ mécanisme, pas l'efficacité sur des logiciels commerciaux.
 - **Pas de falsification** : aucune réponse fabriquée sur licence, identité, sécurité, signature,
   activation (classe D refusée) ; stratégie S jamais utilisée en v0.1.
 - **Durée** : expérience exécutée sur Wine 11.0 figé ; tout changement de version invalide les capsules.
+- **Relecture** : une relecture adverse indépendante par agents parallèles a été tentée mais n'a **pas**
+  abouti sur ce conteneur (2 cœurs effectifs : les orchestrations se sont figées). La vérification
+  d'honnêteté repose donc sur (1) une relecture par l'auteur, (2) une **vérification mécanique** de chaque
+  affirmation chiffrée de ce document contre les fichiers de résultats (19 contrôles, tous passés), et
+  (3) 54 tests automatisés. Une relecture humaine indépendante reste souhaitable avant toute intégration.
 
 ## 7. Reproduire
 
