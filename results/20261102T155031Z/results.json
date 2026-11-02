@@ -1,0 +1,2176 @@
+{
+ "wine": {
+  "version": "wine-11.0",
+  "package": "wine-stable 11.0.0.0~noble-1",
+  "bin": "/opt/wine-stable/bin"
+ },
+ "started": "20261102T155031Z",
+ "scenarios": [
+  "startup",
+  "edit-save-reopen",
+  "stats-degrade",
+  "export-pdf"
+ ],
+ "configs": [
+  "A",
+  "B",
+  "C"
+ ],
+ "records": [
+  {
+   "config": "A",
+   "scenario": "startup",
+   "run_idx": 1,
+   "exit_code": 0,
+   "timed_out": false,
+   "wall_s": 4.42,
+   "cpu_s": 0.08,
+   "max_rss_kb": 14796,
+   "peak_rss_kb": 99228,
+   "passed": true,
+   "false_success": false,
+   "oracles": [
+    {
+     "name": "process_stable",
+     "passed": true,
+     "detail": "code de sortie 0",
+     "kind": "startup",
+     "false_success": false
+    },
+    {
+     "name": "app_reported_exit",
+     "passed": true,
+     "detail": "événement EXIT code=0",
+     "kind": "effect",
+     "false_success": false
+    }
+   ],
+   "app_events": [
+    "VERSION",
+    "START",
+    "EXIT"
+   ],
+   "trace_summary": {
+    "lines": 188483,
+    "relay_calls": 93811,
+    "fatal": false,
+    "stub_calls": [],
+    "missing_impl_imports": [
+     "KERNEL32.dll.SystemTimeToTzSpecificLocalTimeEx"
+    ],
+    "missing_libraries": [],
+    "import_failures": [],
+    "exceptions": [],
+    "unhandled": [],
+    "dynamic_load_failures": [
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32;C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32\\\\",
+      "tid": "0054",
+      "line": 23968
+     },
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\system32;C:\\\\windows\\\\system32;C:\\\\windows\\\\system;C:\\\\windows;.;C:\\\\windows\\\\system32;C:\\\\windows;C:\\\\windows\\\\system32\\\\wbem;C:\\\\windows\\\\system32\\\\WindowsPowershell\\\\v1.0",
+      "tid": "0070",
+      "line": 26798
+     },
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\system32;C:\\\\windows\\\\system32;C:\\\\windows\\\\system;C:\\\\windows;.;C:\\\\windows\\\\system32;C:\\\\windows;C:\\\\windows\\\\system32\\\\wbem;C:\\\\windows\\\\system32\\\\WindowsPowershell\\\\v1.0",
+      "tid": "0088",
+      "line": 29912
+     },
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32;C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32\\\\",
+      "tid": "0054",
+      "line": 33377
+     },
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32;C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32\\\\",
+      "tid": "0054",
+      "line": 36810
+     },
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32;C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32\\\\",
+      "tid": "00a8",
+      "line": 45233
+     },
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\system32;C:\\\\windows\\\\system32;C:\\\\windows\\\\system;C:\\\\windows;.;C:\\\\windows\\\\system32;C:\\\\windows;C:\\\\windows\\\\system32\\\\wbem;C:\\\\windows\\\\system32\\\\WindowsPowershell\\\\v1.0",
+      "tid": "00b0",
+      "line": 53804
+     },
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32;C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32\\\\",
+      "tid": "00b0",
+      "line": 53816
+     },
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32;C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32\\\\",
+      "tid": "00a8",
+      "line": 53828
+     },
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32;C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32\\\\",
+      "tid": "00a8",
+      "line": 64739
+     },
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\system32;C:\\\\windows\\\\system32;C:\\\\windows\\\\system;C:\\\\windows;.;C:\\\\windows\\\\system32;C:\\\\windows;C:\\\\windows\\\\system32\\\\wbem;C:\\\\windows\\\\system32\\\\WindowsPowershell\\\\v1.0",
+      "tid": "002c",
+      "line": 84265
+     },
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\syswow64;C:\\\\windows\\\\system32;C:\\\\windows\\\\system;C:\\\\windows;.;C:\\\\windows\\\\system32;C:\\\\windows;C:\\\\windows\\\\system32\\\\wbem;C:\\\\windows\\\\system32\\\\WindowsPowershell\\\\v1.0",
+      "tid": "0024",
+      "line": 186646
+     }
+    ]
+   },
+   "stdout_path": "20261102T155031Z/runs/A-startup-r1/A-startup-r1.stdout.txt",
+   "log_path": "20261102T155031Z/runs/A-startup-r1/A-startup-r1.wine.log.gz",
+   "produced_sha": {},
+   "notes": []
+  },
+  {
+   "config": "A",
+   "scenario": "startup",
+   "run_idx": 2,
+   "exit_code": 0,
+   "timed_out": false,
+   "wall_s": 4.35,
+   "cpu_s": 0.08,
+   "max_rss_kb": 14628,
+   "peak_rss_kb": 98980,
+   "passed": true,
+   "false_success": false,
+   "oracles": [
+    {
+     "name": "process_stable",
+     "passed": true,
+     "detail": "code de sortie 0",
+     "kind": "startup",
+     "false_success": false
+    },
+    {
+     "name": "app_reported_exit",
+     "passed": true,
+     "detail": "événement EXIT code=0",
+     "kind": "effect",
+     "false_success": false
+    }
+   ],
+   "app_events": [
+    "VERSION",
+    "START",
+    "EXIT"
+   ],
+   "trace_summary": {
+    "lines": 188221,
+    "relay_calls": 93682,
+    "fatal": false,
+    "stub_calls": [],
+    "missing_impl_imports": [
+     "KERNEL32.dll.SystemTimeToTzSpecificLocalTimeEx"
+    ],
+    "missing_libraries": [],
+    "import_failures": [],
+    "exceptions": [],
+    "unhandled": [],
+    "dynamic_load_failures": [
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32;C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32\\\\",
+      "tid": "0054",
+      "line": 23694
+     },
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\system32;C:\\\\windows\\\\system32;C:\\\\windows\\\\system;C:\\\\windows;.;C:\\\\windows\\\\system32;C:\\\\windows;C:\\\\windows\\\\system32\\\\wbem;C:\\\\windows\\\\system32\\\\WindowsPowershell\\\\v1.0",
+      "tid": "006c",
+      "line": 26524
+     },
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\system32;C:\\\\windows\\\\system32;C:\\\\windows\\\\system;C:\\\\windows;.;C:\\\\windows\\\\system32;C:\\\\windows;C:\\\\windows\\\\system32\\\\wbem;C:\\\\windows\\\\system32\\\\WindowsPowershell\\\\v1.0",
+      "tid": "0084",
+      "line": 29638
+     },
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32;C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32\\\\",
+      "tid": "0054",
+      "line": 33103
+     },
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32;C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32\\\\",
+      "tid": "0054",
+      "line": 36536
+     },
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32;C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32\\\\",
+      "tid": "00a4",
+      "line": 45225
+     },
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\system32;C:\\\\windows\\\\system32;C:\\\\windows\\\\system;C:\\\\windows;.;C:\\\\windows\\\\system32;C:\\\\windows;C:\\\\windows\\\\system32\\\\wbem;C:\\\\windows\\\\system32\\\\WindowsPowershell\\\\v1.0",
+      "tid": "00b0",
+      "line": 53546
+     },
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32;C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32\\\\",
+      "tid": "00b0",
+      "line": 53558
+     },
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32;C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32\\\\",
+      "tid": "00a4",
+      "line": 53570
+     },
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32;C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32\\\\",
+      "tid": "00a4",
+      "line": 64268
+     },
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\system32;C:\\\\windows\\\\system32;C:\\\\windows\\\\system;C:\\\\windows;.;C:\\\\windows\\\\system32;C:\\\\windows;C:\\\\windows\\\\system32\\\\wbem;C:\\\\windows\\\\system32\\\\WindowsPowershell\\\\v1.0",
+      "tid": "002c",
+      "line": 84003
+     },
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\syswow64;C:\\\\windows\\\\system32;C:\\\\windows\\\\system;C:\\\\windows;.;C:\\\\windows\\\\system32;C:\\\\windows;C:\\\\windows\\\\system32\\\\wbem;C:\\\\windows\\\\system32\\\\WindowsPowershell\\\\v1.0",
+      "tid": "0024",
+      "line": 186384
+     }
+    ]
+   },
+   "stdout_path": "20261102T155031Z/runs/A-startup-r2/A-startup-r2.stdout.txt",
+   "log_path": "20261102T155031Z/runs/A-startup-r2/A-startup-r2.wine.log.gz",
+   "produced_sha": {},
+   "notes": []
+  },
+  {
+   "config": "B",
+   "scenario": "startup",
+   "run_idx": 1,
+   "exit_code": 0,
+   "timed_out": false,
+   "wall_s": 3.09,
+   "cpu_s": 0.06,
+   "max_rss_kb": 14148,
+   "peak_rss_kb": 97456,
+   "passed": true,
+   "false_success": false,
+   "oracles": [
+    {
+     "name": "process_stable",
+     "passed": true,
+     "detail": "code de sortie 0",
+     "kind": "startup",
+     "false_success": false
+    },
+    {
+     "name": "app_reported_exit",
+     "passed": true,
+     "detail": "événement EXIT code=0",
+     "kind": "effect",
+     "false_success": false
+    }
+   ],
+   "app_events": [
+    "VERSION",
+    "START",
+    "EXIT"
+   ],
+   "trace_summary": {
+    "lines": 129,
+    "relay_calls": 0,
+    "fatal": false,
+    "stub_calls": [],
+    "missing_impl_imports": [],
+    "missing_libraries": [],
+    "import_failures": [],
+    "exceptions": [],
+    "unhandled": [],
+    "dynamic_load_failures": []
+   },
+   "stdout_path": "20261102T155031Z/runs/B-startup-r1/B-startup-r1.stdout.txt",
+   "log_path": "20261102T155031Z/runs/B-startup-r1/B-startup-r1.wine.log.gz",
+   "produced_sha": {},
+   "notes": []
+  },
+  {
+   "config": "B",
+   "scenario": "startup",
+   "run_idx": 2,
+   "exit_code": 0,
+   "timed_out": false,
+   "wall_s": 3.05,
+   "cpu_s": 0.07,
+   "max_rss_kb": 14048,
+   "peak_rss_kb": 96480,
+   "passed": true,
+   "false_success": false,
+   "oracles": [
+    {
+     "name": "process_stable",
+     "passed": true,
+     "detail": "code de sortie 0",
+     "kind": "startup",
+     "false_success": false
+    },
+    {
+     "name": "app_reported_exit",
+     "passed": true,
+     "detail": "événement EXIT code=0",
+     "kind": "effect",
+     "false_success": false
+    }
+   ],
+   "app_events": [
+    "VERSION",
+    "START",
+    "EXIT"
+   ],
+   "trace_summary": {
+    "lines": 129,
+    "relay_calls": 0,
+    "fatal": false,
+    "stub_calls": [],
+    "missing_impl_imports": [],
+    "missing_libraries": [],
+    "import_failures": [],
+    "exceptions": [],
+    "unhandled": [],
+    "dynamic_load_failures": []
+   },
+   "stdout_path": "20261102T155031Z/runs/B-startup-r2/B-startup-r2.stdout.txt",
+   "log_path": "20261102T155031Z/runs/B-startup-r2/B-startup-r2.wine.log.gz",
+   "produced_sha": {},
+   "notes": []
+  },
+  {
+   "config": "C",
+   "scenario": "startup",
+   "run_idx": 1,
+   "exit_code": 0,
+   "timed_out": false,
+   "wall_s": 3.09,
+   "cpu_s": 0.07,
+   "max_rss_kb": 14324,
+   "peak_rss_kb": 97620,
+   "passed": true,
+   "false_success": false,
+   "oracles": [
+    {
+     "name": "process_stable",
+     "passed": true,
+     "detail": "code de sortie 0",
+     "kind": "startup",
+     "false_success": false
+    },
+    {
+     "name": "app_reported_exit",
+     "passed": true,
+     "detail": "événement EXIT code=0",
+     "kind": "effect",
+     "false_success": false
+    }
+   ],
+   "app_events": [
+    "VERSION",
+    "START",
+    "EXIT"
+   ],
+   "trace_summary": {
+    "lines": 129,
+    "relay_calls": 0,
+    "fatal": false,
+    "stub_calls": [],
+    "missing_impl_imports": [],
+    "missing_libraries": [],
+    "import_failures": [],
+    "exceptions": [],
+    "unhandled": [],
+    "dynamic_load_failures": []
+   },
+   "stdout_path": "20261102T155031Z/runs/C-startup-r1/C-startup-r1.stdout.txt",
+   "log_path": "20261102T155031Z/runs/C-startup-r1/C-startup-r1.wine.log.gz",
+   "produced_sha": {},
+   "notes": []
+  },
+  {
+   "config": "C",
+   "scenario": "startup",
+   "run_idx": 2,
+   "exit_code": 0,
+   "timed_out": false,
+   "wall_s": 3.0,
+   "cpu_s": 0.06,
+   "max_rss_kb": 14560,
+   "peak_rss_kb": 97824,
+   "passed": true,
+   "false_success": false,
+   "oracles": [
+    {
+     "name": "process_stable",
+     "passed": true,
+     "detail": "code de sortie 0",
+     "kind": "startup",
+     "false_success": false
+    },
+    {
+     "name": "app_reported_exit",
+     "passed": true,
+     "detail": "événement EXIT code=0",
+     "kind": "effect",
+     "false_success": false
+    }
+   ],
+   "app_events": [
+    "VERSION",
+    "START",
+    "EXIT"
+   ],
+   "trace_summary": {
+    "lines": 129,
+    "relay_calls": 0,
+    "fatal": false,
+    "stub_calls": [],
+    "missing_impl_imports": [],
+    "missing_libraries": [],
+    "import_failures": [],
+    "exceptions": [],
+    "unhandled": [],
+    "dynamic_load_failures": []
+   },
+   "stdout_path": "20261102T155031Z/runs/C-startup-r2/C-startup-r2.stdout.txt",
+   "log_path": "20261102T155031Z/runs/C-startup-r2/C-startup-r2.wine.log.gz",
+   "produced_sha": {},
+   "notes": []
+  },
+  {
+   "config": "A",
+   "scenario": "edit-save-reopen",
+   "run_idx": 1,
+   "exit_code": 1,
+   "timed_out": false,
+   "wall_s": 2.53,
+   "cpu_s": 0.11,
+   "max_rss_kb": 14624,
+   "peak_rss_kb": 91256,
+   "passed": false,
+   "false_success": false,
+   "oracles": [
+    {
+     "name": "process_stable",
+     "passed": false,
+     "detail": "code de sortie 1",
+     "kind": "startup",
+     "false_success": false
+    },
+    {
+     "name": "file_changed",
+     "passed": false,
+     "detail": "sha256 caa85a3c0ea1719e (INCHANGÉ)",
+     "kind": "effect",
+     "false_success": false
+    },
+    {
+     "name": "file_contains",
+     "passed": false,
+     "detail": "motif ABSENT : 'bdflab-marque-modif-9173'",
+     "kind": "effect",
+     "false_success": false
+    },
+    {
+     "name": "file_contains",
+     "passed": false,
+     "detail": "motif ABSENT : 'saved-at'",
+     "kind": "effect",
+     "false_success": false
+    },
+    {
+     "name": "reopen_consistent",
+     "passed": false,
+     "detail": "relecture : motif ABSENT",
+     "kind": "independent",
+     "false_success": false
+    }
+   ],
+   "app_events": [
+    "OPENED",
+    "MODIFIED"
+   ],
+   "trace_summary": {
+    "lines": 188534,
+    "relay_calls": 93836,
+    "fatal": true,
+    "stub_calls": [
+     {
+      "module": "KERNEL32.dll",
+      "func": "SystemTimeToTzSpecificLocalTimeEx",
+      "addr": "00006FFFFFC68218",
+      "line": 188084
+     }
+    ],
+    "missing_impl_imports": [
+     "KERNEL32.dll.SystemTimeToTzSpecificLocalTimeEx"
+    ],
+    "missing_libraries": [],
+    "import_failures": [],
+    "exceptions": [
+     "80000100(EXCEPTION_WINE_STUB)"
+    ],
+    "unhandled": [],
+    "dynamic_load_failures": [
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32;C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32\\\\",
+      "tid": "0054",
+      "line": 23734
+     },
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\system32;C:\\\\windows\\\\system32;C:\\\\windows\\\\system;C:\\\\windows;.;C:\\\\windows\\\\system32;C:\\\\windows;C:\\\\windows\\\\system32\\\\wbem;C:\\\\windows\\\\system32\\\\WindowsPowershell\\\\v1.0",
+      "tid": "006c",
+      "line": 26564
+     },
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\system32;C:\\\\windows\\\\system32;C:\\\\windows\\\\system;C:\\\\windows;.;C:\\\\windows\\\\system32;C:\\\\windows;C:\\\\windows\\\\system32\\\\wbem;C:\\\\windows\\\\system32\\\\WindowsPowershell\\\\v1.0",
+      "tid": "0084",
+      "line": 29678
+     },
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32;C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32\\\\",
+      "tid": "0054",
+      "line": 33143
+     },
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32;C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32\\\\",
+      "tid": "0054",
+      "line": 36576
+     },
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32;C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32\\\\",
+      "tid": "00a4",
+      "line": 44999
+     },
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\system32;C:\\\\windows\\\\system32;C:\\\\windows\\\\system;C:\\\\windows;.;C:\\\\windows\\\\system32;C:\\\\windows;C:\\\\windows\\\\system32\\\\wbem;C:\\\\windows\\\\system32\\\\WindowsPowershell\\\\v1.0",
+      "tid": "00ac",
+      "line": 53586
+     },
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32;C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32\\\\",
+      "tid": "00ac",
+      "line": 53598
+     },
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32;C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32\\\\",
+      "tid": "00a4",
+      "line": 53610
+     },
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32;C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32\\\\",
+      "tid": "00a4",
+      "line": 64366
+     },
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\system32;C:\\\\windows\\\\system32;C:\\\\windows\\\\system;C:\\\\windows;.;C:\\\\windows\\\\system32;C:\\\\windows;C:\\\\windows\\\\system32\\\\wbem;C:\\\\windows\\\\system32\\\\WindowsPowershell\\\\v1.0",
+      "tid": "002c",
+      "line": 84039
+     },
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\syswow64;C:\\\\windows\\\\system32;C:\\\\windows\\\\system;C:\\\\windows;.;C:\\\\windows\\\\system32;C:\\\\windows;C:\\\\windows\\\\system32\\\\wbem;C:\\\\windows\\\\system32\\\\WindowsPowershell\\\\v1.0",
+      "tid": "0024",
+      "line": 186436
+     }
+    ]
+   },
+   "stdout_path": "20261102T155031Z/runs/A-edit-save-reopen-r1/A-edit-save-reopen-r1.stdout.txt",
+   "log_path": "20261102T155031Z/runs/A-edit-save-reopen-r1/A-edit-save-reopen-r1.wine.log.gz",
+   "produced_sha": {
+    "doc.txt": "caa85a3c0ea1719e4f9a20670633a2cbe1b65bef220adc880979961b72bfade8"
+   },
+   "notes": []
+  },
+  {
+   "config": "A",
+   "scenario": "edit-save-reopen",
+   "run_idx": 2,
+   "exit_code": 1,
+   "timed_out": false,
+   "wall_s": 2.15,
+   "cpu_s": 0.12,
+   "max_rss_kb": 14884,
+   "peak_rss_kb": 99236,
+   "passed": false,
+   "false_success": false,
+   "oracles": [
+    {
+     "name": "process_stable",
+     "passed": false,
+     "detail": "code de sortie 1",
+     "kind": "startup",
+     "false_success": false
+    },
+    {
+     "name": "file_changed",
+     "passed": false,
+     "detail": "sha256 caa85a3c0ea1719e (INCHANGÉ)",
+     "kind": "effect",
+     "false_success": false
+    },
+    {
+     "name": "file_contains",
+     "passed": false,
+     "detail": "motif ABSENT : 'bdflab-marque-modif-9173'",
+     "kind": "effect",
+     "false_success": false
+    },
+    {
+     "name": "file_contains",
+     "passed": false,
+     "detail": "motif ABSENT : 'saved-at'",
+     "kind": "effect",
+     "false_success": false
+    },
+    {
+     "name": "reopen_consistent",
+     "passed": false,
+     "detail": "relecture : motif ABSENT",
+     "kind": "independent",
+     "false_success": false
+    }
+   ],
+   "app_events": [
+    "OPENED",
+    "MODIFIED"
+   ],
+   "trace_summary": {
+    "lines": 188488,
+    "relay_calls": 93813,
+    "fatal": true,
+    "stub_calls": [
+     {
+      "module": "KERNEL32.dll",
+      "func": "SystemTimeToTzSpecificLocalTimeEx",
+      "addr": "00006FFFFFC68218",
+      "line": 188038
+     }
+    ],
+    "missing_impl_imports": [
+     "KERNEL32.dll.SystemTimeToTzSpecificLocalTimeEx"
+    ],
+    "missing_libraries": [],
+    "import_failures": [],
+    "exceptions": [
+     "80000100(EXCEPTION_WINE_STUB)"
+    ],
+    "unhandled": [],
+    "dynamic_load_failures": [
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32;C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32\\\\",
+      "tid": "0054",
+      "line": 23694
+     },
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\system32;C:\\\\windows\\\\system32;C:\\\\windows\\\\system;C:\\\\windows;.;C:\\\\windows\\\\system32;C:\\\\windows;C:\\\\windows\\\\system32\\\\wbem;C:\\\\windows\\\\system32\\\\WindowsPowershell\\\\v1.0",
+      "tid": "006c",
+      "line": 26524
+     },
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\system32;C:\\\\windows\\\\system32;C:\\\\windows\\\\system;C:\\\\windows;.;C:\\\\windows\\\\system32;C:\\\\windows;C:\\\\windows\\\\system32\\\\wbem;C:\\\\windows\\\\system32\\\\WindowsPowershell\\\\v1.0",
+      "tid": "0084",
+      "line": 29638
+     },
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32;C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32\\\\",
+      "tid": "0054",
+      "line": 33103
+     },
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32;C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32\\\\",
+      "tid": "0054",
+      "line": 36536
+     },
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32;C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32\\\\",
+      "tid": "00a4",
+      "line": 44959
+     },
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\system32;C:\\\\windows\\\\system32;C:\\\\windows\\\\system;C:\\\\windows;.;C:\\\\windows\\\\system32;C:\\\\windows;C:\\\\windows\\\\system32\\\\wbem;C:\\\\windows\\\\system32\\\\WindowsPowershell\\\\v1.0",
+      "tid": "00ac",
+      "line": 53526
+     },
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32;C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32\\\\",
+      "tid": "00ac",
+      "line": 53538
+     },
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32;C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32\\\\",
+      "tid": "00a4",
+      "line": 53566
+     },
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32;C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32\\\\",
+      "tid": "00a4",
+      "line": 64842
+     },
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\system32;C:\\\\windows\\\\system32;C:\\\\windows\\\\system;C:\\\\windows;.;C:\\\\windows\\\\system32;C:\\\\windows;C:\\\\windows\\\\system32\\\\wbem;C:\\\\windows\\\\system32\\\\WindowsPowershell\\\\v1.0",
+      "tid": "002c",
+      "line": 83993
+     },
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\syswow64;C:\\\\windows\\\\system32;C:\\\\windows\\\\system;C:\\\\windows;.;C:\\\\windows\\\\system32;C:\\\\windows;C:\\\\windows\\\\system32\\\\wbem;C:\\\\windows\\\\system32\\\\WindowsPowershell\\\\v1.0",
+      "tid": "0024",
+      "line": 186390
+     }
+    ]
+   },
+   "stdout_path": "20261102T155031Z/runs/A-edit-save-reopen-r2/A-edit-save-reopen-r2.stdout.txt",
+   "log_path": "20261102T155031Z/runs/A-edit-save-reopen-r2/A-edit-save-reopen-r2.wine.log.gz",
+   "produced_sha": {
+    "doc.txt": "caa85a3c0ea1719e4f9a20670633a2cbe1b65bef220adc880979961b72bfade8"
+   },
+   "notes": []
+  },
+  {
+   "config": "B",
+   "scenario": "edit-save-reopen",
+   "run_idx": 1,
+   "exit_code": 0,
+   "timed_out": false,
+   "wall_s": 1.33,
+   "cpu_s": 0.09,
+   "max_rss_kb": 14036,
+   "peak_rss_kb": 85840,
+   "passed": true,
+   "false_success": false,
+   "oracles": [
+    {
+     "name": "process_stable",
+     "passed": true,
+     "detail": "code de sortie 0",
+     "kind": "startup",
+     "false_success": false
+    },
+    {
+     "name": "file_changed",
+     "passed": true,
+     "detail": "sha256 8a58eea4ae000496 (modifié)",
+     "kind": "effect",
+     "false_success": false
+    },
+    {
+     "name": "file_contains",
+     "passed": true,
+     "detail": "motif présent : 'bdflab-marque-modif-9173'",
+     "kind": "effect",
+     "false_success": false
+    },
+    {
+     "name": "file_contains",
+     "passed": true,
+     "detail": "motif présent : 'saved-at'",
+     "kind": "effect",
+     "false_success": false
+    },
+    {
+     "name": "reopen_consistent",
+     "passed": true,
+     "detail": "relecture : motif présent",
+     "kind": "independent",
+     "false_success": false
+    }
+   ],
+   "app_events": [
+    "OPENED",
+    "MODIFIED",
+    "TZ",
+    "SAVED"
+   ],
+   "trace_summary": {
+    "lines": 129,
+    "relay_calls": 0,
+    "fatal": false,
+    "stub_calls": [],
+    "missing_impl_imports": [],
+    "missing_libraries": [],
+    "import_failures": [],
+    "exceptions": [],
+    "unhandled": [],
+    "dynamic_load_failures": []
+   },
+   "stdout_path": "20261102T155031Z/runs/B-edit-save-reopen-r1/B-edit-save-reopen-r1.stdout.txt",
+   "log_path": "20261102T155031Z/runs/B-edit-save-reopen-r1/B-edit-save-reopen-r1.wine.log.gz",
+   "produced_sha": {
+    "doc.txt": "8a58eea4ae000496d037724372fdb21d3d61c2b0a441fd7fbda5754e3f629634"
+   },
+   "notes": []
+  },
+  {
+   "config": "B",
+   "scenario": "edit-save-reopen",
+   "run_idx": 2,
+   "exit_code": 0,
+   "timed_out": false,
+   "wall_s": 1.0,
+   "cpu_s": 0.07,
+   "max_rss_kb": 13956,
+   "peak_rss_kb": 85824,
+   "passed": true,
+   "false_success": false,
+   "oracles": [
+    {
+     "name": "process_stable",
+     "passed": true,
+     "detail": "code de sortie 0",
+     "kind": "startup",
+     "false_success": false
+    },
+    {
+     "name": "file_changed",
+     "passed": true,
+     "detail": "sha256 209ac7993ddad970 (modifié)",
+     "kind": "effect",
+     "false_success": false
+    },
+    {
+     "name": "file_contains",
+     "passed": true,
+     "detail": "motif présent : 'bdflab-marque-modif-9173'",
+     "kind": "effect",
+     "false_success": false
+    },
+    {
+     "name": "file_contains",
+     "passed": true,
+     "detail": "motif présent : 'saved-at'",
+     "kind": "effect",
+     "false_success": false
+    },
+    {
+     "name": "reopen_consistent",
+     "passed": true,
+     "detail": "relecture : motif présent",
+     "kind": "independent",
+     "false_success": false
+    }
+   ],
+   "app_events": [
+    "OPENED",
+    "MODIFIED",
+    "TZ",
+    "SAVED"
+   ],
+   "trace_summary": {
+    "lines": 129,
+    "relay_calls": 0,
+    "fatal": false,
+    "stub_calls": [],
+    "missing_impl_imports": [],
+    "missing_libraries": [],
+    "import_failures": [],
+    "exceptions": [],
+    "unhandled": [],
+    "dynamic_load_failures": []
+   },
+   "stdout_path": "20261102T155031Z/runs/B-edit-save-reopen-r2/B-edit-save-reopen-r2.stdout.txt",
+   "log_path": "20261102T155031Z/runs/B-edit-save-reopen-r2/B-edit-save-reopen-r2.wine.log.gz",
+   "produced_sha": {
+    "doc.txt": "209ac7993ddad970ac88e052f747ae758f3a9a5ed260745ba7298ca4cda9d7a2"
+   },
+   "notes": []
+  },
+  {
+   "config": "C",
+   "scenario": "edit-save-reopen",
+   "run_idx": 1,
+   "exit_code": 0,
+   "timed_out": false,
+   "wall_s": 0.99,
+   "cpu_s": 0.07,
+   "max_rss_kb": 14588,
+   "peak_rss_kb": 85756,
+   "passed": true,
+   "false_success": false,
+   "oracles": [
+    {
+     "name": "process_stable",
+     "passed": true,
+     "detail": "code de sortie 0",
+     "kind": "startup",
+     "false_success": false
+    },
+    {
+     "name": "file_changed",
+     "passed": true,
+     "detail": "sha256 d18d0ca3ab2d7237 (modifié)",
+     "kind": "effect",
+     "false_success": false
+    },
+    {
+     "name": "file_contains",
+     "passed": true,
+     "detail": "motif présent : 'bdflab-marque-modif-9173'",
+     "kind": "effect",
+     "false_success": false
+    },
+    {
+     "name": "file_contains",
+     "passed": true,
+     "detail": "motif présent : 'saved-at'",
+     "kind": "effect",
+     "false_success": false
+    },
+    {
+     "name": "reopen_consistent",
+     "passed": true,
+     "detail": "relecture : motif présent",
+     "kind": "independent",
+     "false_success": false
+    }
+   ],
+   "app_events": [
+    "OPENED",
+    "MODIFIED",
+    "TZ",
+    "SAVED"
+   ],
+   "trace_summary": {
+    "lines": 129,
+    "relay_calls": 0,
+    "fatal": false,
+    "stub_calls": [],
+    "missing_impl_imports": [],
+    "missing_libraries": [],
+    "import_failures": [],
+    "exceptions": [],
+    "unhandled": [],
+    "dynamic_load_failures": []
+   },
+   "stdout_path": "20261102T155031Z/runs/C-edit-save-reopen-r1/C-edit-save-reopen-r1.stdout.txt",
+   "log_path": "20261102T155031Z/runs/C-edit-save-reopen-r1/C-edit-save-reopen-r1.wine.log.gz",
+   "produced_sha": {
+    "doc.txt": "d18d0ca3ab2d7237de0ae7356fc69ade19b1a531358fbce4eb9aa8463b21ce58"
+   },
+   "notes": []
+  },
+  {
+   "config": "C",
+   "scenario": "edit-save-reopen",
+   "run_idx": 2,
+   "exit_code": 0,
+   "timed_out": false,
+   "wall_s": 0.99,
+   "cpu_s": 0.07,
+   "max_rss_kb": 14080,
+   "peak_rss_kb": 85748,
+   "passed": true,
+   "false_success": false,
+   "oracles": [
+    {
+     "name": "process_stable",
+     "passed": true,
+     "detail": "code de sortie 0",
+     "kind": "startup",
+     "false_success": false
+    },
+    {
+     "name": "file_changed",
+     "passed": true,
+     "detail": "sha256 6cf15602ee15ba2b (modifié)",
+     "kind": "effect",
+     "false_success": false
+    },
+    {
+     "name": "file_contains",
+     "passed": true,
+     "detail": "motif présent : 'bdflab-marque-modif-9173'",
+     "kind": "effect",
+     "false_success": false
+    },
+    {
+     "name": "file_contains",
+     "passed": true,
+     "detail": "motif présent : 'saved-at'",
+     "kind": "effect",
+     "false_success": false
+    },
+    {
+     "name": "reopen_consistent",
+     "passed": true,
+     "detail": "relecture : motif présent",
+     "kind": "independent",
+     "false_success": false
+    }
+   ],
+   "app_events": [
+    "OPENED",
+    "MODIFIED",
+    "TZ",
+    "SAVED"
+   ],
+   "trace_summary": {
+    "lines": 129,
+    "relay_calls": 0,
+    "fatal": false,
+    "stub_calls": [],
+    "missing_impl_imports": [],
+    "missing_libraries": [],
+    "import_failures": [],
+    "exceptions": [],
+    "unhandled": [],
+    "dynamic_load_failures": []
+   },
+   "stdout_path": "20261102T155031Z/runs/C-edit-save-reopen-r2/C-edit-save-reopen-r2.stdout.txt",
+   "log_path": "20261102T155031Z/runs/C-edit-save-reopen-r2/C-edit-save-reopen-r2.wine.log.gz",
+   "produced_sha": {
+    "doc.txt": "6cf15602ee15ba2b659207905a9293521754fffbb5ddf36019ff86a33da5f4ea"
+   },
+   "notes": []
+  },
+  {
+   "config": "A",
+   "scenario": "stats-degrade",
+   "run_idx": 1,
+   "exit_code": 1,
+   "timed_out": false,
+   "wall_s": 2.42,
+   "cpu_s": 0.11,
+   "max_rss_kb": 14876,
+   "peak_rss_kb": 98980,
+   "passed": false,
+   "false_success": false,
+   "oracles": [
+    {
+     "name": "process_stable",
+     "passed": false,
+     "detail": "code de sortie 1",
+     "kind": "startup",
+     "false_success": false
+    },
+    {
+     "name": "stats_degraded_cleanly",
+     "passed": false,
+     "detail": "STATS feature='' exit=1",
+     "kind": "effect",
+     "false_success": false
+    }
+   ],
+   "app_events": [
+    "VERSION",
+    "START"
+   ],
+   "trace_summary": {
+    "lines": 188435,
+    "relay_calls": 93787,
+    "fatal": true,
+    "stub_calls": [
+     {
+      "module": "KERNEL32.dll",
+      "func": "Heap32First",
+      "addr": "00006FFFFF3DD887",
+      "line": 187985
+     }
+    ],
+    "missing_impl_imports": [
+     "KERNEL32.dll.SystemTimeToTzSpecificLocalTimeEx"
+    ],
+    "missing_libraries": [],
+    "import_failures": [],
+    "exceptions": [
+     "80000100(EXCEPTION_WINE_STUB)"
+    ],
+    "unhandled": [],
+    "dynamic_load_failures": [
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32;C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32\\\\",
+      "tid": "0054",
+      "line": 23686
+     },
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\system32;C:\\\\windows\\\\system32;C:\\\\windows\\\\system;C:\\\\windows;.;C:\\\\windows\\\\system32;C:\\\\windows;C:\\\\windows\\\\system32\\\\wbem;C:\\\\windows\\\\system32\\\\WindowsPowershell\\\\v1.0",
+      "tid": "006c",
+      "line": 26516
+     },
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\system32;C:\\\\windows\\\\system32;C:\\\\windows\\\\system;C:\\\\windows;.;C:\\\\windows\\\\system32;C:\\\\windows;C:\\\\windows\\\\system32\\\\wbem;C:\\\\windows\\\\system32\\\\WindowsPowershell\\\\v1.0",
+      "tid": "0084",
+      "line": 29630
+     },
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32;C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32\\\\",
+      "tid": "0054",
+      "line": 33095
+     },
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32;C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32\\\\",
+      "tid": "0054",
+      "line": 36528
+     },
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32;C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32\\\\",
+      "tid": "00a4",
+      "line": 44943
+     },
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\system32;C:\\\\windows\\\\system32;C:\\\\windows\\\\system;C:\\\\windows;.;C:\\\\windows\\\\system32;C:\\\\windows;C:\\\\windows\\\\system32\\\\wbem;C:\\\\windows\\\\system32\\\\WindowsPowershell\\\\v1.0",
+      "tid": "00ac",
+      "line": 53532
+     },
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32;C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32\\\\",
+      "tid": "00ac",
+      "line": 53544
+     },
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32;C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32\\\\",
+      "tid": "00a4",
+      "line": 53556
+     },
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32;C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32\\\\",
+      "tid": "00a4",
+      "line": 64854
+     },
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\system32;C:\\\\windows\\\\system32;C:\\\\windows\\\\system;C:\\\\windows;.;C:\\\\windows\\\\system32;C:\\\\windows;C:\\\\windows\\\\system32\\\\wbem;C:\\\\windows\\\\system32\\\\WindowsPowershell\\\\v1.0",
+      "tid": "002c",
+      "line": 83987
+     },
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\syswow64;C:\\\\windows\\\\system32;C:\\\\windows\\\\system;C:\\\\windows;.;C:\\\\windows\\\\system32;C:\\\\windows;C:\\\\windows\\\\system32\\\\wbem;C:\\\\windows\\\\system32\\\\WindowsPowershell\\\\v1.0",
+      "tid": "0024",
+      "line": 186360
+     }
+    ]
+   },
+   "stdout_path": "20261102T155031Z/runs/A-stats-degrade-r1/A-stats-degrade-r1.stdout.txt",
+   "log_path": "20261102T155031Z/runs/A-stats-degrade-r1/A-stats-degrade-r1.wine.log.gz",
+   "produced_sha": {},
+   "notes": []
+  },
+  {
+   "config": "A",
+   "scenario": "stats-degrade",
+   "run_idx": 2,
+   "exit_code": 1,
+   "timed_out": false,
+   "wall_s": 2.28,
+   "cpu_s": 0.1,
+   "max_rss_kb": 14644,
+   "peak_rss_kb": 91288,
+   "passed": false,
+   "false_success": false,
+   "oracles": [
+    {
+     "name": "process_stable",
+     "passed": false,
+     "detail": "code de sortie 1",
+     "kind": "startup",
+     "false_success": false
+    },
+    {
+     "name": "stats_degraded_cleanly",
+     "passed": false,
+     "detail": "STATS feature='' exit=1",
+     "kind": "effect",
+     "false_success": false
+    }
+   ],
+   "app_events": [
+    "VERSION",
+    "START"
+   ],
+   "trace_summary": {
+    "lines": 188479,
+    "relay_calls": 93809,
+    "fatal": true,
+    "stub_calls": [
+     {
+      "module": "KERNEL32.dll",
+      "func": "Heap32First",
+      "addr": "00006FFFFF3DD887",
+      "line": 188029
+     }
+    ],
+    "missing_impl_imports": [
+     "KERNEL32.dll.SystemTimeToTzSpecificLocalTimeEx"
+    ],
+    "missing_libraries": [],
+    "import_failures": [],
+    "exceptions": [
+     "80000100(EXCEPTION_WINE_STUB)"
+    ],
+    "unhandled": [],
+    "dynamic_load_failures": [
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32;C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32\\\\",
+      "tid": "0054",
+      "line": 23726
+     },
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\system32;C:\\\\windows\\\\system32;C:\\\\windows\\\\system;C:\\\\windows;.;C:\\\\windows\\\\system32;C:\\\\windows;C:\\\\windows\\\\system32\\\\wbem;C:\\\\windows\\\\system32\\\\WindowsPowershell\\\\v1.0",
+      "tid": "006c",
+      "line": 26556
+     },
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\system32;C:\\\\windows\\\\system32;C:\\\\windows\\\\system;C:\\\\windows;.;C:\\\\windows\\\\system32;C:\\\\windows;C:\\\\windows\\\\system32\\\\wbem;C:\\\\windows\\\\system32\\\\WindowsPowershell\\\\v1.0",
+      "tid": "0084",
+      "line": 29670
+     },
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32;C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32\\\\",
+      "tid": "0054",
+      "line": 33135
+     },
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32;C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32\\\\",
+      "tid": "0054",
+      "line": 36568
+     },
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32;C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32\\\\",
+      "tid": "00a4",
+      "line": 44991
+     },
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\system32;C:\\\\windows\\\\system32;C:\\\\windows\\\\system;C:\\\\windows;.;C:\\\\windows\\\\system32;C:\\\\windows;C:\\\\windows\\\\system32\\\\wbem;C:\\\\windows\\\\system32\\\\WindowsPowershell\\\\v1.0",
+      "tid": "00ac",
+      "line": 53576
+     },
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32;C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32\\\\",
+      "tid": "00ac",
+      "line": 53588
+     },
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32;C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32\\\\",
+      "tid": "00a4",
+      "line": 53600
+     },
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32;C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32\\\\",
+      "tid": "00a4",
+      "line": 64364
+     },
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\system32;C:\\\\windows\\\\system32;C:\\\\windows\\\\system;C:\\\\windows;.;C:\\\\windows\\\\system32;C:\\\\windows;C:\\\\windows\\\\system32\\\\wbem;C:\\\\windows\\\\system32\\\\WindowsPowershell\\\\v1.0",
+      "tid": "002c",
+      "line": 84031
+     },
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\syswow64;C:\\\\windows\\\\system32;C:\\\\windows\\\\system;C:\\\\windows;.;C:\\\\windows\\\\system32;C:\\\\windows;C:\\\\windows\\\\system32\\\\wbem;C:\\\\windows\\\\system32\\\\WindowsPowershell\\\\v1.0",
+      "tid": "0024",
+      "line": 186404
+     }
+    ]
+   },
+   "stdout_path": "20261102T155031Z/runs/A-stats-degrade-r2/A-stats-degrade-r2.stdout.txt",
+   "log_path": "20261102T155031Z/runs/A-stats-degrade-r2/A-stats-degrade-r2.wine.log.gz",
+   "produced_sha": {},
+   "notes": []
+  },
+  {
+   "config": "B",
+   "scenario": "stats-degrade",
+   "run_idx": 1,
+   "exit_code": 0,
+   "timed_out": false,
+   "wall_s": 1.02,
+   "cpu_s": 0.08,
+   "max_rss_kb": 13980,
+   "peak_rss_kb": 85860,
+   "passed": true,
+   "false_success": false,
+   "oracles": [
+    {
+     "name": "process_stable",
+     "passed": true,
+     "detail": "code de sortie 0",
+     "kind": "startup",
+     "false_success": false
+    },
+    {
+     "name": "stats_degraded_cleanly",
+     "passed": true,
+     "detail": "STATS feature='unavailable-degraded' exit=0",
+     "kind": "effect",
+     "false_success": false
+    }
+   ],
+   "app_events": [
+    "VERSION",
+    "START",
+    "STATS",
+    "EXIT"
+   ],
+   "trace_summary": {
+    "lines": 129,
+    "relay_calls": 0,
+    "fatal": false,
+    "stub_calls": [],
+    "missing_impl_imports": [],
+    "missing_libraries": [],
+    "import_failures": [],
+    "exceptions": [],
+    "unhandled": [],
+    "dynamic_load_failures": []
+   },
+   "stdout_path": "20261102T155031Z/runs/B-stats-degrade-r1/B-stats-degrade-r1.stdout.txt",
+   "log_path": "20261102T155031Z/runs/B-stats-degrade-r1/B-stats-degrade-r1.wine.log.gz",
+   "produced_sha": {},
+   "notes": []
+  },
+  {
+   "config": "B",
+   "scenario": "stats-degrade",
+   "run_idx": 2,
+   "exit_code": 0,
+   "timed_out": false,
+   "wall_s": 1.04,
+   "cpu_s": 0.06,
+   "max_rss_kb": 14016,
+   "peak_rss_kb": 85808,
+   "passed": true,
+   "false_success": false,
+   "oracles": [
+    {
+     "name": "process_stable",
+     "passed": true,
+     "detail": "code de sortie 0",
+     "kind": "startup",
+     "false_success": false
+    },
+    {
+     "name": "stats_degraded_cleanly",
+     "passed": true,
+     "detail": "STATS feature='unavailable-degraded' exit=0",
+     "kind": "effect",
+     "false_success": false
+    }
+   ],
+   "app_events": [
+    "VERSION",
+    "START",
+    "STATS",
+    "EXIT"
+   ],
+   "trace_summary": {
+    "lines": 129,
+    "relay_calls": 0,
+    "fatal": false,
+    "stub_calls": [],
+    "missing_impl_imports": [],
+    "missing_libraries": [],
+    "import_failures": [],
+    "exceptions": [],
+    "unhandled": [],
+    "dynamic_load_failures": []
+   },
+   "stdout_path": "20261102T155031Z/runs/B-stats-degrade-r2/B-stats-degrade-r2.stdout.txt",
+   "log_path": "20261102T155031Z/runs/B-stats-degrade-r2/B-stats-degrade-r2.wine.log.gz",
+   "produced_sha": {},
+   "notes": []
+  },
+  {
+   "config": "C",
+   "scenario": "stats-degrade",
+   "run_idx": 1,
+   "exit_code": 0,
+   "timed_out": false,
+   "wall_s": 1.13,
+   "cpu_s": 0.07,
+   "max_rss_kb": 13924,
+   "peak_rss_kb": 95940,
+   "passed": true,
+   "false_success": false,
+   "oracles": [
+    {
+     "name": "process_stable",
+     "passed": true,
+     "detail": "code de sortie 0",
+     "kind": "startup",
+     "false_success": false
+    },
+    {
+     "name": "stats_degraded_cleanly",
+     "passed": true,
+     "detail": "STATS feature='unavailable-degraded' exit=0",
+     "kind": "effect",
+     "false_success": false
+    }
+   ],
+   "app_events": [
+    "VERSION",
+    "START",
+    "STATS",
+    "EXIT"
+   ],
+   "trace_summary": {
+    "lines": 129,
+    "relay_calls": 0,
+    "fatal": false,
+    "stub_calls": [],
+    "missing_impl_imports": [],
+    "missing_libraries": [],
+    "import_failures": [],
+    "exceptions": [],
+    "unhandled": [],
+    "dynamic_load_failures": []
+   },
+   "stdout_path": "20261102T155031Z/runs/C-stats-degrade-r1/C-stats-degrade-r1.stdout.txt",
+   "log_path": "20261102T155031Z/runs/C-stats-degrade-r1/C-stats-degrade-r1.wine.log.gz",
+   "produced_sha": {},
+   "notes": []
+  },
+  {
+   "config": "C",
+   "scenario": "stats-degrade",
+   "run_idx": 2,
+   "exit_code": 0,
+   "timed_out": false,
+   "wall_s": 1.04,
+   "cpu_s": 0.07,
+   "max_rss_kb": 14096,
+   "peak_rss_kb": 85832,
+   "passed": true,
+   "false_success": false,
+   "oracles": [
+    {
+     "name": "process_stable",
+     "passed": true,
+     "detail": "code de sortie 0",
+     "kind": "startup",
+     "false_success": false
+    },
+    {
+     "name": "stats_degraded_cleanly",
+     "passed": true,
+     "detail": "STATS feature='unavailable-degraded' exit=0",
+     "kind": "effect",
+     "false_success": false
+    }
+   ],
+   "app_events": [
+    "VERSION",
+    "START",
+    "STATS",
+    "EXIT"
+   ],
+   "trace_summary": {
+    "lines": 129,
+    "relay_calls": 0,
+    "fatal": false,
+    "stub_calls": [],
+    "missing_impl_imports": [],
+    "missing_libraries": [],
+    "import_failures": [],
+    "exceptions": [],
+    "unhandled": [],
+    "dynamic_load_failures": []
+   },
+   "stdout_path": "20261102T155031Z/runs/C-stats-degrade-r2/C-stats-degrade-r2.stdout.txt",
+   "log_path": "20261102T155031Z/runs/C-stats-degrade-r2/C-stats-degrade-r2.wine.log.gz",
+   "produced_sha": {},
+   "notes": []
+  },
+  {
+   "config": "A",
+   "scenario": "export-pdf",
+   "run_idx": 1,
+   "exit_code": 2,
+   "timed_out": false,
+   "wall_s": 2.36,
+   "cpu_s": 0.13,
+   "max_rss_kb": 14752,
+   "peak_rss_kb": 99856,
+   "passed": false,
+   "false_success": false,
+   "oracles": [
+    {
+     "name": "process_stable",
+     "passed": true,
+     "detail": "code de sortie 2",
+     "kind": "startup",
+     "false_success": false
+    },
+    {
+     "name": "file_exists",
+     "passed": false,
+     "detail": "/home/user/_scratch/bdflab-work/runs/A-export-pdf-r1/prefix/drive_c/bdf/out.pdf ABSENT",
+     "kind": "effect",
+     "false_success": false
+    },
+    {
+     "name": "pdf_text",
+     "passed": false,
+     "detail": "/home/user/_scratch/bdflab-work/runs/A-export-pdf-r1/prefix/drive_c/bdf/out.pdf absent",
+     "kind": "independent",
+     "false_success": true
+    }
+   ],
+   "app_events": [
+    "OPENED",
+    "EXPORT"
+   ],
+   "trace_summary": {
+    "lines": 188136,
+    "relay_calls": 93640,
+    "fatal": false,
+    "stub_calls": [],
+    "missing_impl_imports": [
+     "KERNEL32.dll.SystemTimeToTzSpecificLocalTimeEx"
+    ],
+    "missing_libraries": [],
+    "import_failures": [],
+    "exceptions": [],
+    "unhandled": [],
+    "dynamic_load_failures": [
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32;C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32\\\\",
+      "tid": "0054",
+      "line": 23686
+     },
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\system32;C:\\\\windows\\\\system32;C:\\\\windows\\\\system;C:\\\\windows;.;C:\\\\windows\\\\system32;C:\\\\windows;C:\\\\windows\\\\system32\\\\wbem;C:\\\\windows\\\\system32\\\\WindowsPowershell\\\\v1.0",
+      "tid": "006c",
+      "line": 26516
+     },
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\system32;C:\\\\windows\\\\system32;C:\\\\windows\\\\system;C:\\\\windows;.;C:\\\\windows\\\\system32;C:\\\\windows;C:\\\\windows\\\\system32\\\\wbem;C:\\\\windows\\\\system32\\\\WindowsPowershell\\\\v1.0",
+      "tid": "0084",
+      "line": 29630
+     },
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32;C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32\\\\",
+      "tid": "0054",
+      "line": 33095
+     },
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32;C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32\\\\",
+      "tid": "0054",
+      "line": 36522
+     },
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32;C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32\\\\",
+      "tid": "00a4",
+      "line": 44941
+     },
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\system32;C:\\\\windows\\\\system32;C:\\\\windows\\\\system;C:\\\\windows;.;C:\\\\windows\\\\system32;C:\\\\windows;C:\\\\windows\\\\system32\\\\wbem;C:\\\\windows\\\\system32\\\\WindowsPowershell\\\\v1.0",
+      "tid": "00ac",
+      "line": 50249
+     },
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32;C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32\\\\",
+      "tid": "00ac",
+      "line": 50261
+     },
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32;C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32\\\\",
+      "tid": "00a4",
+      "line": 55997
+     },
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32;C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32\\\\",
+      "tid": "00a4",
+      "line": 66974
+     },
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\system32;C:\\\\windows\\\\system32;C:\\\\windows\\\\system;C:\\\\windows;.;C:\\\\windows\\\\system32;C:\\\\windows;C:\\\\windows\\\\system32\\\\wbem;C:\\\\windows\\\\system32\\\\WindowsPowershell\\\\v1.0",
+      "tid": "002c",
+      "line": 83959
+     },
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\syswow64;C:\\\\windows\\\\system32;C:\\\\windows\\\\system;C:\\\\windows;.;C:\\\\windows\\\\system32;C:\\\\windows;C:\\\\windows\\\\system32\\\\wbem;C:\\\\windows\\\\system32\\\\WindowsPowershell\\\\v1.0",
+      "tid": "0024",
+      "line": 186348
+     },
+     {
+      "func": "LoadLibraryW",
+      "library": "bdfpdf.dll",
+      "tid": "00dc",
+      "line": 187828
+     }
+    ]
+   },
+   "stdout_path": "20261102T155031Z/runs/A-export-pdf-r1/A-export-pdf-r1.stdout.txt",
+   "log_path": "20261102T155031Z/runs/A-export-pdf-r1/A-export-pdf-r1.wine.log.gz",
+   "produced_sha": {
+    "doc.txt": "512bb342ee4fad3d32e13c2b554bf74effc1b7d96155182cbefcb6456b2c6898"
+   },
+   "notes": []
+  },
+  {
+   "config": "A",
+   "scenario": "export-pdf",
+   "run_idx": 2,
+   "exit_code": 2,
+   "timed_out": false,
+   "wall_s": 2.48,
+   "cpu_s": 0.14,
+   "max_rss_kb": 14972,
+   "peak_rss_kb": 98244,
+   "passed": false,
+   "false_success": false,
+   "oracles": [
+    {
+     "name": "process_stable",
+     "passed": true,
+     "detail": "code de sortie 2",
+     "kind": "startup",
+     "false_success": false
+    },
+    {
+     "name": "file_exists",
+     "passed": false,
+     "detail": "/home/user/_scratch/bdflab-work/runs/A-export-pdf-r2/prefix/drive_c/bdf/out.pdf ABSENT",
+     "kind": "effect",
+     "false_success": false
+    },
+    {
+     "name": "pdf_text",
+     "passed": false,
+     "detail": "/home/user/_scratch/bdflab-work/runs/A-export-pdf-r2/prefix/drive_c/bdf/out.pdf absent",
+     "kind": "independent",
+     "false_success": true
+    }
+   ],
+   "app_events": [
+    "OPENED",
+    "EXPORT"
+   ],
+   "trace_summary": {
+    "lines": 188144,
+    "relay_calls": 93643,
+    "fatal": false,
+    "stub_calls": [],
+    "missing_impl_imports": [
+     "KERNEL32.dll.SystemTimeToTzSpecificLocalTimeEx"
+    ],
+    "missing_libraries": [],
+    "import_failures": [],
+    "exceptions": [],
+    "unhandled": [],
+    "dynamic_load_failures": [
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32;C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32\\\\",
+      "tid": "0054",
+      "line": 23670
+     },
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\system32;C:\\\\windows\\\\system32;C:\\\\windows\\\\system;C:\\\\windows;.;C:\\\\windows\\\\system32;C:\\\\windows;C:\\\\windows\\\\system32\\\\wbem;C:\\\\windows\\\\system32\\\\WindowsPowershell\\\\v1.0",
+      "tid": "006c",
+      "line": 26500
+     },
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\system32;C:\\\\windows\\\\system32;C:\\\\windows\\\\system;C:\\\\windows;.;C:\\\\windows\\\\system32;C:\\\\windows;C:\\\\windows\\\\system32\\\\wbem;C:\\\\windows\\\\system32\\\\WindowsPowershell\\\\v1.0",
+      "tid": "0084",
+      "line": 29614
+     },
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32;C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32\\\\",
+      "tid": "0054",
+      "line": 33079
+     },
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32;C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32\\\\",
+      "tid": "0054",
+      "line": 36512
+     },
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32;C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32\\\\",
+      "tid": "00a4",
+      "line": 44935
+     },
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\system32;C:\\\\windows\\\\system32;C:\\\\windows\\\\system;C:\\\\windows;.;C:\\\\windows\\\\system32;C:\\\\windows;C:\\\\windows\\\\system32\\\\wbem;C:\\\\windows\\\\system32\\\\WindowsPowershell\\\\v1.0",
+      "tid": "00ac",
+      "line": 53498
+     },
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32;C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32\\\\",
+      "tid": "00ac",
+      "line": 53510
+     },
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32;C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32\\\\",
+      "tid": "00a4",
+      "line": 53522
+     },
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32;C:\\\\windows\\\\system32\\\\drivers;C:\\\\windows\\\\system32\\\\",
+      "tid": "00a4",
+      "line": 63917
+     },
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\system32;C:\\\\windows\\\\system32;C:\\\\windows\\\\system;C:\\\\windows;.;C:\\\\windows\\\\system32;C:\\\\windows;C:\\\\windows\\\\system32\\\\wbem;C:\\\\windows\\\\system32\\\\WindowsPowershell\\\\v1.0",
+      "tid": "002c",
+      "line": 83967
+     },
+     {
+      "func": "LdrLoadDll",
+      "library": "C:\\\\windows\\\\syswow64;C:\\\\windows\\\\system32;C:\\\\windows\\\\system;C:\\\\windows;.;C:\\\\windows\\\\system32;C:\\\\windows;C:\\\\windows\\\\system32\\\\wbem;C:\\\\windows\\\\system32\\\\WindowsPowershell\\\\v1.0",
+      "tid": "0024",
+      "line": 186356
+     },
+     {
+      "func": "LoadLibraryW",
+      "library": "bdfpdf.dll",
+      "tid": "00e0",
+      "line": 187836
+     }
+    ]
+   },
+   "stdout_path": "20261102T155031Z/runs/A-export-pdf-r2/A-export-pdf-r2.stdout.txt",
+   "log_path": "20261102T155031Z/runs/A-export-pdf-r2/A-export-pdf-r2.wine.log.gz",
+   "produced_sha": {
+    "doc.txt": "512bb342ee4fad3d32e13c2b554bf74effc1b7d96155182cbefcb6456b2c6898"
+   },
+   "notes": []
+  },
+  {
+   "config": "B",
+   "scenario": "export-pdf",
+   "run_idx": 1,
+   "exit_code": 0,
+   "timed_out": false,
+   "wall_s": 1.05,
+   "cpu_s": 0.07,
+   "max_rss_kb": 14088,
+   "peak_rss_kb": 97412,
+   "passed": true,
+   "false_success": false,
+   "oracles": [
+    {
+     "name": "process_stable",
+     "passed": true,
+     "detail": "code de sortie 0",
+     "kind": "startup",
+     "false_success": false
+    },
+    {
+     "name": "file_exists",
+     "passed": true,
+     "detail": "/home/user/_scratch/bdflab-work/runs/B-export-pdf-r1/prefix/drive_c/bdf/out.pdf présent",
+     "kind": "effect",
+     "false_success": false
+    },
+    {
+     "name": "pdf_text",
+     "passed": true,
+     "detail": "pdftotext: texte retrouvé (extrait 'contenu a exporter\\nbdflab-marque-modif-9')",
+     "kind": "independent",
+     "false_success": false
+    }
+   ],
+   "app_events": [
+    "OPENED",
+    "EXPORTED"
+   ],
+   "trace_summary": {
+    "lines": 131,
+    "relay_calls": 0,
+    "fatal": false,
+    "stub_calls": [],
+    "missing_impl_imports": [],
+    "missing_libraries": [],
+    "import_failures": [],
+    "exceptions": [],
+    "unhandled": [],
+    "dynamic_load_failures": []
+   },
+   "stdout_path": "20261102T155031Z/runs/B-export-pdf-r1/B-export-pdf-r1.stdout.txt",
+   "log_path": "20261102T155031Z/runs/B-export-pdf-r1/B-export-pdf-r1.wine.log.gz",
+   "produced_sha": {
+    "doc.txt": "512bb342ee4fad3d32e13c2b554bf74effc1b7d96155182cbefcb6456b2c6898",
+    "out.pdf": "e9a2ef8147bdfa077a83331f0bd1f705a81b85fa9a89bffc218c8de508f8a8bd"
+   },
+   "notes": []
+  },
+  {
+   "config": "B",
+   "scenario": "export-pdf",
+   "run_idx": 2,
+   "exit_code": 0,
+   "timed_out": false,
+   "wall_s": 1.16,
+   "cpu_s": 0.07,
+   "max_rss_kb": 14268,
+   "peak_rss_kb": 92312,
+   "passed": true,
+   "false_success": false,
+   "oracles": [
+    {
+     "name": "process_stable",
+     "passed": true,
+     "detail": "code de sortie 0",
+     "kind": "startup",
+     "false_success": false
+    },
+    {
+     "name": "file_exists",
+     "passed": true,
+     "detail": "/home/user/_scratch/bdflab-work/runs/B-export-pdf-r2/prefix/drive_c/bdf/out.pdf présent",
+     "kind": "effect",
+     "false_success": false
+    },
+    {
+     "name": "pdf_text",
+     "passed": true,
+     "detail": "pdftotext: texte retrouvé (extrait 'contenu a exporter\\nbdflab-marque-modif-9')",
+     "kind": "independent",
+     "false_success": false
+    }
+   ],
+   "app_events": [
+    "OPENED",
+    "EXPORTED"
+   ],
+   "trace_summary": {
+    "lines": 131,
+    "relay_calls": 0,
+    "fatal": false,
+    "stub_calls": [],
+    "missing_impl_imports": [],
+    "missing_libraries": [],
+    "import_failures": [],
+    "exceptions": [],
+    "unhandled": [],
+    "dynamic_load_failures": []
+   },
+   "stdout_path": "20261102T155031Z/runs/B-export-pdf-r2/B-export-pdf-r2.stdout.txt",
+   "log_path": "20261102T155031Z/runs/B-export-pdf-r2/B-export-pdf-r2.wine.log.gz",
+   "produced_sha": {
+    "doc.txt": "512bb342ee4fad3d32e13c2b554bf74effc1b7d96155182cbefcb6456b2c6898",
+    "out.pdf": "e9a2ef8147bdfa077a83331f0bd1f705a81b85fa9a89bffc218c8de508f8a8bd"
+   },
+   "notes": []
+  },
+  {
+   "config": "C",
+   "scenario": "export-pdf",
+   "run_idx": 1,
+   "exit_code": 0,
+   "timed_out": false,
+   "wall_s": 0.97,
+   "cpu_s": 0.06,
+   "max_rss_kb": 14292,
+   "peak_rss_kb": 85772,
+   "passed": true,
+   "false_success": false,
+   "oracles": [
+    {
+     "name": "process_stable",
+     "passed": true,
+     "detail": "code de sortie 0",
+     "kind": "startup",
+     "false_success": false
+    },
+    {
+     "name": "file_exists",
+     "passed": true,
+     "detail": "/home/user/_scratch/bdflab-work/runs/C-export-pdf-r1/prefix/drive_c/bdf/out.pdf présent",
+     "kind": "effect",
+     "false_success": false
+    },
+    {
+     "name": "pdf_text",
+     "passed": true,
+     "detail": "pdftotext: texte retrouvé (extrait 'contenu a exporter\\nbdflab-marque-modif-9')",
+     "kind": "independent",
+     "false_success": false
+    }
+   ],
+   "app_events": [
+    "OPENED",
+    "EXPORTED"
+   ],
+   "trace_summary": {
+    "lines": 131,
+    "relay_calls": 0,
+    "fatal": false,
+    "stub_calls": [],
+    "missing_impl_imports": [],
+    "missing_libraries": [],
+    "import_failures": [],
+    "exceptions": [],
+    "unhandled": [],
+    "dynamic_load_failures": []
+   },
+   "stdout_path": "20261102T155031Z/runs/C-export-pdf-r1/C-export-pdf-r1.stdout.txt",
+   "log_path": "20261102T155031Z/runs/C-export-pdf-r1/C-export-pdf-r1.wine.log.gz",
+   "produced_sha": {
+    "doc.txt": "512bb342ee4fad3d32e13c2b554bf74effc1b7d96155182cbefcb6456b2c6898",
+    "out.pdf": "e9a2ef8147bdfa077a83331f0bd1f705a81b85fa9a89bffc218c8de508f8a8bd"
+   },
+   "notes": []
+  },
+  {
+   "config": "C",
+   "scenario": "export-pdf",
+   "run_idx": 2,
+   "exit_code": 0,
+   "timed_out": false,
+   "wall_s": 0.99,
+   "cpu_s": 0.07,
+   "max_rss_kb": 14276,
+   "peak_rss_kb": 84836,
+   "passed": true,
+   "false_success": false,
+   "oracles": [
+    {
+     "name": "process_stable",
+     "passed": true,
+     "detail": "code de sortie 0",
+     "kind": "startup",
+     "false_success": false
+    },
+    {
+     "name": "file_exists",
+     "passed": true,
+     "detail": "/home/user/_scratch/bdflab-work/runs/C-export-pdf-r2/prefix/drive_c/bdf/out.pdf présent",
+     "kind": "effect",
+     "false_success": false
+    },
+    {
+     "name": "pdf_text",
+     "passed": true,
+     "detail": "pdftotext: texte retrouvé (extrait 'contenu a exporter\\nbdflab-marque-modif-9')",
+     "kind": "independent",
+     "false_success": false
+    }
+   ],
+   "app_events": [
+    "OPENED",
+    "EXPORTED"
+   ],
+   "trace_summary": {
+    "lines": 131,
+    "relay_calls": 0,
+    "fatal": false,
+    "stub_calls": [],
+    "missing_impl_imports": [],
+    "missing_libraries": [],
+    "import_failures": [],
+    "exceptions": [],
+    "unhandled": [],
+    "dynamic_load_failures": []
+   },
+   "stdout_path": "20261102T155031Z/runs/C-export-pdf-r2/C-export-pdf-r2.stdout.txt",
+   "log_path": "20261102T155031Z/runs/C-export-pdf-r2/C-export-pdf-r2.wine.log.gz",
+   "produced_sha": {
+    "doc.txt": "512bb342ee4fad3d32e13c2b554bf74effc1b7d96155182cbefcb6456b2c6898",
+    "out.pdf": "e9a2ef8147bdfa077a83331f0bd1f705a81b85fa9a89bffc218c8de508f8a8bd"
+   },
+   "notes": []
+  }
+ ],
+ "gen_time_b_s": 2.911,
+ "gen_actions_b": [
+  "classe B : DLL de compatibilité bzRNEL32.dll pour KERNEL32.dll (33 exports renvoyés vers Wine, 3 fournis : Heap32First, Heap32Next, SystemTimeToTzSpecificLocalTimeEx)",
+  "copie corrigée : import « KERNEL32.dll » redirigé vers « bzRNEL32.dll » (original intact)",
+  "classe A : bdfpdf.dll fourni depuis le catalogue du labo (catalogue:bdfpdf)"
+ ],
+ "manual_build_c_s": 0.0,
+ "comparison": {
+  "table": {
+   "A": {
+    "runs": 8,
+    "scenario_passes": 2,
+    "scenarios_distinct": 4,
+    "false_success": 0,
+    "reproducible": true,
+    "reproducible_detail": {
+     "startup": true,
+     "edit-save-reopen": true,
+     "stats-degrade": true,
+     "export-pdf": true
+    },
+    "cpu_s_mean": 0.109,
+    "peak_rss_mb_mean": 94.9,
+    "per_scenario": {
+     "startup": {
+      "pass": 2,
+      "of": 2
+     },
+     "edit-save-reopen": {
+      "pass": 0,
+      "of": 2
+     },
+     "stats-degrade": {
+      "pass": 0,
+      "of": 2
+     },
+     "export-pdf": {
+      "pass": 0,
+      "of": 2
+     }
+    }
+   },
+   "B": {
+    "runs": 8,
+    "scenario_passes": 8,
+    "scenarios_distinct": 4,
+    "false_success": 0,
+    "reproducible": true,
+    "reproducible_detail": {
+     "startup": true,
+     "edit-save-reopen": true,
+     "stats-degrade": true,
+     "export-pdf": true
+    },
+    "cpu_s_mean": 0.071,
+    "peak_rss_mb_mean": 88.7,
+    "per_scenario": {
+     "startup": {
+      "pass": 2,
+      "of": 2
+     },
+     "edit-save-reopen": {
+      "pass": 2,
+      "of": 2
+     },
+     "stats-degrade": {
+      "pass": 2,
+      "of": 2
+     },
+     "export-pdf": {
+      "pass": 2,
+      "of": 2
+     }
+    }
+   },
+   "C": {
+    "runs": 8,
+    "scenario_passes": 8,
+    "scenarios_distinct": 4,
+    "false_success": 0,
+    "reproducible": true,
+    "reproducible_detail": {
+     "startup": true,
+     "edit-save-reopen": true,
+     "stats-degrade": true,
+     "export-pdf": true
+    },
+    "cpu_s_mean": 0.068,
+    "peak_rss_mb_mean": 87.8,
+    "per_scenario": {
+     "startup": {
+      "pass": 2,
+      "of": 2
+     },
+     "edit-save-reopen": {
+      "pass": 2,
+      "of": 2
+     },
+     "stats-degrade": {
+      "pass": 2,
+      "of": 2
+     },
+     "export-pdf": {
+      "pass": 2,
+      "of": 2
+     }
+    }
+   }
+  },
+  "regressions": []
+ },
+ "capsule_path": "/home/user/Badge-bleu-/capsules/bdfedit-25205f9b77d4.capsule.toml",
+ "notes": []
+}

@@ -1,0 +1,4 @@
+BDFEDIT|OPENED|path=C:/bdf/doc.txt|bytes=32|lines=2
+BDFEDIT|MODIFIED|appended_bytes=25
+BDFEDIT|TZ|method=fallback|err=120|stamp=2026-11-02 15:51:37
+BDFEDIT|SAVED|path=C:/bdf/doc.txt|bytes=88|lines=4

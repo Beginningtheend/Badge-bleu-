@@ -1,0 +1,2780 @@
+{
+ "path": "testapps/bdfedit/bin/bdfedit.exe",
+ "sha256": "25205f9b77d4b4ec72eefcada35e099df80e16b49f80fe7fd9296e68c4f40ce4",
+ "size": 263727,
+ "imphash": "fe7a428bf8b2111bfa4111674827457d",
+ "machine": "x86_64",
+ "subsystem": "console",
+ "is_dll": false,
+ "timestamp": 0,
+ "linker": "2.41",
+ "authenticode": false,
+ "version_info": {
+  "CompanyName": "polyre-bdf-lab (programme de test synthetique)",
+  "FileDescription": "bdfedit - editeur de test synthetique pour polyre-bdf-lab",
+  "FileVersion": "0.1.0.0",
+  "InternalName": "bdfedit",
+  "OriginalFilename": "bdfedit.exe",
+  "ProductName": "bdfedit (synthetic)",
+  "ProductVersion": "0.1.0",
+  "_FixedProductVersion": "0.1.0.0",
+  "_FixedFileVersion": "0.1.0.0"
+ },
+ "imports": [
+  {
+   "dll": "KERNEL32.dll",
+   "func": "CloseHandle",
+   "delay": false,
+   "resolution": {
+    "dll": "kernel32",
+    "func": "CloseHandle",
+    "status": "implemented",
+    "chain": [
+     "kernel32.CloseHandle",
+     "kernelbase.CloseHandle"
+    ],
+    "entry": {
+     "a": [
+      "long"
+     ],
+     "line": 140,
+     "t": "stdcall"
+    },
+    "semistub": null,
+    "prototype": {
+     "cc": "WINAPI",
+     "hdr": "winbase.h",
+     "params": [
+      [
+       "HANDLE",
+       ""
+      ]
+     ],
+     "ret": "BOOL"
+    },
+    "notes": [
+     "-import : kernel32.CloseHandle fourni par kernelbase"
+    ],
+    "final_dll": "kernelbase",
+    "final_func": "CloseHandle"
+   }
+  },
+  {
+   "dll": "KERNEL32.dll",
+   "func": "CreateFileW",
+   "delay": false,
+   "resolution": {
+    "dll": "kernel32",
+    "func": "CreateFileW",
+    "status": "implemented",
+    "chain": [
+     "kernel32.CreateFileW",
+     "kernelbase.CreateFileW"
+    ],
+    "entry": {
+     "a": [
+      "wstr",
+      "long",
+      "long",
+      "ptr",
+      "long",
+      "long",
+      "long"
+     ],
+     "line": 199,
+     "t": "stdcall"
+    },
+    "semistub": null,
+    "prototype": {
+     "cc": "WINAPI",
+     "hdr": "winbase.h",
+     "params": [
+      [
+       "LPCWSTR",
+       ""
+      ],
+      [
+       "DWORD",
+       ""
+      ],
+      [
+       "DWORD",
+       ""
+      ],
+      [
+       "LPSECURITY_ATTRIBUTES",
+       ""
+      ],
+      [
+       "DWORD",
+       ""
+      ],
+      [
+       "DWORD",
+       ""
+      ],
+      [
+       "HANDLE",
+       ""
+      ]
+     ],
+     "ret": "HANDLE"
+    },
+    "notes": [
+     "-import : kernel32.CreateFileW fourni par kernelbase"
+    ],
+    "final_dll": "kernelbase",
+    "final_func": "CreateFileW"
+   }
+  },
+  {
+   "dll": "KERNEL32.dll",
+   "func": "DeleteCriticalSection",
+   "delay": false,
+   "resolution": {
+    "dll": "kernel32",
+    "func": "DeleteCriticalSection",
+    "status": "implemented",
+    "chain": [
+     "kernel32.DeleteCriticalSection",
+     "ntdll.RtlDeleteCriticalSection"
+    ],
+    "entry": {
+     "a": [
+      "ptr"
+     ],
+     "line": 617,
+     "t": "stdcall"
+    },
+    "semistub": null,
+    "prototype": {
+     "cc": "WINAPI",
+     "hdr": "winternl.h",
+     "params": [
+      [
+       "RTL_CRITICAL_SECTION *",
+       ""
+      ]
+     ],
+     "ret": "NTSTATUS"
+    },
+    "notes": [
+     "forward kernel32.DeleteCriticalSection → NTDLL.RtlDeleteCriticalSection"
+    ],
+    "final_dll": "ntdll",
+    "final_func": "RtlDeleteCriticalSection"
+   }
+  },
+  {
+   "dll": "KERNEL32.dll",
+   "func": "EnterCriticalSection",
+   "delay": false,
+   "resolution": {
+    "dll": "kernel32",
+    "func": "EnterCriticalSection",
+    "status": "implemented",
+    "chain": [
+     "kernel32.EnterCriticalSection",
+     "ntdll.RtlEnterCriticalSection"
+    ],
+    "entry": {
+     "a": [
+      "ptr"
+     ],
+     "line": 662,
+     "t": "stdcall"
+    },
+    "semistub": null,
+    "prototype": {
+     "cc": "WINAPI",
+     "hdr": "winternl.h",
+     "params": [
+      [
+       "RTL_CRITICAL_SECTION *",
+       ""
+      ]
+     ],
+     "ret": "NTSTATUS"
+    },
+    "notes": [
+     "forward kernel32.EnterCriticalSection → NTDLL.RtlEnterCriticalSection"
+    ],
+    "final_dll": "ntdll",
+    "final_func": "RtlEnterCriticalSection"
+   }
+  },
+  {
+   "dll": "KERNEL32.dll",
+   "func": "FlushFileBuffers",
+   "delay": false,
+   "resolution": {
+    "dll": "kernel32",
+    "func": "FlushFileBuffers",
+    "status": "implemented",
+    "chain": [
+     "kernel32.FlushFileBuffers",
+     "kernelbase.FlushFileBuffers"
+    ],
+    "entry": {
+     "a": [
+      "long"
+     ],
+     "line": 393,
+     "t": "stdcall"
+    },
+    "semistub": null,
+    "prototype": {
+     "cc": "WINAPI",
+     "hdr": "winbase.h",
+     "params": [
+      [
+       "HANDLE",
+       ""
+      ]
+     ],
+     "ret": "BOOL"
+    },
+    "notes": [
+     "-import : kernel32.FlushFileBuffers fourni par kernelbase"
+    ],
+    "final_dll": "kernelbase",
+    "final_func": "FlushFileBuffers"
+   }
+  },
+  {
+   "dll": "KERNEL32.dll",
+   "func": "GetCurrentDirectoryW",
+   "delay": false,
+   "resolution": {
+    "dll": "kernel32",
+    "func": "GetCurrentDirectoryW",
+    "status": "implemented",
+    "chain": [
+     "kernel32.GetCurrentDirectoryW",
+     "kernelbase.GetCurrentDirectoryW"
+    ],
+    "entry": {
+     "a": [
+      "long",
+      "ptr"
+     ],
+     "line": 489,
+     "t": "stdcall"
+    },
+    "semistub": null,
+    "prototype": {
+     "cc": "WINAPI",
+     "hdr": "winbase.h",
+     "params": [
+      [
+       "UINT",
+       ""
+      ],
+      [
+       "LPWSTR",
+       ""
+      ]
+     ],
+     "ret": "UINT"
+    },
+    "notes": [
+     "-import : kernel32.GetCurrentDirectoryW fourni par kernelbase"
+    ],
+    "final_dll": "kernelbase",
+    "final_func": "GetCurrentDirectoryW"
+   }
+  },
+  {
+   "dll": "KERNEL32.dll",
+   "func": "GetCurrentProcessId",
+   "delay": false,
+   "resolution": {
+    "dll": "kernel32",
+    "func": "GetCurrentProcessId",
+    "status": "implemented",
+    "chain": [
+     "kernel32.GetCurrentProcessId"
+    ],
+    "entry": {
+     "a": [],
+     "fl": [
+      "-norelay"
+     ],
+     "h": "KERNEL32_GetCurrentProcessId",
+     "line": 646,
+     "t": "stdcall"
+    },
+    "semistub": null,
+    "prototype": {
+     "cc": "WINAPI",
+     "hdr": "winbase.h",
+     "params": [],
+     "ret": "DWORD"
+    },
+    "notes": [],
+    "final_dll": "kernel32",
+    "final_func": "GetCurrentProcessId"
+   }
+  },
+  {
+   "dll": "KERNEL32.dll",
+   "func": "GetDynamicTimeZoneInformation",
+   "delay": false,
+   "resolution": {
+    "dll": "kernel32",
+    "func": "GetDynamicTimeZoneInformation",
+    "status": "implemented",
+    "chain": [
+     "kernel32.GetDynamicTimeZoneInformation",
+     "kernelbase.GetDynamicTimeZoneInformation"
+    ],
+    "entry": {
+     "a": [
+      "ptr"
+     ],
+     "line": 524,
+     "t": "stdcall"
+    },
+    "semistub": null,
+    "prototype": {
+     "cc": "WINAPI",
+     "hdr": "timezoneapi.h",
+     "params": [
+      [
+       "PDYNAMIC_TIME_ZONE_INFORMATION",
+       ""
+      ]
+     ],
+     "ret": "DWORD"
+    },
+    "notes": [
+     "-import : kernel32.GetDynamicTimeZoneInformation fourni par kernelbase"
+    ],
+    "final_dll": "kernelbase",
+    "final_func": "GetDynamicTimeZoneInformation"
+   }
+  },
+  {
+   "dll": "KERNEL32.dll",
+   "func": "GetFileSizeEx",
+   "delay": false,
+   "resolution": {
+    "dll": "kernel32",
+    "func": "GetFileSizeEx",
+    "status": "implemented",
+    "chain": [
+     "kernel32.GetFileSizeEx",
+     "kernelbase.GetFileSizeEx"
+    ],
+    "entry": {
+     "a": [
+      "long",
+      "ptr"
+     ],
+     "line": 550,
+     "t": "stdcall"
+    },
+    "semistub": null,
+    "prototype": {
+     "cc": "WINAPI",
+     "hdr": "winbase.h",
+     "params": [
+      [
+       "HANDLE",
+       ""
+      ],
+      [
+       "PLARGE_INTEGER",
+       ""
+      ]
+     ],
+     "ret": "BOOL"
+    },
+    "notes": [
+     "-import : kernel32.GetFileSizeEx fourni par kernelbase"
+    ],
+    "final_dll": "kernelbase",
+    "final_func": "GetFileSizeEx"
+   }
+  },
+  {
+   "dll": "KERNEL32.dll",
+   "func": "GetLastError",
+   "delay": false,
+   "resolution": {
+    "dll": "kernel32",
+    "func": "GetLastError",
+    "status": "implemented",
+    "chain": [
+     "kernel32.GetLastError",
+     "kernelbase.GetLastError"
+    ],
+    "entry": {
+     "a": [],
+     "h": "kernelbase_GetLastError",
+     "line": 577,
+     "t": "stdcall"
+    },
+    "semistub": null,
+    "prototype": {
+     "cc": "WINAPI",
+     "hdr": "winbase.h",
+     "params": [],
+     "ret": "DWORD"
+    },
+    "notes": [
+     "-import : kernel32.GetLastError fourni par kernelbase"
+    ],
+    "final_dll": "kernelbase",
+    "final_func": "GetLastError"
+   }
+  },
+  {
+   "dll": "KERNEL32.dll",
+   "func": "GetModuleFileNameW",
+   "delay": false,
+   "resolution": {
+    "dll": "kernel32",
+    "func": "GetModuleFileNameW",
+    "status": "implemented",
+    "chain": [
+     "kernel32.GetModuleFileNameW",
+     "kernelbase.GetModuleFileNameW"
+    ],
+    "entry": {
+     "a": [
+      "long",
+      "ptr",
+      "long"
+     ],
+     "line": 598,
+     "t": "stdcall"
+    },
+    "semistub": null,
+    "prototype": {
+     "cc": "WINAPI",
+     "hdr": "winbase.h",
+     "params": [
+      [
+       "HMODULE",
+       ""
+      ],
+      [
+       "LPWSTR",
+       ""
+      ],
+      [
+       "DWORD",
+       ""
+      ]
+     ],
+     "ret": "DWORD"
+    },
+    "notes": [
+     "-import : kernel32.GetModuleFileNameW fourni par kernelbase"
+    ],
+    "final_dll": "kernelbase",
+    "final_func": "GetModuleFileNameW"
+   }
+  },
+  {
+   "dll": "KERNEL32.dll",
+   "func": "GetProcAddress",
+   "delay": false,
+   "resolution": {
+    "dll": "kernel32",
+    "func": "GetProcAddress",
+    "status": "implemented",
+    "chain": [
+     "kernel32.GetProcAddress"
+    ],
+    "entry": {
+     "a": [
+      "long",
+      "str"
+     ],
+     "line": 799,
+     "t": "stdcall"
+    },
+    "semistub": null,
+    "prototype": {
+     "cc": "WINAPI",
+     "hdr": "winbase.h",
+     "params": [
+      [
+       "HMODULE",
+       ""
+      ],
+      [
+       "LPCSTR",
+       ""
+      ]
+     ],
+     "ret": "FARPROC"
+    },
+    "notes": [],
+    "final_dll": "kernel32",
+    "final_func": "GetProcAddress"
+   }
+  },
+  {
+   "dll": "KERNEL32.dll",
+   "func": "GetProcessHeap",
+   "delay": false,
+   "resolution": {
+    "dll": "kernel32",
+    "func": "GetProcessHeap",
+    "status": "implemented",
+    "chain": [
+     "kernel32.GetProcessHeap",
+     "kernelbase.GetProcessHeap"
+    ],
+    "entry": {
+     "a": [],
+     "fl": [
+      "-norelay"
+     ],
+     "h": "kernelbase_GetProcessHeap",
+     "line": 663,
+     "t": "stdcall"
+    },
+    "semistub": null,
+    "prototype": {
+     "cc": "WINAPI",
+     "hdr": "winbase.h",
+     "params": [],
+     "ret": "HANDLE"
+    },
+    "notes": [
+     "-import : kernel32.GetProcessHeap fourni par kernelbase"
+    ],
+    "final_dll": "kernelbase",
+    "final_func": "GetProcessHeap"
+   }
+  },
+  {
+   "dll": "KERNEL32.dll",
+   "func": "GetSystemTime",
+   "delay": false,
+   "resolution": {
+    "dll": "kernel32",
+    "func": "GetSystemTime",
+    "status": "implemented",
+    "chain": [
+     "kernel32.GetSystemTime",
+     "kernelbase.GetSystemTime"
+    ],
+    "entry": {
+     "a": [
+      "ptr"
+     ],
+     "line": 734,
+     "t": "stdcall"
+    },
+    "semistub": null,
+    "prototype": {
+     "cc": "WINAPI",
+     "hdr": "sysinfoapi.h",
+     "params": [
+      [
+       "LPSYSTEMTIME",
+       ""
+      ]
+     ],
+     "ret": "VOID"
+    },
+    "notes": [
+     "-import : kernel32.GetSystemTime fourni par kernelbase"
+    ],
+    "final_dll": "kernelbase",
+    "final_func": "GetSystemTime"
+   }
+  },
+  {
+   "dll": "KERNEL32.dll",
+   "func": "GetVersionExW",
+   "delay": false,
+   "resolution": {
+    "dll": "kernel32",
+    "func": "GetVersionExW",
+    "status": "implemented",
+    "chain": [
+     "kernel32.GetVersionExW",
+     "kernelbase.GetVersionExW"
+    ],
+    "entry": {
+     "a": [
+      "ptr"
+     ],
+     "line": 794,
+     "t": "stdcall"
+    },
+    "semistub": null,
+    "prototype": {
+     "cc": "WINAPI",
+     "hdr": "sysinfoapi.h",
+     "params": [
+      [
+       "OSVERSIONINFOW*",
+       ""
+      ]
+     ],
+     "ret": "BOOL"
+    },
+    "notes": [
+     "-import : kernel32.GetVersionExW fourni par kernelbase"
+    ],
+    "final_dll": "kernelbase",
+    "final_func": "GetVersionExW"
+   }
+  },
+  {
+   "dll": "KERNEL32.dll",
+   "func": "Heap32First",
+   "delay": false,
+   "resolution": {
+    "dll": "kernel32",
+    "func": "Heap32First",
+    "status": "stub",
+    "chain": [
+     "kernel32.Heap32First"
+    ],
+    "entry": {
+     "line": 944,
+     "t": "stub"
+    },
+    "semistub": null,
+    "prototype": {
+     "cc": "WINAPI",
+     "hdr": "tlhelp32.h",
+     "params": [
+      [
+       "LPHEAPENTRY32",
+       ""
+      ],
+      [
+       "DWORD",
+       ""
+      ],
+      [
+       "ULONG_PTR",
+       ""
+      ]
+     ],
+     "ret": "BOOL"
+    },
+    "notes": [],
+    "final_dll": "kernel32",
+    "final_func": "Heap32First"
+   }
+  },
+  {
+   "dll": "KERNEL32.dll",
+   "func": "Heap32Next",
+   "delay": false,
+   "resolution": {
+    "dll": "kernel32",
+    "func": "Heap32Next",
+    "status": "stub",
+    "chain": [
+     "kernel32.Heap32Next"
+    ],
+    "entry": {
+     "line": 947,
+     "t": "stub"
+    },
+    "semistub": null,
+    "prototype": {
+     "cc": "WINAPI",
+     "hdr": "tlhelp32.h",
+     "params": [
+      [
+       "LPHEAPENTRY32",
+       ""
+      ]
+     ],
+     "ret": "BOOL"
+    },
+    "notes": [],
+    "final_dll": "kernel32",
+    "final_func": "Heap32Next"
+   }
+  },
+  {
+   "dll": "KERNEL32.dll",
+   "func": "HeapAlloc",
+   "delay": false,
+   "resolution": {
+    "dll": "kernel32",
+    "func": "HeapAlloc",
+    "status": "implemented",
+    "chain": [
+     "kernel32.HeapAlloc",
+     "ntdll.RtlAllocateHeap"
+    ],
+    "entry": {
+     "a": [
+      "long",
+      "long",
+      "long"
+     ],
+     "line": 511,
+     "t": "stdcall"
+    },
+    "semistub": null,
+    "prototype": null,
+    "notes": [
+     "forward kernel32.HeapAlloc → NTDLL.RtlAllocateHeap"
+    ],
+    "final_dll": "ntdll",
+    "final_func": "RtlAllocateHeap"
+   }
+  },
+  {
+   "dll": "KERNEL32.dll",
+   "func": "HeapFree",
+   "delay": false,
+   "resolution": {
+    "dll": "kernel32",
+    "func": "HeapFree",
+    "status": "implemented",
+    "chain": [
+     "kernel32.HeapFree",
+     "kernelbase.HeapFree",
+     "ntdll.RtlFreeHeap"
+    ],
+    "entry": {
+     "a": [
+      "long",
+      "long",
+      "ptr"
+     ],
+     "line": 723,
+     "t": "stdcall"
+    },
+    "semistub": null,
+    "prototype": {
+     "cc": "WINAPI",
+     "hdr": "winternl.h",
+     "params": [
+      [
+       "HANDLE",
+       ""
+      ],
+      [
+       "ULONG",
+       ""
+      ],
+      [
+       "PVOID",
+       ""
+      ]
+     ],
+     "ret": "BOOLEAN"
+    },
+    "notes": [
+     "-import : kernel32.HeapFree fourni par kernelbase",
+     "forward kernelbase.HeapFree → ntdll.RtlFreeHeap"
+    ],
+    "final_dll": "ntdll",
+    "final_func": "RtlFreeHeap"
+   }
+  },
+  {
+   "dll": "KERNEL32.dll",
+   "func": "InitializeCriticalSection",
+   "delay": false,
+   "resolution": {
+    "dll": "kernel32",
+    "func": "InitializeCriticalSection",
+    "status": "implemented",
+    "chain": [
+     "kernel32.InitializeCriticalSection",
+     "ntdll.RtlInitializeCriticalSection"
+    ],
+    "entry": {
+     "a": [
+      "ptr"
+     ],
+     "line": 810,
+     "t": "stdcall"
+    },
+    "semistub": null,
+    "prototype": {
+     "cc": "WINAPI",
+     "hdr": "winternl.h",
+     "params": [
+      [
+       "RTL_CRITICAL_SECTION *",
+       ""
+      ]
+     ],
+     "ret": "NTSTATUS"
+    },
+    "notes": [
+     "forward kernel32.InitializeCriticalSection → NTDLL.RtlInitializeCriticalSection"
+    ],
+    "final_dll": "ntdll",
+    "final_func": "RtlInitializeCriticalSection"
+   }
+  },
+  {
+   "dll": "KERNEL32.dll",
+   "func": "IsDBCSLeadByteEx",
+   "delay": false,
+   "resolution": {
+    "dll": "kernel32",
+    "func": "IsDBCSLeadByteEx",
+    "status": "implemented",
+    "chain": [
+     "kernel32.IsDBCSLeadByteEx",
+     "kernelbase.IsDBCSLeadByteEx"
+    ],
+    "entry": {
+     "a": [
+      "long",
+      "long"
+     ],
+     "line": 899,
+     "t": "stdcall"
+    },
+    "semistub": null,
+    "prototype": {
+     "cc": "WINAPI",
+     "hdr": "winnls.h",
+     "params": [
+      [
+       "UINT",
+       ""
+      ],
+      [
+       "BYTE",
+       ""
+      ]
+     ],
+     "ret": "BOOL"
+    },
+    "notes": [
+     "-import : kernel32.IsDBCSLeadByteEx fourni par kernelbase"
+    ],
+    "final_dll": "kernelbase",
+    "final_func": "IsDBCSLeadByteEx"
+   }
+  },
+  {
+   "dll": "KERNEL32.dll",
+   "func": "LeaveCriticalSection",
+   "delay": false,
+   "resolution": {
+    "dll": "kernel32",
+    "func": "LeaveCriticalSection",
+    "status": "implemented",
+    "chain": [
+     "kernel32.LeaveCriticalSection",
+     "ntdll.RtlLeaveCriticalSection"
+    ],
+    "entry": {
+     "a": [
+      "ptr"
+     ],
+     "line": 882,
+     "t": "stdcall"
+    },
+    "semistub": null,
+    "prototype": {
+     "cc": "WINAPI",
+     "hdr": "winternl.h",
+     "params": [
+      [
+       "RTL_CRITICAL_SECTION *",
+       ""
+      ]
+     ],
+     "ret": "NTSTATUS"
+    },
+    "notes": [
+     "forward kernel32.LeaveCriticalSection → NTDLL.RtlLeaveCriticalSection"
+    ],
+    "final_dll": "ntdll",
+    "final_func": "RtlLeaveCriticalSection"
+   }
+  },
+  {
+   "dll": "KERNEL32.dll",
+   "func": "LoadLibraryW",
+   "delay": false,
+   "resolution": {
+    "dll": "kernel32",
+    "func": "LoadLibraryW",
+    "status": "implemented",
+    "chain": [
+     "kernel32.LoadLibraryW",
+     "kernelbase.LoadLibraryW"
+    ],
+    "entry": {
+     "a": [
+      "wstr"
+     ],
+     "line": 970,
+     "t": "stdcall"
+    },
+    "semistub": null,
+    "prototype": {
+     "cc": "WINAPI",
+     "hdr": "winbase.h",
+     "params": [
+      [
+       "LPCWSTR",
+       ""
+      ]
+     ],
+     "ret": "HMODULE"
+    },
+    "notes": [
+     "-import : kernel32.LoadLibraryW fourni par kernelbase"
+    ],
+    "final_dll": "kernelbase",
+    "final_func": "LoadLibraryW"
+   }
+  },
+  {
+   "dll": "KERNEL32.dll",
+   "func": "MoveFileExW",
+   "delay": false,
+   "resolution": {
+    "dll": "kernel32",
+    "func": "MoveFileExW",
+    "status": "implemented",
+    "chain": [
+     "kernel32.MoveFileExW",
+     "kernelbase.MoveFileExW"
+    ],
+    "entry": {
+     "a": [
+      "wstr",
+      "wstr",
+      "long"
+     ],
+     "line": 999,
+     "t": "stdcall"
+    },
+    "semistub": null,
+    "prototype": {
+     "cc": "WINAPI",
+     "hdr": "winbase.h",
+     "params": [
+      [
+       "LPCWSTR",
+       ""
+      ],
+      [
+       "LPCWSTR",
+       ""
+      ],
+      [
+       "DWORD",
+       ""
+      ]
+     ],
+     "ret": "BOOL"
+    },
+    "notes": [
+     "-import : kernel32.MoveFileExW fourni par kernelbase"
+    ],
+    "final_dll": "kernelbase",
+    "final_func": "MoveFileExW"
+   }
+  },
+  {
+   "dll": "KERNEL32.dll",
+   "func": "MultiByteToWideChar",
+   "delay": false,
+   "resolution": {
+    "dll": "kernel32",
+    "func": "MultiByteToWideChar",
+    "status": "implemented",
+    "chain": [
+     "kernel32.MultiByteToWideChar",
+     "kernelbase.MultiByteToWideChar"
+    ],
+    "entry": {
+     "a": [
+      "long",
+      "long",
+      "str",
+      "long",
+      "ptr",
+      "long"
+     ],
+     "line": 1003,
+     "t": "stdcall"
+    },
+    "semistub": null,
+    "prototype": {
+     "cc": "WINAPI",
+     "hdr": "winnls.h",
+     "params": [
+      [
+       "UINT",
+       ""
+      ],
+      [
+       "DWORD",
+       ""
+      ],
+      [
+       "LPCSTR",
+       ""
+      ],
+      [
+       "INT",
+       ""
+      ],
+      [
+       "LPWSTR",
+       ""
+      ],
+      [
+       "INT",
+       ""
+      ]
+     ],
+     "ret": "INT"
+    },
+    "notes": [
+     "-import : kernel32.MultiByteToWideChar fourni par kernelbase"
+    ],
+    "final_dll": "kernelbase",
+    "final_func": "MultiByteToWideChar"
+   }
+  },
+  {
+   "dll": "KERNEL32.dll",
+   "func": "ReadFile",
+   "delay": false,
+   "resolution": {
+    "dll": "kernel32",
+    "func": "ReadFile",
+    "status": "implemented",
+    "chain": [
+     "kernel32.ReadFile",
+     "kernelbase.ReadFile"
+    ],
+    "entry": {
+     "a": [
+      "long",
+      "ptr",
+      "long",
+      "ptr",
+      "ptr"
+     ],
+     "line": 1294,
+     "t": "stdcall"
+    },
+    "semistub": null,
+    "prototype": {
+     "cc": "WINAPI",
+     "hdr": "winbase.h",
+     "params": [
+      [
+       "HANDLE",
+       ""
+      ],
+      [
+       "LPVOID",
+       ""
+      ],
+      [
+       "DWORD",
+       ""
+      ],
+      [
+       "LPDWORD",
+       ""
+      ],
+      [
+       "LPOVERLAPPED",
+       ""
+      ]
+     ],
+     "ret": "BOOL"
+    },
+    "notes": [
+     "-import : kernel32.ReadFile fourni par kernelbase"
+    ],
+    "final_dll": "kernelbase",
+    "final_func": "ReadFile"
+   }
+  },
+  {
+   "dll": "KERNEL32.dll",
+   "func": "SetLastError",
+   "delay": false,
+   "resolution": {
+    "dll": "kernel32",
+    "func": "SetLastError",
+    "status": "implemented",
+    "chain": [
+     "kernel32.SetLastError"
+    ],
+    "entry": {
+     "a": [
+      "long"
+     ],
+     "h": "RtlSetLastWin32Error",
+     "line": 1457,
+     "t": "stdcall"
+    },
+    "semistub": null,
+    "prototype": {
+     "cc": "WINAPI",
+     "hdr": "winbase.h",
+     "params": [
+      [
+       "DWORD",
+       ""
+      ]
+     ],
+     "ret": "VOID"
+    },
+    "notes": [],
+    "final_dll": "kernel32",
+    "final_func": "SetLastError"
+   }
+  },
+  {
+   "dll": "KERNEL32.dll",
+   "func": "SetUnhandledExceptionFilter",
+   "delay": false,
+   "resolution": {
+    "dll": "kernel32",
+    "func": "SetUnhandledExceptionFilter",
+    "status": "implemented",
+    "chain": [
+     "kernel32.SetUnhandledExceptionFilter",
+     "kernelbase.SetUnhandledExceptionFilter"
+    ],
+    "entry": {
+     "a": [
+      "ptr"
+     ],
+     "line": 1554,
+     "t": "stdcall"
+    },
+    "semistub": null,
+    "prototype": {
+     "cc": "WINAPI",
+     "hdr": "winbase.h",
+     "params": [
+      [
+       "LPTOP_LEVEL_EXCEPTION_FILTER",
+       ""
+      ]
+     ],
+     "ret": "LPTOP_LEVEL_EXCEPTION_FILTER"
+    },
+    "notes": [
+     "-import : kernel32.SetUnhandledExceptionFilter fourni par kernelbase"
+    ],
+    "final_dll": "kernelbase",
+    "final_func": "SetUnhandledExceptionFilter"
+   }
+  },
+  {
+   "dll": "KERNEL32.dll",
+   "func": "Sleep",
+   "delay": false,
+   "resolution": {
+    "dll": "kernel32",
+    "func": "Sleep",
+    "status": "implemented",
+    "chain": [
+     "kernel32.Sleep",
+     "kernelbase.Sleep"
+    ],
+    "entry": {
+     "a": [
+      "long"
+     ],
+     "line": 1564,
+     "t": "stdcall"
+    },
+    "semistub": null,
+    "prototype": {
+     "cc": "WINAPI",
+     "hdr": "winbase.h",
+     "params": [
+      [
+       "DWORD",
+       ""
+      ]
+     ],
+     "ret": "VOID"
+    },
+    "notes": [
+     "-import : kernel32.Sleep fourni par kernelbase"
+    ],
+    "final_dll": "kernelbase",
+    "final_func": "Sleep"
+   }
+  },
+  {
+   "dll": "KERNEL32.dll",
+   "func": "SystemTimeToTzSpecificLocalTime",
+   "delay": false,
+   "resolution": {
+    "dll": "kernel32",
+    "func": "SystemTimeToTzSpecificLocalTime",
+    "status": "implemented",
+    "chain": [
+     "kernel32.SystemTimeToTzSpecificLocalTime",
+     "kernelbase.SystemTimeToTzSpecificLocalTime"
+    ],
+    "entry": {
+     "a": [
+      "ptr",
+      "ptr",
+      "ptr"
+     ],
+     "line": 1645,
+     "t": "stdcall"
+    },
+    "semistub": null,
+    "prototype": {
+     "cc": "WINAPI",
+     "hdr": "timezoneapi.h",
+     "params": [
+      [
+       "const TIME_ZONE_INFORMATION*",
+       ""
+      ],
+      [
+       "const SYSTEMTIME*",
+       ""
+      ],
+      [
+       "LPSYSTEMTIME",
+       ""
+      ]
+     ],
+     "ret": "BOOL"
+    },
+    "notes": [
+     "-import : kernel32.SystemTimeToTzSpecificLocalTime fourni par kernelbase"
+    ],
+    "final_dll": "kernelbase",
+    "final_func": "SystemTimeToTzSpecificLocalTime"
+   }
+  },
+  {
+   "dll": "KERNEL32.dll",
+   "func": "SystemTimeToTzSpecificLocalTimeEx",
+   "delay": false,
+   "resolution": {
+    "dll": "kernel32",
+    "func": "SystemTimeToTzSpecificLocalTimeEx",
+    "status": "export-absent",
+    "chain": [
+     "kernel32.SystemTimeToTzSpecificLocalTimeEx"
+    ],
+    "entry": {
+     "line": 1543,
+     "note": "commented stub",
+     "t": "absent"
+    },
+    "semistub": null,
+    "prototype": {
+     "cc": "WINAPI",
+     "hdr": "timezoneapi.h",
+     "params": [
+      [
+       "const DYNAMIC_TIME_ZONE_INFORMATION*",
+       ""
+      ],
+      [
+       "const SYSTEMTIME*",
+       ""
+      ],
+      [
+       "LPSYSTEMTIME",
+       ""
+      ]
+     ],
+     "ret": "BOOL"
+    },
+    "notes": [
+     "commented stub"
+    ],
+    "final_dll": "kernel32",
+    "final_func": "SystemTimeToTzSpecificLocalTimeEx"
+   }
+  },
+  {
+   "dll": "KERNEL32.dll",
+   "func": "TlsGetValue",
+   "delay": false,
+   "resolution": {
+    "dll": "kernel32",
+    "func": "TlsGetValue",
+    "status": "implemented",
+    "chain": [
+     "kernel32.TlsGetValue",
+     "kernelbase.TlsGetValue"
+    ],
+    "entry": {
+     "a": [
+      "long"
+     ],
+     "line": 1652,
+     "t": "stdcall"
+    },
+    "semistub": null,
+    "prototype": {
+     "cc": "WINAPI",
+     "hdr": "winbase.h",
+     "params": [
+      [
+       "DWORD",
+       ""
+      ]
+     ],
+     "ret": "LPVOID"
+    },
+    "notes": [
+     "-import : kernel32.TlsGetValue fourni par kernelbase"
+    ],
+    "final_dll": "kernelbase",
+    "final_func": "TlsGetValue"
+   }
+  },
+  {
+   "dll": "KERNEL32.dll",
+   "func": "VirtualProtect",
+   "delay": false,
+   "resolution": {
+    "dll": "kernel32",
+    "func": "VirtualProtect",
+    "status": "implemented",
+    "chain": [
+     "kernel32.VirtualProtect",
+     "kernelbase.VirtualProtect"
+    ],
+    "entry": {
+     "a": [
+      "ptr",
+      "long",
+      "long",
+      "ptr"
+     ],
+     "line": 1731,
+     "t": "stdcall"
+    },
+    "semistub": null,
+    "prototype": {
+     "cc": "WINAPI",
+     "hdr": "winbase.h",
+     "params": [
+      [
+       "LPVOID",
+       ""
+      ],
+      [
+       "SIZE_T",
+       ""
+      ],
+      [
+       "DWORD",
+       ""
+      ],
+      [
+       "LPDWORD",
+       ""
+      ]
+     ],
+     "ret": "BOOL"
+    },
+    "notes": [
+     "-import : kernel32.VirtualProtect fourni par kernelbase"
+    ],
+    "final_dll": "kernelbase",
+    "final_func": "VirtualProtect"
+   }
+  },
+  {
+   "dll": "KERNEL32.dll",
+   "func": "VirtualQuery",
+   "delay": false,
+   "resolution": {
+    "dll": "kernel32",
+    "func": "VirtualQuery",
+    "status": "implemented",
+    "chain": [
+     "kernel32.VirtualQuery",
+     "kernelbase.VirtualQuery"
+    ],
+    "entry": {
+     "a": [
+      "ptr",
+      "ptr",
+      "long"
+     ],
+     "line": 1734,
+     "t": "stdcall"
+    },
+    "semistub": null,
+    "prototype": {
+     "cc": "WINAPI",
+     "hdr": "winbase.h",
+     "params": [
+      [
+       "LPCVOID",
+       ""
+      ],
+      [
+       "PMEMORY_BASIC_INFORMATION",
+       ""
+      ],
+      [
+       "SIZE_T",
+       ""
+      ]
+     ],
+     "ret": "SIZE_T"
+    },
+    "notes": [
+     "-import : kernel32.VirtualQuery fourni par kernelbase"
+    ],
+    "final_dll": "kernelbase",
+    "final_func": "VirtualQuery"
+   }
+  },
+  {
+   "dll": "KERNEL32.dll",
+   "func": "WideCharToMultiByte",
+   "delay": false,
+   "resolution": {
+    "dll": "kernel32",
+    "func": "WideCharToMultiByte",
+    "status": "implemented",
+    "chain": [
+     "kernel32.WideCharToMultiByte",
+     "kernelbase.WideCharToMultiByte"
+    ],
+    "entry": {
+     "a": [
+      "long",
+      "long",
+      "wstr",
+      "long",
+      "ptr",
+      "long",
+      "ptr",
+      "ptr"
+     ],
+     "line": 1770,
+     "t": "stdcall"
+    },
+    "semistub": null,
+    "prototype": {
+     "cc": "WINAPI",
+     "hdr": "winnls.h",
+     "params": [
+      [
+       "UINT",
+       ""
+      ],
+      [
+       "DWORD",
+       ""
+      ],
+      [
+       "LPCWSTR",
+       ""
+      ],
+      [
+       "INT",
+       ""
+      ],
+      [
+       "LPSTR",
+       ""
+      ],
+      [
+       "INT",
+       ""
+      ],
+      [
+       "LPCSTR",
+       ""
+      ],
+      [
+       "LPBOOL",
+       ""
+      ]
+     ],
+     "ret": "INT"
+    },
+    "notes": [
+     "-import : kernel32.WideCharToMultiByte fourni par kernelbase"
+    ],
+    "final_dll": "kernelbase",
+    "final_func": "WideCharToMultiByte"
+   }
+  },
+  {
+   "dll": "KERNEL32.dll",
+   "func": "WriteFile",
+   "delay": false,
+   "resolution": {
+    "dll": "kernel32",
+    "func": "WriteFile",
+    "status": "implemented",
+    "chain": [
+     "kernel32.WriteFile",
+     "kernelbase.WriteFile"
+    ],
+    "entry": {
+     "a": [
+      "long",
+      "ptr",
+      "long",
+      "ptr",
+      "ptr"
+     ],
+     "line": 1788,
+     "t": "stdcall"
+    },
+    "semistub": null,
+    "prototype": {
+     "cc": "WINAPI",
+     "hdr": "winbase.h",
+     "params": [
+      [
+       "HANDLE",
+       ""
+      ],
+      [
+       "LPCVOID",
+       ""
+      ],
+      [
+       "DWORD",
+       ""
+      ],
+      [
+       "LPDWORD",
+       ""
+      ],
+      [
+       "LPOVERLAPPED",
+       ""
+      ]
+     ],
+     "ret": "BOOL"
+    },
+    "notes": [
+     "-import : kernel32.WriteFile fourni par kernelbase"
+    ],
+    "final_dll": "kernelbase",
+    "final_func": "WriteFile"
+   }
+  },
+  {
+   "dll": "msvcrt.dll",
+   "func": "__C_specific_handler",
+   "delay": false,
+   "resolution": {
+    "dll": "msvcrt",
+    "func": "__C_specific_handler",
+    "status": "implemented",
+    "chain": [
+     "msvcrt.__C_specific_handler"
+    ],
+    "entry": {
+     "a": [
+      "ptr",
+      "long",
+      "ptr",
+      "ptr"
+     ],
+     "arch": [
+      "arm",
+      "arm64",
+      "arm64ec",
+      "x86_64"
+     ],
+     "fl": [
+      "-arch=!i386"
+     ],
+     "line": 177,
+     "t": "stdcall"
+    },
+    "semistub": null,
+    "prototype": null,
+    "notes": [],
+    "final_dll": "msvcrt",
+    "final_func": "__C_specific_handler"
+   }
+  },
+  {
+   "dll": "msvcrt.dll",
+   "func": "___lc_codepage_func",
+   "delay": false,
+   "resolution": {
+    "dll": "msvcrt",
+    "func": "___lc_codepage_func",
+    "status": "implemented",
+    "chain": [
+     "msvcrt.___lc_codepage_func"
+    ],
+    "entry": {
+     "a": [],
+     "line": 196,
+     "t": "cdecl"
+    },
+    "semistub": null,
+    "prototype": null,
+    "notes": [],
+    "final_dll": "msvcrt",
+    "final_func": "___lc_codepage_func"
+   }
+  },
+  {
+   "dll": "msvcrt.dll",
+   "func": "___mb_cur_max_func",
+   "delay": false,
+   "resolution": {
+    "dll": "msvcrt",
+    "func": "___mb_cur_max_func",
+    "status": "implemented",
+    "chain": [
+     "msvcrt.___mb_cur_max_func"
+    ],
+    "entry": {
+     "a": [],
+     "line": 199,
+     "t": "cdecl"
+    },
+    "semistub": null,
+    "prototype": null,
+    "notes": [],
+    "final_dll": "msvcrt",
+    "final_func": "___mb_cur_max_func"
+   }
+  },
+  {
+   "dll": "msvcrt.dll",
+   "func": "__iob_func",
+   "delay": false,
+   "resolution": {
+    "dll": "msvcrt",
+    "func": "__iob_func",
+    "status": "implemented",
+    "chain": [
+     "msvcrt.__iob_func"
+    ],
+    "entry": {
+     "a": [],
+     "line": 219,
+     "t": "cdecl"
+    },
+    "semistub": null,
+    "prototype": null,
+    "notes": [],
+    "final_dll": "msvcrt",
+    "final_func": "__iob_func"
+   }
+  },
+  {
+   "dll": "msvcrt.dll",
+   "func": "__set_app_type",
+   "delay": false,
+   "resolution": {
+    "dll": "msvcrt",
+    "func": "__set_app_type",
+    "status": "implemented",
+    "chain": [
+     "msvcrt.__set_app_type"
+    ],
+    "entry": {
+     "a": [
+      "long"
+     ],
+     "line": 284,
+     "t": "cdecl"
+    },
+    "semistub": null,
+    "prototype": null,
+    "notes": [],
+    "final_dll": "msvcrt",
+    "final_func": "__set_app_type"
+   }
+  },
+  {
+   "dll": "msvcrt.dll",
+   "func": "__setusermatherr",
+   "delay": false,
+   "resolution": {
+    "dll": "msvcrt",
+    "func": "__setusermatherr",
+    "status": "implemented",
+    "chain": [
+     "msvcrt.__setusermatherr"
+    ],
+    "entry": {
+     "a": [
+      "ptr"
+     ],
+     "line": 286,
+     "t": "cdecl"
+    },
+    "semistub": null,
+    "prototype": null,
+    "notes": [],
+    "final_dll": "msvcrt",
+    "final_func": "__setusermatherr"
+   }
+  },
+  {
+   "dll": "msvcrt.dll",
+   "func": "__wgetmainargs",
+   "delay": false,
+   "resolution": {
+    "dll": "msvcrt",
+    "func": "__wgetmainargs",
+    "status": "implemented",
+    "chain": [
+     "msvcrt.__wgetmainargs"
+    ],
+    "entry": {
+     "a": [
+      "ptr",
+      "ptr",
+      "ptr",
+      "long",
+      "ptr"
+     ],
+     "line": 299,
+     "t": "cdecl"
+    },
+    "semistub": null,
+    "prototype": null,
+    "notes": [],
+    "final_dll": "msvcrt",
+    "final_func": "__wgetmainargs"
+   }
+  },
+  {
+   "dll": "msvcrt.dll",
+   "func": "__winitenv",
+   "delay": false,
+   "resolution": {
+    "dll": "msvcrt",
+    "func": "__winitenv",
+    "status": "implemented",
+    "chain": [
+     "msvcrt.__winitenv"
+    ],
+    "entry": {
+     "h": "MSVCRT___winitenv",
+     "line": 300,
+     "t": "extern"
+    },
+    "semistub": null,
+    "prototype": null,
+    "notes": [
+     "export de type extern (donnée)"
+    ],
+    "final_dll": "msvcrt",
+    "final_func": "__winitenv"
+   }
+  },
+  {
+   "dll": "msvcrt.dll",
+   "func": "_amsg_exit",
+   "delay": false,
+   "resolution": {
+    "dll": "msvcrt",
+    "func": "_amsg_exit",
+    "status": "implemented",
+    "chain": [
+     "msvcrt._amsg_exit"
+    ],
+    "entry": {
+     "a": [
+      "long"
+     ],
+     "line": 331,
+     "t": "cdecl"
+    },
+    "semistub": null,
+    "prototype": null,
+    "notes": [],
+    "final_dll": "msvcrt",
+    "final_func": "_amsg_exit"
+   }
+  },
+  {
+   "dll": "msvcrt.dll",
+   "func": "_cexit",
+   "delay": false,
+   "resolution": {
+    "dll": "msvcrt",
+    "func": "_cexit",
+    "status": "implemented",
+    "chain": [
+     "msvcrt._cexit"
+    ],
+    "entry": {
+     "a": [],
+     "line": 350,
+     "t": "cdecl"
+    },
+    "semistub": null,
+    "prototype": null,
+    "notes": [],
+    "final_dll": "msvcrt",
+    "final_func": "_cexit"
+   }
+  },
+  {
+   "dll": "msvcrt.dll",
+   "func": "_commode",
+   "delay": false,
+   "resolution": {
+    "dll": "msvcrt",
+    "func": "_commode",
+    "status": "implemented",
+    "chain": [
+     "msvcrt._commode"
+    ],
+    "entry": {
+     "h": "MSVCRT__commode",
+     "line": 368,
+     "t": "extern"
+    },
+    "semistub": null,
+    "prototype": null,
+    "notes": [
+     "export de type extern (donnée)"
+    ],
+    "final_dll": "msvcrt",
+    "final_func": "_commode"
+   }
+  },
+  {
+   "dll": "msvcrt.dll",
+   "func": "_errno",
+   "delay": false,
+   "resolution": {
+    "dll": "msvcrt",
+    "func": "_errno",
+    "status": "implemented",
+    "chain": [
+     "msvcrt._errno"
+    ],
+    "entry": {
+     "a": [],
+     "line": 419,
+     "t": "cdecl"
+    },
+    "semistub": null,
+    "prototype": null,
+    "notes": [],
+    "final_dll": "msvcrt",
+    "final_func": "_errno"
+   }
+  },
+  {
+   "dll": "msvcrt.dll",
+   "func": "_fmode",
+   "delay": false,
+   "resolution": {
+    "dll": "msvcrt",
+    "func": "_fmode",
+    "status": "implemented",
+    "chain": [
+     "msvcrt._fmode"
+    ],
+    "entry": {
+     "h": "MSVCRT__fmode",
+     "line": 460,
+     "t": "extern"
+    },
+    "semistub": null,
+    "prototype": null,
+    "notes": [
+     "export de type extern (donnée)"
+    ],
+    "final_dll": "msvcrt",
+    "final_func": "_fmode"
+   }
+  },
+  {
+   "dll": "msvcrt.dll",
+   "func": "_initterm",
+   "delay": false,
+   "resolution": {
+    "dll": "msvcrt",
+    "func": "_initterm",
+    "status": "implemented",
+    "chain": [
+     "msvcrt._initterm"
+    ],
+    "entry": {
+     "a": [
+      "ptr",
+      "ptr"
+     ],
+     "line": 561,
+     "t": "cdecl"
+    },
+    "semistub": null,
+    "prototype": null,
+    "notes": [],
+    "final_dll": "msvcrt",
+    "final_func": "_initterm"
+   }
+  },
+  {
+   "dll": "msvcrt.dll",
+   "func": "_lock",
+   "delay": false,
+   "resolution": {
+    "dll": "msvcrt",
+    "func": "_lock",
+    "status": "implemented",
+    "chain": [
+     "msvcrt._lock"
+    ],
+    "entry": {
+     "a": [
+      "long"
+     ],
+     "line": 672,
+     "t": "cdecl"
+    },
+    "semistub": null,
+    "prototype": null,
+    "notes": [],
+    "final_dll": "msvcrt",
+    "final_func": "_lock"
+   }
+  },
+  {
+   "dll": "msvcrt.dll",
+   "func": "_onexit",
+   "delay": false,
+   "resolution": {
+    "dll": "msvcrt",
+    "func": "_onexit",
+    "status": "implemented",
+    "chain": [
+     "msvcrt._onexit"
+    ],
+    "entry": {
+     "a": [
+      "ptr"
+     ],
+     "line": 847,
+     "t": "cdecl"
+    },
+    "semistub": null,
+    "prototype": null,
+    "notes": [],
+    "final_dll": "msvcrt",
+    "final_func": "_onexit"
+   }
+  },
+  {
+   "dll": "msvcrt.dll",
+   "func": "_snprintf",
+   "delay": false,
+   "resolution": {
+    "dll": "msvcrt",
+    "func": "_snprintf",
+    "status": "implemented",
+    "chain": [
+     "msvcrt._snprintf"
+    ],
+    "entry": {
+     "a": [
+      "ptr",
+      "long",
+      "str"
+     ],
+     "line": 917,
+     "t": "varargs"
+    },
+    "semistub": null,
+    "prototype": null,
+    "notes": [],
+    "final_dll": "msvcrt",
+    "final_func": "_snprintf"
+   }
+  },
+  {
+   "dll": "msvcrt.dll",
+   "func": "_snwprintf",
+   "delay": false,
+   "resolution": {
+    "dll": "msvcrt",
+    "func": "_snwprintf",
+    "status": "implemented",
+    "chain": [
+     "msvcrt._snwprintf"
+    ],
+    "entry": {
+     "a": [
+      "ptr",
+      "long",
+      "wstr"
+     ],
+     "line": 927,
+     "t": "varargs"
+    },
+    "semistub": null,
+    "prototype": null,
+    "notes": [],
+    "final_dll": "msvcrt",
+    "final_func": "_snwprintf"
+   }
+  },
+  {
+   "dll": "msvcrt.dll",
+   "func": "_unlock",
+   "delay": false,
+   "resolution": {
+    "dll": "msvcrt",
+    "func": "_unlock",
+    "status": "implemented",
+    "chain": [
+     "msvcrt._unlock"
+    ],
+    "entry": {
+     "a": [
+      "long"
+     ],
+     "line": 1036,
+     "t": "cdecl"
+    },
+    "semistub": null,
+    "prototype": null,
+    "notes": [],
+    "final_dll": "msvcrt",
+    "final_func": "_unlock"
+   }
+  },
+  {
+   "dll": "msvcrt.dll",
+   "func": "_wtoi",
+   "delay": false,
+   "resolution": {
+    "dll": "msvcrt",
+    "func": "_wtoi",
+    "status": "implemented",
+    "chain": [
+     "msvcrt._wtoi"
+    ],
+    "entry": {
+     "a": [
+      "wstr"
+     ],
+     "line": 1238,
+     "t": "cdecl"
+    },
+    "semistub": null,
+    "prototype": null,
+    "notes": [],
+    "final_dll": "msvcrt",
+    "final_func": "_wtoi"
+   }
+  },
+  {
+   "dll": "msvcrt.dll",
+   "func": "abort",
+   "delay": false,
+   "resolution": {
+    "dll": "msvcrt",
+    "func": "abort",
+    "status": "implemented",
+    "chain": [
+     "msvcrt.abort"
+    ],
+    "entry": {
+     "a": [],
+     "line": 1252,
+     "t": "cdecl"
+    },
+    "semistub": null,
+    "prototype": null,
+    "notes": [],
+    "final_dll": "msvcrt",
+    "final_func": "abort"
+   }
+  },
+  {
+   "dll": "msvcrt.dll",
+   "func": "calloc",
+   "delay": false,
+   "resolution": {
+    "dll": "msvcrt",
+    "func": "calloc",
+    "status": "implemented",
+    "chain": [
+     "msvcrt.calloc"
+    ],
+    "entry": {
+     "a": [
+      "long",
+      "long"
+     ],
+     "line": 1271,
+     "t": "cdecl"
+    },
+    "semistub": null,
+    "prototype": null,
+    "notes": [],
+    "final_dll": "msvcrt",
+    "final_func": "calloc"
+   }
+  },
+  {
+   "dll": "msvcrt.dll",
+   "func": "exit",
+   "delay": false,
+   "resolution": {
+    "dll": "msvcrt",
+    "func": "exit",
+    "status": "implemented",
+    "chain": [
+     "msvcrt.exit"
+    ],
+    "entry": {
+     "a": [
+      "long"
+     ],
+     "line": 1286,
+     "t": "cdecl"
+    },
+    "semistub": null,
+    "prototype": null,
+    "notes": [],
+    "final_dll": "msvcrt",
+    "final_func": "exit"
+   }
+  },
+  {
+   "dll": "msvcrt.dll",
+   "func": "fflush",
+   "delay": false,
+   "resolution": {
+    "dll": "msvcrt",
+    "func": "fflush",
+    "status": "implemented",
+    "chain": [
+     "msvcrt.fflush"
+    ],
+    "entry": {
+     "a": [
+      "ptr"
+     ],
+     "line": 1294,
+     "t": "cdecl"
+    },
+    "semistub": null,
+    "prototype": null,
+    "notes": [],
+    "final_dll": "msvcrt",
+    "final_func": "fflush"
+   }
+  },
+  {
+   "dll": "msvcrt.dll",
+   "func": "fprintf",
+   "delay": false,
+   "resolution": {
+    "dll": "msvcrt",
+    "func": "fprintf",
+    "status": "implemented",
+    "chain": [
+     "msvcrt.fprintf"
+    ],
+    "entry": {
+     "a": [
+      "ptr",
+      "str"
+     ],
+     "line": 1306,
+     "t": "varargs"
+    },
+    "semistub": null,
+    "prototype": null,
+    "notes": [],
+    "final_dll": "msvcrt",
+    "final_func": "fprintf"
+   }
+  },
+  {
+   "dll": "msvcrt.dll",
+   "func": "fputc",
+   "delay": false,
+   "resolution": {
+    "dll": "msvcrt",
+    "func": "fputc",
+    "status": "implemented",
+    "chain": [
+     "msvcrt.fputc"
+    ],
+    "entry": {
+     "a": [
+      "long",
+      "ptr"
+     ],
+     "line": 1308,
+     "t": "cdecl"
+    },
+    "semistub": null,
+    "prototype": null,
+    "notes": [],
+    "final_dll": "msvcrt",
+    "final_func": "fputc"
+   }
+  },
+  {
+   "dll": "msvcrt.dll",
+   "func": "free",
+   "delay": false,
+   "resolution": {
+    "dll": "msvcrt",
+    "func": "free",
+    "status": "implemented",
+    "chain": [
+     "msvcrt.free"
+    ],
+    "entry": {
+     "a": [
+      "ptr"
+     ],
+     "line": 1313,
+     "t": "cdecl"
+    },
+    "semistub": null,
+    "prototype": null,
+    "notes": [],
+    "final_dll": "msvcrt",
+    "final_func": "free"
+   }
+  },
+  {
+   "dll": "msvcrt.dll",
+   "func": "fwrite",
+   "delay": false,
+   "resolution": {
+    "dll": "msvcrt",
+    "func": "fwrite",
+    "status": "implemented",
+    "chain": [
+     "msvcrt.fwrite"
+    ],
+    "entry": {
+     "a": [
+      "ptr",
+      "long",
+      "long",
+      "ptr"
+     ],
+     "line": 1325,
+     "t": "cdecl"
+    },
+    "semistub": null,
+    "prototype": null,
+    "notes": [],
+    "final_dll": "msvcrt",
+    "final_func": "fwrite"
+   }
+  },
+  {
+   "dll": "msvcrt.dll",
+   "func": "localeconv",
+   "delay": false,
+   "resolution": {
+    "dll": "msvcrt",
+    "func": "localeconv",
+    "status": "implemented",
+    "chain": [
+     "msvcrt.localeconv"
+    ],
+    "entry": {
+     "a": [],
+     "line": 1366,
+     "t": "cdecl"
+    },
+    "semistub": null,
+    "prototype": null,
+    "notes": [],
+    "final_dll": "msvcrt",
+    "final_func": "localeconv"
+   }
+  },
+  {
+   "dll": "msvcrt.dll",
+   "func": "malloc",
+   "delay": false,
+   "resolution": {
+    "dll": "msvcrt",
+    "func": "malloc",
+    "status": "implemented",
+    "chain": [
+     "msvcrt.malloc"
+    ],
+    "entry": {
+     "a": [
+      "long"
+     ],
+     "line": 1374,
+     "t": "cdecl"
+    },
+    "semistub": null,
+    "prototype": null,
+    "notes": [],
+    "final_dll": "msvcrt",
+    "final_func": "malloc"
+   }
+  },
+  {
+   "dll": "msvcrt.dll",
+   "func": "memcpy",
+   "delay": false,
+   "resolution": {
+    "dll": "msvcrt",
+    "func": "memcpy",
+    "status": "implemented",
+    "chain": [
+     "msvcrt.memcpy"
+    ],
+    "entry": {
+     "a": [
+      "ptr",
+      "ptr",
+      "long"
+     ],
+     "line": 1386,
+     "t": "cdecl"
+    },
+    "semistub": null,
+    "prototype": null,
+    "notes": [],
+    "final_dll": "msvcrt",
+    "final_func": "memcpy"
+   }
+  },
+  {
+   "dll": "msvcrt.dll",
+   "func": "memset",
+   "delay": false,
+   "resolution": {
+    "dll": "msvcrt",
+    "func": "memset",
+    "status": "implemented",
+    "chain": [
+     "msvcrt.memset"
+    ],
+    "entry": {
+     "a": [
+      "ptr",
+      "long",
+      "long"
+     ],
+     "line": 1390,
+     "t": "cdecl"
+    },
+    "semistub": null,
+    "prototype": null,
+    "notes": [],
+    "final_dll": "msvcrt",
+    "final_func": "memset"
+   }
+  },
+  {
+   "dll": "msvcrt.dll",
+   "func": "setvbuf",
+   "delay": false,
+   "resolution": {
+    "dll": "msvcrt",
+    "func": "setvbuf",
+    "status": "implemented",
+    "chain": [
+     "msvcrt.setvbuf"
+    ],
+    "entry": {
+     "a": [
+      "ptr",
+      "str",
+      "long",
+      "long"
+     ],
+     "line": 1419,
+     "t": "cdecl"
+    },
+    "semistub": null,
+    "prototype": null,
+    "notes": [],
+    "final_dll": "msvcrt",
+    "final_func": "setvbuf"
+   }
+  },
+  {
+   "dll": "msvcrt.dll",
+   "func": "signal",
+   "delay": false,
+   "resolution": {
+    "dll": "msvcrt",
+    "func": "signal",
+    "status": "implemented",
+    "chain": [
+     "msvcrt.signal"
+    ],
+    "entry": {
+     "a": [
+      "long",
+      "long"
+     ],
+     "line": 1420,
+     "t": "cdecl"
+    },
+    "semistub": null,
+    "prototype": null,
+    "notes": [],
+    "final_dll": "msvcrt",
+    "final_func": "signal"
+   }
+  },
+  {
+   "dll": "msvcrt.dll",
+   "func": "strerror",
+   "delay": false,
+   "resolution": {
+    "dll": "msvcrt",
+    "func": "strerror",
+    "status": "implemented",
+    "chain": [
+     "msvcrt.strerror"
+    ],
+    "entry": {
+     "a": [
+      "long"
+     ],
+     "line": 1440,
+     "t": "cdecl"
+    },
+    "semistub": null,
+    "prototype": null,
+    "notes": [],
+    "final_dll": "msvcrt",
+    "final_func": "strerror"
+   }
+  },
+  {
+   "dll": "msvcrt.dll",
+   "func": "strlen",
+   "delay": false,
+   "resolution": {
+    "dll": "msvcrt",
+    "func": "strlen",
+    "status": "implemented",
+    "chain": [
+     "msvcrt.strlen"
+    ],
+    "entry": {
+     "a": [
+      "str"
+     ],
+     "line": 1443,
+     "t": "cdecl"
+    },
+    "semistub": null,
+    "prototype": null,
+    "notes": [],
+    "final_dll": "msvcrt",
+    "final_func": "strlen"
+   }
+  },
+  {
+   "dll": "msvcrt.dll",
+   "func": "strncmp",
+   "delay": false,
+   "resolution": {
+    "dll": "msvcrt",
+    "func": "strncmp",
+    "status": "implemented",
+    "chain": [
+     "msvcrt.strncmp"
+    ],
+    "entry": {
+     "a": [
+      "str",
+      "str",
+      "long"
+     ],
+     "line": 1446,
+     "t": "cdecl"
+    },
+    "semistub": null,
+    "prototype": null,
+    "notes": [],
+    "final_dll": "msvcrt",
+    "final_func": "strncmp"
+   }
+  },
+  {
+   "dll": "msvcrt.dll",
+   "func": "vfprintf",
+   "delay": false,
+   "resolution": {
+    "dll": "msvcrt",
+    "func": "vfprintf",
+    "status": "implemented",
+    "chain": [
+     "msvcrt.vfprintf"
+    ],
+    "entry": {
+     "a": [
+      "ptr",
+      "str",
+      "ptr"
+     ],
+     "line": 1482,
+     "t": "cdecl"
+    },
+    "semistub": null,
+    "prototype": null,
+    "notes": [],
+    "final_dll": "msvcrt",
+    "final_func": "vfprintf"
+   }
+  },
+  {
+   "dll": "msvcrt.dll",
+   "func": "wcscmp",
+   "delay": false,
+   "resolution": {
+    "dll": "msvcrt",
+    "func": "wcscmp",
+    "status": "implemented",
+    "chain": [
+     "msvcrt.wcscmp"
+    ],
+    "entry": {
+     "a": [
+      "wstr",
+      "wstr"
+     ],
+     "line": 1500,
+     "t": "cdecl"
+    },
+    "semistub": null,
+    "prototype": null,
+    "notes": [],
+    "final_dll": "msvcrt",
+    "final_func": "wcscmp"
+   }
+  },
+  {
+   "dll": "msvcrt.dll",
+   "func": "wcslen",
+   "delay": false,
+   "resolution": {
+    "dll": "msvcrt",
+    "func": "wcslen",
+    "status": "implemented",
+    "chain": [
+     "msvcrt.wcslen"
+    ],
+    "entry": {
+     "a": [
+      "wstr"
+     ],
+     "line": 1506,
+     "t": "cdecl"
+    },
+    "semistub": null,
+    "prototype": null,
+    "notes": [],
+    "final_dll": "msvcrt",
+    "final_func": "wcslen"
+   }
+  },
+  {
+   "dll": "VERSION.dll",
+   "func": "GetFileVersionInfoSizeW",
+   "delay": false,
+   "resolution": {
+    "dll": "version",
+    "func": "GetFileVersionInfoSizeW",
+    "status": "implemented",
+    "chain": [
+     "version.GetFileVersionInfoSizeW",
+     "kernelbase.GetFileVersionInfoSizeW"
+    ],
+    "entry": {
+     "a": [
+      "wstr",
+      "ptr"
+     ],
+     "line": 560,
+     "t": "stdcall"
+    },
+    "semistub": null,
+    "prototype": {
+     "cc": "WINAPI",
+     "hdr": "winver.h",
+     "params": [
+      [
+       "LPCWSTR",
+       ""
+      ],
+      [
+       "LPDWORD",
+       ""
+      ]
+     ],
+     "ret": "DWORD"
+    },
+    "notes": [
+     "-import : version.GetFileVersionInfoSizeW fourni par kernelbase"
+    ],
+    "final_dll": "kernelbase",
+    "final_func": "GetFileVersionInfoSizeW"
+   }
+  },
+  {
+   "dll": "VERSION.dll",
+   "func": "GetFileVersionInfoW",
+   "delay": false,
+   "resolution": {
+    "dll": "version",
+    "func": "GetFileVersionInfoW",
+    "status": "implemented",
+    "chain": [
+     "version.GetFileVersionInfoW",
+     "kernelbase.GetFileVersionInfoW"
+    ],
+    "entry": {
+     "a": [
+      "wstr",
+      "long",
+      "long",
+      "ptr"
+     ],
+     "line": 561,
+     "t": "stdcall"
+    },
+    "semistub": null,
+    "prototype": {
+     "cc": "WINAPI",
+     "hdr": "winver.h",
+     "params": [
+      [
+       "LPCWSTR",
+       ""
+      ],
+      [
+       "DWORD",
+       ""
+      ],
+      [
+       "DWORD",
+       ""
+      ],
+      [
+       "LPVOID",
+       ""
+      ]
+     ],
+     "ret": "BOOL"
+    },
+    "notes": [
+     "-import : version.GetFileVersionInfoW fourni par kernelbase"
+    ],
+    "final_dll": "kernelbase",
+    "final_func": "GetFileVersionInfoW"
+   }
+  },
+  {
+   "dll": "VERSION.dll",
+   "func": "VerQueryValueW",
+   "delay": false,
+   "resolution": {
+    "dll": "version",
+    "func": "VerQueryValueW",
+    "status": "implemented",
+    "chain": [
+     "version.VerQueryValueW",
+     "kernelbase.VerQueryValueW"
+    ],
+    "entry": {
+     "a": [
+      "ptr",
+      "wstr",
+      "ptr",
+      "ptr"
+     ],
+     "line": 1714,
+     "t": "stdcall"
+    },
+    "semistub": null,
+    "prototype": {
+     "cc": "WINAPI",
+     "hdr": "winver.h",
+     "params": [
+      [
+       "LPCVOID",
+       ""
+      ],
+      [
+       "LPCWSTR",
+       ""
+      ],
+      [
+       "LPVOID*",
+       ""
+      ],
+      [
+       "PUINT",
+       ""
+      ]
+     ],
+     "ret": "BOOL"
+    },
+    "notes": [
+     "-import : version.VerQueryValueW fourni par kernelbase"
+    ],
+    "final_dll": "kernelbase",
+    "final_func": "VerQueryValueW"
+   }
+  }
+ ],
+ "dynamic_dll_candidates": [
+  "bdfpdf.dll"
+ ],
+ "wine_version": "11.0",
+ "summary": {
+  "imports_total": 79,
+  "import_dlls": [
+   "kernel32",
+   "msvcrt",
+   "version"
+  ],
+  "by_status": {
+   "implemented": 76,
+   "stub": 2,
+   "export-absent": 1
+  },
+  "problematic": [
+   "KERNEL32.dll!Heap32First [stub]",
+   "KERNEL32.dll!Heap32Next [stub]",
+   "KERNEL32.dll!SystemTimeToTzSpecificLocalTimeEx [export-absent]"
+  ]
+ }
+}

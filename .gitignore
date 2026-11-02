@@ -1,0 +1,18 @@
+# Corpus de vrais exécutables tiers : NON redistribué (téléchargé par scripts/fetch_corpus.sh).
+# Seul le résultat d'analyse results/sweep.json est conservé dans le dépôt.
+_corpus/
+_handoff_extract/
+_downloads/
+_install/
+_scratch/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
+# Préfixes Wine et espaces de travail temporaires
+*.wineprefix/
+work/
+bdflab-work/

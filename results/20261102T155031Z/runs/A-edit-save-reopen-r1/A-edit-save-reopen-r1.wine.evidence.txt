@@ -1,0 +1,16 @@
+# Preuve extraite de la trace Wine (diagnostic). Appel(s) à une fonction non implémentée :
+
+## KERNEL32.dll.SystemTimeToTzSpecificLocalTimeEx @ 00006FFFFFC68218 (ligne 188084)
+# derniers appels relay du même thread avant l'exception EXCEPTION_WINE_STUB :
+185488: 3920.788:002c:Call ntdll.NtSetEvent(00000010,00000000) ret=6fffff42d405
+185491: 3920.789:002c:Call ucrtbase.exit(00000000) ret=140003488
+185492: 3920.789:002c:Call KERNEL32.InitializeCriticalSectionEx(6ffffeae9b38,00000000,10000000) ret=6ffffea5dbb2
+185494: 3920.789:002c:Call KERNEL32.GetModuleHandleW(6ffffeac16ca L"mscoree") ret=6ffffea80232
+185495: 3920.789:002c:Call ntdll.RtlInitUnicodeString(7ffffe2ffd90,6ffffeac16ca L"mscoree") ret=6fffff3fb7cc
+185497: 3920.789:002c:Call ntdll.LdrGetDllHandleEx(00000001,00000000,00000000,7ffffe2ffd90,7ffffe2ffd88) ret=6fffff3fb7e9
+185499: 3920.789:002c:Call ntdll.RtlNtStatusToDosError(c0000135) ret=6fffff3fb828
+185502: 3920.789:002c:Call KERNEL32.ExitProcess(00000000) ret=6ffffea80258
+185528: 3920.789:002c:Call ntdll.LdrUnloadDll(6ffffd840000) ret=6fffff3f1c07
+185542: 3920.789:002c:Call KERNEL32.InitializeCriticalSectionEx(6ffffef90668,00000000,10000000) ret=6ffffef1c5a2
+185544: 3920.789:002c:Call KERNEL32.InitializeCriticalSectionEx(6ffffef90698,00000000,10000000) ret=6ffffef1c5a2
+185546: 3920.789:002c:Call KERNEL32.InitializeCriticalSectionEx(6ffffef906c8,00000000,10000000) ret=6ffffef1c5a2

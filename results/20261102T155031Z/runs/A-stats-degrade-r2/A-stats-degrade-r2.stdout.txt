@@ -1,0 +1,2 @@
+BDFEDIT|VERSION|product=bdfedit|version=0.1.0.0|synthetic=true
+BDFEDIT|START|pid=220|feature=stats

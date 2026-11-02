@@ -1,0 +1,2 @@
+Command exited with non-zero status 2
+2.48 0.02 0.12 14972

@@ -1,0 +1,12 @@
+# Dépendances système (hors Python), à installer via le gestionnaire de paquets de la distribution.
+#
+# Wine 11.0 stable (figé pour toute l'expérience) — dépôt WineHQ :
+#   https://dl.winehq.org/wine-builds/ubuntu/   (winehq-stable=11.0)
+# Compilateur croisé Windows (programme de test + DLL de compatibilité) :
+#   gcc-mingw-w64-x86-64  (x86_64-w64-mingw32-gcc, x86_64-w64-mingw32-windres)
+# Mesures :
+#   time (GNU time, /usr/bin/time)
+# Vérification indépendante de PDF (oracle d'effet) :
+#   poppler-utils (pdftotext)   [optionnel ; repli intégré si absent]
+# Analyse facultative du corpus réel :
+#   p7zip-full, unzip

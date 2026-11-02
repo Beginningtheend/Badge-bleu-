@@ -1,0 +1,5284 @@
+{
+ "summary": {
+  "corpus_dir": "_corpus/extracted",
+  "pe_files": 182,
+  "analyzed": 182,
+  "errors": 0,
+  "distinct_app_private_dlls_excluded": "voir note",
+  "import_sites": {
+   "hard_B_shimmable": 63,
+   "hard_D_refused_security": 3,
+   "hard_C_escalate": 2,
+   "semi_stub_partial": 651,
+   "missing_runtime_A": 0,
+   "app_private_excluded": 2273,
+   "other_missing_noncatalogue": 0
+  },
+  "apps_with_hard_B": {
+   "count": 25,
+   "names": [
+    "Autoruns.exe",
+    "Autoruns64.exe",
+    "Procmon.exe",
+    "Procmon64.exe",
+    "RDCMan-x86.exe",
+    "RDCMan.exe",
+    "ShareEnum.exe",
+    "ShareEnum64.exe",
+    "Sysmon.exe",
+    "Sysmon64.exe",
+    "ZoomIt.exe",
+    "ZoomIt64.exe",
+    "autorunsc.exe",
+    "autorunsc64.exe",
+    "notmyfault.exe",
+    "notmyfault64.exe",
+    "procexp.exe",
+    "procexp64.exe",
+    "psfile.exe",
+    "psfile64.exe",
+    "pspasswd.exe",
+    "pspasswd64.exe",
+    "python312.dll",
+    "tcpview.exe",
+    "tcpview64.exe"
+   ]
+  },
+  "apps_with_missing_runtime_A": {
+   "count": 0,
+   "names": []
+  },
+  "top_hard_B_functions": [
+   [
+    "kernel32.FindPackagesByPackageFamily",
+    4
+   ],
+   [
+    "shell32.SHEvaluateSystemCommandTemplate",
+    4
+   ],
+   [
+    "tdh.TdhGetEventInformation",
+    4
+   ],
+   [
+    "comctl32.ImageList_WriteEx",
+    2
+   ],
+   [
+    "fltlib.FilterGetMessage",
+    2
+   ],
+   [
+    "fltlib.FilterReplyMessage",
+    2
+   ],
+   [
+    "fltlib.FilterSendMessage",
+    2
+   ],
+   [
+    "api-ms-win-crt-runtime-l1-1-0._invoke_watson",
+    2
+   ],
+   [
+    "netapi32.NetShareSetInfo",
+    2
+   ],
+   [
+    "tdh.TdhGetEventMapInformation",
+    2
+   ],
+   [
+    "api-ms-win-core-winrt-error-l1-1-0.RoFailFastWithErrorContext",
+    2
+   ],
+   [
+    "api-ms-win-core-winrt-error-l1-1-0.RoTransformError",
+    2
+   ],
+   [
+    "api-ms-win-shcore-stream-winrt-l1-1-0.CreateStreamOverRandomAccessStream",
+    2
+   ],
+   [
+    "kernel32.SetThreadpoolWaitEx",
+    2
+   ],
+   [
+    "kernelbase.AddPackageDependency",
+    2
+   ],
+   [
+    "kernelbase.RemovePackageDependency",
+    2
+   ],
+   [
+    "kernelbase.TryCreatePackageDependency",
+    2
+   ],
+   [
+    "kernel32.Heap32ListNext",
+    2
+   ],
+   [
+    "user32.EndTask",
+    2
+   ],
+   [
+    "netapi32.NetFileClose",
+    2
+   ],
+   [
+    "netapi32.NetFileGetInfo",
+    2
+   ],
+   [
+    "netapi32.NetUserSetInfo",
+    2
+   ],
+   [
+    "iphlpapi.GetOwnerModuleFromTcp6Entry",
+    2
+   ],
+   [
+    "iphlpapi.GetOwnerModuleFromTcpEntry",
+    2
+   ],
+   [
+    "iphlpapi.GetOwnerModuleFromUdp6Entry",
+    2
+   ]
+  ],
+  "top_security_D_functions": [
+   [
+    "advapi32.FreeEncryptionCertificateHashList",
+    1
+   ],
+   [
+    "advapi32.QueryRecoveryAgentsOnEncryptedFile",
+    1
+   ],
+   [
+    "advapi32.QueryUsersOnEncryptedFile",
+    1
+   ]
+  ],
+  "top_missing_runtime_A": [],
+  "top_semi_stub_functions": [
+   [
+    "kernel32.FindFirstFileExW",
+    136
+   ],
+   [
+    "kernel32.LCMapStringEx",
+    31
+   ],
+   [
+    "user32.DrawFrameControl",
+    28
+   ],
+   [
+    "advapi32.RegQueryInfoKeyW",
+    21
+   ],
+   [
+    "kernel32.CreateToolhelp32Snapshot",
+    19
+   ],
+   [
+    "comdlg32.ChooseFontW",
+    16
+   ],
+   [
+    "dwmapi.DwmSetWindowAttribute",
+    16
+   ],
+   [
+    "netapi32.NetServerEnum",
+    16
+   ],
+   [
+    "ole32.CoInitializeSecurity",
+    11
+   ],
+   [
+    "shell32.SHGetFileInfoW",
+    10
+   ],
+   [
+    "crypt32.CertGetNameStringW",
+    10
+   ],
+   [
+    "dwmapi.DwmDefWindowProc",
+    10
+   ],
+   [
+    "advapi32.LookupAccountNameW",
+    10
+   ],
+   [
+    "shell32.SHChangeNotify",
+    8
+   ],
+   [
+    "advapi32.SetSecurityInfo",
+    8
+   ]
+  ],
+  "machines": {
+   "x86_64": 103,
+   "i386": 79
+  }
+ },
+ "per_file": [
+  {
+   "file": "_corpus/extracted/pyembed/_asyncio.pyd",
+   "name": "_asyncio.pyd",
+   "machine": "x86_64",
+   "subsystem": "gui",
+   "sha256": "184fc13677c7856e",
+   "imphash": "b6b111b03ec19bb7321286e7d48cbcaf",
+   "authenticode": true,
+   "imports_total": 129,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 0,
+    "missing_runtime_A": 0,
+    "app_private": 102,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": []
+  },
+  {
+   "file": "_corpus/extracted/pyembed/_bz2.pyd",
+   "name": "_bz2.pyd",
+   "machine": "x86_64",
+   "subsystem": "gui",
+   "sha256": "160b5218c2035ccc",
+   "imphash": "a36962884764276bb35985709aa4e40d",
+   "authenticode": true,
+   "imports_total": 75,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 0,
+    "missing_runtime_A": 0,
+    "app_private": 42,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": []
+  },
+  {
+   "file": "_corpus/extracted/pyembed/_ctypes.pyd",
+   "name": "_ctypes.pyd",
+   "machine": "x86_64",
+   "subsystem": "gui",
+   "sha256": "8250b4c102abd1db",
+   "imphash": "4b327bc6e5b6b43c45400cac1afc35e8",
+   "authenticode": true,
+   "imports_total": 234,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 0,
+    "missing_runtime_A": 0,
+    "app_private": 187,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": []
+  },
+  {
+   "file": "_corpus/extracted/pyembed/_decimal.pyd",
+   "name": "_decimal.pyd",
+   "machine": "x86_64",
+   "subsystem": "gui",
+   "sha256": "b7f9603f98ef232a",
+   "imphash": "45cfc0dbb456d5511c83e751dbe4c179",
+   "authenticode": true,
+   "imports_total": 147,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 0,
+    "missing_runtime_A": 0,
+    "app_private": 100,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": []
+  },
+  {
+   "file": "_corpus/extracted/pyembed/_elementtree.pyd",
+   "name": "_elementtree.pyd",
+   "machine": "x86_64",
+   "subsystem": "gui",
+   "sha256": "c07f2827542a392f",
+   "imphash": "9d95ecaf88a0f327400618bb4ddc0387",
+   "authenticode": true,
+   "imports_total": 150,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 0,
+    "missing_runtime_A": 0,
+    "app_private": 120,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": []
+  },
+  {
+   "file": "_corpus/extracted/pyembed/_hashlib.pyd",
+   "name": "_hashlib.pyd",
+   "machine": "x86_64",
+   "subsystem": "gui",
+   "sha256": "b4cec162b985d34a",
+   "imphash": "a8173ef8679f8544a88e355945112c77",
+   "authenticode": true,
+   "imports_total": 127,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 0,
+    "missing_runtime_A": 0,
+    "app_private": 99,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": []
+  },
+  {
+   "file": "_corpus/extracted/pyembed/_lzma.pyd",
+   "name": "_lzma.pyd",
+   "machine": "x86_64",
+   "subsystem": "gui",
+   "sha256": "b095fa2eac97496b",
+   "imphash": "b865edd9b0c291111893fc2b523f7264",
+   "authenticode": true,
+   "imports_total": 93,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 0,
+    "missing_runtime_A": 0,
+    "app_private": 61,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": []
+  },
+  {
+   "file": "_corpus/extracted/pyembed/_msi.pyd",
+   "name": "_msi.pyd",
+   "machine": "x86_64",
+   "subsystem": "gui",
+   "sha256": "81ee4aae8e3e4da9",
+   "imphash": "8aa60ff8a4f9cc7faa89835e826933d0",
+   "authenticode": true,
+   "imports_total": 113,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 0,
+    "missing_runtime_A": 0,
+    "app_private": 38,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": []
+  },
+  {
+   "file": "_corpus/extracted/pyembed/_multiprocessing.pyd",
+   "name": "_multiprocessing.pyd",
+   "machine": "x86_64",
+   "subsystem": "gui",
+   "sha256": "a197f3485bbe30b3",
+   "imphash": "9ff0f8f78fa8876d3d00f9ec2aa78b75",
+   "authenticode": true,
+   "imports_total": 90,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 0,
+    "missing_runtime_A": 0,
+    "app_private": 50,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": []
+  },
+  {
+   "file": "_corpus/extracted/pyembed/_overlapped.pyd",
+   "name": "_overlapped.pyd",
+   "machine": "x86_64",
+   "subsystem": "gui",
+   "sha256": "2af91c5ab6f05c4b",
+   "imphash": "1f6b0816935b9dea5ee9898c98097635",
+   "authenticode": true,
+   "imports_total": 111,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 2,
+    "missing_runtime_A": 0,
+    "app_private": 47,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "ws2_32.WSAConnect",
+    "ws2_32.WSAIoctl"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/pyembed/_queue.pyd",
+   "name": "_queue.pyd",
+   "machine": "x86_64",
+   "subsystem": "gui",
+   "sha256": "bbe7736caed8c17c",
+   "imphash": "efe3e840cb4904222351e9b7f17afea3",
+   "authenticode": true,
+   "imports_total": 67,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 0,
+    "missing_runtime_A": 0,
+    "app_private": 40,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": []
+  },
+  {
+   "file": "_corpus/extracted/pyembed/_socket.pyd",
+   "name": "_socket.pyd",
+   "machine": "x86_64",
+   "subsystem": "gui",
+   "sha256": "ce3090fff8575b21",
+   "imphash": "de62106114a70bb3c0dfb5c6513e0ba1",
+   "authenticode": true,
+   "imports_total": 176,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 3,
+    "missing_runtime_A": 0,
+    "app_private": 93,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "ws2_32.WSAIoctl",
+    "ws2_32.getsockopt",
+    "ws2_32.setsockopt"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/pyembed/_sqlite3.pyd",
+   "name": "_sqlite3.pyd",
+   "machine": "x86_64",
+   "subsystem": "gui",
+   "sha256": "fef8e9f427b47e77",
+   "imphash": "3883b7775ef7443dc4348a953afbd21e",
+   "authenticode": true,
+   "imports_total": 253,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 0,
+    "missing_runtime_A": 0,
+    "app_private": 225,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": []
+  },
+  {
+   "file": "_corpus/extracted/pyembed/_ssl.pyd",
+   "name": "_ssl.pyd",
+   "machine": "x86_64",
+   "subsystem": "gui",
+   "sha256": "61f00b0543464bba",
+   "imphash": "8dc828b572fbc6814d6c11911a0166ed",
+   "authenticode": true,
+   "imports_total": 399,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 1,
+    "missing_runtime_A": 0,
+    "app_private": 337,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "crypt32.CertOpenStore"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/pyembed/_uuid.pyd",
+   "name": "_uuid.pyd",
+   "machine": "x86_64",
+   "subsystem": "gui",
+   "sha256": "869361adf2be930e",
+   "imphash": "c2ef50d1f8f9a12aa6ad60689f8e919b",
+   "authenticode": true,
+   "imports_total": 34,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 0,
+    "missing_runtime_A": 0,
+    "app_private": 6,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": []
+  },
+  {
+   "file": "_corpus/extracted/pyembed/_wmi.pyd",
+   "name": "_wmi.pyd",
+   "machine": "x86_64",
+   "subsystem": "gui",
+   "sha256": "b0ed1c62b73b291a",
+   "imphash": "a5c1c822c7f91c00d16d1dd7f10e20e4",
+   "authenticode": true,
+   "imports_total": 82,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 2,
+    "missing_runtime_A": 0,
+    "app_private": 15,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "ole32.CoInitializeSecurity",
+    "propsys.VariantToString"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/pyembed/_zoneinfo.pyd",
+   "name": "_zoneinfo.pyd",
+   "machine": "x86_64",
+   "subsystem": "gui",
+   "sha256": "a18b40f60f5a3b41",
+   "imphash": "f6949775e90ed6fb24a81ed5afd7d9bd",
+   "authenticode": true,
+   "imports_total": 88,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 0,
+    "missing_runtime_A": 0,
+    "app_private": 59,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": []
+  },
+  {
+   "file": "_corpus/extracted/pyembed/libcrypto-3.dll",
+   "name": "libcrypto-3.dll",
+   "machine": "x86_64",
+   "subsystem": "gui",
+   "sha256": "4e5d5d20d6d31e72",
+   "imphash": "39ff058e9c1b8f647f7390cb7c710bc0",
+   "authenticode": true,
+   "imports_total": 179,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 6,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "advapi32.DeregisterEventSource",
+    "advapi32.RegisterEventSourceW",
+    "advapi32.ReportEventW",
+    "bcrypt.BCryptGenRandom",
+    "ws2_32.getsockopt",
+    "ws2_32.setsockopt"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/pyembed/libffi-8.dll",
+   "name": "libffi-8.dll",
+   "machine": "x86_64",
+   "subsystem": "gui",
+   "sha256": "eff52743773eb550",
+   "imphash": "3dc8b86d60f90a1851eee5f9dc191312",
+   "authenticode": true,
+   "imports_total": 33,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 0,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": []
+  },
+  {
+   "file": "_corpus/extracted/pyembed/libssl-3.dll",
+   "name": "libssl-3.dll",
+   "machine": "x86_64",
+   "subsystem": "gui",
+   "sha256": "2e4d35b681a172d3",
+   "imphash": "f319e50eb8e66c412c2df092c8444f37",
+   "authenticode": true,
+   "imports_total": 542,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 0,
+    "missing_runtime_A": 0,
+    "app_private": 491,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": []
+  },
+  {
+   "file": "_corpus/extracted/pyembed/pyexpat.pyd",
+   "name": "pyexpat.pyd",
+   "machine": "x86_64",
+   "subsystem": "gui",
+   "sha256": "b6670d91a76e9f00",
+   "imphash": "cf5b5f91e5aeac3c5953a0b69a300283",
+   "authenticode": true,
+   "imports_total": 108,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 0,
+    "missing_runtime_A": 0,
+    "app_private": 69,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": []
+  },
+  {
+   "file": "_corpus/extracted/pyembed/python.exe",
+   "name": "python.exe",
+   "machine": "x86_64",
+   "subsystem": "console",
+   "sha256": "ca60cf785b2314a6",
+   "imphash": "40445b394cdbf537cb1aa287f96583bd",
+   "authenticode": true,
+   "imports_total": 44,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 0,
+    "missing_runtime_A": 0,
+    "app_private": 1,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": []
+  },
+  {
+   "file": "_corpus/extracted/pyembed/python3.dll",
+   "name": "python3.dll",
+   "machine": "x86_64",
+   "subsystem": "gui",
+   "sha256": "d52baca085f88b40",
+   "imphash": "",
+   "authenticode": true,
+   "imports_total": 0,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 0,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": []
+  },
+  {
+   "file": "_corpus/extracted/pyembed/python312.dll",
+   "name": "python312.dll",
+   "machine": "x86_64",
+   "subsystem": "gui",
+   "sha256": "93488fa7e631cc0a",
+   "imphash": "f8e2e55d20d3c537df33c9a83eab99cf",
+   "authenticode": true,
+   "imports_total": 361,
+   "counts": {
+    "hard_B": 3,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 9,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [
+    "kernel32.PssCaptureSnapshot",
+    "kernel32.PssFreeSnapshot",
+    "kernel32.PssQuerySnapshot"
+   ],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "advapi32.RegConnectRegistryW",
+    "advapi32.RegQueryInfoKeyW",
+    "bcrypt.BCryptGenRandom",
+    "kernel32.GetFinalPathNameByHandleW",
+    "kernel32.GetNamedPipeHandleStateW",
+    "kernel32.LCMapStringEx",
+    "kernel32.SetNamedPipeHandleState",
+    "kernel32.SetWaitableTimerEx",
+    "ws2_32.getsockopt"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/pyembed/pythonw.exe",
+   "name": "pythonw.exe",
+   "machine": "x86_64",
+   "subsystem": "gui",
+   "sha256": "d1ac257d433defc5",
+   "imphash": "a8a6b7be6f768e79c86bc77f8ab11b0b",
+   "authenticode": true,
+   "imports_total": 45,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 0,
+    "missing_runtime_A": 0,
+    "app_private": 1,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": []
+  },
+  {
+   "file": "_corpus/extracted/pyembed/select.pyd",
+   "name": "select.pyd",
+   "machine": "x86_64",
+   "subsystem": "gui",
+   "sha256": "dca5e6d39c5094ce",
+   "imphash": "e41677fc9cd5514cd954ce2ce19e425c",
+   "authenticode": true,
+   "imports_total": 58,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 0,
+    "missing_runtime_A": 0,
+    "app_private": 27,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": []
+  },
+  {
+   "file": "_corpus/extracted/pyembed/sqlite3.dll",
+   "name": "sqlite3.dll",
+   "machine": "x86_64",
+   "subsystem": "gui",
+   "sha256": "2f9c9940e87840ff",
+   "imphash": "29775857e064cfe729acaefaaacf5029",
+   "authenticode": true,
+   "imports_total": 131,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 1,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "kernel32.UnlockFileEx"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/pyembed/unicodedata.pyd",
+   "name": "unicodedata.pyd",
+   "machine": "x86_64",
+   "subsystem": "gui",
+   "sha256": "64a162d6b11ba10c",
+   "imphash": "a3519e9a1b69560ea1c5fe43fd626ac5",
+   "authenticode": true,
+   "imports_total": 72,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 0,
+    "missing_runtime_A": 0,
+    "app_private": 43,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": []
+  },
+  {
+   "file": "_corpus/extracted/pyembed/vcruntime140.dll",
+   "name": "vcruntime140.dll",
+   "machine": "x86_64",
+   "subsystem": "console",
+   "sha256": "36585912e5eaf83b",
+   "imphash": "7f91c705cf579114968b3edc12e1175e",
+   "authenticode": true,
+   "imports_total": 45,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 0,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": []
+  },
+  {
+   "file": "_corpus/extracted/pyembed/vcruntime140_1.dll",
+   "name": "vcruntime140_1.dll",
+   "machine": "x86_64",
+   "subsystem": "console",
+   "sha256": "82a2f9ae1e6146ae",
+   "imphash": "72707e942878aac770fcc118ce3ec1c9",
+   "authenticode": true,
+   "imports_total": 39,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 0,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": []
+  },
+  {
+   "file": "_corpus/extracted/pyembed/winsound.pyd",
+   "name": "winsound.pyd",
+   "machine": "x86_64",
+   "subsystem": "gui",
+   "sha256": "4289c991ae42673c",
+   "imphash": "fab770d023c16e431c20451e06d004aa",
+   "authenticode": true,
+   "imports_total": 50,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 0,
+    "missing_runtime_A": 0,
+    "app_private": 20,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": []
+  },
+  {
+   "file": "_corpus/extracted/sevenzip/7zr.exe",
+   "name": "7zr.exe",
+   "machine": "i386",
+   "subsystem": "console",
+   "sha256": "256feca8e274e5da",
+   "imphash": "0cbc191d05ee754a304b0a58afb95cbb",
+   "authenticode": false,
+   "imports_total": 139,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 0,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": []
+  },
+  {
+   "file": "_corpus/extracted/sumatra/SumatraPDF-3.5.2-64.exe",
+   "name": "SumatraPDF-3.5.2-64.exe",
+   "machine": "x86_64",
+   "subsystem": "gui",
+   "sha256": "290e4aa7ed64c728",
+   "imphash": "b60d142e4e08a961cef4281a2d95eda1",
+   "authenticode": true,
+   "imports_total": 677,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 17,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "advapi32.RegQueryInfoKeyW",
+    "comdlg32.PrintDlgExW",
+    "kernel32.CreateToolhelp32Snapshot",
+    "kernel32.FindFirstFileExW",
+    "kernel32.LCMapStringEx",
+    "kernel32.SetNamedPipeHandleState",
+    "shell32.SHAddToRecentDocs",
+    "shell32.SHChangeNotify",
+    "shell32.SHGetFileInfoW",
+    "shlwapi.UrlEscapeW",
+    "uiautomationcore.UiaRaiseStructureChangedEvent",
+    "uiautomationcore.UiaReturnRawElementProvider",
+    "user32.CopyImage",
+    "user32.DdeDisconnect",
+    "user32.DrawFrameControl",
+    "wininet.InternetSetOptionW",
+    "winspool.drv.GetPrinterW"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/ADExplorer.exe",
+   "name": "ADExplorer.exe",
+   "machine": "i386",
+   "subsystem": "gui",
+   "sha256": "c5c5363d675d1bd6",
+   "imphash": "98deb91dd81ef3fa96bea51984c7b4fe",
+   "authenticode": true,
+   "imports_total": 328,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 2,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "kernel32.FindFirstFileExW",
+    "user32.DrawFrameControl"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/ADExplorer64.exe",
+   "name": "ADExplorer64.exe",
+   "machine": "x86_64",
+   "subsystem": "gui",
+   "sha256": "e451287843b3927c",
+   "imphash": "d3598d8c3bcea975aea92cd5bbe9edc5",
+   "authenticode": true,
+   "imports_total": 329,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 2,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "kernel32.FindFirstFileExW",
+    "user32.DrawFrameControl"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/ADInsight.exe",
+   "name": "ADInsight.exe",
+   "machine": "i386",
+   "subsystem": "gui",
+   "sha256": "032dc03fa3e7b3df",
+   "imphash": "ef7faeb241d64d8161d20aa03b76e1cb",
+   "authenticode": true,
+   "imports_total": 332,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 4,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "comdlg32.ChooseFontW",
+    "kernel32.SetNamedPipeHandleState",
+    "shell32.SHGetFileInfoW",
+    "user32.DrawFrameControl"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/ADInsight64.exe",
+   "name": "ADInsight64.exe",
+   "machine": "x86_64",
+   "subsystem": "gui",
+   "sha256": "38ff6bcb91bd6cbc",
+   "imphash": "96be6f87d95d39cdb2d6514d1ae9484b",
+   "authenticode": true,
+   "imports_total": 334,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 4,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "comdlg32.ChooseFontW",
+    "kernel32.SetNamedPipeHandleState",
+    "shell32.SHGetFileInfoW",
+    "user32.DrawFrameControl"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/AccessEnum.exe",
+   "name": "AccessEnum.exe",
+   "machine": "i386",
+   "subsystem": "gui",
+   "sha256": "b8a8524de389e244",
+   "imphash": "0aafd4b71daacfa4594507aea753b84b",
+   "authenticode": true,
+   "imports_total": 232,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 4,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "advapi32.RegQueryInfoKeyW",
+    "kernel32.FindFirstFileExW",
+    "shell32.SHGetFileInfoW",
+    "user32.DrawFrameControl"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/Autologon.exe",
+   "name": "Autologon.exe",
+   "machine": "i386",
+   "subsystem": "gui",
+   "sha256": "df6589654abfacb1",
+   "imphash": "2bbe1701f3dfa2af6be3b4edaed0f081",
+   "authenticode": true,
+   "imports_total": 153,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 3,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "advapi32.LogonUserW",
+    "advapi32.LsaStorePrivateData",
+    "kernel32.FindFirstFileExW"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/Autologon64.exe",
+   "name": "Autologon64.exe",
+   "machine": "x86_64",
+   "subsystem": "gui",
+   "sha256": "5d96bbc4e5b726d8",
+   "imphash": "ecfe7428cd2a05b3f34f531b0ad9ccb7",
+   "authenticode": true,
+   "imports_total": 157,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 3,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "advapi32.LogonUserW",
+    "advapi32.LsaStorePrivateData",
+    "kernel32.FindFirstFileExW"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/Autoruns.exe",
+   "name": "Autoruns.exe",
+   "machine": "i386",
+   "subsystem": "gui",
+   "sha256": "38519c3ae945f678",
+   "imphash": "2418ca697ff3a1e12dac4a0b4a01b85e",
+   "authenticode": true,
+   "imports_total": 479,
+   "counts": {
+    "hard_B": 3,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 12,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [
+    "comctl32.ImageList_WriteEx",
+    "kernel32.FindPackagesByPackageFamily",
+    "shell32.SHEvaluateSystemCommandTemplate"
+   ],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "advapi32.RegQueryInfoKeyW",
+    "comdlg32.ChooseFontW",
+    "crypt32.CertGetNameStringW",
+    "dwmapi.DwmDefWindowProc",
+    "dwmapi.DwmSetWindowAttribute",
+    "kernel32.FindFirstFileExW",
+    "kernel32.LCMapStringEx",
+    "ole32.StgOpenStorageEx",
+    "shell32.SHGetKnownFolderPath",
+    "shell32.SHGetStockIconInfo",
+    "shlwapi.SHAutoComplete",
+    "user32.DrawFrameControl"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/Autoruns64.exe",
+   "name": "Autoruns64.exe",
+   "machine": "x86_64",
+   "subsystem": "gui",
+   "sha256": "d8deb836731fdf76",
+   "imphash": "8cf60810d3c31b82a778c8ec5916368e",
+   "authenticode": true,
+   "imports_total": 489,
+   "counts": {
+    "hard_B": 3,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 12,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [
+    "comctl32.ImageList_WriteEx",
+    "kernel32.FindPackagesByPackageFamily",
+    "shell32.SHEvaluateSystemCommandTemplate"
+   ],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "advapi32.RegQueryInfoKeyW",
+    "comdlg32.ChooseFontW",
+    "crypt32.CertGetNameStringW",
+    "dwmapi.DwmDefWindowProc",
+    "dwmapi.DwmSetWindowAttribute",
+    "kernel32.FindFirstFileExW",
+    "kernel32.LCMapStringEx",
+    "ole32.StgOpenStorageEx",
+    "shell32.SHGetKnownFolderPath",
+    "shell32.SHGetStockIconInfo",
+    "shlwapi.SHAutoComplete",
+    "user32.DrawFrameControl"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/Bginfo.exe",
+   "name": "Bginfo.exe",
+   "machine": "i386",
+   "subsystem": "gui",
+   "sha256": "995e42751d666368",
+   "imphash": "31555936cc14551b9c733589889c5bc1",
+   "authenticode": true,
+   "imports_total": 704,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 17,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "advapi32.CloseEventLog",
+    "advapi32.LsaQueryInformationPolicy",
+    "advapi32.OpenEventLogW",
+    "advapi32.ReadEventLogW",
+    "advapi32.SaferCloseLevel",
+    "advapi32.SaferComputeTokenFromLevel",
+    "advapi32.SaferIdentifyLevel",
+    "kernel32.FindFirstFileExW",
+    "netapi32.NetServerGetInfo",
+    "netapi32.NetWkstaGetInfo",
+    "netapi32.NetWkstaUserGetInfo",
+    "ole32.CoInitializeSecurity",
+    "oleacc.LresultFromObject",
+    "shell32.SHChangeNotify",
+    "shell32.SHGetFileInfoW",
+    "user32.CopyImage",
+    "user32.DrawFrameControl"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/Bginfo64.exe",
+   "name": "Bginfo64.exe",
+   "machine": "x86_64",
+   "subsystem": "gui",
+   "sha256": "1d00da4ecb04825a",
+   "imphash": "917bb143124fcbce2381b32e3d0c7d31",
+   "authenticode": true,
+   "imports_total": 717,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 17,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "advapi32.CloseEventLog",
+    "advapi32.LsaQueryInformationPolicy",
+    "advapi32.OpenEventLogW",
+    "advapi32.ReadEventLogW",
+    "advapi32.SaferCloseLevel",
+    "advapi32.SaferComputeTokenFromLevel",
+    "advapi32.SaferIdentifyLevel",
+    "kernel32.FindFirstFileExW",
+    "netapi32.NetServerGetInfo",
+    "netapi32.NetWkstaGetInfo",
+    "netapi32.NetWkstaUserGetInfo",
+    "ole32.CoInitializeSecurity",
+    "oleacc.LresultFromObject",
+    "shell32.SHChangeNotify",
+    "shell32.SHGetFileInfoW",
+    "user32.CopyImage",
+    "user32.DrawFrameControl"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/Cacheset.exe",
+   "name": "Cacheset.exe",
+   "machine": "i386",
+   "subsystem": "gui",
+   "sha256": "43203ae51a144e4f",
+   "imphash": "5db68748bcad0cdd0a8825837565a40b",
+   "authenticode": true,
+   "imports_total": 139,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 1,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "kernel32.FindFirstFileExW"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/Cacheset64.exe",
+   "name": "Cacheset64.exe",
+   "machine": "x86_64",
+   "subsystem": "gui",
+   "sha256": "60420a3964557343",
+   "imphash": "033522fb281d3fb7b2e6833666178205",
+   "authenticode": true,
+   "imports_total": 143,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 1,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "kernel32.FindFirstFileExW"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/Clockres.exe",
+   "name": "Clockres.exe",
+   "machine": "i386",
+   "subsystem": "console",
+   "sha256": "4db4539c62f448c5",
+   "imphash": "62a04fca0d3481e7403719e0018b6594",
+   "authenticode": true,
+   "imports_total": 124,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 1,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "kernel32.FindFirstFileExW"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/Clockres64.exe",
+   "name": "Clockres64.exe",
+   "machine": "x86_64",
+   "subsystem": "console",
+   "sha256": "b594b8b9e5d6a706",
+   "imphash": "7d9d3c0aa1083962bb7cdc032bd7d101",
+   "authenticode": true,
+   "imports_total": 128,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 1,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "kernel32.FindFirstFileExW"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/Contig.exe",
+   "name": "Contig.exe",
+   "machine": "i386",
+   "subsystem": "console",
+   "sha256": "261a8e5e9c08e835",
+   "imphash": "0bb302807d87bcb4f1bea5673f0135e9",
+   "authenticode": true,
+   "imports_total": 115,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 1,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "kernel32.FindFirstFileExW"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/Contig64.exe",
+   "name": "Contig64.exe",
+   "machine": "x86_64",
+   "subsystem": "console",
+   "sha256": "063473719cdffa94",
+   "imphash": "47ebcd972d03ab2d5bc320c89135fb06",
+   "authenticode": true,
+   "imports_total": 123,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 1,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "kernel32.FindFirstFileExW"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/Coreinfo.exe",
+   "name": "Coreinfo.exe",
+   "machine": "i386",
+   "subsystem": "console",
+   "sha256": "a8ad5cbd2d57979b",
+   "imphash": "d5144913f8aa09248654395ead581cd7",
+   "authenticode": true,
+   "imports_total": 148,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 5,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "kernel32.FindFirstFileExW",
+    "kernel32.GetNumaHighestNodeNumber",
+    "kernel32.GetNumaNodeProcessorMask",
+    "kernel32.LCMapStringEx",
+    "ole32.CoInitializeSecurity"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/Coreinfo64.exe",
+   "name": "Coreinfo64.exe",
+   "machine": "x86_64",
+   "subsystem": "console",
+   "sha256": "4be1e87e17499e12",
+   "imphash": "d9cf74b41d42703794b06d1b2b9c13c9",
+   "authenticode": true,
+   "imports_total": 153,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 5,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "kernel32.FindFirstFileExW",
+    "kernel32.GetNumaHighestNodeNumber",
+    "kernel32.GetNumaNodeProcessorMask",
+    "kernel32.LCMapStringEx",
+    "ole32.CoInitializeSecurity"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/CoreinfoEx.exe",
+   "name": "CoreinfoEx.exe",
+   "machine": "i386",
+   "subsystem": "gui",
+   "sha256": "5b2168c9b541d3cc",
+   "imphash": "c1d344c6728d3f105931a9b30fa27d7e",
+   "authenticode": true,
+   "imports_total": 178,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 6,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "dwmapi.DwmSetWindowAttribute",
+    "kernel32.FindFirstFileExW",
+    "kernel32.GetNumaHighestNodeNumber",
+    "kernel32.GetNumaNodeProcessorMask",
+    "kernel32.LCMapStringEx",
+    "ole32.CoInitializeSecurity"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/CoreinfoEx64.exe",
+   "name": "CoreinfoEx64.exe",
+   "machine": "x86_64",
+   "subsystem": "gui",
+   "sha256": "50e3237737208c97",
+   "imphash": "154007287f2c103f522691ced63c7170",
+   "authenticode": true,
+   "imports_total": 184,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 6,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "dwmapi.DwmSetWindowAttribute",
+    "kernel32.FindFirstFileExW",
+    "kernel32.GetNumaHighestNodeNumber",
+    "kernel32.GetNumaNodeProcessorMask",
+    "kernel32.LCMapStringEx",
+    "ole32.CoInitializeSecurity"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/Dbgview.exe",
+   "name": "Dbgview.exe",
+   "machine": "i386",
+   "subsystem": "gui",
+   "sha256": "4c70c68cddb2ba53",
+   "imphash": "f66f7a6e8bd3392fa70daa11c00af39b",
+   "authenticode": true,
+   "imports_total": 381,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 6,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "advapi32.CloseEventLog",
+    "advapi32.ReadEventLogA",
+    "api-ms-win-core-file-l1-1-0.FindFirstFileExW",
+    "api-ms-win-shcore-stream-winrt-l1-1-0.CreateRandomAccessStreamOverStream",
+    "comdlg32.ChooseFontA",
+    "dwmapi.DwmSetWindowAttribute"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/Desktops.exe",
+   "name": "Desktops.exe",
+   "machine": "i386",
+   "subsystem": "gui",
+   "sha256": "dcdc6ec773103d01",
+   "imphash": "8ba8eb46b4f94342c4622766115266fd",
+   "authenticode": true,
+   "imports_total": 175,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 2,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "advapi32.SetSecurityInfo",
+    "kernel32.FindFirstFileExW"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/Desktops64.exe",
+   "name": "Desktops64.exe",
+   "machine": "x86_64",
+   "subsystem": "gui",
+   "sha256": "cd88a57f574aa040",
+   "imphash": "86ca6b32c6ca8ed59e4440cf131b831d",
+   "authenticode": true,
+   "imports_total": 178,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 2,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "advapi32.SetSecurityInfo",
+    "kernel32.FindFirstFileExW"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/DiskView.exe",
+   "name": "DiskView.exe",
+   "machine": "i386",
+   "subsystem": "gui",
+   "sha256": "e0cfcb1f7037a43d",
+   "imphash": "0c5bbcf9ecf664374b2cdc8b9d333d6e",
+   "authenticode": true,
+   "imports_total": 252,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 2,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "kernel32.FindFirstFileExW",
+    "user32.DrawFrameControl"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/DiskView64.exe",
+   "name": "DiskView64.exe",
+   "machine": "x86_64",
+   "subsystem": "gui",
+   "sha256": "120ba05e5447a2d5",
+   "imphash": "ad28e59128dddebfefa92a042e8b34f9",
+   "authenticode": true,
+   "imports_total": 246,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 2,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "kernel32.FindFirstFileExW",
+    "user32.DrawFrameControl"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/Diskmon.exe",
+   "name": "Diskmon.exe",
+   "machine": "i386",
+   "subsystem": "gui",
+   "sha256": "b9b8d53e1c52fa35",
+   "imphash": "3240e3429b697e055e49695c016a467b",
+   "authenticode": true,
+   "imports_total": 255,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 2,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "comdlg32.ChooseFontA",
+    "kernel32.FindFirstFileExW"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/Diskmon64.exe",
+   "name": "Diskmon64.exe",
+   "machine": "x86_64",
+   "subsystem": "gui",
+   "sha256": "5c30df87f397e06a",
+   "imphash": "6a151322c229f54dbcc34c1c2573fac0",
+   "authenticode": true,
+   "imports_total": 259,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 2,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "comdlg32.ChooseFontA",
+    "kernel32.FindFirstFileExW"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/FindLinks.exe",
+   "name": "FindLinks.exe",
+   "machine": "i386",
+   "subsystem": "console",
+   "sha256": "eb74645b56a4eb43",
+   "imphash": "5b89f5e8fd683ebd16a938968d6e7cd4",
+   "authenticode": true,
+   "imports_total": 106,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 1,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "kernel32.FindFirstFileExW"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/FindLinks64.exe",
+   "name": "FindLinks64.exe",
+   "machine": "x86_64",
+   "subsystem": "console",
+   "sha256": "b1bc5a3660c92250",
+   "imphash": "b1039d126dfb3a118dae5eadf55aa799",
+   "authenticode": true,
+   "imports_total": 108,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 1,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "kernel32.FindFirstFileExW"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/Listdlls.exe",
+   "name": "Listdlls.exe",
+   "machine": "i386",
+   "subsystem": "console",
+   "sha256": "900ca80e40c82e0d",
+   "imphash": "3ab8bd3cbe6ec1b28fde7fbcea128690",
+   "authenticode": true,
+   "imports_total": 146,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 1,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "kernel32.FindFirstFileExW"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/Listdlls64.exe",
+   "name": "Listdlls64.exe",
+   "machine": "x86_64",
+   "subsystem": "console",
+   "sha256": "641405893f7966a0",
+   "imphash": "ede3d819a2497a4d82568d24bfc463b0",
+   "authenticode": true,
+   "imports_total": 145,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 1,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "kernel32.FindFirstFileExW"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/LoadOrd.exe",
+   "name": "LoadOrd.exe",
+   "machine": "i386",
+   "subsystem": "gui",
+   "sha256": "49ea240a4965e0cb",
+   "imphash": "752cedb65795ddd3c41a733ed7445860",
+   "authenticode": true,
+   "imports_total": 161,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 1,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "kernel32.FindFirstFileExW"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/LoadOrd64.exe",
+   "name": "LoadOrd64.exe",
+   "machine": "x86_64",
+   "subsystem": "gui",
+   "sha256": "6d260ed82396f6ea",
+   "imphash": "349460fd0c615e272b5f9f24e0d15da4",
+   "authenticode": true,
+   "imports_total": 165,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 1,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "kernel32.FindFirstFileExW"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/LoadOrdC.exe",
+   "name": "LoadOrdC.exe",
+   "machine": "i386",
+   "subsystem": "console",
+   "sha256": "aac9fd7fed5bd1fe",
+   "imphash": "e9bbbd50dedf3d875d89993eb911a22f",
+   "authenticode": true,
+   "imports_total": 121,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 1,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "kernel32.FindFirstFileExW"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/LoadOrdC64.exe",
+   "name": "LoadOrdC64.exe",
+   "machine": "x86_64",
+   "subsystem": "console",
+   "sha256": "17b5ed2dde571fb0",
+   "imphash": "0c0832f27cb8376bd924bdbd79ec041e",
+   "authenticode": true,
+   "imports_total": 125,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 1,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "kernel32.FindFirstFileExW"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/Procmon.exe",
+   "name": "Procmon.exe",
+   "machine": "i386",
+   "subsystem": "gui",
+   "sha256": "a7a2adcb8353e4fa",
+   "imphash": "bdda4cf97e65f902a900f564a319d8b7",
+   "authenticode": true,
+   "imports_total": 539,
+   "counts": {
+    "hard_B": 3,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 14,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [
+    "fltlib.FilterGetMessage",
+    "fltlib.FilterReplyMessage",
+    "fltlib.FilterSendMessage"
+   ],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "advapi32.RegQueryInfoKeyW",
+    "comdlg32.ChooseFontW",
+    "dwmapi.DwmDefWindowProc",
+    "dwmapi.DwmSetWindowAttribute",
+    "fltlib.FilterConnectCommunicationPort",
+    "kernel32.FindFirstFileExW",
+    "kernel32.LCMapStringEx",
+    "kernel32.SetProcessShutdownParameters",
+    "shell32.SHChangeNotify",
+    "shell32.SHGetFileInfoW",
+    "shlwapi.SHAutoComplete",
+    "user32.CreateIconFromResourceEx",
+    "user32.DrawFrameControl",
+    "uxtheme.IsCompositionActive"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/Procmon64.exe",
+   "name": "Procmon64.exe",
+   "machine": "x86_64",
+   "subsystem": "gui",
+   "sha256": "28495e642b2a4654",
+   "imphash": "b0bfce32a93c858650fba52034be9ceb",
+   "authenticode": true,
+   "imports_total": 550,
+   "counts": {
+    "hard_B": 3,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 14,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [
+    "fltlib.FilterGetMessage",
+    "fltlib.FilterReplyMessage",
+    "fltlib.FilterSendMessage"
+   ],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "advapi32.RegQueryInfoKeyW",
+    "comdlg32.ChooseFontW",
+    "dwmapi.DwmDefWindowProc",
+    "dwmapi.DwmSetWindowAttribute",
+    "fltlib.FilterConnectCommunicationPort",
+    "kernel32.FindFirstFileExW",
+    "kernel32.LCMapStringEx",
+    "kernel32.SetProcessShutdownParameters",
+    "shell32.SHChangeNotify",
+    "shell32.SHGetFileInfoW",
+    "shlwapi.SHAutoComplete",
+    "user32.CreateIconFromResourceEx",
+    "user32.DrawFrameControl",
+    "uxtheme.IsCompositionActive"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/PsExec.exe",
+   "name": "PsExec.exe",
+   "machine": "i386",
+   "subsystem": "console",
+   "sha256": "078163d5c16f64ca",
+   "imphash": "1193bc223dad681f22f8248608cbb592",
+   "authenticode": true,
+   "imports_total": 197,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 6,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "advapi32.GetSecurityInfo",
+    "advapi32.LsaEnumerateAccountRights",
+    "advapi32.SetSecurityInfo",
+    "kernel32.FindFirstFileExW",
+    "kernel32.SetNamedPipeHandleState",
+    "netapi32.NetServerEnum"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/PsExec64.exe",
+   "name": "PsExec64.exe",
+   "machine": "x86_64",
+   "subsystem": "console",
+   "sha256": "edfae1a69522f87b",
+   "imphash": "8a589b59271d320348f6cdec90a97e6c",
+   "authenticode": true,
+   "imports_total": 202,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 6,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "advapi32.GetSecurityInfo",
+    "advapi32.LsaEnumerateAccountRights",
+    "advapi32.SetSecurityInfo",
+    "kernel32.FindFirstFileExW",
+    "kernel32.SetNamedPipeHandleState",
+    "netapi32.NetServerEnum"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/PsGetsid.exe",
+   "name": "PsGetsid.exe",
+   "machine": "i386",
+   "subsystem": "console",
+   "sha256": "8e642ed07ab79a26",
+   "imphash": "02ca42db8d4f26336a4b12a8f6829824",
+   "authenticode": true,
+   "imports_total": 157,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 3,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "advapi32.LsaQueryInformationPolicy",
+    "kernel32.FindFirstFileExW",
+    "netapi32.NetServerEnum"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/PsGetsid64.exe",
+   "name": "PsGetsid64.exe",
+   "machine": "x86_64",
+   "subsystem": "console",
+   "sha256": "5bc1cb8cd8a3ce3d",
+   "imphash": "9dd5369dfa589f009cea309f3efd7af1",
+   "authenticode": true,
+   "imports_total": 165,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 3,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "advapi32.LsaQueryInformationPolicy",
+    "kernel32.FindFirstFileExW",
+    "netapi32.NetServerEnum"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/PsInfo.exe",
+   "name": "PsInfo.exe",
+   "machine": "i386",
+   "subsystem": "console",
+   "sha256": "e29666f97057ff8e",
+   "imphash": "758a4c4248f9b958f7cfe927ba6f4f59",
+   "authenticode": true,
+   "imports_total": 161,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 7,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "advapi32.LogonUserW",
+    "advapi32.RegConnectRegistryW",
+    "advapi32.RegQueryInfoKeyW",
+    "kernel32.FindFirstFileExW",
+    "netapi32.NetServerEnum",
+    "ole32.CoInitializeSecurity",
+    "pdh.PdhOpenQueryW"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/PsInfo64.exe",
+   "name": "PsInfo64.exe",
+   "machine": "x86_64",
+   "subsystem": "console",
+   "sha256": "983270daa5a2ffa9",
+   "imphash": "4b363c147400994d9bfad3a82713eb44",
+   "authenticode": true,
+   "imports_total": 169,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 7,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "advapi32.LogonUserW",
+    "advapi32.RegConnectRegistryW",
+    "advapi32.RegQueryInfoKeyW",
+    "kernel32.FindFirstFileExW",
+    "netapi32.NetServerEnum",
+    "ole32.CoInitializeSecurity",
+    "pdh.PdhOpenQueryW"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/PsLoggedon.exe",
+   "name": "PsLoggedon.exe",
+   "machine": "i386",
+   "subsystem": "console",
+   "sha256": "d689cb1dbd2e4c06",
+   "imphash": "2d2cee6d005eec5676742ba250d53d92",
+   "authenticode": true,
+   "imports_total": 111,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 5,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "advapi32.LookupAccountNameW",
+    "advapi32.RegConnectRegistryW",
+    "advapi32.RegQueryInfoKeyW",
+    "netapi32.NetServerEnum",
+    "netapi32.NetSessionEnum"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/PsLoggedon64.exe",
+   "name": "PsLoggedon64.exe",
+   "machine": "x86_64",
+   "subsystem": "console",
+   "sha256": "fdadb6e15c52c41a",
+   "imphash": "e4941a2a5bd3b0e41593ae57bdcef195",
+   "authenticode": true,
+   "imports_total": 114,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 5,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "advapi32.LookupAccountNameW",
+    "advapi32.RegConnectRegistryW",
+    "advapi32.RegQueryInfoKeyW",
+    "netapi32.NetServerEnum",
+    "netapi32.NetSessionEnum"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/PsService.exe",
+   "name": "PsService.exe",
+   "machine": "i386",
+   "subsystem": "console",
+   "sha256": "d3a816fe5d545a80",
+   "imphash": "aaa7d15d37857e2f934da45595b8b029",
+   "authenticode": true,
+   "imports_total": 138,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 2,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "kernel32.FindFirstFileExW",
+    "netapi32.NetServerEnum"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/PsService64.exe",
+   "name": "PsService64.exe",
+   "machine": "x86_64",
+   "subsystem": "console",
+   "sha256": "554f523914cdbaed",
+   "imphash": "0f2fa98ceda2f32075297bf5a98d45b8",
+   "authenticode": true,
+   "imports_total": 147,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 2,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "kernel32.FindFirstFileExW",
+    "netapi32.NetServerEnum"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/RAMMap.exe",
+   "name": "RAMMap.exe",
+   "machine": "i386",
+   "subsystem": "gui",
+   "sha256": "29c9675e41224bed",
+   "imphash": "c6ed16af0123dcfdd8af88854b55a54e",
+   "authenticode": true,
+   "imports_total": 273,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 3,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "kernel32.FindFirstFileExW",
+    "shell32.SHChangeNotify",
+    "user32.DrawFrameControl"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/RAMMap64.exe",
+   "name": "RAMMap64.exe",
+   "machine": "x86_64",
+   "subsystem": "gui",
+   "sha256": "e970913798481432",
+   "imphash": "b762c7ec997b29f838aa7891d8babf48",
+   "authenticode": true,
+   "imports_total": 267,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 2,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "kernel32.FindFirstFileExW",
+    "user32.DrawFrameControl"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/RDCMan-x86.exe",
+   "name": "RDCMan-x86.exe",
+   "machine": "i386",
+   "subsystem": "gui",
+   "sha256": "07d5e675ce5c91f5",
+   "imphash": "77d69bc5df32e54ba90e8933a122c1c1",
+   "authenticode": true,
+   "imports_total": 423,
+   "counts": {
+    "hard_B": 1,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 12,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [
+    "api-ms-win-crt-runtime-l1-1-0._invoke_watson"
+   ],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "advapi32.DeregisterEventSource",
+    "advapi32.EventWrite",
+    "advapi32.EventWriteTransfer",
+    "advapi32.RegisterEventSourceW",
+    "advapi32.ReportEventW",
+    "kernel32.FindFirstFileExW",
+    "kernel32.FlushProcessWriteBuffers",
+    "kernel32.GetCurrentProcessorNumberEx",
+    "kernel32.GetNumaHighestNodeNumber",
+    "kernel32.LCMapStringEx",
+    "kernel32.QueryThreadCycleTime",
+    "kernel32.SetThreadIdealProcessorEx"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/RDCMan.exe",
+   "name": "RDCMan.exe",
+   "machine": "x86_64",
+   "subsystem": "gui",
+   "sha256": "fc4536b88b5b85d8",
+   "imphash": "00f05e33a9fb13ffd67a9ced67e9115d",
+   "authenticode": true,
+   "imports_total": 447,
+   "counts": {
+    "hard_B": 1,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 13,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [
+    "api-ms-win-crt-runtime-l1-1-0._invoke_watson"
+   ],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "advapi32.DeregisterEventSource",
+    "advapi32.EventWrite",
+    "advapi32.EventWriteTransfer",
+    "advapi32.RegisterEventSourceW",
+    "advapi32.ReportEventW",
+    "kernel32.FindFirstFileExW",
+    "kernel32.FlushProcessWriteBuffers",
+    "kernel32.GetCurrentProcessorNumberEx",
+    "kernel32.GetNumaHighestNodeNumber",
+    "kernel32.GetProcessGroupAffinity",
+    "kernel32.LCMapStringEx",
+    "kernel32.QueryThreadCycleTime",
+    "kernel32.SetThreadIdealProcessorEx"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/RegDelNull.exe",
+   "name": "RegDelNull.exe",
+   "machine": "i386",
+   "subsystem": "console",
+   "sha256": "e39da31d87c447cf",
+   "imphash": "3139255730b05278872883e46827de09",
+   "authenticode": true,
+   "imports_total": 132,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 1,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "kernel32.FindFirstFileExW"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/RegDelNull64.exe",
+   "name": "RegDelNull64.exe",
+   "machine": "x86_64",
+   "subsystem": "console",
+   "sha256": "f80d7e9727a1be93",
+   "imphash": "c58f62f2683389deb81e1a7a9c1bb05e",
+   "authenticode": true,
+   "imports_total": 136,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 1,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "kernel32.FindFirstFileExW"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/ShareEnum.exe",
+   "name": "ShareEnum.exe",
+   "machine": "i386",
+   "subsystem": "gui",
+   "sha256": "24193daf52407a53",
+   "imphash": "0827b1b6b65cc6701e5f70e868d62aa5",
+   "authenticode": true,
+   "imports_total": 248,
+   "counts": {
+    "hard_B": 1,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 6,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [
+    "netapi32.NetShareSetInfo"
+   ],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "advapi32.LookupAccountNameW",
+    "kernel32.FindFirstFileExW",
+    "netapi32.NetShareEnum",
+    "netapi32.NetWkstaUserGetInfo",
+    "user32.DrawFrameControl",
+    "ws2_32.setsockopt"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/ShareEnum64.exe",
+   "name": "ShareEnum64.exe",
+   "machine": "x86_64",
+   "subsystem": "gui",
+   "sha256": "5de2fe59bbc844d9",
+   "imphash": "6f91a79cf7c2b0946291cbed2d12c127",
+   "authenticode": true,
+   "imports_total": 252,
+   "counts": {
+    "hard_B": 1,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 6,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [
+    "netapi32.NetShareSetInfo"
+   ],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "advapi32.LookupAccountNameW",
+    "kernel32.FindFirstFileExW",
+    "netapi32.NetShareEnum",
+    "netapi32.NetWkstaUserGetInfo",
+    "user32.DrawFrameControl",
+    "ws2_32.setsockopt"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/ShellRunas.exe",
+   "name": "ShellRunas.exe",
+   "machine": "i386",
+   "subsystem": "gui",
+   "sha256": "d7d1ebac76fd7137",
+   "imphash": "8bb695cc87441034b0cee42e4e553de2",
+   "authenticode": true,
+   "imports_total": 141,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 2,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "advapi32.CreateProcessWithLogonW",
+    "kernel32.FindFirstFileExW"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/Sysmon.exe",
+   "name": "Sysmon.exe",
+   "machine": "i386",
+   "subsystem": "console",
+   "sha256": "2afacac21966b317",
+   "imphash": "51c6e634f1caedb7180217409fdcfc43",
+   "authenticode": true,
+   "imports_total": 313,
+   "counts": {
+    "hard_B": 2,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 12,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [
+    "tdh.TdhGetEventInformation",
+    "tdh.TdhGetEventMapInformation"
+   ],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "advapi32.DeregisterEventSource",
+    "advapi32.RegisterEventSourceW",
+    "advapi32.ReportEventW",
+    "crypt32.CertGetNameStringW",
+    "kernel32.CreateToolhelp32Snapshot",
+    "kernel32.FindFirstFileExW",
+    "kernel32.LCMapStringEx",
+    "ole32.CoInitializeSecurity",
+    "secur32.LsaGetLogonSessionData",
+    "wtsapi32.WTSEnumerateSessionsW",
+    "wtsapi32.WTSQuerySessionInformationW",
+    "wtsapi32.WTSQueryUserToken"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/Sysmon64.exe",
+   "name": "Sysmon64.exe",
+   "machine": "x86_64",
+   "subsystem": "console",
+   "sha256": "83d31f2478dc6716",
+   "imphash": "5c31cfde3181a762ca91d21902def1b4",
+   "authenticode": true,
+   "imports_total": 320,
+   "counts": {
+    "hard_B": 2,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 13,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [
+    "tdh.TdhGetEventInformation",
+    "tdh.TdhGetEventMapInformation"
+   ],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "advapi32.DeregisterEventSource",
+    "advapi32.RegisterEventSourceW",
+    "advapi32.ReportEventW",
+    "crypt32.CertGetNameStringW",
+    "kernel32.CreateToolhelp32Snapshot",
+    "kernel32.FindFirstFileExW",
+    "kernel32.LCMapStringEx",
+    "ole32.CoInitializeSecurity",
+    "rpcrt4.NdrServerCallAll",
+    "secur32.LsaGetLogonSessionData",
+    "wtsapi32.WTSEnumerateSessionsW",
+    "wtsapi32.WTSQuerySessionInformationW",
+    "wtsapi32.WTSQueryUserToken"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/Testlimit.exe",
+   "name": "Testlimit.exe",
+   "machine": "i386",
+   "subsystem": "console",
+   "sha256": "81ce87149a14c466",
+   "imphash": "5b0d2c8a351c6d461ad97a49997cf8ba",
+   "authenticode": true,
+   "imports_total": 129,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 1,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "kernel32.AllocateUserPhysicalPages"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/Testlimit64.exe",
+   "name": "Testlimit64.exe",
+   "machine": "x86_64",
+   "subsystem": "console",
+   "sha256": "f1564b3c3eee87d6",
+   "imphash": "6cafe31faa06152d26fab31de1c700b8",
+   "authenticode": true,
+   "imports_total": 132,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 1,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "kernel32.AllocateUserPhysicalPages"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/Volumeid.exe",
+   "name": "Volumeid.exe",
+   "machine": "i386",
+   "subsystem": "console",
+   "sha256": "22a2484d7fa799e6",
+   "imphash": "196b8047c609ccadce7fd294c9a3e6a2",
+   "authenticode": true,
+   "imports_total": 123,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 0,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": []
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/Volumeid64.exe",
+   "name": "Volumeid64.exe",
+   "machine": "x86_64",
+   "subsystem": "console",
+   "sha256": "fb0d02ea26bb1e5d",
+   "imphash": "735aed1002ee8ff1be0e1dee668e8b0d",
+   "authenticode": true,
+   "imports_total": 109,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 0,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": []
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/Winobj.exe",
+   "name": "Winobj.exe",
+   "machine": "i386",
+   "subsystem": "gui",
+   "sha256": "c8313c8ea5573345",
+   "imphash": "5d2f7b01308e94c361a46be0512f190e",
+   "authenticode": true,
+   "imports_total": 395,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 8,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "advapi32.RegQueryInfoKeyW",
+    "comdlg32.ChooseFontW",
+    "dwmapi.DwmDefWindowProc",
+    "dwmapi.DwmSetWindowAttribute",
+    "kernel32.FindFirstFileExW",
+    "kernel32.LCMapStringEx",
+    "shell32.SHGetStockIconInfo",
+    "user32.DrawFrameControl"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/Winobj64.exe",
+   "name": "Winobj64.exe",
+   "machine": "x86_64",
+   "subsystem": "gui",
+   "sha256": "e2a2a818ab71c388",
+   "imphash": "c756b7086475dd0be56a0c6bbbb41d73",
+   "authenticode": true,
+   "imports_total": 403,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 8,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "advapi32.RegQueryInfoKeyW",
+    "comdlg32.ChooseFontW",
+    "dwmapi.DwmDefWindowProc",
+    "dwmapi.DwmSetWindowAttribute",
+    "kernel32.FindFirstFileExW",
+    "kernel32.LCMapStringEx",
+    "shell32.SHGetStockIconInfo",
+    "user32.DrawFrameControl"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/ZoomIt.exe",
+   "name": "ZoomIt.exe",
+   "machine": "i386",
+   "subsystem": "gui",
+   "sha256": "e5c55414879086ac",
+   "imphash": "67760ad98f5081a62ca14b44a761a777",
+   "authenticode": true,
+   "imports_total": 492,
+   "counts": {
+    "hard_B": 4,
+    "hard_D": 0,
+    "hard_C": 1,
+    "semi_stub": 13,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [
+    "api-ms-win-core-winrt-error-l1-1-0.RoFailFastWithErrorContext",
+    "api-ms-win-core-winrt-error-l1-1-0.RoTransformError",
+    "api-ms-win-shcore-stream-winrt-l1-1-0.CreateStreamOverRandomAccessStream",
+    "kernel32.SetThreadpoolWaitEx"
+   ],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "api-ms-win-core-winrt-error-l1-1-1.RoOriginateLanguageException",
+    "api-ms-win-core-winrt-l1-1-0.RoGetActivationFactory",
+    "comdlg32.ChooseFontW",
+    "kernel32.CreateToolhelp32Snapshot",
+    "kernel32.FindFirstFileExW",
+    "kernel32.LCMapStringEx",
+    "mf.MFEnumDeviceSources",
+    "shell32.SHGetKnownFolderPath",
+    "user32.CopyImage",
+    "user32.DrawFrameControl",
+    "user32.SetWindowDisplayAffinity",
+    "wtsapi32.WTSRegisterSessionNotification",
+    "wtsapi32.WTSUnRegisterSessionNotification"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/ZoomIt64.exe",
+   "name": "ZoomIt64.exe",
+   "machine": "x86_64",
+   "subsystem": "gui",
+   "sha256": "dc0a4eb4b4935aa5",
+   "imphash": "40c563e2e3d26d754355bc7b9965e47b",
+   "authenticode": true,
+   "imports_total": 501,
+   "counts": {
+    "hard_B": 4,
+    "hard_D": 0,
+    "hard_C": 1,
+    "semi_stub": 13,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [
+    "api-ms-win-core-winrt-error-l1-1-0.RoFailFastWithErrorContext",
+    "api-ms-win-core-winrt-error-l1-1-0.RoTransformError",
+    "api-ms-win-shcore-stream-winrt-l1-1-0.CreateStreamOverRandomAccessStream",
+    "kernel32.SetThreadpoolWaitEx"
+   ],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "api-ms-win-core-winrt-error-l1-1-1.RoOriginateLanguageException",
+    "api-ms-win-core-winrt-l1-1-0.RoGetActivationFactory",
+    "comdlg32.ChooseFontW",
+    "kernel32.CreateToolhelp32Snapshot",
+    "kernel32.FindFirstFileExW",
+    "kernel32.LCMapStringEx",
+    "mf.MFEnumDeviceSources",
+    "shell32.SHGetKnownFolderPath",
+    "user32.CopyImage",
+    "user32.DrawFrameControl",
+    "user32.SetWindowDisplayAffinity",
+    "wtsapi32.WTSRegisterSessionNotification",
+    "wtsapi32.WTSUnRegisterSessionNotification"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/accesschk.exe",
+   "name": "accesschk.exe",
+   "machine": "i386",
+   "subsystem": "console",
+   "sha256": "69bd46e5dba2767a",
+   "imphash": "446c77f0abec6881b2f6970d6e45e222",
+   "authenticode": true,
+   "imports_total": 194,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 13,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "advapi32.GetSecurityInfo",
+    "advapi32.LookupAccountNameW",
+    "advapi32.LookupPrivilegeDisplayNameW",
+    "advapi32.LsaEnumerateAccountRights",
+    "advapi32.LsaEnumerateAccountsWithUserRight",
+    "kernel32.CreateToolhelp32Snapshot",
+    "kernel32.FindFirstFileExW",
+    "netapi32.NetShareEnum",
+    "wevtapi.EvtClose",
+    "wevtapi.EvtGetChannelConfigProperty",
+    "wevtapi.EvtNextChannelPath",
+    "wevtapi.EvtOpenChannelConfig",
+    "wevtapi.EvtOpenChannelEnum"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/accesschk64.exe",
+   "name": "accesschk64.exe",
+   "machine": "x86_64",
+   "subsystem": "console",
+   "sha256": "843b6b1d275946f2",
+   "imphash": "50c713ecffe5898d7426bcde54e77034",
+   "authenticode": true,
+   "imports_total": 198,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 13,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "advapi32.GetSecurityInfo",
+    "advapi32.LookupAccountNameW",
+    "advapi32.LookupPrivilegeDisplayNameW",
+    "advapi32.LsaEnumerateAccountRights",
+    "advapi32.LsaEnumerateAccountsWithUserRight",
+    "kernel32.CreateToolhelp32Snapshot",
+    "kernel32.FindFirstFileExW",
+    "netapi32.NetShareEnum",
+    "wevtapi.EvtClose",
+    "wevtapi.EvtGetChannelConfigProperty",
+    "wevtapi.EvtNextChannelPath",
+    "wevtapi.EvtOpenChannelConfig",
+    "wevtapi.EvtOpenChannelEnum"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/adrestore.exe",
+   "name": "adrestore.exe",
+   "machine": "i386",
+   "subsystem": "console",
+   "sha256": "903caf518c94a78b",
+   "imphash": "aa0ab20e5e7c46481f2a36e791ec5212",
+   "authenticode": true,
+   "imports_total": 130,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 1,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "kernel32.FindFirstFileExW"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/adrestore64.exe",
+   "name": "adrestore64.exe",
+   "machine": "x86_64",
+   "subsystem": "console",
+   "sha256": "ee55c681013d173e",
+   "imphash": "57bb15381df27a027512e595c6cad65a",
+   "authenticode": true,
+   "imports_total": 134,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 1,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "kernel32.FindFirstFileExW"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/autorunsc.exe",
+   "name": "autorunsc.exe",
+   "machine": "i386",
+   "subsystem": "console",
+   "sha256": "a2394a11272ae38e",
+   "imphash": "1abe3e9c0b704df8e211f60241108fe4",
+   "authenticode": true,
+   "imports_total": 222,
+   "counts": {
+    "hard_B": 2,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 6,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [
+    "kernel32.FindPackagesByPackageFamily",
+    "shell32.SHEvaluateSystemCommandTemplate"
+   ],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "advapi32.LookupAccountNameW",
+    "advapi32.RegQueryInfoKeyW",
+    "crypt32.CertGetNameStringW",
+    "kernel32.FindFirstFileExW",
+    "shell32.SHGetKnownFolderPath",
+    "wintrust.CryptCATAdminAcquireContext2"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/autorunsc64.exe",
+   "name": "autorunsc64.exe",
+   "machine": "x86_64",
+   "subsystem": "console",
+   "sha256": "093d1c6b91d280c9",
+   "imphash": "a46fb8a9461cc3ce3f7635f66c9300b4",
+   "authenticode": true,
+   "imports_total": 230,
+   "counts": {
+    "hard_B": 2,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 6,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [
+    "kernel32.FindPackagesByPackageFamily",
+    "shell32.SHEvaluateSystemCommandTemplate"
+   ],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "advapi32.LookupAccountNameW",
+    "advapi32.RegQueryInfoKeyW",
+    "crypt32.CertGetNameStringW",
+    "kernel32.FindFirstFileExW",
+    "shell32.SHGetKnownFolderPath",
+    "wintrust.CryptCATAdminAcquireContext2"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/ctrl2cap.exe",
+   "name": "ctrl2cap.exe",
+   "machine": "i386",
+   "subsystem": "console",
+   "sha256": "ec4d9c4fec56f118",
+   "imphash": "31cda7393aba654a8bf0fd8591e769f0",
+   "authenticode": true,
+   "imports_total": 107,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 2,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "kernel32.FindFirstFileExW",
+    "kernel32.LCMapStringEx"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/dbgview64.exe",
+   "name": "dbgview64.exe",
+   "machine": "x86_64",
+   "subsystem": "gui",
+   "sha256": "5144e08b5e54005a",
+   "imphash": "09d91fa6552f2404168bc065cd206594",
+   "authenticode": true,
+   "imports_total": 390,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 6,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "advapi32.CloseEventLog",
+    "advapi32.ReadEventLogA",
+    "api-ms-win-core-file-l1-1-0.FindFirstFileExW",
+    "api-ms-win-shcore-stream-winrt-l1-1-0.CreateRandomAccessStreamOverStream",
+    "comdlg32.ChooseFontA",
+    "dwmapi.DwmSetWindowAttribute"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/dbgviewcli.exe",
+   "name": "dbgviewcli.exe",
+   "machine": "i386",
+   "subsystem": "console",
+   "sha256": "2d3128bf2338fa25",
+   "imphash": "1ccea07f1724e0f5fc15e8ba730bb8e4",
+   "authenticode": true,
+   "imports_total": 138,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 1,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "kernel32.FindFirstFileExW"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/dbgviewcli64.exe",
+   "name": "dbgviewcli64.exe",
+   "machine": "x86_64",
+   "subsystem": "console",
+   "sha256": "7954a8bbeb1f650b",
+   "imphash": "31bc134ce32faebb53d81c9a6a7f99a4",
+   "authenticode": true,
+   "imports_total": 145,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 1,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "kernel32.FindFirstFileExW"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/disk2vhd.exe",
+   "name": "disk2vhd.exe",
+   "machine": "i386",
+   "subsystem": "gui",
+   "sha256": "7c2ca32561cc5d41",
+   "imphash": "4c117f731c41a3fc8c380ac1299a9b92",
+   "authenticode": true,
+   "imports_total": 235,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 3,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "kernel32.CopyFileExW",
+    "kernel32.FindFirstFileExW",
+    "user32.DrawFrameControl"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/disk2vhd64.exe",
+   "name": "disk2vhd64.exe",
+   "machine": "x86_64",
+   "subsystem": "gui",
+   "sha256": "029a261ae3aeab1f",
+   "imphash": "ac1bbcbd08cdadf92ade065e4f9fea41",
+   "authenticode": true,
+   "imports_total": 233,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 3,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "kernel32.CopyFileExW",
+    "kernel32.FindFirstFileExW",
+    "user32.DrawFrameControl"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/diskext.exe",
+   "name": "diskext.exe",
+   "machine": "i386",
+   "subsystem": "console",
+   "sha256": "21ac7976db678484",
+   "imphash": "5c8c52d61bd68ef4ee11440c7570000c",
+   "authenticode": true,
+   "imports_total": 130,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 1,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "kernel32.FindFirstFileExW"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/diskext64.exe",
+   "name": "diskext64.exe",
+   "machine": "x86_64",
+   "subsystem": "console",
+   "sha256": "f916c910116a497d",
+   "imphash": "4a4461ba7ba5d8b93aa81ffdaf51d071",
+   "authenticode": true,
+   "imports_total": 134,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 1,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "kernel32.FindFirstFileExW"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/du.exe",
+   "name": "du.exe",
+   "machine": "i386",
+   "subsystem": "console",
+   "sha256": "f23c10c525f2273d",
+   "imphash": "c6c5aad2b39fa3f37b4203ffe1bf8229",
+   "authenticode": true,
+   "imports_total": 137,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 1,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "kernel32.FindFirstFileExW"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/du64.exe",
+   "name": "du64.exe",
+   "machine": "x86_64",
+   "subsystem": "console",
+   "sha256": "84d4b083a25d9365",
+   "imphash": "c85981382fb4eb606f6d91ad6bdc7112",
+   "authenticode": true,
+   "imports_total": 140,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 1,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "kernel32.FindFirstFileExW"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/efsdump.exe",
+   "name": "efsdump.exe",
+   "machine": "i386",
+   "subsystem": "console",
+   "sha256": "b78823c9c7a52b04",
+   "imphash": "e944892a8752c3e7dbd13dced826e6aa",
+   "authenticode": true,
+   "imports_total": 117,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 3,
+    "hard_C": 0,
+    "semi_stub": 1,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [
+    "advapi32.FreeEncryptionCertificateHashList",
+    "advapi32.QueryRecoveryAgentsOnEncryptedFile",
+    "advapi32.QueryUsersOnEncryptedFile"
+   ],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "kernel32.FindFirstFileExW"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/handle.exe",
+   "name": "handle.exe",
+   "machine": "i386",
+   "subsystem": "console",
+   "sha256": "84c22579ca09f4fd",
+   "imphash": "db7ea7686a4b73d9a24f7648f8623a91",
+   "authenticode": true,
+   "imports_total": 139,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 2,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "kernel32.FindFirstFileExW",
+    "kernel32.LCMapStringEx"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/handle64.exe",
+   "name": "handle64.exe",
+   "machine": "x86_64",
+   "subsystem": "console",
+   "sha256": "24bafcc570cc9bbb",
+   "imphash": "16ebc883b0ec2b288357e5c53619efad",
+   "authenticode": true,
+   "imports_total": 148,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 2,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "kernel32.FindFirstFileExW",
+    "kernel32.LCMapStringEx"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/hex2dec.exe",
+   "name": "hex2dec.exe",
+   "machine": "i386",
+   "subsystem": "console",
+   "sha256": "3e57cc1d455a7c33",
+   "imphash": "50482b6b264d53c513dbf36d2e801899",
+   "authenticode": true,
+   "imports_total": 124,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 1,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "kernel32.FindFirstFileExW"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/hex2dec64.exe",
+   "name": "hex2dec64.exe",
+   "machine": "x86_64",
+   "subsystem": "console",
+   "sha256": "786d92b9457a1122",
+   "imphash": "6e6c0c38057302550f8298c609db40bf",
+   "authenticode": true,
+   "imports_total": 128,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 1,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "kernel32.FindFirstFileExW"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/junction.exe",
+   "name": "junction.exe",
+   "machine": "i386",
+   "subsystem": "console",
+   "sha256": "6fb4df6555a69c2f",
+   "imphash": "d252bdc4ec1867967c54ff17556ba9aa",
+   "authenticode": true,
+   "imports_total": 127,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 1,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "kernel32.FindFirstFileExW"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/junction64.exe",
+   "name": "junction64.exe",
+   "machine": "x86_64",
+   "subsystem": "console",
+   "sha256": "98720d8675036560",
+   "imphash": "88d0a5152ac5965c1c0cc39be43f6f87",
+   "authenticode": true,
+   "imports_total": 131,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 1,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "kernel32.FindFirstFileExW"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/ldmdump.exe",
+   "name": "ldmdump.exe",
+   "machine": "i386",
+   "subsystem": "console",
+   "sha256": "980e64020cfceb02",
+   "imphash": "62430f16891f2bbc3e224c30b3127f73",
+   "authenticode": true,
+   "imports_total": 71,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 0,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": []
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/livekd.exe",
+   "name": "livekd.exe",
+   "machine": "i386",
+   "subsystem": "console",
+   "sha256": "278a2613910adc75",
+   "imphash": "3021c1e834fe6c74493ea136c06d646e",
+   "authenticode": true,
+   "imports_total": 163,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 3,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "advapi32.SetSecurityInfo",
+    "kernel32.CreateToolhelp32Snapshot",
+    "kernel32.FindFirstFileExW"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/livekd64.exe",
+   "name": "livekd64.exe",
+   "machine": "x86_64",
+   "subsystem": "console",
+   "sha256": "e2884fa2baa44a09",
+   "imphash": "faa88700d64c4e6602181ae1e0e4e45a",
+   "authenticode": true,
+   "imports_total": 193,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 3,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "advapi32.SetSecurityInfo",
+    "kernel32.CreateToolhelp32Snapshot",
+    "kernel32.FindFirstFileExW"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/logonsessions.exe",
+   "name": "logonsessions.exe",
+   "machine": "i386",
+   "subsystem": "console",
+   "sha256": "8b3f67426e578bd1",
+   "imphash": "ed17daa33fc26bc2797c98474e238063",
+   "authenticode": true,
+   "imports_total": 153,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 4,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "kernel32.CreateToolhelp32Snapshot",
+    "kernel32.FindFirstFileExW",
+    "secur32.LsaEnumerateLogonSessions",
+    "secur32.LsaGetLogonSessionData"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/logonsessions64.exe",
+   "name": "logonsessions64.exe",
+   "machine": "x86_64",
+   "subsystem": "console",
+   "sha256": "7b646dbccb20d5eb",
+   "imphash": "2a855eaa735c0961587b1b38550d2f4c",
+   "authenticode": true,
+   "imports_total": 155,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 4,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "kernel32.CreateToolhelp32Snapshot",
+    "kernel32.FindFirstFileExW",
+    "secur32.LsaEnumerateLogonSessions",
+    "secur32.LsaGetLogonSessionData"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/movefile.exe",
+   "name": "movefile.exe",
+   "machine": "i386",
+   "subsystem": "console",
+   "sha256": "b1778554bee9c009",
+   "imphash": "58cb6d6c0c404f2663c74b01f9277912",
+   "authenticode": true,
+   "imports_total": 125,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 1,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "kernel32.FindFirstFileExW"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/movefile64.exe",
+   "name": "movefile64.exe",
+   "machine": "x86_64",
+   "subsystem": "console",
+   "sha256": "beba5a12b0c1a941",
+   "imphash": "a3da8c3278be3baa96793d33c75313b5",
+   "authenticode": true,
+   "imports_total": 129,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 1,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "kernel32.FindFirstFileExW"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/notmyfault.exe",
+   "name": "notmyfault.exe",
+   "machine": "i386",
+   "subsystem": "gui",
+   "sha256": "a4e1b83a841f3c30",
+   "imphash": "622e435048d73205dfa2e5687f8c9bcf",
+   "authenticode": true,
+   "imports_total": 150,
+   "counts": {
+    "hard_B": 3,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 3,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [
+    "kernelbase.AddPackageDependency",
+    "kernelbase.RemovePackageDependency",
+    "kernelbase.TryCreatePackageDependency"
+   ],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "api-ms-win-core-winrt-l1-1-0.RoGetActivationFactory",
+    "dwmapi.DwmSetWindowAttribute",
+    "kernel32.FindFirstFileExW"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/notmyfault64.exe",
+   "name": "notmyfault64.exe",
+   "machine": "x86_64",
+   "subsystem": "gui",
+   "sha256": "893a03443021d3d5",
+   "imphash": "5b4fbb0c1041a7329158079dcd2e274b",
+   "authenticode": true,
+   "imports_total": 152,
+   "counts": {
+    "hard_B": 3,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 3,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [
+    "kernelbase.AddPackageDependency",
+    "kernelbase.RemovePackageDependency",
+    "kernelbase.TryCreatePackageDependency"
+   ],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "api-ms-win-core-winrt-l1-1-0.RoGetActivationFactory",
+    "dwmapi.DwmSetWindowAttribute",
+    "kernel32.FindFirstFileExW"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/notmyfaultc.exe",
+   "name": "notmyfaultc.exe",
+   "machine": "i386",
+   "subsystem": "console",
+   "sha256": "8be12cab914b9ad3",
+   "imphash": "b48ebc2818bf1838f018ea6ff1dd1c5b",
+   "authenticode": true,
+   "imports_total": 134,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 1,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "kernel32.FindFirstFileExW"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/notmyfaultc64.exe",
+   "name": "notmyfaultc64.exe",
+   "machine": "x86_64",
+   "subsystem": "console",
+   "sha256": "751656c6a24637ea",
+   "imphash": "ee8554e8a16b8434d0076957c5256941",
+   "authenticode": true,
+   "imports_total": 136,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 1,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "kernel32.FindFirstFileExW"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/ntfsinfo.exe",
+   "name": "ntfsinfo.exe",
+   "machine": "i386",
+   "subsystem": "console",
+   "sha256": "a0d29465c4ef4b6c",
+   "imphash": "2115f05a06b763dcdd0a46576982562e",
+   "authenticode": true,
+   "imports_total": 101,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 0,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": []
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/ntfsinfo64.exe",
+   "name": "ntfsinfo64.exe",
+   "machine": "x86_64",
+   "subsystem": "console",
+   "sha256": "e2837be10257ee5b",
+   "imphash": "802ba2269625be056d6e4870e3b6d3ff",
+   "authenticode": true,
+   "imports_total": 104,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 0,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": []
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/pendmoves.exe",
+   "name": "pendmoves.exe",
+   "machine": "i386",
+   "subsystem": "console",
+   "sha256": "e6fb98119483d466",
+   "imphash": "dd005e4f996645b1b6e14f7480921380",
+   "authenticode": true,
+   "imports_total": 131,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 2,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "advapi32.RegQueryInfoKeyA",
+    "kernel32.FindFirstFileExW"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/pendmoves64.exe",
+   "name": "pendmoves64.exe",
+   "machine": "x86_64",
+   "subsystem": "console",
+   "sha256": "3e7b1fcd9e8c0cca",
+   "imphash": "5fa6f9b4fedbb87894233edf8f593af2",
+   "authenticode": true,
+   "imports_total": 135,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 2,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "advapi32.RegQueryInfoKeyA",
+    "kernel32.FindFirstFileExW"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/pipelist.exe",
+   "name": "pipelist.exe",
+   "machine": "i386",
+   "subsystem": "console",
+   "sha256": "2e71a88fd832c7b1",
+   "imphash": "7554bb5a0ce62b5921735cce62792ce6",
+   "authenticode": true,
+   "imports_total": 96,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 1,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "kernel32.FindFirstFileExW"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/pipelist64.exe",
+   "name": "pipelist64.exe",
+   "machine": "x86_64",
+   "subsystem": "console",
+   "sha256": "d493a763bd8783a3",
+   "imphash": "29af5cd93c387f11c6d6b1d125fbfc9e",
+   "authenticode": true,
+   "imports_total": 103,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 1,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "kernel32.FindFirstFileExW"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/portmon.exe",
+   "name": "portmon.exe",
+   "machine": "i386",
+   "subsystem": "gui",
+   "sha256": "0e848a3911070945",
+   "imphash": "d7005cc29d297c93f2c852c56becd356",
+   "authenticode": true,
+   "imports_total": 291,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 1,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "comdlg32.ChooseFontA"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/procdump.exe",
+   "name": "procdump.exe",
+   "machine": "i386",
+   "subsystem": "console",
+   "sha256": "099fd0cd771b583d",
+   "imphash": "355f1ccd8ad9385d648846fcaf0f8e96",
+   "authenticode": true,
+   "imports_total": 206,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 5,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "kernel32.CreateToolhelp32Snapshot",
+    "kernel32.FindFirstFileExW",
+    "kernel32.LCMapStringEx",
+    "ole32.CoAllowSetForegroundWindow",
+    "pdh.PdhOpenQueryW"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/procdump64.exe",
+   "name": "procdump64.exe",
+   "machine": "x86_64",
+   "subsystem": "console",
+   "sha256": "22c2a2b09ade73a3",
+   "imphash": "a38d366499a9309a54318b683855cd60",
+   "authenticode": true,
+   "imports_total": 215,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 5,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "kernel32.CreateToolhelp32Snapshot",
+    "kernel32.FindFirstFileExW",
+    "kernel32.LCMapStringEx",
+    "ole32.CoAllowSetForegroundWindow",
+    "pdh.PdhOpenQueryW"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/procexp.exe",
+   "name": "procexp.exe",
+   "machine": "i386",
+   "subsystem": "gui",
+   "sha256": "fd8bf40a4915df81",
+   "imphash": "5aee88cbd46636304b0eba58b7ecfc6a",
+   "authenticode": true,
+   "imports_total": 694,
+   "counts": {
+    "hard_B": 2,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 37,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [
+    "kernel32.Heap32ListNext",
+    "user32.EndTask"
+   ],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "advapi32.GetSecurityInfo",
+    "advapi32.LookupAccountNameW",
+    "advapi32.LsaEnumerateAccountRights",
+    "advapi32.RegQueryInfoKeyW",
+    "advapi32.SetSecurityInfo",
+    "comdlg32.ChooseFontW",
+    "crypt32.CertGetNameStringW",
+    "dwmapi.DwmDefWindowProc",
+    "dwmapi.DwmSetWindowAttribute",
+    "kernel32.CreateToolhelp32Snapshot",
+    "kernel32.FindFirstFileExW",
+    "kernel32.Heap32ListFirst",
+    "kernel32.LCMapStringEx",
+    "kernel32.QueryThreadCycleTime",
+    "kernel32.WTSGetActiveConsoleSessionId",
+    "ntdll.NtLoadDriver",
+    "ntdll.NtQueryInformationProcess",
+    "ntdll.NtQueryInformationThread",
+    "ntdll.NtQueryObject",
+    "ntdll.NtQuerySection"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/procexp64.exe",
+   "name": "procexp64.exe",
+   "machine": "x86_64",
+   "subsystem": "gui",
+   "sha256": "cdd3bf8fd6828448",
+   "imphash": "1d3684f78b23a8841e7a69d21dba528c",
+   "authenticode": true,
+   "imports_total": 703,
+   "counts": {
+    "hard_B": 2,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 37,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [
+    "kernel32.Heap32ListNext",
+    "user32.EndTask"
+   ],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "advapi32.GetSecurityInfo",
+    "advapi32.LookupAccountNameW",
+    "advapi32.LsaEnumerateAccountRights",
+    "advapi32.RegQueryInfoKeyW",
+    "advapi32.SetSecurityInfo",
+    "comdlg32.ChooseFontW",
+    "crypt32.CertGetNameStringW",
+    "dwmapi.DwmDefWindowProc",
+    "dwmapi.DwmSetWindowAttribute",
+    "kernel32.CreateToolhelp32Snapshot",
+    "kernel32.FindFirstFileExW",
+    "kernel32.Heap32ListFirst",
+    "kernel32.LCMapStringEx",
+    "kernel32.QueryThreadCycleTime",
+    "kernel32.WTSGetActiveConsoleSessionId",
+    "ntdll.NtLoadDriver",
+    "ntdll.NtQueryInformationProcess",
+    "ntdll.NtQueryInformationThread",
+    "ntdll.NtQueryObject",
+    "ntdll.NtQuerySection"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/psfile.exe",
+   "name": "psfile.exe",
+   "machine": "i386",
+   "subsystem": "console",
+   "sha256": "4243dc8b991f5f8b",
+   "imphash": "1ed2f5f2b02cacc8f3a38267975b6895",
+   "authenticode": true,
+   "imports_total": 113,
+   "counts": {
+    "hard_B": 2,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 2,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [
+    "netapi32.NetFileClose",
+    "netapi32.NetFileGetInfo"
+   ],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "kernel32.FindFirstFileExW",
+    "netapi32.NetFileEnum"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/psfile64.exe",
+   "name": "psfile64.exe",
+   "machine": "x86_64",
+   "subsystem": "console",
+   "sha256": "be922312978a53c9",
+   "imphash": "e5f76fa90a1ac194d63d82b31d8420fb",
+   "authenticode": true,
+   "imports_total": 122,
+   "counts": {
+    "hard_B": 2,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 2,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [
+    "netapi32.NetFileClose",
+    "netapi32.NetFileGetInfo"
+   ],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "kernel32.FindFirstFileExW",
+    "netapi32.NetFileEnum"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/pskill.exe",
+   "name": "pskill.exe",
+   "machine": "i386",
+   "subsystem": "console",
+   "sha256": "9048e3764c874615",
+   "imphash": "2ad66e9d72c085f588f4e4d1dec62037",
+   "authenticode": true,
+   "imports_total": 146,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 1,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "kernel32.FindFirstFileExW"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/pskill64.exe",
+   "name": "pskill64.exe",
+   "machine": "x86_64",
+   "subsystem": "console",
+   "sha256": "803c1027e7810eee",
+   "imphash": "6d0a0d69bb19d19b6f84cb29f51dbc2f",
+   "authenticode": true,
+   "imports_total": 154,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 1,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "kernel32.FindFirstFileExW"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/pslist.exe",
+   "name": "pslist.exe",
+   "machine": "i386",
+   "subsystem": "console",
+   "sha256": "ed05f5d462767b39",
+   "imphash": "5c2ab5c01a2c8ee5199f1a7f701340ee",
+   "authenticode": true,
+   "imports_total": 134,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 1,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "kernel32.FindFirstFileExW"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/pslist64.exe",
+   "name": "pslist64.exe",
+   "machine": "x86_64",
+   "subsystem": "console",
+   "sha256": "d3247f03dcd7b933",
+   "imphash": "b90273415271d9e95441b930bd78c618",
+   "authenticode": true,
+   "imports_total": 142,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 1,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "kernel32.FindFirstFileExW"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/psloglist.exe",
+   "name": "psloglist.exe",
+   "machine": "i386",
+   "subsystem": "console",
+   "sha256": "dcdb9bd39b601443",
+   "imphash": "bc7573d2c2e264bbdeb092984c5474f4",
+   "authenticode": true,
+   "imports_total": 149,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 7,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "advapi32.CloseEventLog",
+    "advapi32.NotifyChangeEventLog",
+    "advapi32.OpenEventLogW",
+    "advapi32.ReadEventLogA",
+    "kernel32.FindFirstFileExW",
+    "kernel32.LCMapStringEx",
+    "netapi32.NetServerEnum"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/psloglist64.exe",
+   "name": "psloglist64.exe",
+   "machine": "x86_64",
+   "subsystem": "console",
+   "sha256": "5e55b4caf47a248a",
+   "imphash": "e66acce85b8f413b2d80e902cfba5219",
+   "authenticode": true,
+   "imports_total": 158,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 7,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "advapi32.CloseEventLog",
+    "advapi32.NotifyChangeEventLog",
+    "advapi32.OpenEventLogW",
+    "advapi32.ReadEventLogA",
+    "kernel32.FindFirstFileExW",
+    "kernel32.LCMapStringEx",
+    "netapi32.NetServerEnum"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/pspasswd.exe",
+   "name": "pspasswd.exe",
+   "machine": "i386",
+   "subsystem": "console",
+   "sha256": "6ed5d50cf9d07db7",
+   "imphash": "beb825a4ba2898da0e0eb4699252687f",
+   "authenticode": true,
+   "imports_total": 118,
+   "counts": {
+    "hard_B": 1,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 3,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [
+    "netapi32.NetUserSetInfo"
+   ],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "kernel32.FindFirstFileExW",
+    "netapi32.NetGetAnyDCName",
+    "netapi32.NetServerEnum"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/pspasswd64.exe",
+   "name": "pspasswd64.exe",
+   "machine": "x86_64",
+   "subsystem": "console",
+   "sha256": "8d950068f46a04e7",
+   "imphash": "368e6f75b2cd054e7534d8ac445f391a",
+   "authenticode": true,
+   "imports_total": 123,
+   "counts": {
+    "hard_B": 1,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 3,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [
+    "netapi32.NetUserSetInfo"
+   ],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "kernel32.FindFirstFileExW",
+    "netapi32.NetGetAnyDCName",
+    "netapi32.NetServerEnum"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/psping.exe",
+   "name": "psping.exe",
+   "machine": "i386",
+   "subsystem": "console",
+   "sha256": "26249b06420a6f96",
+   "imphash": "6a7f82c6f198bdb6dd72bfd1ed836c7b",
+   "authenticode": true,
+   "imports_total": 161,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 4,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "bcrypt.BCryptGenRandom",
+    "kernel32.FindFirstFileExW",
+    "ws2_32.WSAIoctl",
+    "ws2_32.setsockopt"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/psping64.exe",
+   "name": "psping64.exe",
+   "machine": "x86_64",
+   "subsystem": "console",
+   "sha256": "356448f935bac37b",
+   "imphash": "61ec3ad35c6ed7e8fa8feb12977d135b",
+   "authenticode": true,
+   "imports_total": 166,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 4,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "bcrypt.BCryptGenRandom",
+    "kernel32.FindFirstFileExW",
+    "ws2_32.WSAIoctl",
+    "ws2_32.setsockopt"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/psshutdown.exe",
+   "name": "psshutdown.exe",
+   "machine": "i386",
+   "subsystem": "console",
+   "sha256": "2786085c14c1526e",
+   "imphash": "e3ab995498280a79b65d8d8e8f8218ad",
+   "authenticode": true,
+   "imports_total": 152,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 2,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "kernel32.FindFirstFileExW",
+    "netapi32.NetServerEnum"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/psshutdown64.exe",
+   "name": "psshutdown64.exe",
+   "machine": "x86_64",
+   "subsystem": "console",
+   "sha256": "6ddaf8137dea539c",
+   "imphash": "44b4c275d1ddb06356ac164467e5e8a4",
+   "authenticode": true,
+   "imports_total": 160,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 2,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "kernel32.FindFirstFileExW",
+    "netapi32.NetServerEnum"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/pssuspend.exe",
+   "name": "pssuspend.exe",
+   "machine": "i386",
+   "subsystem": "console",
+   "sha256": "023d02177ef15ddd",
+   "imphash": "ce629bb4d7935c2c4951819ce2add28a",
+   "authenticode": true,
+   "imports_total": 144,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 1,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "kernel32.FindFirstFileExW"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/pssuspend64.exe",
+   "name": "pssuspend64.exe",
+   "machine": "x86_64",
+   "subsystem": "console",
+   "sha256": "ecbad759fa863f98",
+   "imphash": "7aebdb3d0d42c91af12c33e97be75dcf",
+   "authenticode": true,
+   "imports_total": 152,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 1,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "kernel32.FindFirstFileExW"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/regjump.exe",
+   "name": "regjump.exe",
+   "machine": "i386",
+   "subsystem": "console",
+   "sha256": "d9b8b767e7dd8253",
+   "imphash": "e80b2e3b401f381b46c54e6390fd1833",
+   "authenticode": true,
+   "imports_total": 136,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 1,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "kernel32.FindFirstFileExW"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/ru.exe",
+   "name": "ru.exe",
+   "machine": "i386",
+   "subsystem": "console",
+   "sha256": "85aa361ef398b441",
+   "imphash": "754456476d1f9f89213e05aa2f4a558a",
+   "authenticode": true,
+   "imports_total": 134,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 2,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "advapi32.RegQueryInfoKeyW",
+    "kernel32.FindFirstFileExW"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/ru64.exe",
+   "name": "ru64.exe",
+   "machine": "x86_64",
+   "subsystem": "console",
+   "sha256": "c48a4859ac614ed0",
+   "imphash": "883df0a8fe04d10c456fa1a0d219f93c",
+   "authenticode": true,
+   "imports_total": 138,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 2,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "advapi32.RegQueryInfoKeyW",
+    "kernel32.FindFirstFileExW"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/sdelete.exe",
+   "name": "sdelete.exe",
+   "machine": "i386",
+   "subsystem": "console",
+   "sha256": "04e86e1a3db487ce",
+   "imphash": "7b7115f2859ccee042b514cfb3381fbd",
+   "authenticode": true,
+   "imports_total": 121,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 2,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "bcrypt.BCryptGenRandom",
+    "kernel32.FindFirstFileExW"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/sdelete64.exe",
+   "name": "sdelete64.exe",
+   "machine": "x86_64",
+   "subsystem": "console",
+   "sha256": "a371980f5893f4ec",
+   "imphash": "b22f08a84109a68bb7d9e115f94616f2",
+   "authenticode": true,
+   "imports_total": 128,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 2,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "bcrypt.BCryptGenRandom",
+    "kernel32.FindFirstFileExW"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/sigcheck.exe",
+   "name": "sigcheck.exe",
+   "machine": "i386",
+   "subsystem": "console",
+   "sha256": "7cf481ae647639d0",
+   "imphash": "b0524cede89f7ba3b834f8ecb36eb1b6",
+   "authenticode": true,
+   "imports_total": 203,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 5,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "crypt32.CertGetNameStringW",
+    "crypt32.CertOpenStore",
+    "crypt32.CryptFindOIDInfo",
+    "kernel32.FindFirstFileExW",
+    "kernel32.LCMapStringEx"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/sigcheck64.exe",
+   "name": "sigcheck64.exe",
+   "machine": "x86_64",
+   "subsystem": "console",
+   "sha256": "f3d671b4bab47147",
+   "imphash": "e525c3d967199c38fe3a114af27fd1a8",
+   "authenticode": true,
+   "imports_total": 212,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 5,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "crypt32.CertGetNameStringW",
+    "crypt32.CertOpenStore",
+    "crypt32.CryptFindOIDInfo",
+    "kernel32.FindFirstFileExW",
+    "kernel32.LCMapStringEx"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/streams.exe",
+   "name": "streams.exe",
+   "machine": "i386",
+   "subsystem": "console",
+   "sha256": "f0e8bdbf4f75c13f",
+   "imphash": "2bbed49deaac0a22468beb62fdfcaaae",
+   "authenticode": true,
+   "imports_total": 127,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 1,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "kernel32.FindFirstFileExW"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/streams64.exe",
+   "name": "streams64.exe",
+   "machine": "x86_64",
+   "subsystem": "console",
+   "sha256": "a243c44fe32d9afa",
+   "imphash": "c0d5d2f94119736b1da483c808e6bc48",
+   "authenticode": true,
+   "imports_total": 131,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 1,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "kernel32.FindFirstFileExW"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/strings.exe",
+   "name": "strings.exe",
+   "machine": "i386",
+   "subsystem": "console",
+   "sha256": "a7553d77edca85be",
+   "imphash": "03a0e8da139a5eed63cd002618eb6590",
+   "authenticode": true,
+   "imports_total": 127,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 1,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "kernel32.FindFirstFileExW"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/strings64.exe",
+   "name": "strings64.exe",
+   "machine": "x86_64",
+   "subsystem": "console",
+   "sha256": "05dbb43499bcff44",
+   "imphash": "4d936b630620ff7fc59da22b1206636e",
+   "authenticode": true,
+   "imports_total": 131,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 1,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "kernel32.FindFirstFileExW"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/sync.exe",
+   "name": "sync.exe",
+   "machine": "i386",
+   "subsystem": "console",
+   "sha256": "2cd0a14d50ec5c98",
+   "imphash": "af94c5e77b726cc4352da35debb2e184",
+   "authenticode": true,
+   "imports_total": 133,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 1,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "kernel32.FindFirstFileExW"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/sync64.exe",
+   "name": "sync64.exe",
+   "machine": "x86_64",
+   "subsystem": "console",
+   "sha256": "27038cb10080d929",
+   "imphash": "99197f3296550481a848ea8d4e097487",
+   "authenticode": true,
+   "imports_total": 137,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 1,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "kernel32.FindFirstFileExW"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/tcpvcon.exe",
+   "name": "tcpvcon.exe",
+   "machine": "i386",
+   "subsystem": "console",
+   "sha256": "37621bdac3ced110",
+   "imphash": "72c1a86648092f912d3d16a4a8e5ebe4",
+   "authenticode": true,
+   "imports_total": 134,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 1,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "kernel32.FindFirstFileExW"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/tcpvcon64.exe",
+   "name": "tcpvcon64.exe",
+   "machine": "x86_64",
+   "subsystem": "console",
+   "sha256": "f9fdc027050d5960",
+   "imphash": "b56bd544c09e1c797fa8f7ddc6706c38",
+   "authenticode": true,
+   "imports_total": 142,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 1,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "kernel32.FindFirstFileExW"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/tcpview.exe",
+   "name": "tcpview.exe",
+   "machine": "i386",
+   "subsystem": "gui",
+   "sha256": "9775b4bbe23b8eb9",
+   "imphash": "b49357ca9f479242c82cda47ccb11321",
+   "authenticode": true,
+   "imports_total": 378,
+   "counts": {
+    "hard_B": 6,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 9,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [
+    "iphlpapi.GetOwnerModuleFromTcp6Entry",
+    "iphlpapi.GetOwnerModuleFromTcpEntry",
+    "iphlpapi.GetOwnerModuleFromUdp6Entry",
+    "iphlpapi.GetOwnerModuleFromUdpEntry",
+    "tdh.TdhGetEventInformation",
+    "tdh.TdhGetPropertySize"
+   ],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "advapi32.RegQueryInfoKeyW",
+    "comdlg32.ChooseFontW",
+    "dwmapi.DwmDefWindowProc",
+    "dwmapi.DwmSetWindowAttribute",
+    "iphlpapi.SetTcpEntry",
+    "kernel32.CreateToolhelp32Snapshot",
+    "kernel32.FindFirstFileExW",
+    "kernel32.LCMapStringEx",
+    "user32.DrawFrameControl"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/tcpview64.exe",
+   "name": "tcpview64.exe",
+   "machine": "x86_64",
+   "subsystem": "gui",
+   "sha256": "0cbcb7ec4a042622",
+   "imphash": "c928863939b9bc9b79e9eea80b207d70",
+   "authenticode": true,
+   "imports_total": 389,
+   "counts": {
+    "hard_B": 6,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 9,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [
+    "iphlpapi.GetOwnerModuleFromTcp6Entry",
+    "iphlpapi.GetOwnerModuleFromTcpEntry",
+    "iphlpapi.GetOwnerModuleFromUdp6Entry",
+    "iphlpapi.GetOwnerModuleFromUdpEntry",
+    "tdh.TdhGetEventInformation",
+    "tdh.TdhGetPropertySize"
+   ],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "advapi32.RegQueryInfoKeyW",
+    "comdlg32.ChooseFontW",
+    "dwmapi.DwmDefWindowProc",
+    "dwmapi.DwmSetWindowAttribute",
+    "iphlpapi.SetTcpEntry",
+    "kernel32.CreateToolhelp32Snapshot",
+    "kernel32.FindFirstFileExW",
+    "kernel32.LCMapStringEx",
+    "user32.DrawFrameControl"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/vmmap.exe",
+   "name": "vmmap.exe",
+   "machine": "i386",
+   "subsystem": "gui",
+   "sha256": "a834987f7b609802",
+   "imphash": "c7e1e07c45dcc3152be6002d0e9be64a",
+   "authenticode": true,
+   "imports_total": 374,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 7,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "comdlg32.ChooseFontW",
+    "kernel32.CreateToolhelp32Snapshot",
+    "kernel32.FindFirstFileExW",
+    "shell32.SHChangeNotify",
+    "shell32.SHGetFileInfoW",
+    "shlwapi.SHAutoComplete",
+    "user32.DrawFrameControl"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/vmmap64.exe",
+   "name": "vmmap64.exe",
+   "machine": "x86_64",
+   "subsystem": "gui",
+   "sha256": "0b3731c524e6ba71",
+   "imphash": "f8f4a11ba928ad759ccd74a6aa21fdd9",
+   "authenticode": true,
+   "imports_total": 381,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 7,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "comdlg32.ChooseFontW",
+    "kernel32.CreateToolhelp32Snapshot",
+    "kernel32.FindFirstFileExW",
+    "shell32.SHChangeNotify",
+    "shell32.SHGetFileInfoW",
+    "shlwapi.SHAutoComplete",
+    "user32.DrawFrameControl"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/whois.exe",
+   "name": "whois.exe",
+   "machine": "i386",
+   "subsystem": "console",
+   "sha256": "ea845b43c323e35d",
+   "imphash": "0b29bd01e42eb3c976398c7d94126e64",
+   "authenticode": true,
+   "imports_total": 137,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 1,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "kernel32.FindFirstFileExW"
+   ]
+  },
+  {
+   "file": "_corpus/extracted/sysinternals/whois64.exe",
+   "name": "whois64.exe",
+   "machine": "x86_64",
+   "subsystem": "console",
+   "sha256": "0797b9f6e0281d8f",
+   "imphash": "79daadc0f542259dbb60d203af99b225",
+   "authenticode": true,
+   "imports_total": 141,
+   "counts": {
+    "hard_B": 0,
+    "hard_D": 0,
+    "hard_C": 0,
+    "semi_stub": 1,
+    "missing_runtime_A": 0,
+    "app_private": 0,
+    "other_missing": 0
+   },
+   "hard_B_funcs": [],
+   "hard_D_funcs": [],
+   "missing_runtime_A": [],
+   "semi_stub_sample": [
+    "kernel32.FindFirstFileExW"
+   ]
+  }
+ ]
+}

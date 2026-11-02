@@ -1,0 +1,88 @@
+# Capsule PolyRE BDF-Lab — générée automatiquement.
+# Une capsule « experimental » ne doit JAMAIS être appliquée silencieusement à un
+# logiciel de production (rapport, condition 7 ; HANDOFF §4). Statut, synthétique et
+# version Wine EXACTE sont obligatoires. Les preuves (traces) justifient chaque shim.
+
+[meta]
+schema = "0.1"
+status = "experimental"
+synthetic = true
+
+[identity]
+sha256 = "25205f9b77d4b4ec72eefcada35e099df80e16b49f80fe7fd9296e68c4f40ce4"
+imphash = "fe7a428bf8b2111bfa4111674827457d"
+product = "bdfedit (synthetic)"
+version = "0.1.0"
+publisher = "polyre-bdf-lab (programme de test synthetique)"
+file = "bdfedit.exe"
+machine = "x86_64"
+authenticode = false
+
+[runtime]
+polyre = ">=0.4, <0.5"
+wine = "wine-11.0"
+
+[[contract]]
+kind = "dll-provide"
+dll = "bdfpdf"
+source = "catalogue:bdfpdf"
+sha256 = "d1c08517b88c9495479430a629faf27d8ecc54918f5d9a73495a7f418b0d13c2"
+mode = "native"
+
+[[shim]]
+dll = "kernel32.dll"
+function = "Heap32First"
+strategy = "A"
+api_class = "output-buffer"
+returns = 0
+last_error = 120
+evidence = [
+    "trace:A/stats-degrade/r1:KERNEL32.dll.Heap32First@00006FFFFF3DD887",
+    "trace:A/stats-degrade/r2:KERNEL32.dll.Heap32First@00006FFFFF3DD887",
+]
+note = "comportement : fonction non implémentée par Wine, candidate à un shim (stratégie à déterminer par la table de sûreté)"
+
+[[shim]]
+dll = "kernel32.dll"
+function = "Heap32Next"
+strategy = "A"
+api_class = "output-buffer"
+returns = 0
+last_error = 120
+note = "comportement : fonction non implémentée par Wine, candidate à un shim (stratégie à déterminer par la table de sûreté)"
+
+[[shim]]
+dll = "kernel32.dll"
+function = "SystemTimeToTzSpecificLocalTimeEx"
+strategy = "A"
+api_class = "output-buffer"
+returns = 0
+last_error = 120
+evidence = [
+    "trace:A/edit-save-reopen/r1:KERNEL32.dll.SystemTimeToTzSpecificLocalTimeEx@00006FFFFFC68218",
+    "trace:A/edit-save-reopen/r2:KERNEL32.dll.SystemTimeToTzSpecificLocalTimeEx@00006FFFFFC68218",
+]
+note = "repli documenté du programme vers SystemTimeToTzSpecificLocalTime quand la variante Ex échoue"
+
+[validation]
+scenarios = [
+    "startup",
+    "edit-save-reopen",
+    "stats-degrade",
+    "export-pdf",
+]
+runs = 2
+machines = 1
+date = "2026-11-02"
+expires_on = "changement de runtime (Wine ou PolyRE)"
+
+[validation.results]
+startup = "pass"
+edit-save-reopen = "pass"
+stats-degrade = "pass"
+export-pdf = "pass"
+
+[provenance]
+generated_by = "bdf-lab 0.1"
+reviewed_by = ""
+signature = ""

@@ -1,0 +1,3 @@
+BDFEDIT|VERSION|product=bdfedit|version=0.1.0.0|synthetic=true
+BDFEDIT|START|pid=224|os=6.2.9200|idle=2
+BDFEDIT|EXIT|code=0

@@ -1,0 +1,4 @@
+BDFEDIT|VERSION|product=bdfedit|version=0.1.0.0|synthetic=true
+BDFEDIT|START|pid=224|feature=stats
+BDFEDIT|STATS|heap_walk=failed|err=120|blocks=0|feature=unavailable-degraded
+BDFEDIT|EXIT|code=0

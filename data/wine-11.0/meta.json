@@ -1,0 +1,25 @@
+{
+  "wine_version": "11.0",
+  "source_dir": "/home/user/_downloads/wine-src/wine-11.0",
+  "source_tarball_sha256": "c07a6857933c1fc60dff5448d79f39c92481c1e9db5aa628db9d0358446e0701",
+  "install_dir": "/opt/wine-stable",
+  "built_at": "2026-11-02T15:16:32+00:00",
+  "counts": {
+    "spec_files": 699,
+    "dlls_with_spec": 699,
+    "exports": 130664,
+    "explicit_stubs": 26310,
+    "commented_absent": 1652,
+    "semistub_functions": 3131,
+    "semistub_kinds": {
+      "stub": 2504,
+      "fixme-unimplemented": 469,
+      "semi-stub": 158
+    },
+    "prototypes": 10864,
+    "apisets": 555,
+    "builtin_dlls_x86_64": 763,
+    "builtin_unix_x86_64": 35
+  },
+  "generator": "bdflab.knowledge.build_wine_db"
+}

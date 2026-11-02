@@ -1,0 +1,179 @@
+MISSION CLAUDE CODE — POLYRE BDF-LAB V0.1
+
+Du rapport scientifique au premier prototype fonctionnel
+
+Rôle : ingénieur senior en compatibilité Windows/Linux, Wine, rétro-ingénierie PE et automatisation des tests.
+
+Objectif : transformer la piste n°6 « Fidélité dirigée par le binaire » du rapport PolyRE en un prototype réel, exécutable et vérifiable.
+
+Je ne veux plus un rapport de faisabilité. Je veux du code qui fonctionne, des expériences exécutées et des résultats vérifiables.
+
+1. Prendre connaissance du projet
+
+Lis le rapport « PolyRE — Recherche d'une architecture d'exécution universelle », notamment les pages 7 à 15.
+
+Inspecte également le moteur PolyRE actuel pour comprendre ses profils, ses correctifs et son architecture.
+
+Interdiction de modifier le moteur PolyRE principal.
+
+Crée un projet indépendant :
+
+"polyre-bdf-lab/"
+
+Il devra pouvoir être intégré ultérieurement au moteur principal uniquement si ses résultats sont convaincants.
+
+2. Construire le laboratoire
+
+Développe un prototype Python/C/C++ capable de :
+
+1. Analyser les imports d'un exécutable Windows PE.
+2. Identifier les fonctions Windows potentiellement problématiques.
+3. Collecter les traces d'exécution Wine.
+4. Repérer les appels associés à des échecs ou à des comportements non implémentés.
+5. Classer les problèmes selon les catégories A, B, C et D du rapport.
+6. Générer une proposition de correctif déclaratif ou de shim lorsque cela est techniquement possible.
+7. Produire un rapport détaillant les preuves, les incertitudes et les limites de chaque proposition.
+
+Utilise prioritairement des outils existants et éprouvés plutôt que de réinventer un analyseur PE complet.
+
+3. Première expérience réelle
+
+Commence par un exécutable Windows de test contrôlé, avec un comportement connu et une API dont le traitement Wine est insuffisant.
+
+Si aucun cas réel approprié n'est disponible, crée un programme de test minimal qui reproduit un comportement manquant, puis distingue clairement ce cas synthétique d'une incompatibilité réelle.
+
+Effectue les étapes suivantes :
+
+- Exécuter le programme avec Wine 11.0 standard.
+- Capturer les traces et l'état de référence.
+- Identifier le comportement problématique.
+- Générer une proposition de correction.
+- Appliquer la correction uniquement dans un préfixe Wine isolé.
+- Relancer exactement le même scénario.
+- Comparer les résultats avant et après.
+
+Une réponse optimiste ne peut être expérimentée que sur les catégories autorisées par la table de sûreté du rapport.
+
+Aucune falsification des résultats de licence, d'identité, de sécurité, de signature ou d'activation.
+
+4. Génération de capsules
+
+Implémente un premier générateur de capsules compatible avec le format proposé dans le rapport.
+
+Chaque capsule doit contenir :
+
+- SHA-256 de l'exécutable.
+- Version du logiciel.
+- Version Wine.
+- Fonctions et comportements concernés.
+- Correctifs proposés.
+- Traces justifiant ces correctifs.
+- Résultats des scénarios.
+- Statut : expérimental, validé ou rejeté.
+
+Une capsule expérimentale ne doit jamais être appliquée silencieusement à un logiciel de production.
+
+5. Vérification obligatoire des effets
+
+Ne considère jamais qu'un programme fonctionne simplement parce qu'il démarre ou renvoie un code de succès.
+
+Crée des tests vérifiant les effets réels :
+
+1. Démarrage stable.
+2. Modification d'un document de test.
+3. Enregistrement effectif.
+4. Fermeture et réouverture.
+5. Vérification du contenu produit par un outil indépendant.
+
+Utilise uniquement des données jetables.
+
+Si un programme annonce avoir enregistré un fichier mais que le fichier est absent ou incorrect, classe le résultat comme échec.
+
+6. Comparaison des résultats
+
+Construis un tableau de résultats pour trois configurations :
+
+A. Wine standard.
+
+B. Wine avec correctif généré.
+
+C. Wine avec correctif manuel de référence, si disponible.
+
+Mesure :
+
+- Nombre de scénarios réussis.
+- Nombre de faux succès.
+- Régressions.
+- Temps de génération du correctif.
+- Temps humain d'intervention.
+- Coût CPU/RAM.
+- Reproductibilité.
+
+Exécute chaque scénario au moins deux fois dans des préfixes propres.
+
+Ne revendique aucun gain sans mesure.
+
+7. Gestion des ressources
+
+Le PC peut être utilisé par plusieurs agents Claude.
+
+- Limite la RAM et le nombre de processus.
+- Évite les machines virtuelles lourdes si elles ne sont pas indispensables.
+- Ne lance aucun test sur un disque présentant des erreurs SMART.
+- Utilise exclusivement un stockage sain.
+- Ne supprime aucune donnée existante.
+- Ne monopolise pas les ressources partagées.
+- Ne laisse pas tourner indéfiniment un processus bloqué.
+
+Prévois des délais maximaux pour chaque expérience et un arrêt propre.
+
+8. Livrables obligatoires
+
+Je veux trouver dans "polyre-bdf-lab/" :
+
+- Le code source complet.
+- Un script de lancement.
+- Les dépendances documentées.
+- Les exécutables de test, si leur redistribution est autorisée.
+- Les capsules générées.
+- Les traces et journaux.
+- Les tests automatisés.
+- Un fichier "RESULTATS.md" contenant les résultats réellement obtenus.
+
+Le rapport final doit répondre clairement :
+
+A. Une API problématique a-t-elle été identifiée ?
+
+B. Le prototype a-t-il généré un correctif ?
+
+C. Ce correctif a-t-il amélioré un scénario réel ?
+
+D. Les effets attendus ont-ils été vérifiés ?
+
+E. Le prototype réduit-il effectivement le travail manuel ?
+
+F. Que reste-t-il à développer pour automatiser davantage ?
+
+9. Critère de réussite
+
+La première victoire attendue n'est pas une compatibilité universelle.
+
+C'est :
+
+Un programme Windows échoue sous Wine, le laboratoire identifie un comportement problématique, propose un correctif sûr, puis le programme réussit le scénario après application du correctif, sans faux succès ni régression constatée.
+
+Un exemple synthétique validé constitue une preuve de fonctionnement du prototype, mais pas encore une preuve d'efficacité sur des logiciels commerciaux.
+
+Si l'expérience échoue, documente précisément pourquoi.
+
+10. Exécution autonome
+
+Travaille de manière autonome sur toutes les étapes autorisées.
+
+Ne t'arrête pas après avoir créé une architecture ou rédigé un plan.
+
+Écris le code, compile, exécute, analyse les résultats, corrige les bugs du laboratoire et relance les tests.
+
+N'attends mon intervention que si un accès, une autorisation ou une ressource indispensable manque réellement.
+
+Priorité absolue : obtenir un premier résultat expérimental vérifiable, pas produire une nouvelle théorie.

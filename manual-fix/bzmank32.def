@@ -1,0 +1,38 @@
+LIBRARY bzmank32
+EXPORTS
+    SystemTimeToTzSpecificLocalTimeEx
+    Heap32First
+    Heap32Next
+    CloseHandle = KERNEL32.CloseHandle
+    CreateFileW = KERNEL32.CreateFileW
+    DeleteCriticalSection = KERNEL32.DeleteCriticalSection
+    EnterCriticalSection = KERNEL32.EnterCriticalSection
+    FlushFileBuffers = KERNEL32.FlushFileBuffers
+    GetCurrentDirectoryW = KERNEL32.GetCurrentDirectoryW
+    GetCurrentProcessId = KERNEL32.GetCurrentProcessId
+    GetDynamicTimeZoneInformation = KERNEL32.GetDynamicTimeZoneInformation
+    GetFileSizeEx = KERNEL32.GetFileSizeEx
+    GetLastError = KERNEL32.GetLastError
+    GetModuleFileNameW = KERNEL32.GetModuleFileNameW
+    GetProcAddress = KERNEL32.GetProcAddress
+    GetProcessHeap = KERNEL32.GetProcessHeap
+    GetSystemTime = KERNEL32.GetSystemTime
+    GetVersionExW = KERNEL32.GetVersionExW
+    HeapAlloc = KERNEL32.HeapAlloc
+    HeapFree = KERNEL32.HeapFree
+    InitializeCriticalSection = KERNEL32.InitializeCriticalSection
+    IsDBCSLeadByteEx = KERNEL32.IsDBCSLeadByteEx
+    LeaveCriticalSection = KERNEL32.LeaveCriticalSection
+    LoadLibraryW = KERNEL32.LoadLibraryW
+    MoveFileExW = KERNEL32.MoveFileExW
+    MultiByteToWideChar = KERNEL32.MultiByteToWideChar
+    ReadFile = KERNEL32.ReadFile
+    SetLastError = KERNEL32.SetLastError
+    SetUnhandledExceptionFilter = KERNEL32.SetUnhandledExceptionFilter
+    Sleep = KERNEL32.Sleep
+    SystemTimeToTzSpecificLocalTime = KERNEL32.SystemTimeToTzSpecificLocalTime
+    TlsGetValue = KERNEL32.TlsGetValue
+    VirtualProtect = KERNEL32.VirtualProtect
+    VirtualQuery = KERNEL32.VirtualQuery
+    WideCharToMultiByte = KERNEL32.WideCharToMultiByte
+    WriteFile = KERNEL32.WriteFile

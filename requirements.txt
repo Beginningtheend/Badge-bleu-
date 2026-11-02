@@ -1,0 +1,5 @@
+# Dépendances Python du laboratoire polyre-bdf-lab (prototype v0.1).
+pefile>=2024.8.26      # analyse PE : imports, delay-imports, VERSIONINFO, imphash
+tomli-w>=1.0           # écriture des capsules TOML (lecture : tomllib, stdlib >= 3.11)
+psutil>=5.9            # mesures CPU/RAM et contrôle des ressources
+pytest>=7.0            # tests automatisés (développement)

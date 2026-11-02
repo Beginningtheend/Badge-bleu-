@@ -1,0 +1,11 @@
+{
+ "original_exe": "testapps/bdfedit/bin/bdfedit.exe",
+ "patched_exe": "/home/user/Badge-bleu-/results/20261102T155031Z/fix-C/bdfedit.exe",
+ "renamed": [
+  {
+   "from": "KERNEL32.dll",
+   "to": "bzmank32.dll"
+  }
+ ],
+ "notes": []
+}

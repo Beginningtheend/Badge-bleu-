@@ -1,0 +1,6146 @@
+{
+ "i386": {
+  "acledit.dll": {
+   "size": 97892,
+   "unix": false
+  },
+  "aclui.dll": {
+   "size": 157416,
+   "unix": false
+  },
+  "activeds.dll": {
+   "size": 644124,
+   "unix": false
+  },
+  "activeds.tlb": {
+   "size": 53248,
+   "unix": false
+  },
+  "actxprxy.dll": {
+   "size": 1040658,
+   "unix": false
+  },
+  "adsldp.dll": {
+   "size": 452605,
+   "unix": false
+  },
+  "adsldpc.dll": {
+   "size": 104605,
+   "unix": false
+  },
+  "advapi32.dll": {
+   "size": 1150117,
+   "unix": false
+  },
+  "advpack.dll": {
+   "size": 396140,
+   "unix": false
+  },
+  "amsi.dll": {
+   "size": 121268,
+   "unix": false
+  },
+  "amstream.dll": {
+   "size": 1139582,
+   "unix": false
+  },
+  "apisetschema.dll": {
+   "size": 90112,
+   "unix": false
+  },
+  "apphelp.dll": {
+   "size": 153359,
+   "unix": false
+  },
+  "appwiz.cpl": {
+   "size": 869671,
+   "unix": false
+  },
+  "appxdeploymentclient.dll": {
+   "size": 355212,
+   "unix": false
+  },
+  "arp.exe": {
+   "size": 106782,
+   "unix": false
+  },
+  "aspnet_regiis.exe": {
+   "size": 106792,
+   "unix": false
+  },
+  "atl.dll": {
+   "size": 885226,
+   "unix": false
+  },
+  "atl100.dll": {
+   "size": 829920,
+   "unix": false
+  },
+  "atl110.dll": {
+   "size": 829920,
+   "unix": false
+  },
+  "atl80.dll": {
+   "size": 843620,
+   "unix": false
+  },
+  "atl90.dll": {
+   "size": 834016,
+   "unix": false
+  },
+  "atlthunk.dll": {
+   "size": 98220,
+   "unix": false
+  },
+  "atmlib.dll": {
+   "size": 112838,
+   "unix": false
+  },
+  "attrib.exe": {
+   "size": 178287,
+   "unix": false
+  },
+  "authz.dll": {
+   "size": 115166,
+   "unix": false
+  },
+  "avicap32.dll": {
+   "size": 131355,
+   "unix": true
+  },
+  "avifil32.dll": {
+   "size": 1122078,
+   "unix": false
+  },
+  "avrt.dll": {
+   "size": 112780,
+   "unix": false
+  },
+  "bcp47langs.dll": {
+   "size": 118790,
+   "unix": false
+  },
+  "bcrypt.dll": {
+   "size": 480012,
+   "unix": true
+  },
+  "bcryptprimitives.dll": {
+   "size": 62760,
+   "unix": false
+  },
+  "bluetoothapis.dll": {
+   "size": 260121,
+   "unix": false
+  },
+  "browseui.dll": {
+   "size": 639870,
+   "unix": false
+  },
+  "bthprops.cpl": {
+   "size": 77395,
+   "unix": false
+  },
+  "cabarc.exe": {
+   "size": 170256,
+   "unix": false
+  },
+  "cabinet.dll": {
+   "size": 480595,
+   "unix": false
+  },
+  "cacls.exe": {
+   "size": 111412,
+   "unix": false
+  },
+  "cards.dll": {
+   "size": 369951,
+   "unix": false
+  },
+  "cdosys.dll": {
+   "size": 114496,
+   "unix": false
+  },
+  "certutil.exe": {
+   "size": 123213,
+   "unix": false
+  },
+  "cfgmgr32.dll": {
+   "size": 315458,
+   "unix": false
+  },
+  "clock.exe": {
+   "size": 152323,
+   "unix": false
+  },
+  "clusapi.dll": {
+   "size": 126539,
+   "unix": false
+  },
+  "cmd.exe": {
+   "size": 1789882,
+   "unix": false
+  },
+  "cng.sys": {
+   "size": 80789,
+   "unix": false
+  },
+  "colorcnv.dll": {
+   "size": 649432,
+   "unix": false
+  },
+  "combase.dll": {
+   "size": 1759145,
+   "unix": false
+  },
+  "comcat.dll": {
+   "size": 84517,
+   "unix": false
+  },
+  "comctl32.dll": {
+   "size": 4308451,
+   "unix": false
+  },
+  "comctl32_v6.dll": {
+   "size": 5367959,
+   "unix": false
+  },
+  "comdlg32.dll": {
+   "size": 2514493,
+   "unix": false
+  },
+  "coml2.dll": {
+   "size": 530479,
+   "unix": false
+  },
+  "compstui.dll": {
+   "size": 135931,
+   "unix": false
+  },
+  "comsvcs.dll": {
+   "size": 618959,
+   "unix": false
+  },
+  "concrt140.dll": {
+   "size": 651375,
+   "unix": false
+  },
+  "conhost.exe": {
+   "size": 742202,
+   "unix": false
+  },
+  "connect.dll": {
+   "size": 99147,
+   "unix": false
+  },
+  "control.exe": {
+   "size": 83924,
+   "unix": false
+  },
+  "coremessaging.dll": {
+   "size": 298951,
+   "unix": false
+  },
+  "credui.dll": {
+   "size": 303858,
+   "unix": false
+  },
+  "crtdll.dll": {
+   "size": 3037077,
+   "unix": false
+  },
+  "crypt32.dll": {
+   "size": 3391545,
+   "unix": true
+  },
+  "cryptbase.dll": {
+   "size": 138161,
+   "unix": false
+  },
+  "cryptdlg.dll": {
+   "size": 205330,
+   "unix": false
+  },
+  "cryptdll.dll": {
+   "size": 63324,
+   "unix": false
+  },
+  "cryptext.dll": {
+   "size": 139070,
+   "unix": false
+  },
+  "cryptnet.dll": {
+   "size": 351356,
+   "unix": false
+  },
+  "cryptowinrt.dll": {
+   "size": 345170,
+   "unix": false
+  },
+  "cryptsp.dll": {
+   "size": 133873,
+   "unix": false
+  },
+  "cryptui.dll": {
+   "size": 1804548,
+   "unix": false
+  },
+  "cryptxml.dll": {
+   "size": 112640,
+   "unix": false
+  },
+  "cscript.exe": {
+   "size": 639564,
+   "unix": false
+  },
+  "ctapi32.dll": {
+   "size": 104377,
+   "unix": true
+  },
+  "ctl3d32.dll": {
+   "size": 75753,
+   "unix": false
+  },
+  "d2d1.dll": {
+   "size": 5117916,
+   "unix": false
+  },
+  "d3d10.dll": {
+   "size": 1342629,
+   "unix": false
+  },
+  "d3d10_1.dll": {
+   "size": 200404,
+   "unix": false
+  },
+  "d3d10core.dll": {
+   "size": 172819,
+   "unix": false
+  },
+  "d3d11.dll": {
+   "size": 3725859,
+   "unix": false
+  },
+  "d3d12.dll": {
+   "size": 656410,
+   "unix": false
+  },
+  "d3d12core.dll": {
+   "size": 62430,
+   "unix": false
+  },
+  "d3d8.dll": {
+   "size": 1096751,
+   "unix": false
+  },
+  "d3d8thk.dll": {
+   "size": 72308,
+   "unix": false
+  },
+  "d3d9.dll": {
+   "size": 1727665,
+   "unix": false
+  },
+  "d3dcompiler_33.dll": {
+   "size": 853794,
+   "unix": false
+  },
+  "d3dcompiler_34.dll": {
+   "size": 853794,
+   "unix": false
+  },
+  "d3dcompiler_35.dll": {
+   "size": 853794,
+   "unix": false
+  },
+  "d3dcompiler_36.dll": {
+   "size": 853794,
+   "unix": false
+  },
+  "d3dcompiler_37.dll": {
+   "size": 853794,
+   "unix": false
+  },
+  "d3dcompiler_38.dll": {
+   "size": 853894,
+   "unix": false
+  },
+  "d3dcompiler_39.dll": {
+   "size": 853894,
+   "unix": false
+  },
+  "d3dcompiler_40.dll": {
+   "size": 853947,
+   "unix": false
+  },
+  "d3dcompiler_41.dll": {
+   "size": 853998,
+   "unix": false
+  },
+  "d3dcompiler_42.dll": {
+   "size": 853998,
+   "unix": false
+  },
+  "d3dcompiler_43.dll": {
+   "size": 899020,
+   "unix": false
+  },
+  "d3dcompiler_46.dll": {
+   "size": 859020,
+   "unix": false
+  },
+  "d3dcompiler_47.dll": {
+   "size": 899893,
+   "unix": false
+  },
+  "d3dim.dll": {
+   "size": 67650,
+   "unix": false
+  },
+  "d3dim700.dll": {
+   "size": 68094,
+   "unix": false
+  },
+  "d3drm.dll": {
+   "size": 1952969,
+   "unix": false
+  },
+  "d3dx10_33.dll": {
+   "size": 78350,
+   "unix": false
+  },
+  "d3dx10_34.dll": {
+   "size": 78350,
+   "unix": false
+  },
+  "d3dx10_35.dll": {
+   "size": 78350,
+   "unix": false
+  },
+  "d3dx10_36.dll": {
+   "size": 78350,
+   "unix": false
+  },
+  "d3dx10_37.dll": {
+   "size": 79388,
+   "unix": false
+  },
+  "d3dx10_38.dll": {
+   "size": 79286,
+   "unix": false
+  },
+  "d3dx10_39.dll": {
+   "size": 79600,
+   "unix": false
+  },
+  "d3dx10_40.dll": {
+   "size": 74254,
+   "unix": false
+  },
+  "d3dx10_41.dll": {
+   "size": 74254,
+   "unix": false
+  },
+  "d3dx10_42.dll": {
+   "size": 74254,
+   "unix": false
+  },
+  "d3dx10_43.dll": {
+   "size": 1542337,
+   "unix": false
+  },
+  "d3dx11_42.dll": {
+   "size": 120063,
+   "unix": false
+  },
+  "d3dx11_43.dll": {
+   "size": 635260,
+   "unix": false
+  },
+  "d3dx9_24.dll": {
+   "size": 3380820,
+   "unix": false
+  },
+  "d3dx9_25.dll": {
+   "size": 3385220,
+   "unix": false
+  },
+  "d3dx9_26.dll": {
+   "size": 3385831,
+   "unix": false
+  },
+  "d3dx9_27.dll": {
+   "size": 3390071,
+   "unix": false
+  },
+  "d3dx9_28.dll": {
+   "size": 3390331,
+   "unix": false
+  },
+  "d3dx9_29.dll": {
+   "size": 3390331,
+   "unix": false
+  },
+  "d3dx9_30.dll": {
+   "size": 3390331,
+   "unix": false
+  },
+  "d3dx9_31.dll": {
+   "size": 3390062,
+   "unix": false
+  },
+  "d3dx9_32.dll": {
+   "size": 3390416,
+   "unix": false
+  },
+  "d3dx9_33.dll": {
+   "size": 3390416,
+   "unix": false
+  },
+  "d3dx9_34.dll": {
+   "size": 3390416,
+   "unix": false
+  },
+  "d3dx9_35.dll": {
+   "size": 3390416,
+   "unix": false
+  },
+  "d3dx9_36.dll": {
+   "size": 3390520,
+   "unix": false
+  },
+  "d3dx9_37.dll": {
+   "size": 3390520,
+   "unix": false
+  },
+  "d3dx9_38.dll": {
+   "size": 3390520,
+   "unix": false
+  },
+  "d3dx9_39.dll": {
+   "size": 3390520,
+   "unix": false
+  },
+  "d3dx9_40.dll": {
+   "size": 3390520,
+   "unix": false
+  },
+  "d3dx9_41.dll": {
+   "size": 3390520,
+   "unix": false
+  },
+  "d3dx9_42.dll": {
+   "size": 3388895,
+   "unix": false
+  },
+  "d3dx9_43.dll": {
+   "size": 3388895,
+   "unix": false
+  },
+  "d3dxof.dll": {
+   "size": 764504,
+   "unix": false
+  },
+  "dataexchange.dll": {
+   "size": 271888,
+   "unix": false
+  },
+  "davclnt.dll": {
+   "size": 104059,
+   "unix": false
+  },
+  "dbgeng.dll": {
+   "size": 784366,
+   "unix": false
+  },
+  "dbghelp.dll": {
+   "size": 3300121,
+   "unix": false
+  },
+  "dciman32.dll": {
+   "size": 103336,
+   "unix": false
+  },
+  "dcomp.dll": {
+   "size": 121026,
+   "unix": false
+  },
+  "ddraw.dll": {
+   "size": 2867769,
+   "unix": false
+  },
+  "ddrawex.dll": {
+   "size": 802444,
+   "unix": false
+  },
+  "desk.cpl": {
+   "size": 230427,
+   "unix": false
+  },
+  "devenum.dll": {
+   "size": 805599,
+   "unix": false
+  },
+  "dhcpcsvc.dll": {
+   "size": 137733,
+   "unix": false
+  },
+  "dhcpcsvc6.dll": {
+   "size": 64485,
+   "unix": false
+  },
+  "dhtmled.ocx": {
+   "size": 835180,
+   "unix": false
+  },
+  "diasymreader.dll": {
+   "size": 601922,
+   "unix": false
+  },
+  "difxapi.dll": {
+   "size": 111844,
+   "unix": false
+  },
+  "dinput.dll": {
+   "size": 1355153,
+   "unix": false
+  },
+  "dinput8.dll": {
+   "size": 1346655,
+   "unix": false
+  },
+  "directmanipulation.dll": {
+   "size": 592373,
+   "unix": false
+  },
+  "dism.exe": {
+   "size": 110915,
+   "unix": false
+  },
+  "dispex.dll": {
+   "size": 553340,
+   "unix": false
+  },
+  "dllhost.exe": {
+   "size": 508797,
+   "unix": false
+  },
+  "dmband.dll": {
+   "size": 405699,
+   "unix": false
+  },
+  "dmcompos.dll": {
+   "size": 773603,
+   "unix": false
+  },
+  "dmime.dll": {
+   "size": 1862774,
+   "unix": false
+  },
+  "dmloader.dll": {
+   "size": 843332,
+   "unix": false
+  },
+  "dmscript.dll": {
+   "size": 729778,
+   "unix": false
+  },
+  "dmstyle.dll": {
+   "size": 1066372,
+   "unix": false
+  },
+  "dmsynth.dll": {
+   "size": 2283584,
+   "unix": false
+  },
+  "dmusic.dll": {
+   "size": 1135996,
+   "unix": false
+  },
+  "dmusic32.dll": {
+   "size": 100716,
+   "unix": false
+  },
+  "dnsapi.dll": {
+   "size": 311636,
+   "unix": true
+  },
+  "dplay.dll": {
+   "size": 61136,
+   "unix": false
+  },
+  "dplaysvr.exe": {
+   "size": 110919,
+   "unix": false
+  },
+  "dplayx.dll": {
+   "size": 1366794,
+   "unix": false
+  },
+  "dpnaddr.dll": {
+   "size": 61136,
+   "unix": false
+  },
+  "dpnet.dll": {
+   "size": 786530,
+   "unix": false
+  },
+  "dpnhpast.dll": {
+   "size": 114630,
+   "unix": false
+  },
+  "dpnhupnp.dll": {
+   "size": 118821,
+   "unix": false
+  },
+  "dpnlobby.dll": {
+   "size": 61136,
+   "unix": false
+  },
+  "dpnsvr.exe": {
+   "size": 110917,
+   "unix": false
+  },
+  "dpvoice.dll": {
+   "size": 554711,
+   "unix": false
+  },
+  "dpvsetup.exe": {
+   "size": 110919,
+   "unix": false
+  },
+  "dpwsockx.dll": {
+   "size": 237898,
+   "unix": false
+  },
+  "drmclien.dll": {
+   "size": 83333,
+   "unix": false
+  },
+  "dsdmo.dll": {
+   "size": 672135,
+   "unix": false
+  },
+  "dsound.dll": {
+   "size": 1564490,
+   "unix": false
+  },
+  "dsquery.dll": {
+   "size": 519595,
+   "unix": false
+  },
+  "dssenh.dll": {
+   "size": 206853,
+   "unix": false
+  },
+  "dsuiext.dll": {
+   "size": 513409,
+   "unix": false
+  },
+  "dswave.dll": {
+   "size": 651441,
+   "unix": false
+  },
+  "dwmapi.dll": {
+   "size": 153784,
+   "unix": false
+  },
+  "dwrite.dll": {
+   "size": 2924519,
+   "unix": true
+  },
+  "dx8vb.dll": {
+   "size": 519244,
+   "unix": false
+  },
+  "dxcore.dll": {
+   "size": 163344,
+   "unix": false
+  },
+  "dxdiag.exe": {
+   "size": 286119,
+   "unix": false
+  },
+  "dxdiagn.dll": {
+   "size": 546046,
+   "unix": false
+  },
+  "dxgi.dll": {
+   "size": 1547947,
+   "unix": false
+  },
+  "dxtrans.dll": {
+   "size": 116003,
+   "unix": false
+  },
+  "dxva2.dll": {
+   "size": 622321,
+   "unix": false
+  },
+  "eject.exe": {
+   "size": 116553,
+   "unix": false
+  },
+  "esent.dll": {
+   "size": 141516,
+   "unix": false
+  },
+  "evr.dll": {
+   "size": 1974416,
+   "unix": false
+  },
+  "expand.exe": {
+   "size": 85202,
+   "unix": false
+  },
+  "explorer.exe": {
+   "size": 800039,
+   "unix": false
+  },
+  "explorerframe.dll": {
+   "size": 663251,
+   "unix": false
+  },
+  "extrac32.exe": {
+   "size": 144508,
+   "unix": false
+  },
+  "faultrep.dll": {
+   "size": 114740,
+   "unix": false
+  },
+  "fc.exe": {
+   "size": 142834,
+   "unix": false
+  },
+  "feclient.dll": {
+   "size": 67541,
+   "unix": false
+  },
+  "find.exe": {
+   "size": 133873,
+   "unix": false
+  },
+  "findstr.exe": {
+   "size": 133367,
+   "unix": false
+  },
+  "fltlib.dll": {
+   "size": 109247,
+   "unix": false
+  },
+  "fltmgr.sys": {
+   "size": 184155,
+   "unix": false
+  },
+  "fntcache.dll": {
+   "size": 116356,
+   "unix": false
+  },
+  "fontsub.dll": {
+   "size": 97700,
+   "unix": false
+  },
+  "fsutil.exe": {
+   "size": 131006,
+   "unix": false
+  },
+  "fusion.dll": {
+   "size": 339243,
+   "unix": false
+  },
+  "fwpuclnt.dll": {
+   "size": 142843,
+   "unix": false
+  },
+  "gameinput.dll": {
+   "size": 125844,
+   "unix": false
+  },
+  "gameux.dll": {
+   "size": 746289,
+   "unix": false
+  },
+  "gamingtcui.dll": {
+   "size": 104209,
+   "unix": false
+  },
+  "gdi32.dll": {
+   "size": 2501132,
+   "unix": false
+  },
+  "gdiplus.dll": {
+   "size": 2705393,
+   "unix": false
+  },
+  "geolocation.dll": {
+   "size": 188487,
+   "unix": false
+  },
+  "glu32.dll": {
+   "size": 647364,
+   "unix": false
+  },
+  "gphoto2.ds": {
+   "size": 1043765,
+   "unix": true
+  },
+  "gpkcsp.dll": {
+   "size": 82970,
+   "unix": false
+  },
+  "graphicscapture.dll": {
+   "size": 240156,
+   "unix": false
+  },
+  "hal.dll": {
+   "size": 136138,
+   "unix": false
+  },
+  "hh.exe": {
+   "size": 151795,
+   "unix": false
+  },
+  "hhctrl.ocx": {
+   "size": 1231370,
+   "unix": false
+  },
+  "hid.dll": {
+   "size": 199809,
+   "unix": false
+  },
+  "hidclass.sys": {
+   "size": 269784,
+   "unix": false
+  },
+  "hidparse.sys": {
+   "size": 234264,
+   "unix": false
+  },
+  "hlink.dll": {
+   "size": 754986,
+   "unix": false
+  },
+  "hnetcfg.dll": {
+   "size": 809639,
+   "unix": false
+  },
+  "hostname.exe": {
+   "size": 102849,
+   "unix": false
+  },
+  "hrtfapo.dll": {
+   "size": 101759,
+   "unix": false
+  },
+  "http.sys": {
+   "size": 218290,
+   "unix": false
+  },
+  "httpapi.dll": {
+   "size": 183698,
+   "unix": false
+  },
+  "hvsimanagementapi.dll": {
+   "size": 154754,
+   "unix": false
+  },
+  "ia2comproxy.dll": {
+   "size": 161825,
+   "unix": false
+  },
+  "icacls.exe": {
+   "size": 111413,
+   "unix": false
+  },
+  "iccvid.dll": {
+   "size": 144599,
+   "unix": false
+  },
+  "icinfo.exe": {
+   "size": 80806,
+   "unix": false
+  },
+  "icmp.dll": {
+   "size": 8192,
+   "unix": false
+  },
+  "icmui.dll": {
+   "size": 97351,
+   "unix": false
+  },
+  "ieframe.dll": {
+   "size": 3289671,
+   "unix": false
+  },
+  "ieproxy.dll": {
+   "size": 490041,
+   "unix": false
+  },
+  "iertutil.dll": {
+   "size": 174224,
+   "unix": false
+  },
+  "iexplore.exe": {
+   "size": 213570,
+   "unix": false
+  },
+  "ifsmgr.vxd": {
+   "size": 97328,
+   "unix": false
+  },
+  "imaadp32.acm": {
+   "size": 141004,
+   "unix": false
+  },
+  "imagehlp.dll": {
+   "size": 297344,
+   "unix": false
+  },
+  "imm32.dll": {
+   "size": 509010,
+   "unix": false
+  },
+  "inetcomm.dll": {
+   "size": 1402620,
+   "unix": false
+  },
+  "inetcpl.cpl": {
+   "size": 534847,
+   "unix": false
+  },
+  "inetmib1.dll": {
+   "size": 178948,
+   "unix": false
+  },
+  "infosoft.dll": {
+   "size": 503079,
+   "unix": false
+  },
+  "initpki.dll": {
+   "size": 80918,
+   "unix": false
+  },
+  "inkobj.dll": {
+   "size": 114496,
+   "unix": false
+  },
+  "inseng.dll": {
+   "size": 519939,
+   "unix": false
+  },
+  "ipconfig.exe": {
+   "size": 126085,
+   "unix": false
+  },
+  "iphlpapi.dll": {
+   "size": 829562,
+   "unix": false
+  },
+  "iprop.dll": {
+   "size": 57004,
+   "unix": false
+  },
+  "ir50_32.dll": {
+   "size": 202008,
+   "unix": false
+  },
+  "irprops.cpl": {
+   "size": 72696,
+   "unix": false
+  },
+  "itircl.dll": {
+   "size": 81389,
+   "unix": false
+  },
+  "itss.dll": {
+   "size": 806080,
+   "unix": false
+  },
+  "joy.cpl": {
+   "size": 574669,
+   "unix": false
+  },
+  "jscript.dll": {
+   "size": 4032430,
+   "unix": false
+  },
+  "jsproxy.dll": {
+   "size": 531010,
+   "unix": false
+  },
+  "kerberos.dll": {
+   "size": 197406,
+   "unix": true
+  },
+  "kernel32.dll": {
+   "size": 2069995,
+   "unix": false
+  },
+  "kernelbase.dll": {
+   "size": 6222748,
+   "unix": false
+  },
+  "klist.exe": {
+   "size": 147145,
+   "unix": false
+  },
+  "ksecdd.sys": {
+   "size": 139936,
+   "unix": false
+  },
+  "ksuser.dll": {
+   "size": 66755,
+   "unix": false
+  },
+  "ktmw32.dll": {
+   "size": 78102,
+   "unix": false
+  },
+  "l3codeca.acm": {
+   "size": 1125645,
+   "unix": false
+  },
+  "loadperf.dll": {
+   "size": 112653,
+   "unix": false
+  },
+  "localspl.dll": {
+   "size": 630799,
+   "unix": true
+  },
+  "localui.dll": {
+   "size": 185272,
+   "unix": false
+  },
+  "lodctr.exe": {
+   "size": 77187,
+   "unix": false
+  },
+  "lz32.dll": {
+   "size": 12288,
+   "unix": false
+  },
+  "magnification.dll": {
+   "size": 103444,
+   "unix": false
+  },
+  "makecab.exe": {
+   "size": 106786,
+   "unix": false
+  },
+  "mapi32.dll": {
+   "size": 848263,
+   "unix": false
+  },
+  "mapistub.dll": {
+   "size": 84062,
+   "unix": false
+  },
+  "mciavi32.dll": {
+   "size": 333439,
+   "unix": false
+  },
+  "mcicda.dll": {
+   "size": 195073,
+   "unix": false
+  },
+  "mciqtz32.dll": {
+   "size": 306866,
+   "unix": false
+  },
+  "mciseq.dll": {
+   "size": 206197,
+   "unix": false
+  },
+  "mciwave.dll": {
+   "size": 211338,
+   "unix": false
+  },
+  "mf.dll": {
+   "size": 2655731,
+   "unix": false
+  },
+  "mf3216.dll": {
+   "size": 62432,
+   "unix": false
+  },
+  "mfasfsrcsnk.dll": {
+   "size": 805515,
+   "unix": false
+  },
+  "mferror.dll": {
+   "size": 229376,
+   "unix": false
+  },
+  "mfh264enc.dll": {
+   "size": 565263,
+   "unix": false
+  },
+  "mfmediaengine.dll": {
+   "size": 1097110,
+   "unix": false
+  },
+  "mfmp4srcsnk.dll": {
+   "size": 852819,
+   "unix": false
+  },
+  "mfplat.dll": {
+   "size": 2075917,
+   "unix": false
+  },
+  "mfplay.dll": {
+   "size": 768208,
+   "unix": false
+  },
+  "mfreadwrite.dll": {
+   "size": 961991,
+   "unix": false
+  },
+  "mfsrcsnk.dll": {
+   "size": 994654,
+   "unix": false
+  },
+  "mgmtapi.dll": {
+   "size": 98086,
+   "unix": false
+  },
+  "midimap.dll": {
+   "size": 141041,
+   "unix": false
+  },
+  "mlang.dll": {
+   "size": 768613,
+   "unix": false
+  },
+  "mmcndmgr.dll": {
+   "size": 493805,
+   "unix": false
+  },
+  "mmdevapi.dll": {
+   "size": 1064697,
+   "unix": false
+  },
+  "mmdevldr.vxd": {
+   "size": 96354,
+   "unix": false
+  },
+  "mofcomp.exe": {
+   "size": 106184,
+   "unix": false
+  },
+  "monodebg.vxd": {
+   "size": 96992,
+   "unix": false
+  },
+  "mouhid.sys": {
+   "size": 159117,
+   "unix": false
+  },
+  "mountmgr.sys": {
+   "size": 354424,
+   "unix": true
+  },
+  "mp3dmod.dll": {
+   "size": 1689231,
+   "unix": false
+  },
+  "mpr.dll": {
+   "size": 400038,
+   "unix": false
+  },
+  "mprapi.dll": {
+   "size": 132563,
+   "unix": false
+  },
+  "msacm32.dll": {
+   "size": 467416,
+   "unix": false
+  },
+  "msacm32.drv": {
+   "size": 183306,
+   "unix": false
+  },
+  "msado15.dll": {
+   "size": 1053804,
+   "unix": false
+  },
+  "msadp32.acm": {
+   "size": 128565,
+   "unix": false
+  },
+  "msasn1.dll": {
+   "size": 175076,
+   "unix": false
+  },
+  "msauddecmft.dll": {
+   "size": 565299,
+   "unix": false
+  },
+  "mscat32.dll": {
+   "size": 62751,
+   "unix": false
+  },
+  "mscms.dll": {
+   "size": 1706414,
+   "unix": false
+  },
+  "mscoree.dll": {
+   "size": 1172550,
+   "unix": false
+  },
+  "mscorwks.dll": {
+   "size": 80600,
+   "unix": false
+  },
+  "msctf.dll": {
+   "size": 1306315,
+   "unix": false
+  },
+  "msctfmonitor.dll": {
+   "size": 115619,
+   "unix": false
+  },
+  "msctfp.dll": {
+   "size": 197285,
+   "unix": false
+  },
+  "msdaps.dll": {
+   "size": 958680,
+   "unix": false
+  },
+  "msdasql.dll": {
+   "size": 744452,
+   "unix": false
+  },
+  "msdelta.dll": {
+   "size": 63683,
+   "unix": false
+  },
+  "msdmo.dll": {
+   "size": 531568,
+   "unix": false
+  },
+  "msdrm.dll": {
+   "size": 132276,
+   "unix": false
+  },
+  "msftedit.dll": {
+   "size": 421241,
+   "unix": false
+  },
+  "msg711.acm": {
+   "size": 120616,
+   "unix": false
+  },
+  "msgsm32.acm": {
+   "size": 233401,
+   "unix": false
+  },
+  "mshta.exe": {
+   "size": 107377,
+   "unix": false
+  },
+  "mshtml.dll": {
+   "size": 25106261,
+   "unix": false
+  },
+  "mshtml.tlb": {
+   "size": 1241088,
+   "unix": false
+  },
+  "msi.dll": {
+   "size": 5576236,
+   "unix": false
+  },
+  "msidb.exe": {
+   "size": 160058,
+   "unix": false
+  },
+  "msident.dll": {
+   "size": 161367,
+   "unix": false
+  },
+  "msiexec.exe": {
+   "size": 280361,
+   "unix": false
+  },
+  "msimg32.dll": {
+   "size": 96385,
+   "unix": false
+  },
+  "msimsg.dll": {
+   "size": 8192,
+   "unix": false
+  },
+  "msimtf.dll": {
+   "size": 576706,
+   "unix": false
+  },
+  "msinfo32.exe": {
+   "size": 117622,
+   "unix": false
+  },
+  "msisip.dll": {
+   "size": 117816,
+   "unix": false
+  },
+  "msisys.ocx": {
+   "size": 110305,
+   "unix": false
+  },
+  "msls31.dll": {
+   "size": 74348,
+   "unix": false
+  },
+  "msmpeg2vdec.dll": {
+   "size": 571484,
+   "unix": false
+  },
+  "msnet32.dll": {
+   "size": 117579,
+   "unix": false
+  },
+  "mspatcha.dll": {
+   "size": 241600,
+   "unix": false
+  },
+  "msports.dll": {
+   "size": 63354,
+   "unix": false
+  },
+  "msrle32.dll": {
+   "size": 189316,
+   "unix": false
+  },
+  "msscript.ocx": {
+   "size": 525551,
+   "unix": false
+  },
+  "mssign32.dll": {
+   "size": 126776,
+   "unix": false
+  },
+  "mssip32.dll": {
+   "size": 81473,
+   "unix": false
+  },
+  "mstask.dll": {
+   "size": 490174,
+   "unix": false
+  },
+  "msttsengine.dll": {
+   "size": 183997,
+   "unix": false
+  },
+  "msv1_0.dll": {
+   "size": 279262,
+   "unix": true
+  },
+  "msvcirt.dll": {
+   "size": 633155,
+   "unix": false
+  },
+  "msvcm80.dll": {
+   "size": 145348,
+   "unix": false
+  },
+  "msvcm90.dll": {
+   "size": 127231,
+   "unix": false
+  },
+  "msvcp100.dll": {
+   "size": 3469850,
+   "unix": false
+  },
+  "msvcp110.dll": {
+   "size": 3562368,
+   "unix": false
+  },
+  "msvcp120.dll": {
+   "size": 3552766,
+   "unix": false
+  },
+  "msvcp120_app.dll": {
+   "size": 334131,
+   "unix": false
+  },
+  "msvcp140.dll": {
+   "size": 3649794,
+   "unix": false
+  },
+  "msvcp140_1.dll": {
+   "size": 109719,
+   "unix": false
+  },
+  "msvcp140_2.dll": {
+   "size": 71691,
+   "unix": false
+  },
+  "msvcp140_atomic_wait.dll": {
+   "size": 121904,
+   "unix": false
+  },
+  "msvcp140_codecvt_ids.dll": {
+   "size": 57668,
+   "unix": false
+  },
+  "msvcp60.dll": {
+   "size": 3041656,
+   "unix": false
+  },
+  "msvcp70.dll": {
+   "size": 3671547,
+   "unix": false
+  },
+  "msvcp71.dll": {
+   "size": 3644843,
+   "unix": false
+  },
+  "msvcp80.dll": {
+   "size": 3691105,
+   "unix": false
+  },
+  "msvcp90.dll": {
+   "size": 3696006,
+   "unix": false
+  },
+  "msvcp_win.dll": {
+   "size": 327631,
+   "unix": false
+  },
+  "msvcr100.dll": {
+   "size": 3605875,
+   "unix": false
+  },
+  "msvcr110.dll": {
+   "size": 3686413,
+   "unix": false
+  },
+  "msvcr120.dll": {
+   "size": 4019021,
+   "unix": false
+  },
+  "msvcr120_app.dll": {
+   "size": 200046,
+   "unix": false
+  },
+  "msvcr70.dll": {
+   "size": 3071491,
+   "unix": false
+  },
+  "msvcr71.dll": {
+   "size": 3071497,
+   "unix": false
+  },
+  "msvcr80.dll": {
+   "size": 3231127,
+   "unix": false
+  },
+  "msvcr90.dll": {
+   "size": 3226183,
+   "unix": false
+  },
+  "msvcrt.dll": {
+   "size": 3141700,
+   "unix": false
+  },
+  "msvcrt20.dll": {
+   "size": 125885,
+   "unix": false
+  },
+  "msvcrt40.dll": {
+   "size": 123848,
+   "unix": false
+  },
+  "msvcrtd.dll": {
+   "size": 3075794,
+   "unix": false
+  },
+  "msvdsp.dll": {
+   "size": 288017,
+   "unix": false
+  },
+  "msvfw32.dll": {
+   "size": 462876,
+   "unix": false
+  },
+  "msvidc32.dll": {
+   "size": 130929,
+   "unix": false
+  },
+  "msvproc.dll": {
+   "size": 569452,
+   "unix": false
+  },
+  "mswsock.dll": {
+   "size": 113600,
+   "unix": false
+  },
+  "msxml.dll": {
+   "size": 121381,
+   "unix": false
+  },
+  "msxml2.dll": {
+   "size": 117285,
+   "unix": false
+  },
+  "msxml3.dll": {
+   "size": 11150476,
+   "unix": false
+  },
+  "msxml4.dll": {
+   "size": 182821,
+   "unix": false
+  },
+  "msxml6.dll": {
+   "size": 178725,
+   "unix": false
+  },
+  "mtxdm.dll": {
+   "size": 449397,
+   "unix": false
+  },
+  "ncrypt.dll": {
+   "size": 170564,
+   "unix": false
+  },
+  "nddeapi.dll": {
+   "size": 123700,
+   "unix": false
+  },
+  "ndis.sys": {
+   "size": 218457,
+   "unix": false
+  },
+  "net.exe": {
+   "size": 222796,
+   "unix": false
+  },
+  "netapi32.dll": {
+   "size": 621371,
+   "unix": true
+  },
+  "netcfgx.dll": {
+   "size": 517969,
+   "unix": false
+  },
+  "netio.sys": {
+   "size": 302307,
+   "unix": false
+  },
+  "netprofm.dll": {
+   "size": 309414,
+   "unix": false
+  },
+  "netsh.exe": {
+   "size": 106784,
+   "unix": false
+  },
+  "netstat.exe": {
+   "size": 169264,
+   "unix": false
+  },
+  "netutils.dll": {
+   "size": 116645,
+   "unix": false
+  },
+  "newdev.dll": {
+   "size": 117444,
+   "unix": false
+  },
+  "ngen.exe": {
+   "size": 110915,
+   "unix": false
+  },
+  "ninput.dll": {
+   "size": 109027,
+   "unix": false
+  },
+  "normaliz.dll": {
+   "size": 8192,
+   "unix": false
+  },
+  "notepad.exe": {
+   "size": 472301,
+   "unix": false
+  },
+  "npmshtml.dll": {
+   "size": 66189,
+   "unix": false
+  },
+  "npptools.dll": {
+   "size": 68177,
+   "unix": false
+  },
+  "nsi.dll": {
+   "size": 140350,
+   "unix": false
+  },
+  "nsiproxy.sys": {
+   "size": 147933,
+   "unix": true
+  },
+  "ntdll.dll": {
+   "size": 3522575,
+   "unix": true
+  },
+  "ntdsapi.dll": {
+   "size": 160738,
+   "unix": false
+  },
+  "ntoskrnl.exe": {
+   "size": 1626229,
+   "unix": false
+  },
+  "ntprint.dll": {
+   "size": 115656,
+   "unix": false
+  },
+  "objsel.dll": {
+   "size": 501078,
+   "unix": false
+  },
+  "odbc32.dll": {
+   "size": 880046,
+   "unix": true
+  },
+  "odbcbcp.dll": {
+   "size": 64886,
+   "unix": false
+  },
+  "odbccp32.dll": {
+   "size": 260780,
+   "unix": false
+  },
+  "odbccu32.dll": {
+   "size": 66470,
+   "unix": false
+  },
+  "ole32.dll": {
+   "size": 3811112,
+   "unix": false
+  },
+  "oleacc.dll": {
+   "size": 608456,
+   "unix": false
+  },
+  "oleaut32.dll": {
+   "size": 3262407,
+   "unix": false
+  },
+  "olecli32.dll": {
+   "size": 116265,
+   "unix": false
+  },
+  "oledb32.dll": {
+   "size": 1128405,
+   "unix": false
+  },
+  "oledlg.dll": {
+   "size": 426832,
+   "unix": false
+  },
+  "olepro32.dll": {
+   "size": 126730,
+   "unix": false
+  },
+  "olesvr32.dll": {
+   "size": 107196,
+   "unix": false
+  },
+  "olethk32.dll": {
+   "size": 67780,
+   "unix": false
+  },
+  "oleview.exe": {
+   "size": 1025791,
+   "unix": false
+  },
+  "opcservices.dll": {
+   "size": 574695,
+   "unix": false
+  },
+  "opencl.dll": {
+   "size": 273938,
+   "unix": true
+  },
+  "opengl32.dll": {
+   "size": 5855112,
+   "unix": true
+  },
+  "packager.dll": {
+   "size": 208217,
+   "unix": false
+  },
+  "pdh.dll": {
+   "size": 233996,
+   "unix": false
+  },
+  "photometadatahandler.dll": {
+   "size": 85521,
+   "unix": false
+  },
+  "pidgen.dll": {
+   "size": 111315,
+   "unix": false
+  },
+  "ping.exe": {
+   "size": 120564,
+   "unix": false
+  },
+  "plugplay.exe": {
+   "size": 142856,
+   "unix": false
+  },
+  "pnputil.exe": {
+   "size": 106786,
+   "unix": false
+  },
+  "powershell.exe": {
+   "size": 121021,
+   "unix": false
+  },
+  "powrprof.dll": {
+   "size": 155793,
+   "unix": false
+  },
+  "presentationfontcache.exe": {
+   "size": 113332,
+   "unix": false
+  },
+  "printui.dll": {
+   "size": 118679,
+   "unix": false
+  },
+  "prntvpt.dll": {
+   "size": 376200,
+   "unix": false
+  },
+  "profapi.dll": {
+   "size": 63713,
+   "unix": false
+  },
+  "progman.exe": {
+   "size": 441414,
+   "unix": false
+  },
+  "propsys.dll": {
+   "size": 792503,
+   "unix": false
+  },
+  "psapi.dll": {
+   "size": 77277,
+   "unix": false
+  },
+  "pstorec.dll": {
+   "size": 181767,
+   "unix": false
+  },
+  "pwrshplugin.dll": {
+   "size": 67613,
+   "unix": false
+  },
+  "qasf.dll": {
+   "size": 1136579,
+   "unix": false
+  },
+  "qcap.dll": {
+   "size": 1432096,
+   "unix": true
+  },
+  "qdvd.dll": {
+   "size": 734437,
+   "unix": false
+  },
+  "qedit.dll": {
+   "size": 1296895,
+   "unix": false
+  },
+  "qmgr.dll": {
+   "size": 792082,
+   "unix": false
+  },
+  "qmgrprxy.dll": {
+   "size": 145564,
+   "unix": false
+  },
+  "quartz.dll": {
+   "size": 3021389,
+   "unix": false
+  },
+  "query.dll": {
+   "size": 133172,
+   "unix": false
+  },
+  "qwave.dll": {
+   "size": 98684,
+   "unix": false
+  },
+  "rasapi32.dll": {
+   "size": 177785,
+   "unix": false
+  },
+  "rasdlg.dll": {
+   "size": 105510,
+   "unix": false
+  },
+  "reg.exe": {
+   "size": 633459,
+   "unix": false
+  },
+  "regapi.dll": {
+   "size": 73344,
+   "unix": false
+  },
+  "regasm.exe": {
+   "size": 106785,
+   "unix": false
+  },
+  "regedit.exe": {
+   "size": 1125678,
+   "unix": false
+  },
+  "regini.exe": {
+   "size": 106785,
+   "unix": false
+  },
+  "regsvcs.exe": {
+   "size": 106786,
+   "unix": false
+  },
+  "regsvr32.exe": {
+   "size": 212407,
+   "unix": false
+  },
+  "resampledmo.dll": {
+   "size": 641528,
+   "unix": false
+  },
+  "resutils.dll": {
+   "size": 74037,
+   "unix": false
+  },
+  "riched20.dll": {
+   "size": 2664714,
+   "unix": false
+  },
+  "riched32.dll": {
+   "size": 103722,
+   "unix": false
+  },
+  "robocopy.exe": {
+   "size": 110317,
+   "unix": false
+  },
+  "rometadata.dll": {
+   "size": 417505,
+   "unix": false
+  },
+  "rpcrt4.dll": {
+   "size": 2808251,
+   "unix": false
+  },
+  "rpcss.exe": {
+   "size": 208385,
+   "unix": false
+  },
+  "rsabase.dll": {
+   "size": 61136,
+   "unix": false
+  },
+  "rsaenh.dll": {
+   "size": 1214370,
+   "unix": false
+  },
+  "rstrtmgr.dll": {
+   "size": 107618,
+   "unix": false
+  },
+  "rtutils.dll": {
+   "size": 108198,
+   "unix": false
+  },
+  "rtworkq.dll": {
+   "size": 224543,
+   "unix": false
+  },
+  "runas.exe": {
+   "size": 112912,
+   "unix": false
+  },
+  "rundll32.exe": {
+   "size": 181966,
+   "unix": false
+  },
+  "samlib.dll": {
+   "size": 69015,
+   "unix": false
+  },
+  "sane.ds": {
+   "size": 444084,
+   "unix": true
+  },
+  "sapi.dll": {
+   "size": 1470324,
+   "unix": false
+  },
+  "sas.dll": {
+   "size": 62323,
+   "unix": false
+  },
+  "sc.exe": {
+   "size": 136967,
+   "unix": false
+  },
+  "scarddlg.dll": {
+   "size": 62739,
+   "unix": false
+  },
+  "scardsvr.dll": {
+   "size": 99861,
+   "unix": false
+  },
+  "sccbase.dll": {
+   "size": 83019,
+   "unix": false
+  },
+  "schannel.dll": {
+   "size": 138379,
+   "unix": false
+  },
+  "schedsvc.dll": {
+   "size": 396633,
+   "unix": false
+  },
+  "schtasks.exe": {
+   "size": 193907,
+   "unix": false
+  },
+  "scrobj.dll": {
+   "size": 716366,
+   "unix": false
+  },
+  "scrrun.dll": {
+   "size": 989277,
+   "unix": false
+  },
+  "scsiport.sys": {
+   "size": 121991,
+   "unix": false
+  },
+  "sdbinst.exe": {
+   "size": 106786,
+   "unix": false
+  },
+  "secedit.exe": {
+   "size": 71603,
+   "unix": false
+  },
+  "sechost.dll": {
+   "size": 541873,
+   "unix": false
+  },
+  "secur32.dll": {
+   "size": 690260,
+   "unix": true
+  },
+  "security.dll": {
+   "size": 8192,
+   "unix": false
+  },
+  "sensapi.dll": {
+   "size": 97321,
+   "unix": false
+  },
+  "serialui.dll": {
+   "size": 152968,
+   "unix": false
+  },
+  "servicemodelreg.exe": {
+   "size": 106790,
+   "unix": false
+  },
+  "services.exe": {
+   "size": 457054,
+   "unix": false
+  },
+  "setupapi.dll": {
+   "size": 2217496,
+   "unix": false
+  },
+  "setx.exe": {
+   "size": 110915,
+   "unix": false
+  },
+  "sfc.dll": {
+   "size": 8192,
+   "unix": false
+  },
+  "sfc_os.dll": {
+   "size": 112912,
+   "unix": false
+  },
+  "shcore.dll": {
+   "size": 357520,
+   "unix": false
+  },
+  "shdoclc.dll": {
+   "size": 221184,
+   "unix": false
+  },
+  "shdocvw.dll": {
+   "size": 653172,
+   "unix": false
+  },
+  "shell32.dll": {
+   "size": 14138180,
+   "unix": false
+  },
+  "shfolder.dll": {
+   "size": 61136,
+   "unix": false
+  },
+  "shlwapi.dll": {
+   "size": 1447875,
+   "unix": false
+  },
+  "shutdown.exe": {
+   "size": 106787,
+   "unix": false
+  },
+  "slbcsp.dll": {
+   "size": 83114,
+   "unix": false
+  },
+  "slc.dll": {
+   "size": 106614,
+   "unix": false
+  },
+  "snmpapi.dll": {
+   "size": 134394,
+   "unix": false
+  },
+  "softpub.dll": {
+   "size": 62557,
+   "unix": false
+  },
+  "sort.exe": {
+   "size": 132062,
+   "unix": false
+  },
+  "spoolss.dll": {
+   "size": 191609,
+   "unix": false
+  },
+  "spoolsv.exe": {
+   "size": 113844,
+   "unix": false
+  },
+  "sppc.dll": {
+   "size": 117319,
+   "unix": false
+  },
+  "srclient.dll": {
+   "size": 63307,
+   "unix": false
+  },
+  "srvcli.dll": {
+   "size": 67510,
+   "unix": false
+  },
+  "srvsvc.dll": {
+   "size": 99177,
+   "unix": false
+  },
+  "sspicli.dll": {
+   "size": 126003,
+   "unix": false
+  },
+  "start.exe": {
+   "size": 269962,
+   "unix": false
+  },
+  "stdole2.tlb": {
+   "size": 24576,
+   "unix": false
+  },
+  "stdole32.tlb": {
+   "size": 12288,
+   "unix": false
+  },
+  "sti.dll": {
+   "size": 581275,
+   "unix": false
+  },
+  "strmdll.dll": {
+   "size": 66856,
+   "unix": false
+  },
+  "subst.exe": {
+   "size": 107300,
+   "unix": false
+  },
+  "svchost.exe": {
+   "size": 139835,
+   "unix": false
+  },
+  "svrapi.dll": {
+   "size": 64171,
+   "unix": false
+  },
+  "sxs.dll": {
+   "size": 287079,
+   "unix": false
+  },
+  "systeminfo.exe": {
+   "size": 178936,
+   "unix": false
+  },
+  "t2embed.dll": {
+   "size": 120828,
+   "unix": false
+  },
+  "tapi32.dll": {
+   "size": 416422,
+   "unix": false
+  },
+  "taskkill.exe": {
+   "size": 197504,
+   "unix": false
+  },
+  "tasklist.exe": {
+   "size": 189365,
+   "unix": false
+  },
+  "taskmgr.exe": {
+   "size": 1160627,
+   "unix": false
+  },
+  "taskschd.dll": {
+   "size": 998130,
+   "unix": false
+  },
+  "tbs.dll": {
+   "size": 103568,
+   "unix": false
+  },
+  "tdh.dll": {
+   "size": 109816,
+   "unix": false
+  },
+  "tdi.sys": {
+   "size": 122705,
+   "unix": false
+  },
+  "termsv.exe": {
+   "size": 113331,
+   "unix": false
+  },
+  "threadpoolwinrt.dll": {
+   "size": 520514,
+   "unix": false
+  },
+  "timeout.exe": {
+   "size": 89496,
+   "unix": false
+  },
+  "traffic.dll": {
+   "size": 103352,
+   "unix": false
+  },
+  "twain_32.dll": {
+   "size": 62281,
+   "unix": false
+  },
+  "twaindsm.dll": {
+   "size": 181110,
+   "unix": false
+  },
+  "twinapi.appcore.dll": {
+   "size": 471287,
+   "unix": false
+  },
+  "tzres.dll": {
+   "size": 532480,
+   "unix": false
+  },
+  "ucrtbase.dll": {
+   "size": 3812346,
+   "unix": false
+  },
+  "uianimation.dll": {
+   "size": 618987,
+   "unix": false
+  },
+  "uiautomationcore.dll": {
+   "size": 1845269,
+   "unix": false
+  },
+  "uiribbon.dll": {
+   "size": 528408,
+   "unix": false
+  },
+  "unicows.dll": {
+   "size": 331951,
+   "unix": false
+  },
+  "uninstaller.exe": {
+   "size": 193190,
+   "unix": false
+  },
+  "unlodctr.exe": {
+   "size": 77191,
+   "unix": false
+  },
+  "updspapi.dll": {
+   "size": 102417,
+   "unix": false
+  },
+  "url.dll": {
+   "size": 110083,
+   "unix": false
+  },
+  "urlmon.dll": {
+   "size": 2685657,
+   "unix": false
+  },
+  "usbd.sys": {
+   "size": 139203,
+   "unix": false
+  },
+  "user32.dll": {
+   "size": 5925591,
+   "unix": false
+  },
+  "userenv.dll": {
+   "size": 181864,
+   "unix": false
+  },
+  "usp10.dll": {
+   "size": 8192,
+   "unix": false
+  },
+  "utildll.dll": {
+   "size": 65906,
+   "unix": false
+  },
+  "uxtheme.dll": {
+   "size": 780613,
+   "unix": false
+  },
+  "vbscript.dll": {
+   "size": 1858595,
+   "unix": false
+  },
+  "vccorlib140.dll": {
+   "size": 522265,
+   "unix": false
+  },
+  "vcomp.dll": {
+   "size": 243778,
+   "unix": false
+  },
+  "vcomp100.dll": {
+   "size": 243778,
+   "unix": false
+  },
+  "vcomp110.dll": {
+   "size": 243780,
+   "unix": false
+  },
+  "vcomp120.dll": {
+   "size": 243780,
+   "unix": false
+  },
+  "vcomp140.dll": {
+   "size": 243780,
+   "unix": false
+  },
+  "vcomp90.dll": {
+   "size": 67182,
+   "unix": false
+  },
+  "vcruntime140.dll": {
+   "size": 104428,
+   "unix": false
+  },
+  "vdhcp.vxd": {
+   "size": 96348,
+   "unix": false
+  },
+  "vdmdbg.dll": {
+   "size": 103198,
+   "unix": false
+  },
+  "version.dll": {
+   "size": 133287,
+   "unix": false
+  },
+  "vga.dll": {
+   "size": 61136,
+   "unix": false
+  },
+  "vidreszr.dll": {
+   "size": 288017,
+   "unix": false
+  },
+  "view.exe": {
+   "size": 125984,
+   "unix": false
+  },
+  "virtdisk.dll": {
+   "size": 108319,
+   "unix": false
+  },
+  "vmm.vxd": {
+   "size": 114799,
+   "unix": false
+  },
+  "vnbt.vxd": {
+   "size": 103261,
+   "unix": false
+  },
+  "vnetbios.vxd": {
+   "size": 97286,
+   "unix": false
+  },
+  "vssapi.dll": {
+   "size": 135026,
+   "unix": false
+  },
+  "vtdapi.vxd": {
+   "size": 96350,
+   "unix": false
+  },
+  "vulkan-1.dll": {
+   "size": 84697,
+   "unix": false
+  },
+  "vwin32.vxd": {
+   "size": 97899,
+   "unix": false
+  },
+  "w32skrnl.dll": {
+   "size": 106135,
+   "unix": false
+  },
+  "wbemdisp.dll": {
+   "size": 587190,
+   "unix": false
+  },
+  "wbemprox.dll": {
+   "size": 1422166,
+   "unix": false
+  },
+  "wdscore.dll": {
+   "size": 79878,
+   "unix": false
+  },
+  "webservices.dll": {
+   "size": 1629750,
+   "unix": false
+  },
+  "websocket.dll": {
+   "size": 98702,
+   "unix": false
+  },
+  "wer.dll": {
+   "size": 134354,
+   "unix": false
+  },
+  "wevtapi.dll": {
+   "size": 120317,
+   "unix": false
+  },
+  "wevtsvc.dll": {
+   "size": 99189,
+   "unix": false
+  },
+  "wevtutil.exe": {
+   "size": 106787,
+   "unix": false
+  },
+  "where.exe": {
+   "size": 115801,
+   "unix": false
+  },
+  "whoami.exe": {
+   "size": 134339,
+   "unix": false
+  },
+  "wiaservc.dll": {
+   "size": 557751,
+   "unix": false
+  },
+  "wimgapi.dll": {
+   "size": 106685,
+   "unix": false
+  },
+  "win32u.dll": {
+   "size": 435323,
+   "unix": true
+  },
+  "winbio.dll": {
+   "size": 74153,
+   "unix": false
+  },
+  "winbrand.dll": {
+   "size": 116713,
+   "unix": false
+  },
+  "windows.applicationmodel.dll": {
+   "size": 350561,
+   "unix": false
+  },
+  "windows.devices.bluetooth.dll": {
+   "size": 421110,
+   "unix": false
+  },
+  "windows.devices.enumeration.dll": {
+   "size": 756038,
+   "unix": false
+  },
+  "windows.devices.usb.dll": {
+   "size": 224896,
+   "unix": false
+  },
+  "windows.gaming.input.dll": {
+   "size": 1187409,
+   "unix": false
+  },
+  "windows.gaming.ui.gamebar.dll": {
+   "size": 149838,
+   "unix": false
+  },
+  "windows.globalization.dll": {
+   "size": 323820,
+   "unix": false
+  },
+  "windows.media.devices.dll": {
+   "size": 200231,
+   "unix": false
+  },
+  "windows.media.dll": {
+   "size": 318439,
+   "unix": false
+  },
+  "windows.media.mediacontrol.dll": {
+   "size": 299049,
+   "unix": false
+  },
+  "windows.media.playback.backgroundmediaplayer.dll": {
+   "size": 277005,
+   "unix": false
+  },
+  "windows.media.playback.mediaplayer.dll": {
+   "size": 349622,
+   "unix": false
+  },
+  "windows.media.speech.dll": {
+   "size": 858049,
+   "unix": false
+  },
+  "windows.networking.connectivity.dll": {
+   "size": 295927,
+   "unix": false
+  },
+  "windows.networking.dll": {
+   "size": 117293,
+   "unix": false
+  },
+  "windows.networking.hostname.dll": {
+   "size": 229525,
+   "unix": false
+  },
+  "windows.perception.stub.dll": {
+   "size": 455202,
+   "unix": false
+  },
+  "windows.security.authentication.onlineid.dll": {
+   "size": 258422,
+   "unix": false
+  },
+  "windows.security.credentials.ui.userconsentverifier.dll": {
+   "size": 250758,
+   "unix": false
+  },
+  "windows.storage.applicationdata.dll": {
+   "size": 239109,
+   "unix": false
+  },
+  "windows.storage.dll": {
+   "size": 360705,
+   "unix": false
+  },
+  "windows.system.profile.systemid.dll": {
+   "size": 201526,
+   "unix": false
+  },
+  "windows.system.profile.systemmanufacturers.dll": {
+   "size": 169462,
+   "unix": false
+  },
+  "windows.ui.core.textinput.dll": {
+   "size": 285000,
+   "unix": false
+  },
+  "windows.ui.dll": {
+   "size": 501302,
+   "unix": false
+  },
+  "windows.ui.xaml.dll": {
+   "size": 161591,
+   "unix": false
+  },
+  "windows.web.dll": {
+   "size": 257212,
+   "unix": false
+  },
+  "windowscodecs.dll": {
+   "size": 7389569,
+   "unix": false
+  },
+  "windowscodecsext.dll": {
+   "size": 174376,
+   "unix": false
+  },
+  "winealsa.drv": {
+   "size": 52872,
+   "unix": true
+  },
+  "wineboot.exe": {
+   "size": 760167,
+   "unix": false
+  },
+  "winebrowser.exe": {
+   "size": 156829,
+   "unix": false
+  },
+  "winebth.sys": {
+   "size": 519597,
+   "unix": true
+  },
+  "winebus.sys": {
+   "size": 269196,
+   "unix": true
+  },
+  "winecfg.exe": {
+   "size": 1730046,
+   "unix": false
+  },
+  "wineconsole.exe": {
+   "size": 152672,
+   "unix": false
+  },
+  "wined3d.dll": {
+   "size": 25158192,
+   "unix": false
+  },
+  "winedbg.exe": {
+   "size": 12964793,
+   "unix": false
+  },
+  "winedevice.exe": {
+   "size": 131178,
+   "unix": false
+  },
+  "winedmo.dll": {
+   "size": 238921,
+   "unix": true
+  },
+  "winefile.exe": {
+   "size": 957833,
+   "unix": false
+  },
+  "winegstreamer.dll": {
+   "size": 2710230,
+   "unix": true
+  },
+  "winehid.sys": {
+   "size": 118491,
+   "unix": false
+  },
+  "winemapi.dll": {
+   "size": 172038,
+   "unix": false
+  },
+  "winemenubuilder.exe": {
+   "size": 813445,
+   "unix": false
+  },
+  "winemine.exe": {
+   "size": 350794,
+   "unix": false
+  },
+  "winemsibuilder.exe": {
+   "size": 133101,
+   "unix": false
+  },
+  "winepath.exe": {
+   "size": 122521,
+   "unix": false
+  },
+  "wineps.drv": {
+   "size": 1553457,
+   "unix": true
+  },
+  "winepulse.drv": {
+   "size": 52872,
+   "unix": true
+  },
+  "wineusb.sys": {
+   "size": 164007,
+   "unix": true
+  },
+  "winevdm.exe": {
+   "size": 179593,
+   "unix": false
+  },
+  "winevulkan.dll": {
+   "size": 1537321,
+   "unix": true
+  },
+  "winewayland.drv": {
+   "size": 127548,
+   "unix": true
+  },
+  "winex11.drv": {
+   "size": 68151,
+   "unix": true
+  },
+  "winexinput.sys": {
+   "size": 181220,
+   "unix": false
+  },
+  "wing32.dll": {
+   "size": 76281,
+   "unix": false
+  },
+  "winhlp32.exe": {
+   "size": 776505,
+   "unix": false
+  },
+  "winhttp.dll": {
+   "size": 1408056,
+   "unix": false
+  },
+  "wininet.dll": {
+   "size": 2048053,
+   "unix": false
+  },
+  "winmgmt.exe": {
+   "size": 113328,
+   "unix": false
+  },
+  "winmm.dll": {
+   "size": 1607805,
+   "unix": false
+  },
+  "winnls32.dll": {
+   "size": 63412,
+   "unix": false
+  },
+  "winprint.dll": {
+   "size": 115786,
+   "unix": false
+  },
+  "winspool.drv": {
+   "size": 740665,
+   "unix": true
+  },
+  "winsta.dll": {
+   "size": 136791,
+   "unix": false
+  },
+  "wintab32.dll": {
+   "size": 244401,
+   "unix": false
+  },
+  "wintrust.dll": {
+   "size": 752727,
+   "unix": false
+  },
+  "wintypes.dll": {
+   "size": 654960,
+   "unix": false
+  },
+  "winusb.dll": {
+   "size": 103539,
+   "unix": false
+  },
+  "winver.exe": {
+   "size": 83565,
+   "unix": false
+  },
+  "wlanapi.dll": {
+   "size": 123060,
+   "unix": false
+  },
+  "wlanui.dll": {
+   "size": 62834,
+   "unix": false
+  },
+  "wldap32.dll": {
+   "size": 2711051,
+   "unix": false
+  },
+  "wldp.dll": {
+   "size": 104684,
+   "unix": false
+  },
+  "wmadmod.dll": {
+   "size": 645634,
+   "unix": false
+  },
+  "wmasf.dll": {
+   "size": 65832,
+   "unix": false
+  },
+  "wmi.dll": {
+   "size": 8192,
+   "unix": false
+  },
+  "wmic.exe": {
+   "size": 186690,
+   "unix": false
+  },
+  "wmilib.sys": {
+   "size": 78291,
+   "unix": false
+  },
+  "wmiutils.dll": {
+   "size": 266123,
+   "unix": false
+  },
+  "wmp.dll": {
+   "size": 861410,
+   "unix": false
+  },
+  "wmphoto.dll": {
+   "size": 2070471,
+   "unix": false
+  },
+  "wmplayer.exe": {
+   "size": 110919,
+   "unix": false
+  },
+  "wmvcore.dll": {
+   "size": 520365,
+   "unix": false
+  },
+  "wmvdecod.dll": {
+   "size": 650798,
+   "unix": false
+  },
+  "wnaspi32.dll": {
+   "size": 114582,
+   "unix": false
+  },
+  "wofutil.dll": {
+   "size": 103034,
+   "unix": false
+  },
+  "wordpad.exe": {
+   "size": 1223367,
+   "unix": false
+  },
+  "wow32.dll": {
+   "size": 69128,
+   "unix": false
+  },
+  "wpc.dll": {
+   "size": 161446,
+   "unix": false
+  },
+  "wpcap.dll": {
+   "size": 256049,
+   "unix": true
+  },
+  "write.exe": {
+   "size": 84655,
+   "unix": false
+  },
+  "ws2_32.dll": {
+   "size": 657716,
+   "unix": true
+  },
+  "wscript.exe": {
+   "size": 639564,
+   "unix": false
+  },
+  "wsdapi.dll": {
+   "size": 494727,
+   "unix": false
+  },
+  "wshom.ocx": {
+   "size": 815698,
+   "unix": false
+  },
+  "wsnmp32.dll": {
+   "size": 114407,
+   "unix": false
+  },
+  "wsock32.dll": {
+   "size": 184174,
+   "unix": false
+  },
+  "wtsapi32.dll": {
+   "size": 200718,
+   "unix": false
+  },
+  "wuapi.dll": {
+   "size": 830749,
+   "unix": false
+  },
+  "wuaueng.dll": {
+   "size": 86120,
+   "unix": false
+  },
+  "wuauserv.exe": {
+   "size": 113846,
+   "unix": false
+  },
+  "wusa.exe": {
+   "size": 342724,
+   "unix": false
+  },
+  "x3daudio1_0.dll": {
+   "size": 137898,
+   "unix": false
+  },
+  "x3daudio1_1.dll": {
+   "size": 137898,
+   "unix": false
+  },
+  "x3daudio1_2.dll": {
+   "size": 137898,
+   "unix": false
+  },
+  "x3daudio1_3.dll": {
+   "size": 137878,
+   "unix": false
+  },
+  "x3daudio1_4.dll": {
+   "size": 137878,
+   "unix": false
+  },
+  "x3daudio1_5.dll": {
+   "size": 137878,
+   "unix": false
+  },
+  "x3daudio1_6.dll": {
+   "size": 137878,
+   "unix": false
+  },
+  "x3daudio1_7.dll": {
+   "size": 137878,
+   "unix": false
+  },
+  "xactengine2_0.dll": {
+   "size": 1546972,
+   "unix": false
+  },
+  "xactengine2_4.dll": {
+   "size": 1546972,
+   "unix": false
+  },
+  "xactengine2_7.dll": {
+   "size": 1583730,
+   "unix": false
+  },
+  "xactengine2_9.dll": {
+   "size": 1583730,
+   "unix": false
+  },
+  "xactengine3_0.dll": {
+   "size": 1587214,
+   "unix": false
+  },
+  "xactengine3_1.dll": {
+   "size": 1587214,
+   "unix": false
+  },
+  "xactengine3_2.dll": {
+   "size": 1587214,
+   "unix": false
+  },
+  "xactengine3_3.dll": {
+   "size": 1587214,
+   "unix": false
+  },
+  "xactengine3_4.dll": {
+   "size": 1587214,
+   "unix": false
+  },
+  "xactengine3_5.dll": {
+   "size": 1587533,
+   "unix": false
+  },
+  "xactengine3_6.dll": {
+   "size": 1587533,
+   "unix": false
+  },
+  "xactengine3_7.dll": {
+   "size": 1587533,
+   "unix": false
+  },
+  "xapofx1_1.dll": {
+   "size": 241058,
+   "unix": false
+  },
+  "xapofx1_2.dll": {
+   "size": 236926,
+   "unix": false
+  },
+  "xapofx1_3.dll": {
+   "size": 241058,
+   "unix": false
+  },
+  "xapofx1_4.dll": {
+   "size": 236926,
+   "unix": false
+  },
+  "xapofx1_5.dll": {
+   "size": 236926,
+   "unix": false
+  },
+  "xaudio2_0.dll": {
+   "size": 1320695,
+   "unix": false
+  },
+  "xaudio2_1.dll": {
+   "size": 1320750,
+   "unix": false
+  },
+  "xaudio2_2.dll": {
+   "size": 1320750,
+   "unix": false
+  },
+  "xaudio2_3.dll": {
+   "size": 1320750,
+   "unix": false
+  },
+  "xaudio2_4.dll": {
+   "size": 1325959,
+   "unix": false
+  },
+  "xaudio2_5.dll": {
+   "size": 1325959,
+   "unix": false
+  },
+  "xaudio2_6.dll": {
+   "size": 1325959,
+   "unix": false
+  },
+  "xaudio2_7.dll": {
+   "size": 1330703,
+   "unix": false
+  },
+  "xaudio2_8.dll": {
+   "size": 1421557,
+   "unix": false
+  },
+  "xaudio2_9.dll": {
+   "size": 1425689,
+   "unix": false
+  },
+  "xcopy.exe": {
+   "size": 337779,
+   "unix": false
+  },
+  "xinput1_1.dll": {
+   "size": 224968,
+   "unix": false
+  },
+  "xinput1_2.dll": {
+   "size": 224968,
+   "unix": false
+  },
+  "xinput1_3.dll": {
+   "size": 225170,
+   "unix": false
+  },
+  "xinput1_4.dll": {
+   "size": 230279,
+   "unix": false
+  },
+  "xinput9_1_0.dll": {
+   "size": 106115,
+   "unix": false
+  },
+  "xinputuap.dll": {
+   "size": 230174,
+   "unix": false
+  },
+  "xmllite.dll": {
+   "size": 571817,
+   "unix": false
+  },
+  "xolehlp.dll": {
+   "size": 527531,
+   "unix": false
+  },
+  "xpsprint.dll": {
+   "size": 66818,
+   "unix": false
+  },
+  "xpssvcs.dll": {
+   "size": 63188,
+   "unix": false
+  }
+ },
+ "x86_64": {
+  "acledit.dll": {
+   "size": 117004,
+   "unix": false
+  },
+  "aclui.dll": {
+   "size": 177461,
+   "unix": false
+  },
+  "activeds.dll": {
+   "size": 726794,
+   "unix": false
+  },
+  "activeds.tlb": {
+   "size": 53248,
+   "unix": false
+  },
+  "actxprxy.dll": {
+   "size": 1139292,
+   "unix": false
+  },
+  "adsldp.dll": {
+   "size": 560262,
+   "unix": false
+  },
+  "adsldpc.dll": {
+   "size": 113137,
+   "unix": false
+  },
+  "advapi32.dll": {
+   "size": 1455073,
+   "unix": false
+  },
+  "advpack.dll": {
+   "size": 493580,
+   "unix": false
+  },
+  "amsi.dll": {
+   "size": 150554,
+   "unix": false
+  },
+  "amstream.dll": {
+   "size": 1367138,
+   "unix": false
+  },
+  "apisetschema.dll": {
+   "size": 90112,
+   "unix": false
+  },
+  "apphelp.dll": {
+   "size": 178294,
+   "unix": false
+  },
+  "appwiz.cpl": {
+   "size": 942457,
+   "unix": false
+  },
+  "appxdeploymentclient.dll": {
+   "size": 410299,
+   "unix": false
+  },
+  "arp.exe": {
+   "size": 138009,
+   "unix": false
+  },
+  "aspnet_regiis.exe": {
+   "size": 138019,
+   "unix": false
+  },
+  "atl.dll": {
+   "size": 1028794,
+   "unix": false
+  },
+  "atl100.dll": {
+   "size": 962801,
+   "unix": false
+  },
+  "atl110.dll": {
+   "size": 962801,
+   "unix": false
+  },
+  "atl80.dll": {
+   "size": 981097,
+   "unix": false
+  },
+  "atl90.dll": {
+   "size": 966897,
+   "unix": false
+  },
+  "atlthunk.dll": {
+   "size": 113487,
+   "unix": false
+  },
+  "atmlib.dll": {
+   "size": 127891,
+   "unix": false
+  },
+  "attrib.exe": {
+   "size": 210285,
+   "unix": false
+  },
+  "authz.dll": {
+   "size": 139480,
+   "unix": false
+  },
+  "avicap32.dll": {
+   "size": 155802,
+   "unix": true
+  },
+  "avifil32.dll": {
+   "size": 1346558,
+   "unix": false
+  },
+  "avrt.dll": {
+   "size": 133141,
+   "unix": false
+  },
+  "bcp47langs.dll": {
+   "size": 138214,
+   "unix": false
+  },
+  "bcrypt.dll": {
+   "size": 584893,
+   "unix": true
+  },
+  "bcryptprimitives.dll": {
+   "size": 71335,
+   "unix": false
+  },
+  "bluetoothapis.dll": {
+   "size": 313507,
+   "unix": false
+  },
+  "browseui.dll": {
+   "size": 730767,
+   "unix": false
+  },
+  "bthprops.cpl": {
+   "size": 90831,
+   "unix": false
+  },
+  "cabarc.exe": {
+   "size": 213992,
+   "unix": false
+  },
+  "cabinet.dll": {
+   "size": 598361,
+   "unix": false
+  },
+  "cacls.exe": {
+   "size": 138619,
+   "unix": false
+  },
+  "cards.dll": {
+   "size": 385641,
+   "unix": false
+  },
+  "cdosys.dll": {
+   "size": 134571,
+   "unix": false
+  },
+  "certutil.exe": {
+   "size": 142652,
+   "unix": false
+  },
+  "cfgmgr32.dll": {
+   "size": 364340,
+   "unix": false
+  },
+  "clock.exe": {
+   "size": 168945,
+   "unix": false
+  },
+  "clusapi.dll": {
+   "size": 146542,
+   "unix": false
+  },
+  "cmd.exe": {
+   "size": 1979905,
+   "unix": false
+  },
+  "cng.sys": {
+   "size": 97515,
+   "unix": false
+  },
+  "colorcnv.dll": {
+   "size": 690473,
+   "unix": false
+  },
+  "combase.dll": {
+   "size": 2169396,
+   "unix": false
+  },
+  "comcat.dll": {
+   "size": 94118,
+   "unix": false
+  },
+  "comctl32.dll": {
+   "size": 5218272,
+   "unix": false
+  },
+  "comctl32_v6.dll": {
+   "size": 6496970,
+   "unix": false
+  },
+  "comdlg32.dll": {
+   "size": 2869076,
+   "unix": false
+  },
+  "coml2.dll": {
+   "size": 595682,
+   "unix": false
+  },
+  "compstui.dll": {
+   "size": 164716,
+   "unix": false
+  },
+  "comsvcs.dll": {
+   "size": 715467,
+   "unix": false
+  },
+  "concrt140.dll": {
+   "size": 868174,
+   "unix": false
+  },
+  "conhost.exe": {
+   "size": 861705,
+   "unix": false
+  },
+  "connect.dll": {
+   "size": 118374,
+   "unix": false
+  },
+  "control.exe": {
+   "size": 92641,
+   "unix": false
+  },
+  "coremessaging.dll": {
+   "size": 360285,
+   "unix": false
+  },
+  "credui.dll": {
+   "size": 352845,
+   "unix": false
+  },
+  "crtdll.dll": {
+   "size": 3931731,
+   "unix": false
+  },
+  "crypt32.dll": {
+   "size": 4317613,
+   "unix": true
+  },
+  "cryptbase.dll": {
+   "size": 170764,
+   "unix": false
+  },
+  "cryptdlg.dll": {
+   "size": 247170,
+   "unix": false
+  },
+  "cryptdll.dll": {
+   "size": 76116,
+   "unix": false
+  },
+  "cryptext.dll": {
+   "size": 168353,
+   "unix": false
+  },
+  "cryptnet.dll": {
+   "size": 412581,
+   "unix": false
+  },
+  "cryptowinrt.dll": {
+   "size": 403960,
+   "unix": false
+  },
+  "cryptsp.dll": {
+   "size": 167759,
+   "unix": false
+  },
+  "cryptui.dll": {
+   "size": 1948200,
+   "unix": false
+  },
+  "cryptxml.dll": {
+   "size": 136700,
+   "unix": false
+  },
+  "cscript.exe": {
+   "size": 734589,
+   "unix": false
+  },
+  "ctapi32.dll": {
+   "size": 128267,
+   "unix": true
+  },
+  "ctl3d32.dll": {
+   "size": 91386,
+   "unix": false
+  },
+  "d2d1.dll": {
+   "size": 5932819,
+   "unix": false
+  },
+  "d3d10.dll": {
+   "size": 1704884,
+   "unix": false
+  },
+  "d3d10_1.dll": {
+   "size": 227998,
+   "unix": false
+  },
+  "d3d10core.dll": {
+   "size": 187425,
+   "unix": false
+  },
+  "d3d11.dll": {
+   "size": 4524068,
+   "unix": false
+  },
+  "d3d12.dll": {
+   "size": 710622,
+   "unix": false
+  },
+  "d3d12core.dll": {
+   "size": 75231,
+   "unix": false
+  },
+  "d3d8.dll": {
+   "size": 1350710,
+   "unix": false
+  },
+  "d3d8thk.dll": {
+   "size": 85055,
+   "unix": false
+  },
+  "d3d9.dll": {
+   "size": 2063917,
+   "unix": false
+  },
+  "d3dcompiler_33.dll": {
+   "size": 1071683,
+   "unix": false
+  },
+  "d3dcompiler_34.dll": {
+   "size": 1071683,
+   "unix": false
+  },
+  "d3dcompiler_35.dll": {
+   "size": 1071683,
+   "unix": false
+  },
+  "d3dcompiler_36.dll": {
+   "size": 1071683,
+   "unix": false
+  },
+  "d3dcompiler_37.dll": {
+   "size": 1071683,
+   "unix": false
+  },
+  "d3dcompiler_38.dll": {
+   "size": 1071782,
+   "unix": false
+  },
+  "d3dcompiler_39.dll": {
+   "size": 1071782,
+   "unix": false
+  },
+  "d3dcompiler_40.dll": {
+   "size": 1071835,
+   "unix": false
+  },
+  "d3dcompiler_41.dll": {
+   "size": 1071886,
+   "unix": false
+  },
+  "d3dcompiler_42.dll": {
+   "size": 1071886,
+   "unix": false
+  },
+  "d3dcompiler_43.dll": {
+   "size": 1120100,
+   "unix": false
+  },
+  "d3dcompiler_46.dll": {
+   "size": 1072806,
+   "unix": false
+  },
+  "d3dcompiler_47.dll": {
+   "size": 1120968,
+   "unix": false
+  },
+  "d3dim.dll": {
+   "size": 80440,
+   "unix": false
+  },
+  "d3dim700.dll": {
+   "size": 80879,
+   "unix": false
+  },
+  "d3drm.dll": {
+   "size": 2663917,
+   "unix": false
+  },
+  "d3dx10_33.dll": {
+   "size": 86947,
+   "unix": false
+  },
+  "d3dx10_34.dll": {
+   "size": 86947,
+   "unix": false
+  },
+  "d3dx10_35.dll": {
+   "size": 86947,
+   "unix": false
+  },
+  "d3dx10_36.dll": {
+   "size": 86947,
+   "unix": false
+  },
+  "d3dx10_37.dll": {
+   "size": 92346,
+   "unix": false
+  },
+  "d3dx10_38.dll": {
+   "size": 92245,
+   "unix": false
+  },
+  "d3dx10_39.dll": {
+   "size": 92556,
+   "unix": false
+  },
+  "d3dx10_40.dll": {
+   "size": 82851,
+   "unix": false
+  },
+  "d3dx10_41.dll": {
+   "size": 82851,
+   "unix": false
+  },
+  "d3dx10_42.dll": {
+   "size": 82851,
+   "unix": false
+  },
+  "d3dx10_43.dll": {
+   "size": 1751238,
+   "unix": false
+  },
+  "d3dx11_42.dll": {
+   "size": 139817,
+   "unix": false
+  },
+  "d3dx11_43.dll": {
+   "size": 757535,
+   "unix": false
+  },
+  "d3dx9_24.dll": {
+   "size": 4226553,
+   "unix": false
+  },
+  "d3dx9_25.dll": {
+   "size": 4226854,
+   "unix": false
+  },
+  "d3dx9_26.dll": {
+   "size": 4235801,
+   "unix": false
+  },
+  "d3dx9_27.dll": {
+   "size": 4240170,
+   "unix": false
+  },
+  "d3dx9_28.dll": {
+   "size": 4240430,
+   "unix": false
+  },
+  "d3dx9_29.dll": {
+   "size": 4240430,
+   "unix": false
+  },
+  "d3dx9_30.dll": {
+   "size": 4240430,
+   "unix": false
+  },
+  "d3dx9_31.dll": {
+   "size": 4240163,
+   "unix": false
+  },
+  "d3dx9_32.dll": {
+   "size": 4240515,
+   "unix": false
+  },
+  "d3dx9_33.dll": {
+   "size": 4240515,
+   "unix": false
+  },
+  "d3dx9_34.dll": {
+   "size": 4240515,
+   "unix": false
+  },
+  "d3dx9_35.dll": {
+   "size": 4240515,
+   "unix": false
+  },
+  "d3dx9_36.dll": {
+   "size": 4240619,
+   "unix": false
+  },
+  "d3dx9_37.dll": {
+   "size": 4240619,
+   "unix": false
+  },
+  "d3dx9_38.dll": {
+   "size": 4240619,
+   "unix": false
+  },
+  "d3dx9_39.dll": {
+   "size": 4240619,
+   "unix": false
+  },
+  "d3dx9_40.dll": {
+   "size": 4240619,
+   "unix": false
+  },
+  "d3dx9_41.dll": {
+   "size": 4240619,
+   "unix": false
+  },
+  "d3dx9_42.dll": {
+   "size": 4239009,
+   "unix": false
+  },
+  "d3dx9_43.dll": {
+   "size": 4239009,
+   "unix": false
+  },
+  "d3dxof.dll": {
+   "size": 861633,
+   "unix": false
+  },
+  "dataexchange.dll": {
+   "size": 311955,
+   "unix": false
+  },
+  "davclnt.dll": {
+   "size": 123422,
+   "unix": false
+  },
+  "dbgeng.dll": {
+   "size": 1134546,
+   "unix": false
+  },
+  "dbghelp.dll": {
+   "size": 4016268,
+   "unix": false
+  },
+  "dciman32.dll": {
+   "size": 122670,
+   "unix": false
+  },
+  "dcomp.dll": {
+   "size": 144734,
+   "unix": false
+  },
+  "ddraw.dll": {
+   "size": 3513048,
+   "unix": false
+  },
+  "ddrawex.dll": {
+   "size": 970734,
+   "unix": false
+  },
+  "desk.cpl": {
+   "size": 264363,
+   "unix": false
+  },
+  "devenum.dll": {
+   "size": 897731,
+   "unix": false
+  },
+  "dhcpcsvc.dll": {
+   "size": 165984,
+   "unix": false
+  },
+  "dhcpcsvc6.dll": {
+   "size": 77266,
+   "unix": false
+  },
+  "dhtmled.ocx": {
+   "size": 984769,
+   "unix": false
+  },
+  "diasymreader.dll": {
+   "size": 684868,
+   "unix": false
+  },
+  "difxapi.dll": {
+   "size": 132547,
+   "unix": false
+  },
+  "dinput.dll": {
+   "size": 1612336,
+   "unix": false
+  },
+  "dinput8.dll": {
+   "size": 1611788,
+   "unix": false
+  },
+  "directmanipulation.dll": {
+   "size": 695635,
+   "unix": false
+  },
+  "dism.exe": {
+   "size": 142142,
+   "unix": false
+  },
+  "dispex.dll": {
+   "size": 596166,
+   "unix": false
+  },
+  "dllhost.exe": {
+   "size": 564532,
+   "unix": false
+  },
+  "dmband.dll": {
+   "size": 480673,
+   "unix": false
+  },
+  "dmcompos.dll": {
+   "size": 878782,
+   "unix": false
+  },
+  "dmime.dll": {
+   "size": 2222525,
+   "unix": false
+  },
+  "dmloader.dll": {
+   "size": 973091,
+   "unix": false
+  },
+  "dmscript.dll": {
+   "size": 828861,
+   "unix": false
+  },
+  "dmstyle.dll": {
+   "size": 1247986,
+   "unix": false
+  },
+  "dmsynth.dll": {
+   "size": 2852207,
+   "unix": false
+  },
+  "dmusic.dll": {
+   "size": 1349693,
+   "unix": false
+  },
+  "dmusic32.dll": {
+   "size": 115651,
+   "unix": false
+  },
+  "dnsapi.dll": {
+   "size": 371294,
+   "unix": true
+  },
+  "dplay.dll": {
+   "size": 65444,
+   "unix": false
+  },
+  "dplaysvr.exe": {
+   "size": 142146,
+   "unix": false
+  },
+  "dplayx.dll": {
+   "size": 1687949,
+   "unix": false
+  },
+  "dpnaddr.dll": {
+   "size": 65444,
+   "unix": false
+  },
+  "dpnet.dll": {
+   "size": 957442,
+   "unix": false
+  },
+  "dpnhpast.dll": {
+   "size": 138812,
+   "unix": false
+  },
+  "dpnhupnp.dll": {
+   "size": 139026,
+   "unix": false
+  },
+  "dpnlobby.dll": {
+   "size": 65444,
+   "unix": false
+  },
+  "dpnsvr.exe": {
+   "size": 142144,
+   "unix": false
+  },
+  "dpvoice.dll": {
+   "size": 635394,
+   "unix": false
+  },
+  "dpvsetup.exe": {
+   "size": 142146,
+   "unix": false
+  },
+  "dpwsockx.dll": {
+   "size": 286488,
+   "unix": false
+  },
+  "drmclien.dll": {
+   "size": 97154,
+   "unix": false
+  },
+  "dsdmo.dll": {
+   "size": 775548,
+   "unix": false
+  },
+  "dsound.dll": {
+   "size": 1813518,
+   "unix": false
+  },
+  "dsquery.dll": {
+   "size": 571177,
+   "unix": false
+  },
+  "dssenh.dll": {
+   "size": 259710,
+   "unix": false
+  },
+  "dsuiext.dll": {
+   "size": 574656,
+   "unix": false
+  },
+  "dswave.dll": {
+   "size": 728924,
+   "unix": false
+  },
+  "dwmapi.dll": {
+   "size": 179998,
+   "unix": false
+  },
+  "dwrite.dll": {
+   "size": 3678069,
+   "unix": true
+  },
+  "dx8vb.dll": {
+   "size": 565979,
+   "unix": false
+  },
+  "dxcore.dll": {
+   "size": 207260,
+   "unix": false
+  },
+  "dxdiag.exe": {
+   "size": 327168,
+   "unix": false
+  },
+  "dxdiagn.dll": {
+   "size": 638214,
+   "unix": false
+  },
+  "dxgi.dll": {
+   "size": 1798710,
+   "unix": false
+  },
+  "dxtrans.dll": {
+   "size": 140434,
+   "unix": false
+  },
+  "dxva2.dll": {
+   "size": 711806,
+   "unix": false
+  },
+  "eject.exe": {
+   "size": 139811,
+   "unix": false
+  },
+  "esent.dll": {
+   "size": 145791,
+   "unix": false
+  },
+  "evr.dll": {
+   "size": 2381103,
+   "unix": false
+  },
+  "expand.exe": {
+   "size": 94497,
+   "unix": false
+  },
+  "explorer.exe": {
+   "size": 966755,
+   "unix": false
+  },
+  "explorerframe.dll": {
+   "size": 760778,
+   "unix": false
+  },
+  "extrac32.exe": {
+   "size": 168659,
+   "unix": false
+  },
+  "faultrep.dll": {
+   "size": 138813,
+   "unix": false
+  },
+  "fc.exe": {
+   "size": 171367,
+   "unix": false
+  },
+  "feclient.dll": {
+   "size": 80294,
+   "unix": false
+  },
+  "find.exe": {
+   "size": 157565,
+   "unix": false
+  },
+  "findstr.exe": {
+   "size": 169634,
+   "unix": false
+  },
+  "fltlib.dll": {
+   "size": 137312,
+   "unix": false
+  },
+  "fltmgr.sys": {
+   "size": 200643,
+   "unix": false
+  },
+  "fntcache.dll": {
+   "size": 136432,
+   "unix": false
+  },
+  "fontsub.dll": {
+   "size": 116821,
+   "unix": false
+  },
+  "fsutil.exe": {
+   "size": 154528,
+   "unix": false
+  },
+  "fusion.dll": {
+   "size": 409231,
+   "unix": false
+  },
+  "fwpuclnt.dll": {
+   "size": 158985,
+   "unix": false
+  },
+  "gameinput.dll": {
+   "size": 140949,
+   "unix": false
+  },
+  "gameux.dll": {
+   "size": 842326,
+   "unix": false
+  },
+  "gamingtcui.dll": {
+   "size": 127645,
+   "unix": false
+  },
+  "gdi32.dll": {
+   "size": 3144712,
+   "unix": false
+  },
+  "gdiplus.dll": {
+   "size": 3396196,
+   "unix": false
+  },
+  "geolocation.dll": {
+   "size": 225034,
+   "unix": false
+  },
+  "glu32.dll": {
+   "size": 819806,
+   "unix": false
+  },
+  "gphoto2.ds": {
+   "size": 1298880,
+   "unix": true
+  },
+  "gpkcsp.dll": {
+   "size": 96796,
+   "unix": false
+  },
+  "graphicscapture.dll": {
+   "size": 269160,
+   "unix": false
+  },
+  "hal.dll": {
+   "size": 141710,
+   "unix": false
+  },
+  "hh.exe": {
+   "size": 160477,
+   "unix": false
+  },
+  "hhctrl.ocx": {
+   "size": 1386009,
+   "unix": false
+  },
+  "hid.dll": {
+   "size": 258679,
+   "unix": false
+  },
+  "hidclass.sys": {
+   "size": 308256,
+   "unix": false
+  },
+  "hidparse.sys": {
+   "size": 291569,
+   "unix": false
+  },
+  "hlink.dll": {
+   "size": 886972,
+   "unix": false
+  },
+  "hnetcfg.dll": {
+   "size": 1031629,
+   "unix": false
+  },
+  "hostname.exe": {
+   "size": 116298,
+   "unix": false
+  },
+  "hrtfapo.dll": {
+   "size": 120868,
+   "unix": false
+  },
+  "http.sys": {
+   "size": 260650,
+   "unix": false
+  },
+  "httpapi.dll": {
+   "size": 231184,
+   "unix": false
+  },
+  "hvsimanagementapi.dll": {
+   "size": 188490,
+   "unix": false
+  },
+  "ia2comproxy.dll": {
+   "size": 175965,
+   "unix": false
+  },
+  "icacls.exe": {
+   "size": 138620,
+   "unix": false
+  },
+  "iccvid.dll": {
+   "size": 189645,
+   "unix": false
+  },
+  "icinfo.exe": {
+   "size": 89367,
+   "unix": false
+  },
+  "icmp.dll": {
+   "size": 8192,
+   "unix": false
+  },
+  "icmui.dll": {
+   "size": 116475,
+   "unix": false
+  },
+  "ieframe.dll": {
+   "size": 3872538,
+   "unix": false
+  },
+  "ieproxy.dll": {
+   "size": 518122,
+   "unix": false
+  },
+  "iertutil.dll": {
+   "size": 214177,
+   "unix": false
+  },
+  "iexplore.exe": {
+   "size": 236908,
+   "unix": false
+  },
+  "imaadp32.acm": {
+   "size": 168852,
+   "unix": false
+  },
+  "imagehlp.dll": {
+   "size": 360995,
+   "unix": false
+  },
+  "imm32.dll": {
+   "size": 642646,
+   "unix": false
+  },
+  "inetcomm.dll": {
+   "size": 1725672,
+   "unix": false
+  },
+  "inetcpl.cpl": {
+   "size": 591970,
+   "unix": false
+  },
+  "inetmib1.dll": {
+   "size": 223665,
+   "unix": false
+  },
+  "infosoft.dll": {
+   "size": 559309,
+   "unix": false
+  },
+  "initpki.dll": {
+   "size": 94765,
+   "unix": false
+  },
+  "inkobj.dll": {
+   "size": 134571,
+   "unix": false
+  },
+  "inseng.dll": {
+   "size": 595661,
+   "unix": false
+  },
+  "ipconfig.exe": {
+   "size": 139926,
+   "unix": false
+  },
+  "iphlpapi.dll": {
+   "size": 956053,
+   "unix": false
+  },
+  "iprop.dll": {
+   "size": 61312,
+   "unix": false
+  },
+  "ir50_32.dll": {
+   "size": 224726,
+   "unix": false
+  },
+  "irprops.cpl": {
+   "size": 85827,
+   "unix": false
+  },
+  "itircl.dll": {
+   "size": 95352,
+   "unix": false
+  },
+  "itss.dll": {
+   "size": 945457,
+   "unix": false
+  },
+  "joy.cpl": {
+   "size": 643144,
+   "unix": false
+  },
+  "jscript.dll": {
+   "size": 5077635,
+   "unix": false
+  },
+  "jsproxy.dll": {
+   "size": 588948,
+   "unix": false
+  },
+  "kerberos.dll": {
+   "size": 244554,
+   "unix": true
+  },
+  "kernel32.dll": {
+   "size": 2480050,
+   "unix": false
+  },
+  "kernelbase.dll": {
+   "size": 7305469,
+   "unix": false
+  },
+  "klist.exe": {
+   "size": 170371,
+   "unix": false
+  },
+  "ksecdd.sys": {
+   "size": 163075,
+   "unix": false
+  },
+  "ksuser.dll": {
+   "size": 79554,
+   "unix": false
+  },
+  "ktmw32.dll": {
+   "size": 91400,
+   "unix": false
+  },
+  "l3codeca.acm": {
+   "size": 1376536,
+   "unix": false
+  },
+  "loadperf.dll": {
+   "size": 136986,
+   "unix": false
+  },
+  "localspl.dll": {
+   "size": 756629,
+   "unix": true
+  },
+  "localui.dll": {
+   "size": 214003,
+   "unix": false
+  },
+  "lodctr.exe": {
+   "size": 85651,
+   "unix": false
+  },
+  "lz32.dll": {
+   "size": 12288,
+   "unix": false
+  },
+  "magnification.dll": {
+   "size": 122541,
+   "unix": false
+  },
+  "makecab.exe": {
+   "size": 138013,
+   "unix": false
+  },
+  "mapi32.dll": {
+   "size": 970080,
+   "unix": false
+  },
+  "mapistub.dll": {
+   "size": 92784,
+   "unix": false
+  },
+  "mciavi32.dll": {
+   "size": 391091,
+   "unix": false
+  },
+  "mcicda.dll": {
+   "size": 237213,
+   "unix": false
+  },
+  "mciqtz32.dll": {
+   "size": 351074,
+   "unix": false
+  },
+  "mciseq.dll": {
+   "size": 235467,
+   "unix": false
+  },
+  "mciwave.dll": {
+   "size": 262064,
+   "unix": false
+  },
+  "mf.dll": {
+   "size": 3286149,
+   "unix": false
+  },
+  "mf3216.dll": {
+   "size": 75233,
+   "unix": false
+  },
+  "mfasfsrcsnk.dll": {
+   "size": 917539,
+   "unix": false
+  },
+  "mferror.dll": {
+   "size": 229376,
+   "unix": false
+  },
+  "mfh264enc.dll": {
+   "size": 611239,
+   "unix": false
+  },
+  "mfmediaengine.dll": {
+   "size": 1273975,
+   "unix": false
+  },
+  "mfmp4srcsnk.dll": {
+   "size": 974499,
+   "unix": false
+  },
+  "mfplat.dll": {
+   "size": 2750970,
+   "unix": false
+  },
+  "mfplay.dll": {
+   "size": 876000,
+   "unix": false
+  },
+  "mfreadwrite.dll": {
+   "size": 1093043,
+   "unix": false
+  },
+  "mfsrcsnk.dll": {
+   "size": 1149637,
+   "unix": false
+  },
+  "mgmtapi.dll": {
+   "size": 117305,
+   "unix": false
+  },
+  "midimap.dll": {
+   "size": 169833,
+   "unix": false
+  },
+  "mlang.dll": {
+   "size": 913898,
+   "unix": false
+  },
+  "mmcndmgr.dll": {
+   "size": 541184,
+   "unix": false
+  },
+  "mmdevapi.dll": {
+   "size": 1315013,
+   "unix": false
+  },
+  "mofcomp.exe": {
+   "size": 124811,
+   "unix": false
+  },
+  "mouhid.sys": {
+   "size": 187165,
+   "unix": false
+  },
+  "mountmgr.sys": {
+   "size": 422137,
+   "unix": true
+  },
+  "mp3dmod.dll": {
+   "size": 2015245,
+   "unix": false
+  },
+  "mpr.dll": {
+   "size": 496617,
+   "unix": false
+  },
+  "mprapi.dll": {
+   "size": 156233,
+   "unix": false
+  },
+  "msacm32.dll": {
+   "size": 577130,
+   "unix": false
+  },
+  "msacm32.drv": {
+   "size": 224136,
+   "unix": false
+  },
+  "msado15.dll": {
+   "size": 1337870,
+   "unix": false
+  },
+  "msadp32.acm": {
+   "size": 160273,
+   "unix": false
+  },
+  "msasn1.dll": {
+   "size": 190571,
+   "unix": false
+  },
+  "msauddecmft.dll": {
+   "size": 611272,
+   "unix": false
+  },
+  "mscat32.dll": {
+   "size": 75549,
+   "unix": false
+  },
+  "mscms.dll": {
+   "size": 2308070,
+   "unix": false
+  },
+  "mscoree.dll": {
+   "size": 1407631,
+   "unix": false
+  },
+  "mscorwks.dll": {
+   "size": 89210,
+   "unix": false
+  },
+  "msctf.dll": {
+   "size": 1579880,
+   "unix": false
+  },
+  "msctfmonitor.dll": {
+   "size": 139944,
+   "unix": false
+  },
+  "msctfp.dll": {
+   "size": 223366,
+   "unix": false
+  },
+  "msdaps.dll": {
+   "size": 1177035,
+   "unix": false
+  },
+  "msdasql.dll": {
+   "size": 879573,
+   "unix": false
+  },
+  "msdelta.dll": {
+   "size": 76471,
+   "unix": false
+  },
+  "msdmo.dll": {
+   "size": 588131,
+   "unix": false
+  },
+  "msdrm.dll": {
+   "size": 152417,
+   "unix": false
+  },
+  "msftedit.dll": {
+   "size": 460145,
+   "unix": false
+  },
+  "msg711.acm": {
+   "size": 140371,
+   "unix": false
+  },
+  "msgsm32.acm": {
+   "size": 285693,
+   "unix": false
+  },
+  "mshta.exe": {
+   "size": 130283,
+   "unix": false
+  },
+  "mshtml.dll": {
+   "size": 29739251,
+   "unix": false
+  },
+  "mshtml.tlb": {
+   "size": 1241088,
+   "unix": false
+  },
+  "msi.dll": {
+   "size": 6929514,
+   "unix": false
+  },
+  "msidb.exe": {
+   "size": 192049,
+   "unix": false
+  },
+  "msident.dll": {
+   "size": 192263,
+   "unix": false
+  },
+  "msiexec.exe": {
+   "size": 327803,
+   "unix": false
+  },
+  "msimg32.dll": {
+   "size": 111135,
+   "unix": false
+  },
+  "msimsg.dll": {
+   "size": 8192,
+   "unix": false
+  },
+  "msimtf.dll": {
+   "size": 659233,
+   "unix": false
+  },
+  "msinfo32.exe": {
+   "size": 144694,
+   "unix": false
+  },
+  "msisip.dll": {
+   "size": 145804,
+   "unix": false
+  },
+  "msisys.ocx": {
+   "size": 134357,
+   "unix": false
+  },
+  "msls31.dll": {
+   "size": 82976,
+   "unix": false
+  },
+  "msmpeg2vdec.dll": {
+   "size": 621966,
+   "unix": false
+  },
+  "msnet32.dll": {
+   "size": 128398,
+   "unix": false
+  },
+  "mspatcha.dll": {
+   "size": 294537,
+   "unix": false
+  },
+  "msports.dll": {
+   "size": 76146,
+   "unix": false
+  },
+  "msrle32.dll": {
+   "size": 239197,
+   "unix": false
+  },
+  "msscript.ocx": {
+   "size": 704142,
+   "unix": false
+  },
+  "mssign32.dll": {
+   "size": 155989,
+   "unix": false
+  },
+  "mssip32.dll": {
+   "size": 95315,
+   "unix": false
+  },
+  "mstask.dll": {
+   "size": 603794,
+   "unix": false
+  },
+  "msttsengine.dll": {
+   "size": 222410,
+   "unix": false
+  },
+  "msv1_0.dll": {
+   "size": 364431,
+   "unix": true
+  },
+  "msvcirt.dll": {
+   "size": 829232,
+   "unix": false
+  },
+  "msvcm80.dll": {
+   "size": 157079,
+   "unix": false
+  },
+  "msvcm90.dll": {
+   "size": 143125,
+   "unix": false
+  },
+  "msvcp100.dll": {
+   "size": 4720716,
+   "unix": false
+  },
+  "msvcp110.dll": {
+   "size": 4845987,
+   "unix": false
+  },
+  "msvcp120.dll": {
+   "size": 4837523,
+   "unix": false
+  },
+  "msvcp120_app.dll": {
+   "size": 346733,
+   "unix": false
+  },
+  "msvcp140.dll": {
+   "size": 4971224,
+   "unix": false
+  },
+  "msvcp140_1.dll": {
+   "size": 132662,
+   "unix": false
+  },
+  "msvcp140_2.dll": {
+   "size": 85552,
+   "unix": false
+  },
+  "msvcp140_atomic_wait.dll": {
+   "size": 152426,
+   "unix": false
+  },
+  "msvcp140_codecvt_ids.dll": {
+   "size": 61972,
+   "unix": false
+  },
+  "msvcp60.dll": {
+   "size": 4079390,
+   "unix": false
+  },
+  "msvcp70.dll": {
+   "size": 4851141,
+   "unix": false
+  },
+  "msvcp71.dll": {
+   "size": 4846066,
+   "unix": false
+  },
+  "msvcp80.dll": {
+   "size": 4896556,
+   "unix": false
+  },
+  "msvcp90.dll": {
+   "size": 4905718,
+   "unix": false
+  },
+  "msvcp_win.dll": {
+   "size": 344353,
+   "unix": false
+  },
+  "msvcr100.dll": {
+   "size": 4751095,
+   "unix": false
+  },
+  "msvcr110.dll": {
+   "size": 4856958,
+   "unix": false
+  },
+  "msvcr120.dll": {
+   "size": 5209583,
+   "unix": false
+  },
+  "msvcr120_app.dll": {
+   "size": 208794,
+   "unix": false
+  },
+  "msvcr70.dll": {
+   "size": 3949742,
+   "unix": false
+  },
+  "msvcr71.dll": {
+   "size": 3954331,
+   "unix": false
+  },
+  "msvcr80.dll": {
+   "size": 4243899,
+   "unix": false
+  },
+  "msvcr90.dll": {
+   "size": 4238262,
+   "unix": false
+  },
+  "msvcrt.dll": {
+   "size": 4137985,
+   "unix": false
+  },
+  "msvcrt20.dll": {
+   "size": 129669,
+   "unix": false
+  },
+  "msvcrt40.dll": {
+   "size": 114560,
+   "unix": false
+  },
+  "msvcrtd.dll": {
+   "size": 3969121,
+   "unix": false
+  },
+  "msvdsp.dll": {
+   "size": 310780,
+   "unix": false
+  },
+  "msvfw32.dll": {
+   "size": 560716,
+   "unix": false
+  },
+  "msvidc32.dll": {
+   "size": 162468,
+   "unix": false
+  },
+  "msvproc.dll": {
+   "size": 611336,
+   "unix": false
+  },
+  "mswsock.dll": {
+   "size": 137227,
+   "unix": false
+  },
+  "msxml.dll": {
+   "size": 130982,
+   "unix": false
+  },
+  "msxml2.dll": {
+   "size": 126886,
+   "unix": false
+  },
+  "msxml3.dll": {
+   "size": 14091938,
+   "unix": false
+  },
+  "msxml4.dll": {
+   "size": 192422,
+   "unix": false
+  },
+  "msxml6.dll": {
+   "size": 188326,
+   "unix": false
+  },
+  "mtxdm.dll": {
+   "size": 490064,
+   "unix": false
+  },
+  "ncrypt.dll": {
+   "size": 200826,
+   "unix": false
+  },
+  "nddeapi.dll": {
+   "size": 166752,
+   "unix": false
+  },
+  "ndis.sys": {
+   "size": 230210,
+   "unix": false
+  },
+  "net.exe": {
+   "size": 247151,
+   "unix": false
+  },
+  "netapi32.dll": {
+   "size": 748854,
+   "unix": true
+  },
+  "netcfgx.dll": {
+   "size": 579555,
+   "unix": false
+  },
+  "netio.sys": {
+   "size": 342448,
+   "unix": false
+  },
+  "netprofm.dll": {
+   "size": 392932,
+   "unix": false
+  },
+  "netsh.exe": {
+   "size": 138011,
+   "unix": false
+  },
+  "netstat.exe": {
+   "size": 201964,
+   "unix": false
+  },
+  "netutils.dll": {
+   "size": 148440,
+   "unix": false
+  },
+  "newdev.dll": {
+   "size": 146166,
+   "unix": false
+  },
+  "ngen.exe": {
+   "size": 142142,
+   "unix": false
+  },
+  "ninput.dll": {
+   "size": 137272,
+   "unix": false
+  },
+  "normaliz.dll": {
+   "size": 8192,
+   "unix": false
+  },
+  "notepad.exe": {
+   "size": 501579,
+   "unix": false
+  },
+  "npmshtml.dll": {
+   "size": 74847,
+   "unix": false
+  },
+  "npptools.dll": {
+   "size": 80920,
+   "unix": false
+  },
+  "nsi.dll": {
+   "size": 173284,
+   "unix": false
+  },
+  "nsiproxy.sys": {
+   "size": 172096,
+   "unix": true
+  },
+  "ntdll.dll": {
+   "size": 4511235,
+   "unix": true
+  },
+  "ntdsapi.dll": {
+   "size": 193661,
+   "unix": false
+  },
+  "ntoskrnl.exe": {
+   "size": 1871005,
+   "unix": false
+  },
+  "ntprint.dll": {
+   "size": 139422,
+   "unix": false
+  },
+  "objsel.dll": {
+   "size": 552529,
+   "unix": false
+  },
+  "odbc32.dll": {
+   "size": 1133453,
+   "unix": true
+  },
+  "odbcbcp.dll": {
+   "size": 77661,
+   "unix": false
+  },
+  "odbccp32.dll": {
+   "size": 333461,
+   "unix": false
+  },
+  "odbccu32.dll": {
+   "size": 79272,
+   "unix": false
+  },
+  "ole32.dll": {
+   "size": 4749332,
+   "unix": false
+  },
+  "oleacc.dll": {
+   "size": 732739,
+   "unix": false
+  },
+  "oleaut32.dll": {
+   "size": 3942962,
+   "unix": false
+  },
+  "olecli32.dll": {
+   "size": 140650,
+   "unix": false
+  },
+  "oledb32.dll": {
+   "size": 1281268,
+   "unix": false
+  },
+  "oledlg.dll": {
+   "size": 482058,
+   "unix": false
+  },
+  "olepro32.dll": {
+   "size": 150782,
+   "unix": false
+  },
+  "olesvr32.dll": {
+   "size": 131351,
+   "unix": false
+  },
+  "olethk32.dll": {
+   "size": 80569,
+   "unix": false
+  },
+  "oleview.exe": {
+   "size": 1132769,
+   "unix": false
+  },
+  "opcservices.dll": {
+   "size": 728446,
+   "unix": false
+  },
+  "opencl.dll": {
+   "size": 330377,
+   "unix": true
+  },
+  "opengl32.dll": {
+   "size": 7546195,
+   "unix": true
+  },
+  "packager.dll": {
+   "size": 254083,
+   "unix": false
+  },
+  "pdh.dll": {
+   "size": 289410,
+   "unix": false
+  },
+  "photometadatahandler.dll": {
+   "size": 99484,
+   "unix": false
+  },
+  "pidgen.dll": {
+   "size": 135064,
+   "unix": false
+  },
+  "ping.exe": {
+   "size": 148064,
+   "unix": false
+  },
+  "plugplay.exe": {
+   "size": 171505,
+   "unix": false
+  },
+  "pnputil.exe": {
+   "size": 138013,
+   "unix": false
+  },
+  "powershell.exe": {
+   "size": 139970,
+   "unix": false
+  },
+  "powrprof.dll": {
+   "size": 199826,
+   "unix": false
+  },
+  "presentationfontcache.exe": {
+   "size": 132340,
+   "unix": false
+  },
+  "printui.dll": {
+   "size": 150672,
+   "unix": false
+  },
+  "prntvpt.dll": {
+   "size": 449504,
+   "unix": false
+  },
+  "profapi.dll": {
+   "size": 76499,
+   "unix": false
+  },
+  "progman.exe": {
+   "size": 471341,
+   "unix": false
+  },
+  "propsys.dll": {
+   "size": 899834,
+   "unix": false
+  },
+  "psapi.dll": {
+   "size": 86456,
+   "unix": false
+  },
+  "pstorec.dll": {
+   "size": 229540,
+   "unix": false
+  },
+  "pwrshplugin.dll": {
+   "size": 80404,
+   "unix": false
+  },
+  "qasf.dll": {
+   "size": 1334710,
+   "unix": false
+  },
+  "qcap.dll": {
+   "size": 1718272,
+   "unix": true
+  },
+  "qdvd.dll": {
+   "size": 860243,
+   "unix": false
+  },
+  "qedit.dll": {
+   "size": 1549531,
+   "unix": false
+  },
+  "qmgr.dll": {
+   "size": 923616,
+   "unix": false
+  },
+  "qmgrprxy.dll": {
+   "size": 156092,
+   "unix": false
+  },
+  "quartz.dll": {
+   "size": 3732709,
+   "unix": false
+  },
+  "query.dll": {
+   "size": 158294,
+   "unix": false
+  },
+  "qwave.dll": {
+   "size": 122117,
+   "unix": false
+  },
+  "rasapi32.dll": {
+   "size": 233186,
+   "unix": false
+  },
+  "rasdlg.dll": {
+   "size": 128993,
+   "unix": false
+  },
+  "reg.exe": {
+   "size": 700845,
+   "unix": false
+  },
+  "regapi.dll": {
+   "size": 81982,
+   "unix": false
+  },
+  "regasm.exe": {
+   "size": 138012,
+   "unix": false
+  },
+  "regedit.exe": {
+   "size": 1238878,
+   "unix": false
+  },
+  "regini.exe": {
+   "size": 138012,
+   "unix": false
+  },
+  "regsvcs.exe": {
+   "size": 138013,
+   "unix": false
+  },
+  "regsvr32.exe": {
+   "size": 244958,
+   "unix": false
+  },
+  "resampledmo.dll": {
+   "size": 690870,
+   "unix": false
+  },
+  "resutils.dll": {
+   "size": 82673,
+   "unix": false
+  },
+  "riched20.dll": {
+   "size": 3248488,
+   "unix": false
+  },
+  "riched32.dll": {
+   "size": 122704,
+   "unix": false
+  },
+  "robocopy.exe": {
+   "size": 128944,
+   "unix": false
+  },
+  "rometadata.dll": {
+   "size": 552101,
+   "unix": false
+  },
+  "rpcrt4.dll": {
+   "size": 3411614,
+   "unix": false
+  },
+  "rpcss.exe": {
+   "size": 259610,
+   "unix": false
+  },
+  "rsabase.dll": {
+   "size": 65444,
+   "unix": false
+  },
+  "rsaenh.dll": {
+   "size": 1519258,
+   "unix": false
+  },
+  "rstrtmgr.dll": {
+   "size": 131886,
+   "unix": false
+  },
+  "rtutils.dll": {
+   "size": 135931,
+   "unix": false
+  },
+  "rtworkq.dll": {
+   "size": 283403,
+   "unix": false
+  },
+  "runas.exe": {
+   "size": 140296,
+   "unix": false
+  },
+  "rundll32.exe": {
+   "size": 214358,
+   "unix": false
+  },
+  "samlib.dll": {
+   "size": 81753,
+   "unix": false
+  },
+  "sane.ds": {
+   "size": 553448,
+   "unix": true
+  },
+  "sapi.dll": {
+   "size": 1765656,
+   "unix": false
+  },
+  "sas.dll": {
+   "size": 75125,
+   "unix": false
+  },
+  "sc.exe": {
+   "size": 172929,
+   "unix": false
+  },
+  "scarddlg.dll": {
+   "size": 75537,
+   "unix": false
+  },
+  "scardsvr.dll": {
+   "size": 123309,
+   "unix": false
+  },
+  "sccbase.dll": {
+   "size": 96844,
+   "unix": false
+  },
+  "schannel.dll": {
+   "size": 166999,
+   "unix": false
+  },
+  "schedsvc.dll": {
+   "size": 468950,
+   "unix": false
+  },
+  "schtasks.exe": {
+   "size": 233511,
+   "unix": false
+  },
+  "scrobj.dll": {
+   "size": 833869,
+   "unix": false
+  },
+  "scrrun.dll": {
+   "size": 1208038,
+   "unix": false
+  },
+  "scsiport.sys": {
+   "size": 149282,
+   "unix": false
+  },
+  "sdbinst.exe": {
+   "size": 138013,
+   "unix": false
+  },
+  "secedit.exe": {
+   "size": 80083,
+   "unix": false
+  },
+  "sechost.dll": {
+   "size": 686187,
+   "unix": false
+  },
+  "secur32.dll": {
+   "size": 852339,
+   "unix": true
+  },
+  "security.dll": {
+   "size": 8192,
+   "unix": false
+  },
+  "sensapi.dll": {
+   "size": 124933,
+   "unix": false
+  },
+  "serialui.dll": {
+   "size": 182477,
+   "unix": false
+  },
+  "servicemodelreg.exe": {
+   "size": 138017,
+   "unix": false
+  },
+  "services.exe": {
+   "size": 572605,
+   "unix": false
+  },
+  "setupapi.dll": {
+   "size": 2685848,
+   "unix": false
+  },
+  "setx.exe": {
+   "size": 142142,
+   "unix": false
+  },
+  "sfc.dll": {
+   "size": 8192,
+   "unix": false
+  },
+  "sfc_os.dll": {
+   "size": 137279,
+   "unix": false
+  },
+  "shcore.dll": {
+   "size": 439212,
+   "unix": false
+  },
+  "shdoclc.dll": {
+   "size": 221184,
+   "unix": false
+  },
+  "shdocvw.dll": {
+   "size": 716928,
+   "unix": false
+  },
+  "shell32.dll": {
+   "size": 15497417,
+   "unix": false
+  },
+  "shfolder.dll": {
+   "size": 65444,
+   "unix": false
+  },
+  "shlwapi.dll": {
+   "size": 1699406,
+   "unix": false
+  },
+  "shutdown.exe": {
+   "size": 138014,
+   "unix": false
+  },
+  "slbcsp.dll": {
+   "size": 96938,
+   "unix": false
+  },
+  "slc.dll": {
+   "size": 134412,
+   "unix": false
+  },
+  "snmpapi.dll": {
+   "size": 173230,
+   "unix": false
+  },
+  "softpub.dll": {
+   "size": 75357,
+   "unix": false
+  },
+  "sort.exe": {
+   "size": 156128,
+   "unix": false
+  },
+  "spoolss.dll": {
+   "size": 222190,
+   "unix": false
+  },
+  "spoolsv.exe": {
+   "size": 132950,
+   "unix": false
+  },
+  "sppc.dll": {
+   "size": 137010,
+   "unix": false
+  },
+  "srclient.dll": {
+   "size": 76099,
+   "unix": false
+  },
+  "srvcli.dll": {
+   "size": 80261,
+   "unix": false
+  },
+  "srvsvc.dll": {
+   "size": 114194,
+   "unix": false
+  },
+  "sspicli.dll": {
+   "size": 150247,
+   "unix": false
+  },
+  "start.exe": {
+   "size": 303399,
+   "unix": false
+  },
+  "stdole2.tlb": {
+   "size": 24576,
+   "unix": false
+  },
+  "stdole32.tlb": {
+   "size": 12288,
+   "unix": false
+  },
+  "sti.dll": {
+   "size": 649089,
+   "unix": false
+  },
+  "strmdll.dll": {
+   "size": 79654,
+   "unix": false
+  },
+  "subst.exe": {
+   "size": 134308,
+   "unix": false
+  },
+  "svchost.exe": {
+   "size": 167345,
+   "unix": false
+  },
+  "svrapi.dll": {
+   "size": 76954,
+   "unix": false
+  },
+  "sxs.dll": {
+   "size": 349017,
+   "unix": false
+  },
+  "systeminfo.exe": {
+   "size": 207239,
+   "unix": false
+  },
+  "t2embed.dll": {
+   "size": 145282,
+   "unix": false
+  },
+  "tapi32.dll": {
+   "size": 510125,
+   "unix": false
+  },
+  "taskkill.exe": {
+   "size": 221419,
+   "unix": false
+  },
+  "tasklist.exe": {
+   "size": 217845,
+   "unix": false
+  },
+  "taskmgr.exe": {
+   "size": 1223616,
+   "unix": false
+  },
+  "taskschd.dll": {
+   "size": 1274135,
+   "unix": false
+  },
+  "tbs.dll": {
+   "size": 122912,
+   "unix": false
+  },
+  "tdh.dll": {
+   "size": 137666,
+   "unix": false
+  },
+  "tdi.sys": {
+   "size": 149988,
+   "unix": false
+  },
+  "termsv.exe": {
+   "size": 132339,
+   "unix": false
+  },
+  "threadpoolwinrt.dll": {
+   "size": 591849,
+   "unix": false
+  },
+  "timeout.exe": {
+   "size": 98860,
+   "unix": false
+  },
+  "traffic.dll": {
+   "size": 122571,
+   "unix": false
+  },
+  "twaindsm.dll": {
+   "size": 220312,
+   "unix": false
+  },
+  "twinapi.appcore.dll": {
+   "size": 538281,
+   "unix": false
+  },
+  "tzres.dll": {
+   "size": 532480,
+   "unix": false
+  },
+  "ucrtbase.dll": {
+   "size": 4954222,
+   "unix": false
+  },
+  "uianimation.dll": {
+   "size": 712197,
+   "unix": false
+  },
+  "uiautomationcore.dll": {
+   "size": 2253990,
+   "unix": false
+  },
+  "uiribbon.dll": {
+   "size": 581372,
+   "unix": false
+  },
+  "unicows.dll": {
+   "size": 344987,
+   "unix": false
+  },
+  "uninstaller.exe": {
+   "size": 226128,
+   "unix": false
+  },
+  "unlodctr.exe": {
+   "size": 85655,
+   "unix": false
+  },
+  "updspapi.dll": {
+   "size": 130011,
+   "unix": false
+  },
+  "url.dll": {
+   "size": 134068,
+   "unix": false
+  },
+  "urlmon.dll": {
+   "size": 3314199,
+   "unix": false
+  },
+  "usbd.sys": {
+   "size": 163539,
+   "unix": false
+  },
+  "user32.dll": {
+   "size": 7116095,
+   "unix": false
+  },
+  "userenv.dll": {
+   "size": 221390,
+   "unix": false
+  },
+  "usp10.dll": {
+   "size": 8192,
+   "unix": false
+  },
+  "utildll.dll": {
+   "size": 78673,
+   "unix": false
+  },
+  "uxtheme.dll": {
+   "size": 964364,
+   "unix": false
+  },
+  "vbscript.dll": {
+   "size": 2349302,
+   "unix": false
+  },
+  "vccorlib140.dll": {
+   "size": 719748,
+   "unix": false
+  },
+  "vcomp.dll": {
+   "size": 306544,
+   "unix": false
+  },
+  "vcomp100.dll": {
+   "size": 306544,
+   "unix": false
+  },
+  "vcomp110.dll": {
+   "size": 306546,
+   "unix": false
+  },
+  "vcomp120.dll": {
+   "size": 306546,
+   "unix": false
+  },
+  "vcomp140.dll": {
+   "size": 306546,
+   "unix": false
+  },
+  "vcomp90.dll": {
+   "size": 79977,
+   "unix": false
+  },
+  "vcruntime140.dll": {
+   "size": 124019,
+   "unix": false
+  },
+  "vcruntime140_1.dll": {
+   "size": 265866,
+   "unix": false
+  },
+  "vdmdbg.dll": {
+   "size": 122413,
+   "unix": false
+  },
+  "version.dll": {
+   "size": 161661,
+   "unix": false
+  },
+  "vga.dll": {
+   "size": 65444,
+   "unix": false
+  },
+  "vidreszr.dll": {
+   "size": 310780,
+   "unix": false
+  },
+  "view.exe": {
+   "size": 144449,
+   "unix": false
+  },
+  "virtdisk.dll": {
+   "size": 132087,
+   "unix": false
+  },
+  "vssapi.dll": {
+   "size": 159452,
+   "unix": false
+  },
+  "vulkan-1.dll": {
+   "size": 97518,
+   "unix": false
+  },
+  "wbemdisp.dll": {
+   "size": 737669,
+   "unix": false
+  },
+  "wbemprox.dll": {
+   "size": 1710527,
+   "unix": false
+  },
+  "wdscore.dll": {
+   "size": 88492,
+   "unix": false
+  },
+  "webservices.dll": {
+   "size": 2082190,
+   "unix": false
+  },
+  "websocket.dll": {
+   "size": 118082,
+   "unix": false
+  },
+  "wer.dll": {
+   "size": 159039,
+   "unix": false
+  },
+  "wevtapi.dll": {
+   "size": 149530,
+   "unix": false
+  },
+  "wevtsvc.dll": {
+   "size": 114216,
+   "unix": false
+  },
+  "wevtutil.exe": {
+   "size": 138014,
+   "unix": false
+  },
+  "where.exe": {
+   "size": 143253,
+   "unix": false
+  },
+  "whoami.exe": {
+   "size": 162324,
+   "unix": false
+  },
+  "wiaservc.dll": {
+   "size": 624764,
+   "unix": false
+  },
+  "wimgapi.dll": {
+   "size": 134636,
+   "unix": false
+  },
+  "win32u.dll": {
+   "size": 463939,
+   "unix": true
+  },
+  "winbio.dll": {
+   "size": 82786,
+   "unix": false
+  },
+  "winbrand.dll": {
+   "size": 148508,
+   "unix": false
+  },
+  "windows.applicationmodel.dll": {
+   "size": 421887,
+   "unix": false
+  },
+  "windows.devices.bluetooth.dll": {
+   "size": 480592,
+   "unix": false
+  },
+  "windows.devices.enumeration.dll": {
+   "size": 926754,
+   "unix": false
+  },
+  "windows.devices.usb.dll": {
+   "size": 259257,
+   "unix": false
+  },
+  "windows.gaming.input.dll": {
+   "size": 1465168,
+   "unix": false
+  },
+  "windows.gaming.ui.gamebar.dll": {
+   "size": 175582,
+   "unix": false
+  },
+  "windows.globalization.dll": {
+   "size": 397683,
+   "unix": false
+  },
+  "windows.media.devices.dll": {
+   "size": 235396,
+   "unix": false
+  },
+  "windows.media.dll": {
+   "size": 373505,
+   "unix": false
+  },
+  "windows.media.mediacontrol.dll": {
+   "size": 376377,
+   "unix": false
+  },
+  "windows.media.playback.backgroundmediaplayer.dll": {
+   "size": 311686,
+   "unix": false
+  },
+  "windows.media.playback.mediaplayer.dll": {
+   "size": 402238,
+   "unix": false
+  },
+  "windows.media.speech.dll": {
+   "size": 1083874,
+   "unix": false
+  },
+  "windows.networking.connectivity.dll": {
+   "size": 349139,
+   "unix": false
+  },
+  "windows.networking.dll": {
+   "size": 142041,
+   "unix": false
+  },
+  "windows.networking.hostname.dll": {
+   "size": 273969,
+   "unix": false
+  },
+  "windows.perception.stub.dll": {
+   "size": 547769,
+   "unix": false
+  },
+  "windows.security.authentication.onlineid.dll": {
+   "size": 303821,
+   "unix": false
+  },
+  "windows.security.credentials.ui.userconsentverifier.dll": {
+   "size": 297568,
+   "unix": false
+  },
+  "windows.storage.applicationdata.dll": {
+   "size": 283867,
+   "unix": false
+  },
+  "windows.storage.dll": {
+   "size": 399267,
+   "unix": false
+  },
+  "windows.system.profile.systemid.dll": {
+   "size": 232078,
+   "unix": false
+  },
+  "windows.system.profile.systemmanufacturers.dll": {
+   "size": 202775,
+   "unix": false
+  },
+  "windows.ui.core.textinput.dll": {
+   "size": 365610,
+   "unix": false
+  },
+  "windows.ui.dll": {
+   "size": 618141,
+   "unix": false
+  },
+  "windows.ui.xaml.dll": {
+   "size": 195344,
+   "unix": false
+  },
+  "windows.web.dll": {
+   "size": 313307,
+   "unix": false
+  },
+  "windowscodecs.dll": {
+   "size": 9216478,
+   "unix": false
+  },
+  "windowscodecsext.dll": {
+   "size": 197384,
+   "unix": false
+  },
+  "winealsa.drv": {
+   "size": 57180,
+   "unix": true
+  },
+  "wineboot.exe": {
+   "size": 844787,
+   "unix": false
+  },
+  "winebrowser.exe": {
+   "size": 185465,
+   "unix": false
+  },
+  "winebth.sys": {
+   "size": 591609,
+   "unix": true
+  },
+  "winebus.sys": {
+   "size": 315902,
+   "unix": true
+  },
+  "winecfg.exe": {
+   "size": 1875104,
+   "unix": false
+  },
+  "wineconsole.exe": {
+   "size": 184561,
+   "unix": false
+  },
+  "wined3d.dll": {
+   "size": 29231815,
+   "unix": false
+  },
+  "winedbg.exe": {
+   "size": 14206906,
+   "unix": false
+  },
+  "winedevice.exe": {
+   "size": 154822,
+   "unix": false
+  },
+  "winedmo.dll": {
+   "size": 267337,
+   "unix": true
+  },
+  "winefile.exe": {
+   "size": 1044576,
+   "unix": false
+  },
+  "winegstreamer.dll": {
+   "size": 3402417,
+   "unix": true
+  },
+  "winehid.sys": {
+   "size": 141476,
+   "unix": false
+  },
+  "winemapi.dll": {
+   "size": 213837,
+   "unix": false
+  },
+  "winemenubuilder.exe": {
+   "size": 922673,
+   "unix": false
+  },
+  "winemine.exe": {
+   "size": 389457,
+   "unix": false
+  },
+  "winemsibuilder.exe": {
+   "size": 160788,
+   "unix": false
+  },
+  "winepath.exe": {
+   "size": 141790,
+   "unix": false
+  },
+  "wineps.drv": {
+   "size": 1877913,
+   "unix": true
+  },
+  "winepulse.drv": {
+   "size": 57180,
+   "unix": true
+  },
+  "wineusb.sys": {
+   "size": 192583,
+   "unix": true
+  },
+  "winevulkan.dll": {
+   "size": 1862918,
+   "unix": true
+  },
+  "winewayland.drv": {
+   "size": 151472,
+   "unix": true
+  },
+  "winex11.drv": {
+   "size": 76996,
+   "unix": true
+  },
+  "winexinput.sys": {
+   "size": 210035,
+   "unix": false
+  },
+  "wing32.dll": {
+   "size": 86263,
+   "unix": false
+  },
+  "winhlp32.exe": {
+   "size": 950261,
+   "unix": false
+  },
+  "winhttp.dll": {
+   "size": 1695157,
+   "unix": false
+  },
+  "wininet.dll": {
+   "size": 2551144,
+   "unix": false
+  },
+  "winmgmt.exe": {
+   "size": 132327,
+   "unix": false
+  },
+  "winmm.dll": {
+   "size": 1931889,
+   "unix": false
+  },
+  "winnls32.dll": {
+   "size": 76460,
+   "unix": false
+  },
+  "winprint.dll": {
+   "size": 144136,
+   "unix": false
+  },
+  "winspool.drv": {
+   "size": 934375,
+   "unix": true
+  },
+  "winsta.dll": {
+   "size": 160906,
+   "unix": false
+  },
+  "wintab32.dll": {
+   "size": 310820,
+   "unix": false
+  },
+  "wintrust.dll": {
+   "size": 950669,
+   "unix": false
+  },
+  "wintypes.dll": {
+   "size": 886286,
+   "unix": false
+  },
+  "winusb.dll": {
+   "size": 122627,
+   "unix": false
+  },
+  "winver.exe": {
+   "size": 92306,
+   "unix": false
+  },
+  "wlanapi.dll": {
+   "size": 147755,
+   "unix": false
+  },
+  "wlanui.dll": {
+   "size": 75631,
+   "unix": false
+  },
+  "wldap32.dll": {
+   "size": 3462831,
+   "unix": false
+  },
+  "wldp.dll": {
+   "size": 124070,
+   "unix": false
+  },
+  "wmadmod.dll": {
+   "size": 690884,
+   "unix": false
+  },
+  "wmasf.dll": {
+   "size": 78600,
+   "unix": false
+  },
+  "wmi.dll": {
+   "size": 8192,
+   "unix": false
+  },
+  "wmic.exe": {
+   "size": 223852,
+   "unix": false
+  },
+  "wmilib.sys": {
+   "size": 95040,
+   "unix": false
+  },
+  "wmiutils.dll": {
+   "size": 335135,
+   "unix": false
+  },
+  "wmp.dll": {
+   "size": 1088494,
+   "unix": false
+  },
+  "wmphoto.dll": {
+   "size": 2518655,
+   "unix": false
+  },
+  "wmplayer.exe": {
+   "size": 142146,
+   "unix": false
+  },
+  "wmvcore.dll": {
+   "size": 675616,
+   "unix": false
+  },
+  "wmvdecod.dll": {
+   "size": 696192,
+   "unix": false
+  },
+  "wnaspi32.dll": {
+   "size": 139302,
+   "unix": false
+  },
+  "wofutil.dll": {
+   "size": 126687,
+   "unix": false
+  },
+  "wordpad.exe": {
+   "size": 1332324,
+   "unix": false
+  },
+  "wow64.dll": {
+   "size": 1454800,
+   "unix": false
+  },
+  "wow64cpu.dll": {
+   "size": 102791,
+   "unix": false
+  },
+  "wow64win.dll": {
+   "size": 2041292,
+   "unix": false
+  },
+  "wpc.dll": {
+   "size": 199987,
+   "unix": false
+  },
+  "wpcap.dll": {
+   "size": 312801,
+   "unix": true
+  },
+  "write.exe": {
+   "size": 93505,
+   "unix": false
+  },
+  "ws2_32.dll": {
+   "size": 813615,
+   "unix": true
+  },
+  "wscript.exe": {
+   "size": 734589,
+   "unix": false
+  },
+  "wsdapi.dll": {
+   "size": 600658,
+   "unix": false
+  },
+  "wshom.ocx": {
+   "size": 954348,
+   "unix": false
+  },
+  "wsnmp32.dll": {
+   "size": 133919,
+   "unix": false
+  },
+  "wsock32.dll": {
+   "size": 226867,
+   "unix": false
+  },
+  "wtsapi32.dll": {
+   "size": 251504,
+   "unix": false
+  },
+  "wuapi.dll": {
+   "size": 944634,
+   "unix": false
+  },
+  "wuaueng.dll": {
+   "size": 99957,
+   "unix": false
+  },
+  "wuauserv.exe": {
+   "size": 132961,
+   "unix": false
+  },
+  "wusa.exe": {
+   "size": 429604,
+   "unix": false
+  },
+  "x3daudio1_0.dll": {
+   "size": 166873,
+   "unix": false
+  },
+  "x3daudio1_1.dll": {
+   "size": 166873,
+   "unix": false
+  },
+  "x3daudio1_2.dll": {
+   "size": 166873,
+   "unix": false
+  },
+  "x3daudio1_3.dll": {
+   "size": 166845,
+   "unix": false
+  },
+  "x3daudio1_4.dll": {
+   "size": 166845,
+   "unix": false
+  },
+  "x3daudio1_5.dll": {
+   "size": 166845,
+   "unix": false
+  },
+  "x3daudio1_6.dll": {
+   "size": 166845,
+   "unix": false
+  },
+  "x3daudio1_7.dll": {
+   "size": 166845,
+   "unix": false
+  },
+  "xactengine2_0.dll": {
+   "size": 1869524,
+   "unix": false
+  },
+  "xactengine2_4.dll": {
+   "size": 1869524,
+   "unix": false
+  },
+  "xactengine2_7.dll": {
+   "size": 1917800,
+   "unix": false
+  },
+  "xactengine2_9.dll": {
+   "size": 1917800,
+   "unix": false
+  },
+  "xactengine3_0.dll": {
+   "size": 1924817,
+   "unix": false
+  },
+  "xactengine3_1.dll": {
+   "size": 1924817,
+   "unix": false
+  },
+  "xactengine3_2.dll": {
+   "size": 1924817,
+   "unix": false
+  },
+  "xactengine3_3.dll": {
+   "size": 1924817,
+   "unix": false
+  },
+  "xactengine3_4.dll": {
+   "size": 1924817,
+   "unix": false
+  },
+  "xactengine3_5.dll": {
+   "size": 1925429,
+   "unix": false
+  },
+  "xactengine3_6.dll": {
+   "size": 1925429,
+   "unix": false
+  },
+  "xactengine3_7.dll": {
+   "size": 1925429,
+   "unix": false
+  },
+  "xapofx1_1.dll": {
+   "size": 297385,
+   "unix": false
+  },
+  "xapofx1_2.dll": {
+   "size": 293253,
+   "unix": false
+  },
+  "xapofx1_3.dll": {
+   "size": 297385,
+   "unix": false
+  },
+  "xapofx1_4.dll": {
+   "size": 293253,
+   "unix": false
+  },
+  "xapofx1_5.dll": {
+   "size": 293253,
+   "unix": false
+  },
+  "xaudio2_0.dll": {
+   "size": 1628023,
+   "unix": false
+  },
+  "xaudio2_1.dll": {
+   "size": 1628023,
+   "unix": false
+  },
+  "xaudio2_2.dll": {
+   "size": 1628023,
+   "unix": false
+  },
+  "xaudio2_3.dll": {
+   "size": 1628023,
+   "unix": false
+  },
+  "xaudio2_4.dll": {
+   "size": 1634242,
+   "unix": false
+  },
+  "xaudio2_5.dll": {
+   "size": 1634242,
+   "unix": false
+  },
+  "xaudio2_6.dll": {
+   "size": 1634242,
+   "unix": false
+  },
+  "xaudio2_7.dll": {
+   "size": 1638986,
+   "unix": false
+  },
+  "xaudio2_8.dll": {
+   "size": 1759342,
+   "unix": false
+  },
+  "xaudio2_9.dll": {
+   "size": 1763474,
+   "unix": false
+  },
+  "xcopy.exe": {
+   "size": 371330,
+   "unix": false
+  },
+  "xinput1_1.dll": {
+   "size": 272205,
+   "unix": false
+  },
+  "xinput1_2.dll": {
+   "size": 272205,
+   "unix": false
+  },
+  "xinput1_3.dll": {
+   "size": 272407,
+   "unix": false
+  },
+  "xinput1_4.dll": {
+   "size": 277782,
+   "unix": false
+  },
+  "xinput9_1_0.dll": {
+   "size": 129765,
+   "unix": false
+  },
+  "xinputuap.dll": {
+   "size": 277677,
+   "unix": false
+  },
+  "xmllite.dll": {
+   "size": 757550,
+   "unix": false
+  },
+  "xolehlp.dll": {
+   "size": 607785,
+   "unix": false
+  },
+  "xpsprint.dll": {
+   "size": 79616,
+   "unix": false
+  },
+  "xpssvcs.dll": {
+   "size": 75982,
+   "unix": false
+  }
+ }
+}

@@ -1,0 +1,37 @@
+{
+ "patched_exe": "/home/user/Badge-bleu-/results/20261102T155031Z/fix-B/bdfedit.exe",
+ "generated_dlls": [
+  {
+   "original_dll": "kernel32.dll",
+   "proxy_dll_name": "bzRNEL32.dll",
+   "source_path": "/home/user/Badge-bleu-/results/20261102T155031Z/fix-B/bzRNEL32.c",
+   "def_path": "/home/user/Badge-bleu-/results/20261102T155031Z/fix-B/bzRNEL32.def",
+   "binary_path": "/home/user/Badge-bleu-/results/20261102T155031Z/fix-B/bzRNEL32.dll",
+   "forwarded": 33,
+   "implemented": [
+    "Heap32First",
+    "Heap32Next",
+    "SystemTimeToTzSpecificLocalTimeEx"
+   ],
+   "skipped_ordinals": [],
+   "build_log": "/usr/bin/x86_64-w64-mingw32-ld: warning: cannot find entry symbol DllMainCRTStartup; not setting start address\n/usr/bin/x86_64-w64-mingw32-ld: bzRNEL32_dll_ertr000001.o:(.rdata+0x0): undefined reference to `_pei386_runtime_relocator'\ncollect2: error: ld returned 1 exit status\n\n--- retry ---"
+  }
+ ],
+ "catalogue_dlls": [
+  {
+   "name": "bdfpdf.dll",
+   "source": "catalogue/bdfpdf.dll",
+   "dest": "/home/user/Badge-bleu-/results/20261102T155031Z/fix-B/bdfpdf.dll"
+  }
+ ],
+ "rename_map": {
+  "KERNEL32.dll": "bzRNEL32.dll"
+ },
+ "shim_log_env": "BDFLAB_SHIM_LOG",
+ "actions": [
+  "classe B : DLL de compatibilité bzRNEL32.dll pour KERNEL32.dll (33 exports renvoyés vers Wine, 3 fournis : Heap32First, Heap32Next, SystemTimeToTzSpecificLocalTimeEx)",
+  "copie corrigée : import « KERNEL32.dll » redirigé vers « bzRNEL32.dll » (original intact)",
+  "classe A : bdfpdf.dll fourni depuis le catalogue du labo (catalogue:bdfpdf)"
+ ],
+ "gen_seconds": 2.911
+}

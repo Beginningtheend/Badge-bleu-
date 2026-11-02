@@ -1,0 +1,2 @@
+BDFEDIT|OPENED|path=C:/bdf/doc.txt|bytes=44|lines=2
+BDFEDIT|EXPORTED|path=C:/bdf/out.pdf|bytes=641

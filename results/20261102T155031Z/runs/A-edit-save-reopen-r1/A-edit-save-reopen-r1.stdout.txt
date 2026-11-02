@@ -1,0 +1,2 @@
+BDFEDIT|OPENED|path=C:/bdf/doc.txt|bytes=32|lines=2
+BDFEDIT|MODIFIED|appended_bytes=25

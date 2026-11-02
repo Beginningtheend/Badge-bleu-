@@ -1,0 +1,11 @@
+{
+  "description": "Catalogue du labo : composants redistribuables par nous (programme de test synthétique). Chaque entrée porte une empreinte sha256 ; une entrée de catalogue n'est JAMAIS un binaire tiers non redistribuable (rapport : catalogue + empreinte uniquement).",
+  "generated": "2026-11-02",
+  "entries": {
+    "bdfpdf.dll": {
+      "sha256": "d1c08517b88c9495479430a629faf27d8ecc54918f5d9a73495a7f418b0d13c2",
+      "size": 93600,
+      "role": "dépendance optionnelle d'export PDF du programme de test (classe A)"
+    }
+  }
+}

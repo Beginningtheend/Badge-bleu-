@@ -1,0 +1,455 @@
+🔬 MISSION DE RECHERCHE FONDAMENTALE — POLYRE : À LA RECHERCHE DU GRAAL
+
+0. TON RÔLE
+
+Chargé d'une mission de recherche scientifique, informatique et architecturale de très haut niveau.
+
+Tu dois rechercher la solution la plus générale possible pour permettre aux applications Windows de fonctionner sous Linux, sans nécessiter Windows installé ou actif, avec une compatibilité aussi proche de 100 % que techniquement réalisable.
+
+Tu n'es pas chargé de développer PolyRE immédiatement. Tu es chargé de découvrir une architecture qui pourrait changer radicalement les règles du problème.
+
+Tu disposes d'une liberté intellectuelle totale pour explorer les approches, les combiner, les remettre en question ou en inventer de nouvelles.
+
+Ne limite pas ta réflexion à ce que font déjà Wine, Proton, ReactOS, CrossOver ou les émulateurs.
+
+Ne cherche pas simplement à améliorer une technologie existante de quelques pourcents.
+
+Cherche une rupture architecturale fondamentale.
+
+
+---
+
+1. LA QUESTION CENTRALE
+
+Depuis plus de trente ans, les développeurs tentent de rendre les programmes Windows compatibles avec Linux.
+
+La majorité des approches reposent sur la reproduction des API Windows, la traduction des appels système, l'émulation ou la virtualisation.
+
+Mais existe-t-il une méthode fondamentalement différente ?
+
+Par exemple :
+
+- Exploiter directement les mécanismes du processeur.
+- Réorganiser la mémoire physique.
+- Faire coexister plusieurs personnalités système.
+- Déplacer la compatibilité vers un hyperviseur.
+- Construire une infrastructure commune au-dessus du matériel.
+- Exécuter le code Windows original sans reproduire systématiquement les DLL.
+- Utiliser des mécanismes matériels encore peu exploités.
+- Générer automatiquement des environnements d'exécution.
+- Transformer les dépendances en contrats exécutables.
+- Faire fonctionner des composants NT dans un environnement minimal.
+- Inventer une architecture entièrement nouvelle.
+
+Ne te limite pas à ces exemples.
+
+Ton objectif est de trouver ce que nous n'avons pas encore imaginé.
+
+
+---
+
+2. NE PARS PAS DU PRINCIPE QUE NOS ARCHITECTURES SONT LES MEILLEURES
+
+PolyRE possède actuellement plusieurs axes de recherche :
+
+- Unified Execution Core (UEC).
+- Janus ABI et Janus Runtime.
+- Contract Fusion.
+- Semantic Islands.
+- Memory Ownership Core.
+- OracleForge.
+- NT-Organ.
+- AutoPort.
+- HARP — Hardware-Assisted Runtime Personalities.
+- Dual-World Execution.
+- Hardware Contract Engine.
+- REA/Ghidra.
+
+Ces technologies constituent notre base de recherche, pas des contraintes imposées à ta réflexion.
+
+Tu as le droit de proposer une architecture totalement différente, même si elle rend certaines de nos recherches précédentes inutiles.
+
+La seule exigence est de démontrer pourquoi elle pourrait être meilleure.
+
+
+---
+
+3. EXPLORE TOUS LES NIVEAUX DE L'ORDINATEUR
+
+A. Niveau processeur
+
+Étudie :
+
+- x86-64 et ARM64.
+- Microarchitecture CPU.
+- Microcode.
+- Instructions privilégiées.
+- Ring 0, Ring 3 et virtualisation matérielle.
+- Intel VT-x et AMD-V.
+- EPT/NPT.
+- VMFUNC.
+- Registres de contrôle.
+- FS/GS.
+- Gestion des interruptions.
+- Syscalls.
+- Traduction dynamique.
+- Exécution spéculative.
+- Extensions matérielles spécialisées.
+- Contextes d'exécution multiples.
+
+Recherche des combinaisons inédites ou peu étudiées.
+
+B. Niveau mémoire
+
+Étudie :
+
+- RAM physique.
+- MMU.
+- Tables de pages.
+- TLB.
+- Mémoire partagée.
+- Cohérence des caches.
+- Protection mémoire.
+- Copy-on-write.
+- Mémoire persistante.
+- CXL.
+- PASID et SVA.
+- Gestion matérielle des accès.
+- Gestion des objets et de leur identité.
+
+Pose-toi cette question :
+
+Peut-on construire un environnement où Windows et Linux utilisent directement les mêmes objets physiques sans maintenir deux représentations logicielles indépendantes ?
+
+C. Niveau GPU
+
+Étudie :
+
+- DirectX.
+- Vulkan.
+- OpenGL.
+- GPU compute.
+- VRAM.
+- DMA-BUF.
+- Mémoire unifiée.
+- Partage de textures.
+- Pilotes graphiques.
+- Synchronisation matérielle.
+- GPU virtualization.
+- API graphiques intermédiaires.
+
+Recherche une architecture capable de préserver les fonctionnalités graphiques des logiciels Windows complexes.
+
+D. Niveau stockage
+
+Étudie :
+
+- SSD et NVMe.
+- Systèmes de fichiers.
+- NTFS.
+- ext4 et Btrfs.
+- Mapping mémoire.
+- Chargement à la demande.
+- Dépendances stockées hors RAM.
+- Exécution depuis des images de systèmes.
+- Déduplication de fichiers.
+- Représentation commune des métadonnées.
+
+E. Niveau firmware et sécurité
+
+Étudie :
+
+- UEFI.
+- Secure Boot.
+- TPM.
+- Attestation matérielle.
+- Isolation des processus.
+- Hyperviseurs.
+- Microkernels.
+- Enclaves sécurisées.
+- Chaînes de confiance.
+- Gestion des pilotes.
+
+Étudie les architectures de confiance alternatives sans proposer de contournement des mécanismes d'activation, DRM ou anti-triche.
+
+F. Autres technologies
+
+Ne néglige pas :
+
+- FPGA.
+- DPU.
+- NPU.
+- PCIe.
+- IOMMU.
+- SmartNIC.
+- RISC-V.
+- CHERI.
+- WASM.
+- Unikernels.
+- Exokernels.
+- Multikernels.
+- Library OS.
+- Systèmes d'exploitation expérimentaux.
+
+Même une technologie qui semble sans rapport avec la compatibilité peut contenir un mécanisme réutilisable.
+
+
+---
+
+4. CHERCHE DANS L'HISTOIRE ET DANS LA RECHERCHE MONDIALE
+
+Explore les travaux anciens et récents, y compris les projets abandonnés.
+
+Étudie notamment :
+
+- Drawbridge.
+- SQLPAL.
+- WSL1 et WSL2.
+- ReactOS.
+- Wine et Proton.
+- Dune.
+- Hyperlight.
+- Nanvix.
+- Barrelfish.
+- coLinux.
+- NTSYNC.
+- FEX.
+- Box64.
+- QEMU/KVM.
+- Xen.
+- Firecracker.
+- gVisor.
+- Unikraft.
+- Graphene.
+- McSema.
+- rev.ng.
+- GraalVM.
+- Transmeta Code Morphing.
+- IBM Dynamic Binary Translation.
+- Rosetta 2.
+- Windows on ARM.
+- Linux SVA.
+- VFIO.
+- CHERI.
+
+Pour chaque projet, cherche les idées profondes derrière son architecture.
+
+Ne te contente pas de résumer son fonctionnement.
+
+Demande-toi quelle découverte pourrait naître de la combinaison de deux technologies qui n'ont jamais été conçues pour travailler ensemble.
+
+
+---
+
+5. MÉTHODE DE RECHERCHE — EXPLORATION LARGE AVANT SÉLECTION
+
+Ne t'arrête pas à la première idée prometteuse.
+
+Procède en plusieurs phases.
+
+Phase 1 — Exploration divergente
+
+Produis au moins 20 hypothèses architecturales réellement différentes.
+
+Ne compte pas comme deux idées distinctes de simples variantes d'un même chargeur PE ou d'un même traducteur d'API.
+
+Explore des idées logicielles, matérielles, hybrides, expérimentales et conceptuelles.
+
+Phase 2 — Recherche d'antériorité
+
+Pour chaque hypothèse, cherche les publications scientifiques, dépôts, prototypes et brevets pertinents.
+
+Identifie ce qui existe déjà et ce qui resterait à inventer.
+
+Phase 3 — Combinaisons inattendues
+
+Construis au moins 10 architectures hybrides à partir des mécanismes les plus prometteurs.
+
+Cherche particulièrement des combinaisons entre :
+
+- CPU et mémoire.
+- Virtualisation et Library OS.
+- Microkernel et contrats NT.
+- Exécution native et matériel spécialisé.
+- Apprentissage actif et génération de services.
+- Partage mémoire et isolation matérielle.
+- Transformation binaire et gestion d'état.
+- Exokernel et personnalités système.
+
+Phase 4 — Comparaison critique
+
+Évalue chaque proposition selon :
+
+1. Compatibilité potentielle.
+2. Besoin de Windows.
+3. Besoin de code propriétaire.
+4. Performance CPU.
+5. Consommation RAM.
+6. Compatibilité GPU.
+7. Généralisation à plusieurs applications.
+8. Difficulté d'implémentation.
+9. Compatibilité avec les PC ordinaires.
+10. Faisabilité juridique et commerciale.
+
+Phase 5 — Sélection
+
+Retiens les cinq architectures les plus prometteuses.
+
+Pour chacune, décris précisément :
+
+- Son mécanisme.
+- Pourquoi elle pourrait fonctionner.
+- Ce qu'elle apporterait par rapport à Wine.
+- Ce qui reste inconnu.
+- L'expérience minimale permettant de la tester.
+- Comment elle pourrait être intégrée à PolyRE.
+
+
+---
+
+6. ATTAQUE LE PROBLÈME À L'ENVERS
+
+Ne pars pas uniquement des incompatibilités connues.
+
+Pose-toi des questions fondamentales :
+
+Pourquoi un processeur x86-64 peut-il exécuter Windows et Linux, mais un programme Windows ne fonctionne-t-il pas directement sous Linux ?
+
+Quelles différences sont réellement nécessaires ?
+
+Lesquelles sont historiques ?
+
+Lesquelles peuvent être supprimées ?
+
+Peut-on construire une représentation commune des ressources ?
+
+Peut-on rendre les contrats NT indépendants du noyau qui les exécute ?
+
+Peut-on déplacer certaines fonctionnalités au niveau matériel ?
+
+Peut-on faire fonctionner du code noyau spécialisé dans un environnement isolé ?
+
+Peut-on reconstruire automatiquement un environnement minimal pour chaque application ?
+
+Peut-on transformer un programme Windows en programme compatible Linux sans modifier son comportement observable ?
+
+Peut-on créer une personnalité d'exécution qui change dynamiquement selon les besoins ?
+
+Peut-on supprimer certaines traductions plutôt que simplement les accélérer ?
+
+Cherche les hypothèses implicites qui limitent les architectures actuelles.
+
+
+---
+
+7. RECHERCHE DU MÉCANISME UNIVERSEL
+
+Je veux que tu examines sérieusement l'existence possible d'un mécanisme plus général que les architectures connues.
+
+Il pourrait s'agir :
+
+- D'un nouvel espace d'exécution.
+- D'une représentation universelle des objets système.
+- D'un ordonnanceur multi-personnalités.
+- D'une infrastructure matérielle de contrats.
+- D'un micro-hyperviseur spécialisé.
+- D'une architecture de mémoire commune.
+- D'un environnement NT généré automatiquement.
+- D'une transformation binaire universalisable.
+- D'un système d'exploitation à plusieurs personnalités.
+- Ou d'un concept encore absent de cette liste.
+
+Ne confonds pas absence de solution connue et preuve d'impossibilité.
+
+Mais ne transforme pas non plus une hypothèse séduisante en découverte sans validation.
+
+Lorsqu'une piste échoue, identifie l'hypothèse qui a échoué, puis cherche une autre méthode.
+
+
+---
+
+8. CONTRAINTES DU PRODUIT FINAL
+
+Le résultat recherché doit idéalement :
+
+- Fonctionner sous Linux.
+- Exécuter les vrais programmes Windows.
+- Ne pas imposer Windows installé.
+- Ne pas imposer une VM Windows complète.
+- Ne pas nécessiter d'IA permanente.
+- Être compatible avec des PC ordinaires de 8 ou 16 Go lorsque la charge applicative le permet.
+- Conserver les performances GPU.
+- Être distribuable légalement.
+- Être applicable à plusieurs logiciels sans réécriture spécifique.
+- Permettre une bibliothèque de compatibilité évolutive.
+- Exploiter les mécanismes matériels lorsque ceux-ci apportent une véritable amélioration.
+
+Ces objectifs ne doivent pas t'empêcher d'explorer des architectures expérimentales qui ne les satisfont pas encore.
+
+
+---
+
+9. NE PAS CONFONDRE RECHERCHE ET DÉVELOPPEMENT
+
+Tu n'as pas besoin de modifier le dépôt NoxPolyRE pendant cette mission.
+
+Ta priorité est de rechercher une architecture fondamentale supérieure.
+
+Si tu as accès à un environnement de code, tu peux construire de petits prototypes scientifiques indépendants pour départager deux hypothèses.
+
+N'utilise pas tout le temps disponible pour programmer une nouvelle bibliothèque de compatibilité classique.
+
+Je veux d'abord une recherche profonde, puis une architecture, puis un protocole expérimental.
+
+
+---
+
+10. LIVRABLE FINAL
+
+Produis un rapport structuré comprenant :
+
+1. Les 20 hypothèses explorées.
+2. Les technologies et travaux scientifiques consultés.
+3. Les 10 combinaisons architecturales proposées.
+4. La comparaison des approches.
+5. Les cinq meilleures pistes.
+6. Une architecture principale détaillée.
+7. Une architecture alternative radicalement différente.
+8. Les mécanismes matériels éventuellement exploitables.
+9. Les expériences à confier à Astra.
+10. Les inconnues techniques et les risques.
+11. Les preuves nécessaires pour parler d'une véritable percée.
+12. Les prochaines recherches prioritaires.
+
+Ajoute des schémas lorsque cela améliore la compréhension.
+
+Cite les sources primaires : documentation des fabricants, publications scientifiques, dépôts officiels et spécifications techniques.
+
+Distingue les mécanismes déjà démontrés des hypothèses originales.
+
+
+---
+
+11. DIRECTIVE FINALE
+
+Tu disposes d'une liberté totale de recherche et de conception.
+
+Ne cherche pas à me donner raison.
+
+Ne cherche pas non plus à défendre les solutions actuelles simplement parce qu'elles existent depuis trente ans.
+
+Cherche quelque chose de fondamentalement meilleur.
+
+Examine le logiciel, le matériel, le firmware, la mémoire, les processeurs, les hyperviseurs et les architectures expérimentales.
+
+Compare, combine, élimine, reconstruis et recommence.
+
+Si une nouvelle idée apparaît au cours de la recherche, suis-la même si elle n'était pas prévue dans ce document.
+
+Ne conclus pas prématurément que le problème est résolu ou définitivement insoluble.
+
+Utilise toute la profondeur de recherche disponible et privilégie les résultats vérifiables.
+
+L'objectif n'est pas de trouver une réponse rassurante. L'objectif est de découvrir la meilleure architecture possible pour franchir la frontière Windows/Linux.
+
+MISSION : POLYRE — THE SEARCH FOR THE UNIVERSAL EXECUTION GRAIL. Ne t'arrête pas tant que tu ne l'as pas trouver. Si tu trouve une piste continue jusqu'à ce qu'elle craque. Prend tout le temps. Vraiment trouver cette "faille" pour détruire l'incompatibilité.

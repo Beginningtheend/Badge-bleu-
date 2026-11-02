@@ -1,0 +1,1 @@
+shim|dll=kernel32.dll|fn=Heap32First|strategy=A|ret=0

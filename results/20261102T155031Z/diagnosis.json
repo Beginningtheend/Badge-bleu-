@@ -1,0 +1,110 @@
+[
+ {
+  "dll": "kernel32",
+  "func": "Heap32First",
+  "wine_status": "stub",
+  "contract_class": "B",
+  "api_class": "output-buffer",
+  "evidence": [
+   "import statique depuis bdfedit.exe",
+   "api: heuristique : présence d'un pointeur de sortie"
+  ],
+  "prototype": {
+   "cc": "WINAPI",
+   "hdr": "tlhelp32.h",
+   "params": [
+    [
+     "LPHEAPENTRY32",
+     ""
+    ],
+    [
+     "DWORD",
+     ""
+    ],
+    [
+     "ULONG_PTR",
+     ""
+    ]
+   ],
+   "ret": "BOOL"
+  },
+  "rationale": "comportement : fonction non implémentée par Wine, candidate à un shim (stratégie à déterminer par la table de sûreté)",
+  "confidence": "basse",
+  "fixable_v01": true
+ },
+ {
+  "dll": "kernel32",
+  "func": "Heap32Next",
+  "wine_status": "stub",
+  "contract_class": "B",
+  "api_class": "output-buffer",
+  "evidence": [
+   "import statique depuis bdfedit.exe",
+   "api: heuristique : présence d'un pointeur de sortie"
+  ],
+  "prototype": {
+   "cc": "WINAPI",
+   "hdr": "tlhelp32.h",
+   "params": [
+    [
+     "LPHEAPENTRY32",
+     ""
+    ]
+   ],
+   "ret": "BOOL"
+  },
+  "rationale": "comportement : fonction non implémentée par Wine, candidate à un shim (stratégie à déterminer par la table de sûreté)",
+  "confidence": "basse",
+  "fixable_v01": true
+ },
+ {
+  "dll": "kernel32",
+  "func": "SystemTimeToTzSpecificLocalTimeEx",
+  "wine_status": "export-absent",
+  "contract_class": "B",
+  "api_class": "output-buffer",
+  "evidence": [
+   "import statique depuis bdfedit.exe",
+   "api: heuristique : présence d'un pointeur de sortie",
+   "res: commented stub"
+  ],
+  "prototype": {
+   "cc": "WINAPI",
+   "hdr": "timezoneapi.h",
+   "params": [
+    [
+     "const DYNAMIC_TIME_ZONE_INFORMATION*",
+     ""
+    ],
+    [
+     "const SYSTEMTIME*",
+     ""
+    ],
+    [
+     "LPSYSTEMTIME",
+     ""
+    ]
+   ],
+   "ret": "BOOL"
+  },
+  "rationale": "comportement : fonction non implémentée par Wine, candidate à un shim (stratégie à déterminer par la table de sûreté)",
+  "confidence": "basse",
+  "fixable_v01": true
+ },
+ {
+  "dll": "bdfpdf",
+  "func": "<load dynamique>",
+  "wine_status": "dll-missing",
+  "contract_class": "A",
+  "api_class": "loader",
+  "evidence": [
+   "chaîne « bdfpdf.dll » repérée dans bdfedit.exe",
+   "chargement dynamique présumé (LoadLibrary / délai)",
+   "catalogue: bdfpdf"
+  ],
+  "prototype": null,
+  "rationale": "déclaratif : DLL chargée dynamiquement, absente de Wine ; à fournir par le catalogue du labo",
+  "confidence": "haute",
+  "fixable_v01": true
+ }
+]
