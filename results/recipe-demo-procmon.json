@@ -1,0 +1,67 @@
+{
+ "source_kind": "procmon-csv",
+ "scenarios": [
+  "edit-save-reopen"
+ ],
+ "app_root": "C:\\Apps\\bdfedit",
+ "app_files": [
+  "C:\\Apps\\bdfedit\\bdfedit.exe",
+  "C:\\Apps\\bdfedit\\doc.txt"
+ ],
+ "native_dll_candidates": [
+  {
+   "dll": "propsys",
+   "path": "C:\\Windows\\System32\\propsys.dll",
+   "wine_status": "fournie par Wine (140 stubs)",
+   "floor": false
+  },
+  {
+   "dll": "version",
+   "path": "C:\\Windows\\System32\\version.dll",
+   "wine_status": "fournie par Wine (0 stub)",
+   "floor": false
+  }
+ ],
+ "floor_refused": [
+  {
+   "dll": "kernel32",
+   "path": "C:\\Windows\\System32\\kernel32.dll",
+   "reason": "émet des syscalls NT ou appartient au noyau/chargeur : Linux n'a pas ces syscalls, la version Wine doit rester en place"
+  },
+  {
+   "dll": "kernelbase",
+   "path": "C:\\Windows\\System32\\KernelBase.dll",
+   "reason": "émet des syscalls NT ou appartient au noyau/chargeur : Linux n'a pas ces syscalls, la version Wine doit rester en place"
+  },
+  {
+   "dll": "ntdll",
+   "path": "C:\\Windows\\System32\\ntdll.dll",
+   "reason": "émet des syscalls NT ou appartient au noyau/chargeur : Linux n'a pas ces syscalls, la version Wine doit rester en place"
+  },
+  {
+   "dll": "shcore",
+   "path": "C:\\Windows\\System32\\shcore.dll",
+   "reason": "émet des syscalls NT ou appartient au noyau/chargeur : Linux n'a pas ces syscalls, la version Wine doit rester en place"
+  }
+ ],
+ "registry_keys": [
+  "HKLM\\SYSTEM\\CurrentControlSet\\Control\\TimeZoneInformation"
+ ],
+ "fonts": [
+  "C:\\Windows\\Fonts\\segoeui.ttf"
+ ],
+ "other_files": [],
+ "stats": {
+  "dll_loads": 7,
+  "distinct_dlls": 7,
+  "reg_keys": 1,
+  "native_candidates": 2,
+  "floor_seen": 4
+ },
+ "notes": [
+  "Les DLL du plancher ne sont jamais remplacées : Wine les fournit (syscalls NT).",
+  "Une seule capture ne couvre que les chemins exercés : capturer chaque scénario d'oracle.",
+  "Les binaires Windows restent chez l'utilisateur ; la recette (noms/empreintes) seule peut circuler.",
+  "Services Windows vivants (COM distants, WMI, Search) ne tiennent pas dans un dossier : partiel."
+ ]
+}

@@ -356,6 +356,50 @@ de DLL natives pour Wine (variante 1, classe A) ; (b) **repli** de fidélité ma
 Recommandation pour la question ouverte n°7 du rapport : **garder le niveau 3**, non comme concurrent de Wine
 mais comme plafond de fidélité et comme source d'oracle.
 
+## 10 quater. Idée de l'utilisateur, étape suivante : « extraire une fois dans la VM, relancer sans VM »
+
+**L'idée.** Lancer l'application **une fois** dans la VM Windows de l'utilisateur, **capturer tout ce qu'elle
+touche** (DLL chargées, clés de registre lues, fichiers, polices, résultats d'API), mettre le nécessaire dans
+un **dossier**, puis relancer **sans VM** : Wine fournit le socle, le dossier fournit le reste. La VM n'est qu'un
+**four d'extraction** à usage unique. C'est la forme la plus aboutie de la capsule : elle naît d'une **observation
+réelle** de l'application sur un vrai Windows, pas seulement d'une analyse statique.
+
+**Précédents (côté Windows).** C'est le principe de la *virtualisation d'application par capture* : le
+séquenceur **App-V** « surveille et enregistre tous les processus d'installation et de configuration » pour
+produire un paquet diffusé aux clients sans toucher au système cible ; **ThinApp** prend un instantané du système,
+laisse installer l'application, enregistre les changements et produit un `.exe`/`.msi` portable. Bonne pratique
+documentée : capturer dans une **VM remise à neuf** à chaque fois pour éviter les « faux positifs » d'autres
+processus — exactement la discipline des préfixes propres du labo. Aucun de ces outils ne vise Linux : la cible
+du paquet, ici, devient un **préfixe Wine**.
+[App-V sequencer (Microsoft)](https://technet.microsoft.com/en-us/library/cc817179),
+[ThinApp (Computerwoche)](https://www.computerwoche.de/article/2708926/thinapp-macht-anwendungsvirtualisierung-einfach.html),
+[séquençage en VM (Advanced Installer)](https://www.advancedinstaller.com/user-guide/sequence-mozilla-firefox-appv.html)
+
+**Implémenté dans le labo (côté Linux).** `bdflab/capture_import.py` lit une capture — export CSV de **Process
+Monitor** (depuis la VM Windows) ou **journal Wine** (`+loaddll`, `+relay`) — et produit une **recette** : DLL
+natives candidates **hors plancher**, chacune annotée du statut Wine (« absente », « N stubs », « 0 stub ») pour
+**prioriser** ce qui vaut la peine d'être extrait ; fichiers de l'appli ; clés de registre à exporter en `.reg` ;
+polices ; et la liste des DLL du plancher vues, **jamais remplacées**. Démonstration sur une vraie trace de
+l'expérience (`bdfedit`, une exécution) : 46 DLL distinctes chargées, 202 clés de registre lues, **14 DLL
+extractibles** au-dessus du plancher (`shell32`, `ole32`, `shlwapi`, `setupapi`, `iphlpapi`…), 15 du plancher.
+Sur l'exemple Process Monitor : `propsys` (140 stubs dans Wine) classée avant `version` (0 stub).
+`results/recipe-demo-*.json`. Ce qui n'est **pas** fait ici : la capture elle-même sur Windows (aucun Windows sur
+ce banc) et la vérification par oracle d'une recette appliquée.
+
+**Limites structurelles (honnêtes).** (1) **Le plancher** : rien sous `ntdll`/`win32u`/`kernelbase`/`kernel32`/
+`user32`/`gdi32` ni le noyau n'est extractible — si le problème de l'application est **là**, la qualité de Wine
+reste le plafond ; la liste du plancher est volontairement **conservatrice** et pourrait être **affinée
+empiriquement** par le labo (remplacer → l'oracle casse ? → plancher). (2) **Couverture** : une capture ne voit
+que les chemins exercés — capturer **chaque scénario d'oracle**. (3) **Services vivants** : COM distants, WMI,
+Windows Search ne tiennent pas dans un dossier (Wine en fournit certains, partiel). (4) **Licence** : les DLL
+extraites restent **chez l'utilisateur** ; seule la **recette** (noms, empreintes, clés, fixtures) circule dans le
+communs — un autre utilisateur ré-extrait depuis **son** Windows. (5) Pilotes, anti-triche, DRM : non.
+
+**Pourquoi c'est la bonne forme.** Elle réunit toutes les briques du labo en un seul flux : capture →
+recette (classe A : DLL natives, registre, polices) + fixtures distillées (stratégie F) → correctifs générés
+pour les stubs restants (classe B) → oracles d'effet → capsule par empreinte → communs. La VM Windows de
+l'utilisateur en est le **four**, utilisé une fois par application, puis éteint.
+
 ## 11. La frontière : anti-triche noyau et DRM (classe D)
 
 Position officielle Steamworks : EAC et BattlEye fonctionnent sous Proton **si l'éditeur active** la prise

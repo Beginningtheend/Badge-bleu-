@@ -340,3 +340,13 @@ fichier d'exemple est explicitement illustratif). 58 tests.
 `dll-native-user-windows` (override natif, empreinte vérifiée, jamais redistribué, à valider par oracle).
 Testé sur fichiers de substitution (60 tests) ; **non exercé sur de vraies DLL Windows** (aucun Windows sur ce
 banc). Analyse des trois variantes de l'idée et de leurs limites : `docs/RECHERCHE-graal-2026.md` §10 ter.
+
+**8.9 « Extraire une fois dans la VM, relancer sans VM » (idée de l'utilisateur, côté Linux implémenté).**
+`bdflab/capture_import.py` transforme une capture d'exécution (export Process Monitor depuis la VM Windows de
+l'utilisateur, ou journal Wine `+loaddll`/`+relay`) en **recette** de capsule : DLL natives candidates hors
+plancher, **priorisées** par le statut Wine (absente > à stubs > sans stub), fichiers de l'appli, clés de
+registre à exporter, polices, plancher refusé. Démontré sur une vraie trace de l'expérience (`bdfedit`, une
+exécution) : 46 DLL distinctes, 202 clés, **14 DLL extractibles**, 15 du plancher ; et sur un export Process
+Monitor d'exemple (`propsys`, 140 stubs, classée avant `version`, 0 stub). 63 tests. **Non fait ici** : la capture
+sur un vrai Windows et la vérification par oracle d'une recette appliquée. Analyse, précédents (App-V, ThinApp)
+et limites (plancher, couverture, services, licence) : `docs/RECHERCHE-graal-2026.md` §10 quater.

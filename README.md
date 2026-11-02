@@ -58,7 +58,10 @@ ses résultats sont convaincants. Les résultats réellement obtenus sont dans [
 15. **Le Windows de l'utilisateur comme catalogue** (`bdflab/userwindows.py`) : inventaire par empreinte
     d'un `System32` fourni par l'utilisateur, règle du plancher (DLL à syscalls NT jamais remplacées),
     contrat de classe A `dll-native-user-windows` ; jamais redistribué ; non exercé ici (pas de Windows).
-16. **Balayage de portée** (`bdflab/sweep.py`) : analyse statique d'un corpus de vrais exécutables
+16. **Du four d'extraction au dossier** (`bdflab/capture_import.py`) : importe une capture d'exécution
+    (export Process Monitor depuis la VM Windows de l'utilisateur, ou journal Wine) et produit une recette
+    de capsule — DLL natives hors plancher priorisées par le statut Wine, registre, polices, fichiers.
+17. **Balayage de portée** (`bdflab/sweep.py`) : analyse statique d'un corpus de vrais exécutables
     (sans exécution) pour mesurer l'étendue de l'analyseur.
 
 ## Voie de compatibilité retenue (v0.1)
