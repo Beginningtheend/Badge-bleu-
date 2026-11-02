@@ -31,6 +31,7 @@ def candidate_answers(api_class: str, ret_type: str, synthetic: bool, has_output
     """Énumère les réponses candidates AUTORISÉES par la table de sûreté pour cette fonction."""
     v = safety_evaluate("B", api_class, has_output_pointer, synthetic, persistent_disposable=synthetic)
     rt = (ret_type or "").upper()
+    unknown = rt in ("", "UNKNOWN", "?")
     cands: list[Candidate] = []
     if v.a_allowed:
         if rt == "HRESULT":
@@ -39,6 +40,12 @@ def candidate_answers(api_class: str, ret_type: str, synthetic: bool, has_output
             cands.append(Candidate("A", ERROR_CALL_NOT_IMPLEMENTED, None, "A:ERROR_CALL_NOT_IMPLEMENTED"))
         elif rt == "NTSTATUS":
             cands.append(Candidate("A", 0xC0000002, None, "A:STATUS_NOT_IMPLEMENTED"))
+        elif unknown:
+            # Type de retour INCONNU (cas fréquent : la plupart des @ stub n'ont pas de prototype public).
+            # Grille des deux conventions d'échec : BOOL-style (0 + last_error) ET HRESULT-style (E_NOTIMPL),
+            # car « 0 » serait un SUCCÈS si la fonction renvoie un HRESULT. L'oracle tranche.
+            cands.append(Candidate("A", 0, ERROR_CALL_NOT_IMPLEMENTED, "A:0+last_error=120 (convention BOOL)"))
+            cands.append(Candidate("A", E_NOTIMPL, None, "A:E_NOTIMPL (convention HRESULT)"))
         else:
             cands.append(Candidate("A", 0, ERROR_CALL_NOT_IMPLEMENTED, "A:0+last_error=120"))
     if v.s_allowed_lab:
@@ -46,6 +53,10 @@ def candidate_answers(api_class: str, ret_type: str, synthetic: bool, has_output
             cands.append(Candidate("S", 0, None, "S:S_OK"))
         elif rt in ("BOOL", "WINBOOL", "INT", "INT32", "LONG"):
             cands.append(Candidate("S", 1, None, "S:TRUE"))
+        elif unknown:
+            # grille des deux conventions de succès : TRUE (BOOL) et S_OK (HRESULT/NTSTATUS)
+            cands.append(Candidate("S", 1, None, "S:TRUE (convention BOOL)"))
+            cands.append(Candidate("S", 0, None, "S:S_OK (convention HRESULT)"))
         else:
             cands.append(Candidate("S", 1, None, "S:nonzero"))
     return cands, v

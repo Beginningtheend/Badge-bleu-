@@ -303,3 +303,10 @@ révélé la corruption. C'est le principe du rapport — détection par oracle 
 retour — appliqué à la validation d'implémentations synthétisées. Cela répond à l'obstacle relevé par la
 recherche sur la synthèse d'API par modèle (« l'oracle exige de connaître le comportement attendu ») : ici
 l'oracle porte sur l'**effet observable** sur données jetables, pas sur une spécification formelle.
+
+**8.6 Grille de réponses pour type de retour inconnu (idée n°2, version bornée).** La plupart des vrais
+`@ stub` n'ont pas de prototype public : le type de retour est alors inconnu, et supposer la convention
+BOOL serait dangereux (pour un `HRESULT`, renvoyer `0` = **succès**, donc un « échec déclaré » deviendrait
+un faux succès silencieux). `speculate.py` génère désormais, pour un type inconnu, les deux conventions
+d'échec (A : `0`+erreur, A : `E_NOTIMPL`) et, là où S est permis, les deux conventions de succès
+(`TRUE`, `S_OK`), et laisse l'oracle d'effet choisir. Testé (54 tests) ; toujours borné par la table de sûreté.

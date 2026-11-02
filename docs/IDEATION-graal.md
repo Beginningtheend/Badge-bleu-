@@ -32,12 +32,14 @@ la table de sûreté l'autorise pour une requête d'état sans tampon. Résultat
 
 ## B. Surface d'observation (optimiste)
 
-### 2. Grille ABI par force brute, choisie par l'oracle
+### 2. Grille ABI par force brute, choisie par l'oracle — *réalisée (version bornée)*
 **Mécanisme.** Généraliser la n°1 : pour un stub de signature inconnue, essayer une petite **grille**
 (valeur de retour × dernier code d'erreur × « remplir/ne pas remplir le tampon ») et garder la case qui
 passe l'oracle d'effet. « Débile » assumé : on ne comprend pas la fonction, on la *mesure*.
-**Nouveauté : partielle** (extension de RCV + de la n°1 à un espace de réponses). **Test labo : oui**,
-directement à partir de `speculate.py` en élargissant l'ensemble de candidats (borné par la sûreté).
+**Nouveauté : partielle** (extension de RCV + de la n°1 à un espace de réponses). **Test labo : FAIT**
+(version bornée) : quand le type de retour est INCONNU — le cas de la plupart des `@ stub` sans prototype
+public — `speculate.py` essaie les deux conventions (BOOL : 0+erreur / TRUE ; HRESULT : E_NOTIMPL / S_OK)
+et laisse l'oracle trancher, car « 0 » serait un *succès* pour un HRESULT. Toujours borné par la sûreté.
 
 ### 3. Pré-réponse par « ce que le programme teste ensuite » — *réalisée*
 **Mécanisme.** Analyser statiquement les **branches** qui suivent l'appel (le programme compare le retour à
