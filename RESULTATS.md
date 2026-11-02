@@ -323,3 +323,12 @@ BOOL serait dangereux (pour un `HRESULT`, renvoyer `0` = **succès**, donc un «
 un faux succès silencieux). `speculate.py` génère désormais, pour un type inconnu, les deux conventions
 d'échec (A : `0`+erreur, A : `E_NOTIMPL`) et, là où S est permis, les deux conventions de succès
 (`TRUE`, `S_OK`), et laisse l'oracle d'effet choisir. Testé (54 tests) ; toujours borné par la table de sûreté.
+
+**8.7 Amorçage par fixtures Windows (lien recherche → prototype).** La recherche (`docs/RECHERCHE-graal-2026.md`
+§8) conclut qu'une trace Windows ne peut pas servir d'oracle d'exécution mais peut être **distillée** en
+fixtures ouvertes pour le sous-ensemble déterministe. Le labo les consomme désormais : stratégie **F**
+(« fidèle », réponse réelle enregistrée sur le Windows de l'utilisateur) placée en **premier candidat** de la
+recherche, avec exactement le périmètre de S (requête d'état / mutation locale ; jamais sur tampon de sortie
+en v0.1), préférée à un succès fabriqué, et toujours **jugée par l'oracle d'effet**. Le linter exige une
+provenance (`fixture_source`). La distillation elle-même exige un Windows : non réalisée sur ce banc (le
+fichier d'exemple est explicitement illustratif). 58 tests.

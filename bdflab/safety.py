@@ -120,8 +120,16 @@ def lint_shim(contract_class: str, api_class: str, strategy: str, has_output_poi
                                 "classe C : escalade requise, aucun shim en v0.1"))
         return issues
 
-    if strategy not in {"A", "S"}:
-        issues.append(LintIssue("error", "bad-strategy", f"stratégie « {strategy} » inconnue (A ou S)"))
+    if strategy not in {"A", "S", "F"}:
+        issues.append(LintIssue("error", "bad-strategy", f"stratégie « {strategy} » inconnue (A, S ou F)"))
+        return issues
+    if strategy == "F":
+        # F = réponse réelle enregistrée sur Windows : même périmètre que S (jamais sur tampon de sortie,
+        # mutation persistante, sécurité, synchro), et jamais en production hors capsule validée.
+        if not v.s_allowed_lab:
+            issues.append(LintIssue("error", "F-forbidden",
+                                    f"stratégie F (fixture) interdite pour « {api_class} »" +
+                                    (" (tampon de sortie)" if has_output_pointer else "")))
         return issues
 
     if strategy == "A" and not v.a_allowed:

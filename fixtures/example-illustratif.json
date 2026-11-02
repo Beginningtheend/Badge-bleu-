@@ -1,0 +1,7 @@
+{
+  "schema": "bdflab-fixtures/0.1",
+  "source": "EXEMPLE ILLUSTRATIF (écrit à la main, non distillé)",
+  "entries": {
+    "shcore.IsAppCompatModeEnabled": { "returns": 1, "last_error": 0, "deterministic": true }
+  }
+}

@@ -63,3 +63,29 @@ def test_unknown_type_hresult_function_picks_right_failure():
         return {"passed": is_real_failure, "false_success": (c.strategy == "A" and c.returns == 0), "detail": ""}
     res = search_answer("f", "output-buffer", "", True, True, ev)
     assert res.selected is not None and res.selected["returns"] == 0x80004001
+
+
+def test_fixture_is_first_candidate_when_allowed():
+    fx = {"returns": 1, "last_error": 0, "source": "windows-test"}
+    c, _ = candidate_answers("state-query", "BOOL", synthetic=True, has_output_pointer=False, fixture=fx)
+    assert c[0].strategy == "F" and c[0].returns == 1 and "fixture" in c[0].label
+
+
+def test_fixture_refused_on_output_buffer_v01():
+    fx = {"returns": 1, "last_error": 0, "source": "windows-test"}
+    c, _ = candidate_answers("output-buffer", "BOOL", synthetic=True, has_output_pointer=True, fixture=fx)
+    assert all(x.strategy != "F" for x in c)
+
+
+def test_fixture_preferred_over_fabricated_when_A_fails():
+    fx = {"returns": 1, "last_error": 0, "source": "windows-test"}
+    def ev(c):
+        return {"passed": c.strategy in ("F", "S"), "false_success": False, "detail": ""}
+    res = search_answer("f", "state-query", "BOOL", True, False, ev, fixture=fx)
+    assert res.selected["strategy"] == "F"
+
+
+def test_lint_F_same_perimeter_as_S():
+    from bdflab.safety import lint_shim
+    assert not [i for i in lint_shim("B", "state-query", "F", False, True, 1, 0, "experimental") if i.level == "error"]
+    assert any(i.code == "F-forbidden" for i in lint_shim("B", "output-buffer", "F", True, True, 1, 0, "experimental"))

@@ -188,7 +188,7 @@ def generate_shim_dll(original_dll: str, all_imported_funcs: list[str], shims: l
         fn = s.func
         isym = "bdf_impl_" + fn
         impl_symbol[fn] = isym
-        tainted = "S-tainted" if s.strategy == "S" else "A-declared-absence"
+        tainted = {"S": "S-tainted", "F": "F-fixture-recorded-on-windows"}.get(s.strategy, "A-declared-absence")
         if s.custom_c:
             # fonderie : implémentation proposée, émise telle quelle (elle sera jugée par l'oracle)
             lines.append(f"/* {fn}: implémentation PROPOSÉE (fonderie), stratégie {s.strategy}; {s.note} */")

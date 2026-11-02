@@ -27,12 +27,25 @@ class Candidate:
         return asdict(self)
 
 
-def candidate_answers(api_class: str, ret_type: str, synthetic: bool, has_output_pointer: bool):
-    """Énumère les réponses candidates AUTORISÉES par la table de sûreté pour cette fonction."""
+FIXTURE_ALLOWED_CLASSES = {"state-query", "local-mutation"}   # v0.1 : retours scalaires seulement
+
+
+def candidate_answers(api_class: str, ret_type: str, synthetic: bool, has_output_pointer: bool,
+                      fixture: dict | None = None):
+    """Énumère les réponses candidates AUTORISÉES par la table de sûreté pour cette fonction.
+
+    ``fixture`` : réponse RÉELLE distillée sur un Windows (cf. RECHERCHE-graal-2026.md §8), de la forme
+    {"returns": int, "last_error": int|None, "source": str}. Si présente et si la classe d'API l'autorise
+    (requête d'état / mutation locale ; pas de tampon de sortie en v0.1), elle devient le PREMIER candidat,
+    stratégie « F » (fidèle). Elle n'autorise rien de plus que S et reste jugée par l'oracle d'effet.
+    """
     v = safety_evaluate("B", api_class, has_output_pointer, synthetic, persistent_disposable=synthetic)
     rt = (ret_type or "").upper()
     unknown = rt in ("", "UNKNOWN", "?")
     cands: list[Candidate] = []
+    if fixture and api_class in FIXTURE_ALLOWED_CLASSES and not has_output_pointer and v.s_allowed_lab:
+        cands.append(Candidate("F", fixture.get("returns", 0), fixture.get("last_error"),
+                               f"F:fixture({fixture.get('source', 'windows')})"))
     if v.a_allowed:
         if rt == "HRESULT":
             cands.append(Candidate("A", E_NOTIMPL, None, "A:E_NOTIMPL"))
@@ -87,17 +100,18 @@ class SearchResult:
 
 
 def search_answer(func: str, api_class: str, ret_type: str, synthetic: bool, has_output_pointer: bool,
-                  evaluate_fn, first_strategy: str | None = None) -> SearchResult:
+                  evaluate_fn, first_strategy: str | None = None, fixture: dict | None = None) -> SearchResult:
     """Essaie chaque candidat via ``evaluate_fn(candidate) -> {passed, false_success, detail}`` et choisit.
 
     Préférence : A qui passe > S qui passe (sans faux succès). Aucun candidat retenu si tous échouent
     ou si le seul qui « passe » le fait par faux succès (qui compte comme échec).
     """
-    cands, v = candidate_answers(api_class, ret_type, synthetic, has_output_pointer)
+    cands, v = candidate_answers(api_class, ret_type, synthetic, has_output_pointer, fixture=fixture)
     # indice statique (analyse des branches) : essayer d'abord la stratégie prédite, SANS jamais ajouter
     # de candidat que la table de sûreté n'autorise pas (l'indice ordonne, il n'autorise rien).
+    # Une fixture (réponse Windows enregistrée) garde toujours la première place.
     if first_strategy in ("A", "S"):
-        cands = sorted(cands, key=lambda c: 0 if c.strategy == first_strategy else 1)
+        cands = sorted(cands, key=lambda c: (0 if c.strategy == "F" else 1, 0 if c.strategy == first_strategy else 1))
     trials: list[Trial] = []
     for c in cands:
         r = evaluate_fn(c)
@@ -111,6 +125,13 @@ def search_answer(func: str, api_class: str, ret_type: str, synthetic: bool, has
             selected = t
             reason = "la stratégie A (absence déclarée) fait passer l'oracle : préférée, aucune valeur fabriquée"
             break
+    if selected is None:
+        for t in passing:
+            if t.candidate["strategy"] == "F":
+                selected = t
+                reason = (f"aucune réponse A ne passe ; « {t.candidate['label']} » — réponse RÉELLE distillée sur Windows — "
+                          f"fait passer l'oracle d'effet, sans faux succès (préférée à un succès fabriqué)")
+                break
     if selected is None and passing:
         selected = passing[0]
         reason = (f"aucune réponse A ne passe ; « {selected.candidate['label']} » (succès fabriqué) fait passer "

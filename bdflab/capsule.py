@@ -86,6 +86,8 @@ def build_capsule(identity: dict, wine_version: str, polyre_range: str, contract
             entry["last_error"] = sh["last_error"]
         if sh.get("tainted"):
             entry["tainted"] = True
+        if sh.get("fixture_source"):
+            entry["fixture_source"] = sh["fixture_source"]
         ev = evidence_by_func.get(sh["func"]) or evidence_by_func.get(f"{sh['dll']}.{sh['func']}")
         if ev:
             entry["evidence"] = ev
@@ -156,7 +158,9 @@ def lint_capsule(obj: dict) -> CapsuleLint:
         for i in issues:
             msg = f"shim {fn} ({api}, stratégie {strat}) : {i.message}"
             (errors if i.level == "error" else warnings).append(msg)
-        if strat == "S":
+        if strat == "F" and not sh.get("fixture_source"):
+            errors.append(f"shim {fn} : stratégie F sans « fixture_source » (provenance de la réponse enregistrée requise)")
+        if strat in ("S", "F"):
             if status != "validated" and not synthetic:
                 errors.append(f"shim {fn} : stratégie S interdite hors capsule validée (condition 7) "
                               f"sauf cas synthétique de laboratoire")
