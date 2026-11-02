@@ -228,7 +228,7 @@ ne valide pas le Scénario 3 (cas unique, faiblement vérifié, artisanal). Anal
   abouti sur ce conteneur (2 cœurs effectifs : les orchestrations se sont figées). La vérification
   d'honnêteté repose donc sur (1) une relecture par l'auteur, (2) une **vérification mécanique** de chaque
   affirmation chiffrée de ce document contre les fichiers de résultats (19 contrôles, tous passés), et
-  (3) 54 tests automatisés. Une relecture humaine indépendante reste souhaitable avant toute intégration.
+  (3) 58 tests automatisés. Une relecture humaine indépendante reste souhaitable avant toute intégration.
 
 ## 7. Reproduire
 
@@ -322,7 +322,7 @@ l'oracle porte sur l'**effet observable** sur données jetables, pas sur une sp�
 BOOL serait dangereux (pour un `HRESULT`, renvoyer `0` = **succès**, donc un « échec déclaré » deviendrait
 un faux succès silencieux). `speculate.py` génère désormais, pour un type inconnu, les deux conventions
 d'échec (A : `0`+erreur, A : `E_NOTIMPL`) et, là où S est permis, les deux conventions de succès
-(`TRUE`, `S_OK`), et laisse l'oracle d'effet choisir. Testé (54 tests) ; toujours borné par la table de sûreté.
+(`TRUE`, `S_OK`), et laisse l'oracle d'effet choisir. Testé (58 tests) ; toujours borné par la table de sûreté.
 
 **8.7 Amorçage par fixtures Windows (lien recherche → prototype).** La recherche (`docs/RECHERCHE-graal-2026.md`
 §8) conclut qu'une trace Windows ne peut pas servir d'oracle d'exécution mais peut être **distillée** en
