@@ -36,8 +36,13 @@ empreinte**. C'est exactement ce que fait le labo, et c'est là que se trouve l'
   stabilisée en amont. [GameNative builds](https://github.com/GameNative/proton-wine/releases)
 - **Apple Game Porting Toolkit** : GPTK 2 sorti de bêta (janv. 2025), positionné comme **outil de
   diagnostic** pour développeurs ; GPTK 4 (WWDC, juin 2026) ajoute la prise en charge du **codage par
-  agents** (compétences d'agent et exemples open source), toujours en bêta. Qu'il soit bâti sur
-  CrossOver/Wine + D3DMetal est affirmé par des sources secondaires, **non confirmé officiellement** ici.
+  agents** (compétences d'agent et exemples open source), toujours en bêta. **Confirmé par CodeWeavers**
+  (juin 2023) : « Apple chose to use CrossOver's source code as their emulation solution for the Game Porting
+  Toolkit. We did not work with Apple on this tool. » — GPTK est donc du **Wine (CrossOver)** sous une couche
+  graphique propriétaire (D3DMetal). Un acteur majeur a choisi la traduction Wine-style, pas une nouvelle
+  architecture, et y ajoute des agents en 2026.
+  [CodeWeavers](https://codeweavers.com/blog/mjohnson/2023/6/6/wine-comes-to-macos-apple-s-game-porting-toolkit-powered-by-crossover-source-code),
+  [OSNews](https://www.osnews.com/story/136223/apples-game-porting-toolkit-is-wine/),
   [developer-tech](https://www.developer-tech.com/news/game-porting-toolkit-2-exits-beta-mac-gaming-drive/),
   [AppleInsider](https://appleinsider.com/articles/26/06/08/game-porting-toolkit-4-ushers-in-support-for-agentic-coding)
 - **Microsoft** : WSL open source (mai 2025, MIT) — **mais** `lxcore.sys` (le pilote noyau de WSL1, lignée
@@ -49,7 +54,10 @@ empreinte**. C'est exactement ce que fait le labo, et c'est là que se trouve l'
 
 La FAQ développeur de Wine répond **« Non »** au code généré par modèle : « The copyright and licensing
 status of LLM-generated code is not well-defined […] we can't assume that we are allowed to distribute that
-code under the Wine license » (motif : **provenance et licence**, pas qualité). Cas réel : un correctif de
+code under the Wine license » (motif : **provenance et licence**, pas qualité). *Libellé cité via deux
+sources secondaires (mixed-news ; un ticket GitHub citant les Clean Room Guidelines : « Don't use an LLM tool
+to generate code ») — la page primaire du wiki WineHQ n'était pas accessible depuis ce banc (protection
+anti-robot).* Cas réel : un correctif de
 plantage de *Space Marine 2* sous ntsync, prototypé par modèle, a dû être déposé **en prose** (bug Wine
 60397, 27 sept.) ; le mainteneur Proton a renvoyé vers l'amont (« any changes that can go to upstream wine,
 should go upstream first »), sans fusion. Valve n'a pas de politique propre et s'aligne sur Wine.
@@ -144,11 +152,15 @@ décision d'éditeur**, et le labo refuse explicitement la classe D.
 
 ## 12. Le danger documenté : « supprimer le crash » n'est pas réparer
 
-Un benchmark arXiv (fév. 2026) sur des correctifs d'agents observe des patchs qui « modifient une variable
-vers une valeur valide pour **supprimer le crash silencieusement** » en laissant « d'autres états
-incohérents ». C'est le **faux succès**, nommé par la recherche. Toute industrialisation d'agents correcteurs
-exige des **oracles d'effet**, pas des codes de retour — ce que le labo impose (et que sa fonderie a déjà
-démontré en rejetant une implémentation « succès sans sortie »). [arXiv 2602.02690](https://arxiv.org/pdf/2602.02690)
+Live-kBench (arXiv 2602.02690, fév. 2026, révisé juin 2026 ; Huang, Mathai, Yu, Nogikh, Maniatis, Ivančić,
+Wu, Kaffes, Yang, Ray) mesure des agents sur 534 bogues du noyau Linux : ils « resolve **74 %** of crashes on
+the first attempt (**plausible patches**) ; however only **~20 %** of generated patches closely match developer
+fixes ». L'écart entre « le crash disparaît » (plausible) et « c'est la bonne correction » est l'exact
+analogue du **faux succès** : un correctif qui fait passer le symptôme sans rétablir le comportement. *(Une
+formulation « supprimer le crash silencieusement », reprise d'un résumé de recherche, ne figure pas dans le
+résumé de l'article ; je ne la cite donc pas comme verbatim.)* Toute industrialisation d'agents correcteurs
+exige des **oracles d'effet**, pas des codes de retour — ce que le labo impose (sa fonderie a rejeté une
+implémentation « succès sans sortie » qu'une vérification naïve aurait acceptée). [arXiv 2602.02690](https://arxiv.org/abs/2602.02690)
 
 ---
 
@@ -156,7 +168,7 @@ démontré en rejetant une implémentation « succès sans sortie »). [arXiv 26
 
 1. **Pas de graal technique.** Les voies « noyau », « micro-VM Windows » et « code NT ouvert » sont fermées
    en 2026 par des décisions externes (Linux, Microsoft, Hyperlight). La compatibilité reste Wine-style +
-   traduction (même Apple semble suivre cette voie — à confirmer).
+   traduction — **Apple l'a confirmé** en bâtissant GPTK sur CrossOver/Wine.
 2. **La rupture réaliste est organisationnelle et outillée** : des agents réparent déjà de vraies
    applications (Alderson), mais Wine refuse ce code. Le vide à occuper = **la couche de correctifs
    assistés, sûre, vérifiée par l'effet, reproductible et partagée par empreinte**, hors Wine. Aucun acteur
