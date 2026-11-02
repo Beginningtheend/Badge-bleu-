@@ -76,13 +76,17 @@ class SearchResult:
 
 
 def search_answer(func: str, api_class: str, ret_type: str, synthetic: bool, has_output_pointer: bool,
-                  evaluate_fn) -> SearchResult:
+                  evaluate_fn, first_strategy: str | None = None) -> SearchResult:
     """Essaie chaque candidat via ``evaluate_fn(candidate) -> {passed, false_success, detail}`` et choisit.
 
     Préférence : A qui passe > S qui passe (sans faux succès). Aucun candidat retenu si tous échouent
     ou si le seul qui « passe » le fait par faux succès (qui compte comme échec).
     """
     cands, v = candidate_answers(api_class, ret_type, synthetic, has_output_pointer)
+    # indice statique (analyse des branches) : essayer d'abord la stratégie prédite, SANS jamais ajouter
+    # de candidat que la table de sûreté n'autorise pas (l'indice ordonne, il n'autorise rien).
+    if first_strategy in ("A", "S"):
+        cands = sorted(cands, key=lambda c: 0 if c.strategy == first_strategy else 1)
     trials: list[Trial] = []
     for c in cands:
         r = evaluate_fn(c)

@@ -49,9 +49,11 @@ ses résultats sont convaincants. Les résultats réellement obtenus sont dans [
     deux fois, dans des préfixes propres, avec mesures.
 11. **Découverte de réponse par oracle** (`bdflab/speculate.py`) : essaie les réponses sûres autorisées
     et laisse l'oracle d'effet choisir (stratégie S incluse, là où la table de sûreté l'autorise).
-12. **Communs de capsules adressé par contenu** (`bdflab/commons.py`) + flux « déposer l'exe »
+12. **Pré-réponse par analyse des branches** (`bdflab/branch_hint.py`) : lit le code après l'appel
+    (Capstone) pour prédire la réponse attendue et ordonner la recherche ; l'oracle reste juge.
+13. **Communs de capsules adressé par contenu** (`bdflab/commons.py`) + flux « déposer l'exe »
     (`bdflab/fix.py`) : chercher/émettre une capsule par empreinte du binaire (sha256, imphash dégradé).
-13. **Balayage de portée** (`bdflab/sweep.py`) : analyse statique d'un corpus de vrais exécutables
+14. **Balayage de portée** (`bdflab/sweep.py`) : analyse statique d'un corpus de vrais exécutables
     (sans exécution) pour mesurer l'étendue de l'analyseur.
 
 ## Voie de compatibilité retenue (v0.1)

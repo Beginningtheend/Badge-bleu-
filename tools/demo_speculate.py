@@ -19,6 +19,7 @@ from bdflab.shimgen import ShimSpec
 from bdflab.wine_runner import wine_info, PrefixManager, RunLock, run_wine
 from bdflab.trace_parser import parse_app_stdout
 from bdflab.speculate import search_answer, candidate_answers
+from bdflab import branch_hint
 
 REPO = Path(__file__).resolve().parent.parent
 EXE = REPO / "testapps/bdfedit/bin/bdfedit.exe"
@@ -82,15 +83,26 @@ def main() -> int:
     print(f"[speculate] cible shcore.IsAppCompatModeEnabled (stub Wine {wi.version}), scénario « capability »")
     cands, verdict = candidate_answers("state-query", "BOOL", synthetic=True, has_output_pointer=False)
     print(f"[speculate] candidats autorisés par la table de sûreté : {[c.label for c in cands]} (S autorisé={verdict.s_allowed_lab})")
-    res = search_answer("shcore.IsAppCompatModeEnabled", "state-query", "BOOL", True, False, evaluate)
+    # indice statique : lire le code juste après l'appel pour prédire la réponse attendue
+    hint = branch_hint.analyze(EXE, "shcore", "IsAppCompatModeEnabled")
+    print(f"[indice ] analyse des branches : testée={hint.tested} non-nul-nominal={hint.predicted_nonzero_nominal} "
+          f"confiance={hint.confidence} -> essayer d'abord : {hint.preferred_strategy_first()}")
+    for e in hint.evidence:
+        print("          ", e)
+    res = search_answer("shcore.IsAppCompatModeEnabled", "state-query", "BOOL", True, False, evaluate,
+                        first_strategy=hint.preferred_strategy_first())
+    res_d = res.to_dict(); res_d["branch_hint"] = hint.to_dict()
+    pred_ok = (res.selected is not None and hint.preferred_strategy_first() == res.selected.get("strategy"))
+    res_d["prediction_confirmed_by_oracle"] = pred_ok
     out = REPO / "results/speculate-demo.json"
-    out.write_text(json.dumps(res.to_dict(), indent=1, ensure_ascii=False))
+    out.write_text(json.dumps(res_d, indent=1, ensure_ascii=False))
     print("\n=== essais ===")
     for t in res.trials:
         print(f"  {t['candidate']['label']:18s} -> passed={t['passed']} faux_succes={t['false_success']} | {t['detail']}")
     print("\n=== sélection ===")
     print("  réponse retenue :", res.selected["label"] if res.selected else "AUCUNE")
     print("  raison :", res.reason)
+    print("  prédiction statique confirmée par l'oracle :", "OUI" if pred_ok else "NON")
     print(f"\nrésultat : {out}")
     return 0
 

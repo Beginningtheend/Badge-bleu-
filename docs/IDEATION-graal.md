@@ -39,11 +39,12 @@ passe l'oracle d'effet. « Débile » assumé : on ne comprend pas la fonction, 
 **Nouveauté : partielle** (extension de RCV + de la n°1 à un espace de réponses). **Test labo : oui**,
 directement à partir de `speculate.py` en élargissant l'ensemble de candidats (borné par la sûreté).
 
-### 3. Pré-réponse par « ce que le programme teste ensuite »
+### 3. Pré-réponse par « ce que le programme teste ensuite » — *réalisée*
 **Mécanisme.** Analyser statiquement les **branches** qui suivent l'appel (le programme compare le retour à
 quoi ?) pour proposer en priorité la réponse qui garde le programme sur son chemin nominal, puis vérifier.
 **Nouveauté : novel** (personne ne relie l'analyse de branches post-appel au choix de réponse optimiste
-dans un compat layer). **Test labo : oui**, en lisant le flot de contrôle autour du site d'appel (angr/Ghidra).
+dans un compat layer). **Test labo : FAIT** (`bdflab/branch_hint.py`, Capstone) : sur `IsAppCompatModeEnabled`
+l'indice prédit « non-nul → S » et l'oracle le confirme ; voir `RESULTATS.md` §8.4.
 
 ## C. Inversion : Linux *se fait passer* pour Windows
 
@@ -134,7 +135,7 @@ Linux, en ne gardant du binaire Windows que l'UI. « Débile » : on contourne l
 1. **n°1 Découverte par oracle** — *déjà réelle*, extensible (n°2 grille ABI).
 2. **n°6 Communs adressé par contenu** — nouveauté nette vs protonfixes ; format déjà en place.
 3. **n°5 Enregistre-une-fois-rejoue** — gap produit réel (record-replay aujourd'hui Linux-only).
-4. **n°3 Pré-réponse par analyse de branches** — angle inédit, testable.
+4. **n°3 Pré-réponse par analyse de branches** — *déjà réelle*, prédiction confirmée par l'oracle.
 5. **n°11 Fonderie de shims hors ligne** — répond à l'obstacle « oracle » identifié par la recherche.
 
 ## Ce que la réalité impose (honnêteté)

@@ -11,17 +11,6 @@
  "trials": [
   {
    "candidate": {
-    "strategy": "A",
-    "returns": 0,
-    "last_error": 120,
-    "label": "A:0+last_error=120"
-   },
-   "passed": false,
-   "false_success": false,
-   "detail": "exit=2 events=['CAP', 'CAP-UNAVAILABLE'] changed=False marker=False"
-  },
-  {
-   "candidate": {
     "strategy": "S",
     "returns": 1,
     "last_error": null,
@@ -30,6 +19,17 @@
    "passed": true,
    "false_success": false,
    "detail": "exit=0 events=['CAP', 'MODIFIED', 'OPENED', 'SAVED', 'TZ'] changed=True marker=True"
+  },
+  {
+   "candidate": {
+    "strategy": "A",
+    "returns": 0,
+    "last_error": 120,
+    "label": "A:0+last_error=120"
+   },
+   "passed": false,
+   "false_success": false,
+   "detail": "exit=2 events=['CAP', 'CAP-UNAVAILABLE'] changed=False marker=False"
   }
  ],
  "safety": {
@@ -41,5 +41,18 @@
    "A (absence déclarée) autorisé : réponse « non implémenté » sans rien fabriquer — stratégie par défaut",
    "S (succès fabriqué) autorisé en laboratoire sous teinte et journal (conditions 2,4,5,6)"
   ]
- }
+ },
+ "branch_hint": {
+  "dll": "shcore",
+  "func": "IsAppCompatModeEnabled",
+  "call_sites": 1,
+  "tested": true,
+  "predicted_nonzero_nominal": true,
+  "confidence": "moyenne",
+  "evidence": [
+   "140002068: test ebx, ebx",
+   "14000206a: je 0x140002086"
+  ]
+ },
+ "prediction_confirmed_by_oracle": true
 }

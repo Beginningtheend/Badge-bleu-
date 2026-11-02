@@ -272,3 +272,15 @@ sécurité, synchronisation).
 
 Ces extensions renforcent le prototype ; elles **ne changent pas** le verdict §5 : efficacité sur logiciel
 tiers réel toujours non démontrée à l'exécution.
+
+**8.4 Pré-réponse par analyse des branches (idée n°3 du carnet), vérifiée par oracle**
+(`bdflab/branch_hint.py`). Le labo lit le code **juste après** l'appel à la fonction manquante (Capstone) :
+il repère le test de la valeur de retour et le saut conditionnel, puis reconnaît la branche d'erreur
+précoce (petit code constant chargé puis sortie) de la branche nominale (résultat d'un appel conservé).
+Il en déduit la réponse qui garde le programme sur son chemin nominal et **ordonne** les candidats de la
+recherche (§8.3) — sans jamais ajouter de réponse que la table de sûreté interdit. Sur
+`IsAppCompatModeEnabled`, l'indice statique prédit « non-nul → S d'abord » (confiance moyenne) ; la recherche
+confirme que S est la seule réponse qui fait passer l'oracle : **prédiction statique et preuve dynamique
+concordent**. Sur `SystemTimeToTzSpecificLocalTimeEx`, l'indice reconnaît le repli documenté ; la sûreté
+n'autorise que A, qui passe. L'indice est un accélérateur et une explication, pas un juge : l'oracle reste
+seul juge.
