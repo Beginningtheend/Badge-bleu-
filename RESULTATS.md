@@ -206,6 +206,14 @@ pas d'en juger.** Ce qui est établi, et ce qui ne l'est pas :
 Conformément à la consigne, le Scénario 3 **n'est pas présumé**. Un cas synthétique validé prouve le
 mécanisme, pas l'efficacité sur des logiciels commerciaux.
 
+**Preuve externe (pas la nôtre, à ne pas confondre avec nos mesures)** : en mars 2026, un agent de code a
+rendu « presque entièrement fonctionnelle » une vraie application classée « garbage » sur l'AppDB WineHQ,
+en ~2 h, notamment en construisant un stub `powrprof.dll` avec mingw — le mécanisme même de nos DLL de
+compatibilité — mais avec une vérification faible (capture d'écran, une fonction non testée, aucune mesure
+de sûreté ni de reproductibilité). Cela indique que la **direction** fonctionne sur du logiciel réel ; cela
+ne valide pas le Scénario 3 (cas unique, faiblement vérifié, artisanal). Analyse complète et sources :
+`docs/RECHERCHE-graal-2026.md` §3.
+
 ## 6. Limites et honnêteté
 
 - **Cas synthétique** : le programme de test a été écrit pour appeler des stubs réels de Wine et se

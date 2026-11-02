@@ -5,6 +5,7 @@
 > compatibilité se *mesure*. Rien ici ne contredit cela. Chaque idée porte un verdict de nouveauté
 > (vérifié par recherche web, sources en bas) et une note de testabilité au labo. Une seule de ces
 > idées a été **rendue réelle** aujourd'hui (la n°1), et uniquement sur un cas synthétique.
+> État de l'art 2026 vérifié et verdict stratégique : voir `RECHERCHE-graal-2026.md`.
 
 Objet : « déposer l'exe et ça marche », sans Windows, sans IA à l'exécution. Les idées sont rangées par
 « lentille » (angle d'attaque imposé). Pour chacune : **mécanisme concret**, **nouveauté**, **test labo**.

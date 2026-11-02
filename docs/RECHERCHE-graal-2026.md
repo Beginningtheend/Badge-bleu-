@@ -1,0 +1,176 @@
+# Recherche fondamentale 2026 — existe-t-il un « graal » Windows → Linux ?
+
+> Synthèse d'une recherche menée le 2026-11-02 : recherches web (état de l'art 2025-2026), lecture de
+> sources primaires, et trois éclaireurs (sous-agents) sur des angles distincts — recompilation statique,
+> traces « dorées » (WinDbg TTD), personnalité NT sur Linux. **Tout ce qui suit est sourcé ou marqué
+> incertain.** Les sections des éclaireurs sont marquées *(à compléter)* tant que leur rapport n'est pas
+> rendu. Ce document ne contredit pas le verdict du rapport PolyRE (« pas de faille universelle ») ; il le
+> **précise** avec les faits de 2026 et dégage ce qui est réellement nouveau.
+
+---
+
+## 0. Réponse courte
+
+**Non, il n'y a pas de graal technique** — et 2026 le confirme de trois façons : (1) Linux a *refusé* de
+mettre une personnalité NT dans le noyau et a choisi un mécanisme d'espace utilisateur (Syscall User
+Dispatch) que Wine 11.5 utilise désormais ; (2) les micro-VM à la Hyperlight ne peuvent pas héberger
+Windows ; (3) le code noyau NT reste fermé (WSL est open source, mais son pilote noyau `lxcore.sys` ne
+l'est pas, et ni Prism ni le noyau NT n'ont été ouverts).
+
+**Mais une rupture non technique est apparue en 2026**, et elle est exploitable : des agents de code
+réparent déjà de vraies applications « irrécupérables » sous Wine (preuve terrain : Alderson, mars 2026), et
+**Wine refuse structurellement ce code** (règle « clean room » : pas de code généré par modèle). Les
+correctifs assistés ne peuvent donc vivre **qu'à côté de Wine**, dans une couche de capsules. Personne
+n'a encore industrialisé cette couche avec **sûreté, oracles d'effet, reproductibilité et partage par
+empreinte**. C'est exactement ce que fait le labo, et c'est là que se trouve l'avantage réaliste.
+
+---
+
+## 1. État de l'art 2026 (vérifié)
+
+- **Wine 11.0** (janv. 2026) : ntsync et nouveau WoW64 achevés. **Wine 11.5** (mars 2026) : prise en charge de
+  **Syscall User Dispatch**. **Wine 11.6** : relance du pilote Android. Des gains « 678 % » circulent : à
+  prendre avec prudence (source secondaire enthousiaste). [Phoronix](https://www.phoronix.com/linux/WINE),
+  [GamingOnLinux](https://www.gamingonlinux.com/2026/03/wine-11-5-released-with-support-for-syscall-user-dispatch-on-linux/)
+- **ARM** : Hangover = Wine + FEX/Box64 ; builds ARM64EC. Dépendance à des émulateurs tiers, intégration non
+  stabilisée en amont. [GameNative builds](https://github.com/GameNative/proton-wine/releases)
+- **Apple Game Porting Toolkit** : GPTK 2 sorti de bêta (janv. 2025), positionné comme **outil de
+  diagnostic** pour développeurs ; GPTK 4 (WWDC, juin 2026) ajoute la prise en charge du **codage par
+  agents** (compétences d'agent et exemples open source), toujours en bêta. Qu'il soit bâti sur
+  CrossOver/Wine + D3DMetal est affirmé par des sources secondaires, **non confirmé officiellement** ici.
+  [developer-tech](https://www.developer-tech.com/news/game-porting-toolkit-2-exits-beta-mac-gaming-drive/),
+  [AppleInsider](https://appleinsider.com/articles/26/06/08/game-porting-toolkit-4-ushers-in-support-for-agentic-coding)
+- **Microsoft** : WSL open source (mai 2025, MIT) — **mais** `lxcore.sys` (le pilote noyau de WSL1, lignée
+  Drawbridge/pico-process) **reste fermé**, de même que `p9rdr.sys`. Aucune ouverture de Prism ni du noyau NT.
+  [BleepingComputer](https://www.bleepingcomputer.com/news/microsoft/microsoft-open-sources-windows-subsystem-for-linux-at-build-2025/),
+  [The Register](https://www.theregister.com/2025/05/19/microsoft_wsl_open_source/)
+
+## 2. Le fait structurant : Wine refuse le code généré par IA
+
+La FAQ développeur de Wine répond **« Non »** au code généré par modèle : « The copyright and licensing
+status of LLM-generated code is not well-defined […] we can't assume that we are allowed to distribute that
+code under the Wine license » (motif : **provenance et licence**, pas qualité). Cas réel : un correctif de
+plantage de *Space Marine 2* sous ntsync, prototypé par modèle, a dû être déposé **en prose** (bug Wine
+60397, 27 sept.) ; le mainteneur Proton a renvoyé vers l'amont (« any changes that can go to upstream wine,
+should go upstream first »), sans fusion. Valve n'a pas de politique propre et s'aligne sur Wine.
+[mixed-news](https://mixed-news.com/en/valve-proton-maintainer-wine-llm-code-rule-space-marine-2-fix/),
+[Wine (Wikipedia)](https://en.wikipedia.org/wiki/Wine_(software))
+
+**Conséquence architecturale (décisive pour PolyRE)** : tout correctif assisté par modèle est **expulsé** de
+Wine et de Proton. Son seul foyer possible est une **couche externe** — DLL de compatibilité + capsules —
+qui ne modifie pas Wine. C'est le choix du labo (`shimgen`, `foundry`, `capsule`), désormais imposé par
+la politique du projet amont lui-même, pas seulement par prudence.
+
+## 3. La preuve terrain : un agent répare une vraie application « garbage »
+
+Martin Alderson (17 mars 2026) : *Airflow* (streaming AirPlay/Chromecast), classée **« garbage »** sur
+l'AppDB WineHQ. Un agent de code l'a rendue « presque entièrement fonctionnelle » en **~2 heures** : il a
+**construit un stub `powrprof.dll` avec mingw** (le mécanisme même de nos DLL de compatibilité), diagnostiqué
+chaque plantage en décompilant les DLL, puis **patché en binaire** (code caves, sauts conditionnels,
+constantes de sockets). Citation : « I wasn't even aware you could compile Windows DLLs on Linux like that. »
+[Alderson](https://martinalderson.com/posts/using-agents-and-wine-to-move-off-windows/)
+
+**Ce qui manque à ce précédent — et que le labo apporte :**
+
+| Faiblesse observée chez Alderson | Réponse du labo |
+|---|---|
+| Vérification = une capture d'écran ; AirPlay non testé ; « presque » fonctionnel | **Oracles d'effet** indépendants ; faux succès = échec |
+| Patchs binaires ad hoc, y compris du gestionnaire d'exceptions | **Table de sûreté** A/B/C/D ; sécurité et noyau refusés |
+| Reproductible sur sa machine seulement (un gist) | **Préfixes propres, 2 exécutions, capsule** indexée par empreinte |
+| Résultat perdu pour les autres utilisateurs | **Communs** adressé par contenu |
+| « Extrêmement impliqué pour 99,99 % des humains » | Flux **« déposer l'exe »** |
+
+Autrement dit : la direction marche sur du **réel** (ce n'est plus seulement notre cas synthétique), et la
+valeur ajoutée réaliste n'est pas un nouveau moteur, c'est **l'industrialisation sûre** de ce que l'agent
+fait à la main.
+
+## 4. Ce que Linux a refusé : la personnalité NT en noyau
+
+Le débat de 2020 (patchs Krisman, LWN) visait à aider Wine à émuler les syscalls Windows ; la communauté a
+rejeté la « glu » en noyau (sécurité, encombrement) et retenu un **trampoline en espace utilisateur** —
+devenu Syscall User Dispatch (5.11+), aujourd'hui utilisé par Wine 11.5. L'idée eBPF a été évoquée, jamais
+construite. **Toute personnalité NT sera donc en espace utilisateur (voie Wine) ou en VM** ; une voie
+« noyau Linux + NT » à la Longene n'a pas d'avenir amont.
+[LWN](https://lwn.net/Articles/826313/), [exposé OSS EU 2020](https://static.sched.com/hosted_files/osseu2020/5c/Gabriel_Krisman_Bertazi-Efficient-syscall-emulation-for-gaming-on-linuxsyscall-emulation-dark.pdf),
+[doc noyau SUD](https://docs.kernel.org/admin-guide/syscall-user-dispatch.html)
+
+## 5. Micro-VM : Hyperlight n'héberge pas Windows
+
+Hyperlight (Microsoft, Rust, mars-avril 2025) démarre un invité en 1-2 ms mais n'offre « qu'une plage
+mémoire et un CPU » : pas d'OS, invités Wasm/no_std. **Il ne peut pas héberger Windows.** Un « NT-Organ » en
+micro-VM suppose donc d'**écrire soi-même** l'OS-bibliothèque NT — d'où la question ReactOS (§9).
+[Phoronix](https://www.phoronix.com/news/Microsoft-Hyperlight-Wasm), [devclass](https://www.devclass.com/development/2025/03/27/microsoft-releases-experimental-hyperlight-wasm-micro-vms-that-run-wasm-apps/1623450)
+
+## 6. Communs : la lacune « adressé par contenu » est confirmée
+
+umu-launcher / UMU-Database / UMU-Protonfixes (partagés par Bottles, Heroic…) indexent les correctifs par
+**magasin + identifiant de jeu**, pas par empreinte de binaire ; rien sur une clé sha256/imphash, rien sur
+un typage de sûreté ou une signature. L'adressage par contenu (notre `commons.py`) reste inédit dans cet
+écosystème. [umu-launcher](https://github.com/Open-Wine-Components/umu-launcher), [OWC](https://ulwgl.openwinecomponents.org/)
+
+## 7. Oracles : Wine utilise déjà « Windows comme oracle » — par API, pas par application
+
+Les tests de conformité Wine doivent **d'abord passer sur un vrai Windows** (WineTest quotidien) ; c'est un
+oracle **par API**, écrit à la main. Le complément manquant est un oracle **par application** (effet d'un
+scénario) — ce que font nos oracles d'effet, et ce que pourrait apporter une trace « dorée » par application
+(§8). [Wiki conformance](https://forge.fsky.io/brunodev85/wine/wiki/Conformance-Tests)
+
+## 8. Trace « dorée » par application (WinDbg TTD) — *(éclaireur en cours, à compléter)*
+
+Hypothèse : enregistrer une fois, sur le Windows licencié de l'utilisateur, les résultats exacts des API
+(TTD / ETW / Detours), et s'en servir comme oracle ou comme réponses rejouées pour le sous-ensemble
+déterministe. Prior art connu : record-replay Linux (rr, Transplay) ; rien de grand public pour un binaire
+Windows rejoué sur Linux. Verdict détaillé à venir.
+
+## 9. Recompilation statique « à la N64Recomp » + Wine pour l'API — *(éclaireur en cours, à compléter)*
+
+Hypothèse : recompiler statiquement le code **propre** de l'application en natif Linux (comme Zelda 64
+Recompiled, 2024, ou XenonRecomp, 2025) en gardant les DLL de Wine pour l'API. Gain probable : natif sur
+ARM sans émulation x86 ; **ne résout pas** l'écart d'API (qui reste celui de Wine). Verdict détaillé à venir.
+
+## 10. Personnalité NT sur Linux (WSL1 à l'envers, Longene, ReactOS) — *(éclaireur en cours, à compléter)*
+
+Faits déjà acquis : `lxcore.sys` fermé (§1), glu noyau refusée par Linux (§4). Reste à évaluer : principes
+transférables de WSL1/Drawbridge, pourquoi Longene est mort, et si des composants ReactOS sont réutilisables
+en bibliothèque. Verdict détaillé à venir.
+
+## 11. La frontière : anti-triche noyau et DRM (classe D)
+
+Position officielle Steamworks : EAC et BattlEye fonctionnent sous Proton **si l'éditeur active** la prise
+en charge Linux (opt-in par titre) ; les solutions **en espace noyau ne sont pas prises en charge**. Vanguard,
+Ricochet, FACEIT : pas de chemin Linux. **Ce n'est pas un problème technique à contourner : c'est une
+décision d'éditeur**, et le labo refuse explicitement la classe D.
+[Steamworks](https://partner.steamgames.com/doc/steamhardware/proton)
+
+## 12. Le danger documenté : « supprimer le crash » n'est pas réparer
+
+Un benchmark arXiv (fév. 2026) sur des correctifs d'agents observe des patchs qui « modifient une variable
+vers une valeur valide pour **supprimer le crash silencieusement** » en laissant « d'autres états
+incohérents ». C'est le **faux succès**, nommé par la recherche. Toute industrialisation d'agents correcteurs
+exige des **oracles d'effet**, pas des codes de retour — ce que le labo impose (et que sa fonderie a déjà
+démontré en rejetant une implémentation « succès sans sortie »). [arXiv 2602.02690](https://arxiv.org/pdf/2602.02690)
+
+---
+
+## 13. Verdict et stratégie
+
+1. **Pas de graal technique.** Les voies « noyau », « micro-VM Windows » et « code NT ouvert » sont fermées
+   en 2026 par des décisions externes (Linux, Microsoft, Hyperlight). La compatibilité reste Wine-style +
+   traduction (même Apple semble suivre cette voie — à confirmer).
+2. **La rupture réaliste est organisationnelle et outillée** : des agents réparent déjà de vraies
+   applications (Alderson), mais Wine refuse ce code. Le vide à occuper = **la couche de correctifs
+   assistés, sûre, vérifiée par l'effet, reproductible et partagée par empreinte**, hors Wine. Aucun acteur
+   identifié ne l'occupe (umu = par jeu, Wine = par API, Alderson = artisanal).
+3. **Ce que PolyRE peut être** : l'usine Alderson. Entrée : un exe. Sortie : une capsule signée, vérifiée
+   par oracles, refusant sécurité/noyau, indexée par empreinte, partagée. Le labo en est le prototype
+   (analyse → indice → recherche → fonderie → oracle → capsule → communs).
+4. **Ce qui n'est pas prouvé** : l'efficacité à l'échelle sur des applications tierces inconnues (notre preuve
+   est synthétique ; celle d'Alderson est un cas unique, faiblement vérifié). C'est l'objet du protocole à
+   4 bras du rapport, inchangé.
+
+## 14. Sources
+
+Voir les liens en ligne dans chaque section. Sources primaires lues intégralement : Alderson (2026-03-17),
+mixed-news sur la règle Wine (oct.), documentation noyau SUD, Steamworks Proton. Secondaires : Phoronix,
+GamingOnLinux, BleepingComputer/The Register (WSL), devclass/Phoronix (Hyperlight), umu-launcher README,
+wiki de conformité Wine, arXiv 2602.02690.
