@@ -90,7 +90,8 @@ constantes de sockets). Citation : « I wasn't even aware you could compile Wind
 
 Autrement dit : la direction marche sur du **réel** (ce n'est plus seulement notre cas synthétique), et la
 valeur ajoutée réaliste n'est pas un nouveau moteur, c'est **l'industrialisation sûre** de ce que l'agent
-fait à la main.
+fait à la main. *Honnêteté : au 2026-11-02, c'est le **seul** rapport public directement comparable que j'aie
+trouvé (aucun équivalent avec un autre agent) — un précédent, pas encore une tendance mesurée.*
 
 ## 4. Ce que Linux a refusé : la personnalité NT en noyau
 
@@ -123,12 +124,59 @@ oracle **par API**, écrit à la main. Le complément manquant est un oracle **p
 scénario) — ce que font nos oracles d'effet, et ce que pourrait apporter une trace « dorée » par application
 (§8). [Wiki conformance](https://forge.fsky.io/brunodev85/wine/wiki/Conformance-Tests)
 
-## 8. Trace « dorée » par application (WinDbg TTD) — *(éclaireur en cours, à compléter)*
+## 8. Trace « dorée » par application (WinDbg TTD) — *éclaireur rendu*
 
-Hypothèse : enregistrer une fois, sur le Windows licencié de l'utilisateur, les résultats exacts des API
-(TTD / ETW / Detours), et s'en servir comme oracle ou comme réponses rejouées pour le sous-ensemble
-déterministe. Prior art connu : record-replay Linux (rr, Transplay) ; rien de grand public pour un binaire
-Windows rejoué sur Linux. Verdict détaillé à venir.
+**Ce que TTD est vraiment.** Time Travel Debugging (lignée Nirvana/iDNA, MSR, VEE 2006) traduit en binaire
+tout le flux d'**instructions** en espace utilisateur : état initial des registres, valeurs lues en mémoire
+(seulement si elles diffèrent d'un cache de prédiction), événements de séquencement (syscalls, exceptions,
+threads, modules) ; les écritures ne sont pas journalisées ; ≈ 0,5 bit à 1 octet par instruction, 5-50 Mo/s,
+ralentissement 5-20×, espace utilisateur seulement. **La trace ne contient pas « des appels d'API »** : ils
+sont reconstruits par `TTD.Calls()` et exigent des symboles (avec les PDB publics : 4 paramètres `uint64`
+par défaut, aucune sémantique des tampons de sortie). Le format `.run` est **propriétaire, non documenté,
+sans parseur indépendant** (2024-2026 ; format changé en 1.11.592, 2025) ; relecture uniquement via
+`TTDReplay.dll` **sur Windows** ; un SDK « TTD Replay API » expérimental existe (mi-2025, en-têtes et exemples
+MIT), mais les DLL d'exécution sont téléchargées chez Microsoft, jamais redistribuées. Licence WinDbg
+(maj 25/09/2026) : « solely for use on Windows », interdiction de rétro-ingénierie et de redistribution ;
+une trace **embarque du code Windows** et des données personnelles ⇒ **partage délicat**.
+
+**Antériorité « trace comme oracle ».** Sur wine-devel, l'idée revient en 2003, 2005 (diff d'un logger
+contre `+relay`) et 2018 ; réponses : API Monitor/`+relay` suffisent, comparer à grande échelle est « peu
+utile », **une différence n'est pas forcément un bogue** — aucun outil maintenu n'en est sorti. L'oracle
+officiel de Wine reste la suite de **tests de conformité** (binaires mingw exécutés par le TestBot sur de
+vraies VM Windows ; `todo_wine` = échec connu, `broken()` = bizarrerie Windows tolérée). Précédents réels :
+**R2** (OSDI 2008) : record/replay à l'interface Win32 avec **1 301 fonctions annotées** (in/out, tailles,
+callbacks), journaux énormes ; **Replay.io** (2021) : shims sur des centaines de fonctions système Windows,
+relecture sous Linux — explicitement « rejouer les résultats d'UNE exécution figée », pas un compat layer ;
+**apitrace** : capture D3D sur Windows, relecture sous Wine/DXVK — précédent concret, limité au graphique.
+
+**Verdict.** Une trace Windows peut faire foi pour le **sous-ensemble déterministe sans état externe** :
+NLS/locale (`CompareString`, `LCMapString`), `FormatMessage`/`LoadString` et ressources, `GetVersion` et
+drapeaux de fonctionnalités, `GetSystemInfo`/métriques, registre et chemins shell si instantanés, le
+`GetLastError` **attendu** pour un appel donné, fonctions `Rtl*`/Shlwapi pures, dispositions de structures,
+résolution SxS/COM. **Non remplaçable** : temps, handles/adresses (ASLR, tas), ordonnancement, GUI/messages,
+réseau, E/S asynchrones, GPU, SID — toute divergence d'entrée désynchronise (leçon R2/Replay.io). Pipeline
+réaliste : enregistrer sur le Windows **de l'utilisateur** (`ttd.exe -accepteula -noUI -module <dll>`), **distiller
+sur Windows** via le Replay SDK vers un format ouvert (JSON appels/paramètres/retours, **sans code Windows**),
+puis sous Linux **générer** des tests de conformité ou des **fixtures pour les stubs** — **jamais relire le `.run`
+sous Wine**. Trois blocages : (1) verrou technico-juridique (format fermé, DLL Windows sous licence
+restrictive, traces porteuses de code Windows ⇒ distiller sur Windows, ne pas partager les traces) ; (2) fossé
+sémantique (instructions, pas API ; dépendance aux symboles ; tampons de sortie à annoter) ; (3)
+non-déterminisme (sans normalisation lourde, le diff est du bruit). **Réaliste : un générateur de fixtures et
+de tests, pas un oracle d'exécution.**
+
+**Lien avec le labo (nouveau).** Les fixtures distillées (« sur Windows, cet appel déterministe renvoie X ») sont
+exactement ce qui manque à la **recherche de réponse par oracle** (idée n°1) : au lieu de deviner ou d'essayer
+une grille, le labo disposerait, pour le sous-ensemble déterministe, de **la vraie réponse Windows** comme
+premier candidat — l'oracle d'effet restant juge. L'idée n°5 passe donc de « enregistre-et-rejoue pour
+toujours » (infaisable) à « **distille des fixtures ouvertes qui amorcent la recherche** » (faisable, légal si l'on
+ne partage que des résultats d'API, pas des traces).
+Sources : [TTD trace file (Microsoft)](https://learn.microsoft.com/en-us/windows-hardware/drivers/debuggercmds/time-travel-debugging-trace-file-information),
+[TTD release notes](https://learn.microsoft.com/en-us/windows-hardware/drivers/debuggercmds/time-travel-debugging-release-notes),
+[WinDbg license terms](https://learn.microsoft.com/en-us/legal/windows-sdk/windbg-preview---software-license-terms),
+[Nirvana/iDNA (VEE 2006)](https://www.usenix.org/legacy/event/vee06/full_papers/p154-bhansali.pdf),
+[R2 (OSDI 2008)](https://static.usenix.org/events/osdi08/tech/full_papers/guo/guo_html/index.html).
+*(Le wiki GitLab de Wine et le TestBot étaient inaccessibles depuis le banc ; ces points reposent sur des
+sources secondaires.)*
 
 ## 9. Recompilation statique « à la N64Recomp » + Wine pour l'API — *éclaireur rendu*
 
@@ -206,7 +254,9 @@ processus/thread/fichier (ntsync couvre 3 types ; ni timers, ni keyed events, ni
 alertables** → wineserver + signaux, pas de primitive noyau ; **E/S asynchrone / IOCP** → io_uring plausible
 (analyse de l'éclaireur, aucune implémentation Wine trouvée) ; inter-processus (ReadProcessMemory,
 CreateRemoteThread, débogage) → ptrace, partiel ; **pilotes noyau** (anti-triche, DRM, matériel) → ntoskrnl en
-espace utilisateur de Wine (en chantier, Wine 11.18) ou **micro-VM KVM** ; Hyperlight vise des invités sans
+espace utilisateur de Wine (**Wine 11.18, 18 sept. 2026** : ~380 commits, extension de `ntoskrnl.exe` pour charger des pilotes
+en mode noyau — PnP, identifiants de conteneur — **couverte par des tests**, mais toujours en espace utilisateur :
+pas de ring 0, donc l'anti-triche noyau reste hors de portée) ou **micro-VM KVM** ; Hyperlight vise des invités sans
 noyau, donc inadapté tel quel.
 
 **ReactOS.** 0.4.15 (21 mars 2025) ; **0.4.16 (29 août 2026)** : installeur graphique, nouveau pilote ATA,
@@ -273,21 +323,30 @@ implémentation « succès sans sortie » qu'une vérification naïve aurait acc
 
 ---
 
-## 13. Verdict et stratégie
+## 13. Verdict et stratégie (après les trois éclaireurs)
 
-1. **Pas de graal technique.** Les voies « noyau », « micro-VM Windows » et « code NT ouvert » sont fermées
-   en 2026 par des décisions externes (Linux, Microsoft, Hyperlight). La compatibilité reste Wine-style +
-   traduction — **Apple l'a confirmé** en bâtissant GPTK sur CrossOver/Wine.
-2. **La rupture réaliste est organisationnelle et outillée** : des agents réparent déjà de vraies
-   applications (Alderson), mais Wine refuse ce code. Le vide à occuper = **la couche de correctifs
-   assistés, sûre, vérifiée par l'effet, reproductible et partagée par empreinte**, hors Wine. Aucun acteur
-   identifié ne l'occupe (umu = par jeu, Wine = par API, Alderson = artisanal).
-3. **Ce que PolyRE peut être** : l'usine Alderson. Entrée : un exe. Sortie : une capsule signée, vérifiée
-   par oracles, refusant sécurité/noyau, indexée par empreinte, partagée. Le labo en est le prototype
-   (analyse → indice → recherche → fonderie → oracle → capsule → communs).
-4. **Ce qui n'est pas prouvé** : l'efficacité à l'échelle sur des applications tierces inconnues (notre preuve
-   est synthétique ; celle d'Alderson est un cas unique, faiblement vérifié). C'est l'objet du protocole à
-   4 bras du rapport, inchangé.
+1. **Pas de graal technique — confirmé sur les trois voies « profondes ».** Recompilation statique (§9) :
+   artisanale par titre, aucun projet avec Wine, l'écart sémantique reste celui de Wine. Personnalité NT sous
+   Linux (§10) : tentée (Longene) et morte ; sa version viable est **déjà dans Wine** (SUD 11.5, ntsync 11.0) ;
+   le reste (IOCP/APC/inter-processus/pilotes) exige serveur, noyau ou VM, et ReactOS n'est pas une
+   bibliothèque. Trace dorée (§8) : pas un oracle d'exécution, mais un **générateur de fixtures** pour le
+   sous-ensemble déterministe. Les voies « noyau », « micro-VM Windows » et « code NT ouvert » sont fermées par
+   des décisions externes (Linux, Microsoft, Hyperlight). Apple l'a **confirmé** en bâtissant GPTK sur
+   CrossOver/Wine.
+2. **La rupture réaliste est organisationnelle et outillée.** Des agents réparent déjà de vraies applications
+   (Alderson — un précédent documenté, pas encore une tendance), mais **Wine refuse ce code**. Le vide à occuper
+   = **la couche de correctifs assistés, sûre, vérifiée par l'effet, reproductible et partagée par empreinte**,
+   hors Wine. Aucun acteur identifié ne l'occupe (umu = par ID de jeu, Wine = oracle par API, Alderson =
+   artisanal).
+3. **Ce que PolyRE peut être : l'usine Alderson.** Entrée : un exe, **routé par runtime** (§10 bis — le .NET/WPF
+   a sa propre voie). Pour le Win32 natif : analyse → indice statique → recherche de réponse (amorcée, pour le
+   déterministe, par des **fixtures distillées** sur le Windows de l'utilisateur) → fonderie (toute
+   implémentation jugée par l'oracle) → capsule signée, refusant sécurité et noyau → communs par empreinte. Le
+   labo en est le prototype fonctionnel.
+4. **Ce qui n'est pas prouvé.** L'efficacité à l'échelle sur des applications tierces inconnues : notre preuve
+   est synthétique, celle d'Alderson est un cas unique faiblement vérifié. C'est l'objet du protocole à 4 bras
+   du rapport, inchangé. Et le plafond demeure : **la classe D (anti-triche noyau, DRM) est une décision
+   d'éditeur**, pas un problème à résoudre.
 
 ## 14. Sources
 

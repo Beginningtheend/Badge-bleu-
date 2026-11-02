@@ -66,8 +66,10 @@ doit contenir ; l'intégration SUD est lourde pour la v0.1).
 dorées** (golden traces) d'un scénario ; on rejoue de façon déterministe sous Linux, sans Windows, en
 servant ces effets. **Nouveauté : novel comme produit.** `rr` et *Transplay* font du record-replay mais pour
 des programmes **Linux** ; aucun outil grand public ne rejoue un binaire **Windows** sur Linux sans Windows.
-**Test labo : partiel** — on peut enregistrer des traces `+relay` d'un scénario et vérifier qu'une capsule
-« rejoue » les valeurs ; le rejeu déterministe complet (mémoire, horloges) est un gros morceau.
+**Reformulée après enquête** (`RECHERCHE-graal-2026.md` §8) : rejouer une trace TTD sous Linux est **infaisable**
+(format fermé, licence Windows-only, non-déterminisme) ; la version réaliste est **distiller sur Windows** les
+résultats des API déterministes en fixtures ouvertes qui **amorcent la recherche de réponse** (n°1).
+**Test labo : partiel** — l'amorçage par fixtures est implémentable ; la distillation exige un Windows.
 
 ## E. Communs
 
@@ -137,7 +139,7 @@ Linux, en ne gardant du binaire Windows que l'UI. « Débile » : on contourne l
 
 1. **n°1 Découverte par oracle** — *déjà réelle*, extensible (n°2 grille ABI).
 2. **n°6 Communs adressé par contenu** — nouveauté nette vs protonfixes ; format déjà en place.
-3. **n°5 Enregistre-une-fois-rejoue** — gap produit réel (record-replay aujourd'hui Linux-only).
+3. **n°5 Enregistre-une-fois-rejoue** — reformulée en « distiller des fixtures » (le rejeu intégral est infaisable).
 4. **n°3 Pré-réponse par analyse de branches** — *déjà réelle*, prédiction confirmée par l'oracle.
 5. **n°11 Fonderie de shims hors ligne** — *déjà réelle* ; la proposition fausse est bien rejetée.
 
