@@ -26,9 +26,20 @@ SECURITY_DLLS = {"crypt32", "bcrypt", "ncrypt", "wintrust", "secur32", "cryptui"
 SECURITY_NAME = re.compile(
     r"(licen[cs]|activat|genuine|wga|slmgr|sppsvc|authenticode|signtool|wintrust|certificat|\bcert[A-Z]|"
     r"crypt|bcrypt|ncrypt|protect(data|memory)|cng|drm|playready|widevine|anticheat|anti[_-]?tamper|"
-    r"\bsign(ature|ed|hash)|verifytrust|winverifytrust|hwid|machineid|attestation|tpm|secure?boot)", re.I)
+    r"\bsign(ature|ed|hash)|verifytrust|winverifytrust|hwid|machineid|attestation|tpm|secure?boot|"
+    # identité, jetons, privilèges, ACL/SID/descripteurs de sécurité, LSA/SAM, comptes, audit, credentials
+    r"security|\blsa|\bsam[A-Z]|privilege|impersonat|logonuser|lookupaccount|lookupprivilege|\btoken\b|"
+    r"accesscheck|\bacl\b|\bace\b|\bsid\b|trusteddomain|auditalarm|\bcred[a-z]|duplicatetoken|"
+    r"openprocesstoken|openthreadtoken|setthreadtoken|checktokenmembership|createrestrictedtoken|"
+    r"getusernameex|getcomputerobjectname|logonsession|accountright|systemfunction)", re.I)
 DRM_NAME = re.compile(r"(drm|playready|widevine|denuvo|vmprotect|themida|anticheat|easyanticheat|battleye|"
                       r"activation|licensing|licence|hasp|sentinel|rockey|dongle)", re.I)
+
+# Noyau, pilotes, services : hors périmètre v0.1 (classe C, escalade) — ne jamais corriger par shim.
+KERNEL_DRIVER_NAME = re.compile(
+    r"((load|unload)driver|ntloaddriver|zwloaddriver|ntunloaddriver|"
+    r"createservice|openservice|startservice|controlservice|deleteservice|changeserviceconfig|"
+    r"deviceiocontrol|\bdriver\b|ntcreatefile.*device|iocreatedevice|registerservicectrldispatcher)", re.I)
 
 SYNC_TIME_NAME = re.compile(
     r"^(WaitFor|SignalObjectAndWait|SleepConditionVariable|NtWaitFor|NtDelayExecution|QueryPerformance|"
@@ -102,6 +113,9 @@ def classify_api(func: str, dll: str, prototype: dict | None) -> tuple[str, str,
     if SYNC_TIME_NAME.search(func):
         return "sync-time", "haute", "synchronisation / temps / ordonnancement"
 
+    if KERNEL_DRIVER_NAME.search(func):
+        return "kernel-driver", "haute", "chargement de pilote / contrôle de service / E-S noyau"
+
     # tampon de sortie : un paramètre pointeur non const (convention Windows LP*/P*, ou *) en plus du
     # nom évocateur. Les pointeurs const et les HANDLE/HWND/HKEY (valeurs opaques) ne comptent pas.
     def _is_out_ptr(t: str) -> bool:
@@ -157,11 +171,15 @@ def classify_problem(dll: str, func: str, wine_status: str, prototype: dict | No
                        evidence=ev, prototype=prototype, confidence="haute", fixable_v01=False,
                        rationale="hors périmètre : sécurité, identité, licence, signature ou activation ; refus explicite (rapport, classe D)")
 
-    # C — sémantique profonde : synchronisation/temps/ordonnancement
+    # C — sémantique profonde : synchronisation/temps/ordonnancement, ou noyau/pilote/service
     if api_class == "sync-time":
         return Problem(dll=dlll, func=func, wine_status=wine_status, contract_class="C", api_class=api_class,
                        evidence=ev, prototype=prototype, confidence=conf, fixable_v01=False,
                        rationale="sémantique profonde (synchronisation/temps/ordonnancement) : escalade niveau 2/3, hors v0.1")
+    if api_class == "kernel-driver":
+        return Problem(dll=dlll, func=func, wine_status=wine_status, contract_class="C", api_class=api_class,
+                       evidence=ev, prototype=prototype, confidence=conf, fixable_v01=False,
+                       rationale="sémantique profonde (chargement de pilote, service ou E-S noyau) : escalade, hors v0.1")
 
     # A — déclaratif : DLL de runtime manquante
     if wine_status == "dll-missing":

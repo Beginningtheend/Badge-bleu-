@@ -57,3 +57,24 @@ def test_lint_rejects_class_D():
 def test_lint_accepts_A_declared_absence():
     issues = lint_shim("B", "output-buffer", "A", True, True, 0, 120, "export-absent")
     assert not [i for i in issues if i.level == "error"]
+
+
+@pytest.mark.parametrize("dll,func,status,proto,expect_class", [
+    # Sécurité / identité / privilèges / ACL / credentials -> D (refus), jamais corrigé
+    ("advapi32", "GetSecurityInfo", "stub", {"ret": "DWORD", "params": [["HANDLE", ""], ["int", ""], ["int", ""]]}, "D"),
+    ("advapi32", "SetSecurityInfo", "stub", {"ret": "DWORD", "params": []}, "D"),
+    ("advapi32", "LsaEnumerateAccountRights", "stub", {"ret": "NTSTATUS", "params": []}, "D"),
+    ("advapi32", "LookupAccountNameW", "semi-stub", {"ret": "BOOL", "params": []}, "D"),
+    ("advapi32", "AdjustTokenPrivileges", "stub", {"ret": "BOOL", "params": []}, "D"),
+    ("advapi32", "CredReadW", "stub", {"ret": "BOOL", "params": []}, "D"),
+    ("advapi32", "OpenProcessToken", "stub", {"ret": "BOOL", "params": []}, "D"),
+    # Noyau / pilotes / services -> C (escalade), jamais corrigé en v0.1
+    ("ntdll", "NtLoadDriver", "stub", {"ret": "NTSTATUS", "params": []}, "C"),
+    ("ntdll", "NtUnloadDriver", "stub", {"ret": "NTSTATUS", "params": []}, "C"),
+    ("advapi32", "StartServiceW", "stub", {"ret": "BOOL", "params": []}, "C"),
+    ("kernel32", "DeviceIoControl", "stub", {"ret": "BOOL", "params": []}, "C"),
+])
+def test_security_and_driver_refused(dll, func, status, proto, expect_class):
+    p = classify_problem(dll, func, status, proto, ["ev"])
+    assert p.contract_class == expect_class, (func, p.contract_class, p.api_class)
+    assert p.fixable_v01 is False, (func, "ne doit jamais être corrigé automatiquement")

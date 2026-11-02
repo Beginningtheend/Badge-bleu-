@@ -1,0 +1,160 @@
+{
+ "note": "Démonstration de PORTÉE : génération STATIQUE (aucune exécution) d'un correctif de compatibilité pour une vraie application (Process Explorer 64 bits, Sysinternals). Les DLL de compatibilité compilent et exportent correctement ; la copie corrigée importe les proxys. Ceci NE prouve PAS que procexp64 fonctionne sous Wine (il requiert un pilote noyau) ; cela prouve que le générateur produit des artefacts valides et bien structurés pour un vrai binaire complexe, et qu'il REFUSE les fonctions de sécurité et de pilote.",
+ "target": {
+  "name": "procexp64.exe",
+  "machine": "x86_64",
+  "sha256": "cdd3bf8fd6828448",
+  "imports_total": 703
+ },
+ "generation_seconds": 18.685,
+ "generated_dlls": [
+  {
+   "proxy": "bzLWAPI.dll",
+   "for": "shlwapi.dll",
+   "forwarded": 6,
+   "implemented": [
+    "SHAutoComplete"
+   ]
+  },
+  {
+   "proxy": "bzWRPROF.dll",
+   "for": "powrprof.dll",
+   "forwarded": 2,
+   "implemented": [
+    "SetSuspendState"
+   ]
+  },
+  {
+   "proxy": "bzSAPI32.dll",
+   "for": "wtsapi32.dll",
+   "forwarded": 1,
+   "implemented": [
+    "WTSDisconnectSession",
+    "WTSEnumerateSessionsW",
+    "WTSLogoffSession",
+    "WTSQuerySessionInformationW",
+    "WTSSendMessageW"
+   ]
+  },
+  {
+   "proxy": "bzdll.dll",
+   "for": "ntdll.dll",
+   "forwarded": 20,
+   "implemented": [
+    "NtQueryInformationProcess",
+    "NtQueryInformationThread",
+    "NtQueryObject",
+    "NtQuerySection",
+    "NtQuerySystemInformation",
+    "NtSetInformationProcess",
+    "RtlCreateQueryDebugBuffer",
+    "RtlDestroyQueryDebugBuffer",
+    "RtlQueryProcessDebugInformation"
+   ]
+  },
+  {
+   "proxy": "bzMDLG32.dll",
+   "for": "comdlg32.dll",
+   "forwarded": 6,
+   "implemented": [
+    "ChooseFontW"
+   ]
+  },
+  {
+   "proxy": "bzRNEL32.dll",
+   "for": "kernel32.dll",
+   "forwarded": 224,
+   "implemented": [
+    "CreateToolhelp32Snapshot",
+    "FindFirstFileExW",
+    "Heap32ListFirst",
+    "Heap32ListNext",
+    "LCMapStringEx",
+    "QueryThreadCycleTime",
+    "WTSGetActiveConsoleSessionId"
+   ]
+  },
+  {
+   "proxy": "bzER32.dll",
+   "for": "user32.dll",
+   "forwarded": 187,
+   "implemented": [
+    "DrawFrameControl",
+    "EndTask",
+    "GetGuiResources"
+   ]
+  },
+  {
+   "proxy": "bzVAPI32.dll",
+   "for": "advapi32.dll",
+   "forwarded": 78,
+   "implemented": [
+    "RegQueryInfoKeyW"
+   ]
+  },
+  {
+   "proxy": "bzELL32.dll",
+   "for": "shell32.dll",
+   "forwarded": 10,
+   "implemented": [
+    "SHGetFileInfoW",
+    "SHGetStockIconInfo"
+   ]
+  },
+  {
+   "proxy": "bzmapi.dll",
+   "for": "dwmapi.dll",
+   "forwarded": 0,
+   "implemented": [
+    "DwmDefWindowProc",
+    "DwmSetWindowAttribute"
+   ]
+  }
+ ],
+ "declarative_contracts": [],
+ "refused_security_or_kernel": [
+  {
+   "dll": "crypt32",
+   "func": "CertGetNameStringW",
+   "class": "D",
+   "reason": "hors périmètre : sécurité, identité, licence, signature ou activation ; refus explicite (r"
+  },
+  {
+   "dll": "ntdll",
+   "func": "NtUnloadDriver",
+   "class": "C",
+   "reason": "sémantique profonde (chargement de pilote, service ou E-S noyau) : escalade, hors v0.1"
+  },
+  {
+   "dll": "ntdll",
+   "func": "NtLoadDriver",
+   "class": "C",
+   "reason": "sémantique profonde (chargement de pilote, service ou E-S noyau) : escalade, hors v0.1"
+  },
+  {
+   "dll": "advapi32",
+   "func": "LookupAccountNameW",
+   "class": "D",
+   "reason": "hors périmètre : sécurité, identité, licence, signature ou activation ; refus explicite (r"
+  },
+  {
+   "dll": "advapi32",
+   "func": "SetSecurityInfo",
+   "class": "D",
+   "reason": "hors périmètre : sécurité, identité, licence, signature ou activation ; refus explicite (r"
+  },
+  {
+   "dll": "advapi32",
+   "func": "LsaEnumerateAccountRights",
+   "class": "D",
+   "reason": "hors périmètre : sécurité, identité, licence, signature ou activation ; refus explicite (r"
+  },
+  {
+   "dll": "advapi32",
+   "func": "GetSecurityInfo",
+   "class": "D",
+   "reason": "hors périmètre : sécurité, identité, licence, signature ou activation ; refus explicite (r"
+  }
+ ],
+ "rejected_other_count": 6
+}
